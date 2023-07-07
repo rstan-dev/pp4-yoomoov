@@ -2,7 +2,7 @@
 name: USER STORY TEMPLATE
 about: To standardise User Stories
 title: 'USERSTORY(# ):        '
-labels: COULD HAVE, MUST HAVE, SHOULD HAVE, UserStory
+labels: ''
 assignees: rstan-dev
 
 ---
@@ -23,3 +23,5 @@ Tasks
 - [ ]
 - [ ]
 - [ ]
+
+Story Points =
