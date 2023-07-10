@@ -1,0 +1,1 @@
+web: gunicorn yoomoov_project.wsgi
