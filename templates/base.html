@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link href="{% static 'media/favicon.ico' %}" rel="icon">
+    <link href="{% static 'media/favicon-16x16.png' %}" rel="icon">
 
     <!-- Google Fonts -->
     <link
@@ -25,15 +26,22 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="icon" type="image/x-icon" href="{% media 'favicon.ico' %}">
 
     <title>YooMoov</title>
 </head>
 
 <body>
-    <!-- Top Bar -->
+    <!-- Header -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center">
 
-    <h1>YooMoov Base Template</h1>
+            <div class="logo me-auto">
+                <!-- <h1><a href="index.html">Lumia</a></h1> -->
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <a href="index.html"><img src="assets/img/final_logo/logo_yoomoov_orange1.jpg" alt=""
+                        class="img-fluid"></a>
+            </div>
+    </header><!-- End Header -->
 
 
     <!-- Navbar -->
