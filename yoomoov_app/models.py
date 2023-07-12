@@ -16,35 +16,36 @@ class Van(models.Model):
     )
 
     LOCATION_CHOICES = (
-        ('LONDON', 'London'),
-        ('MANCHESTER', 'Manchester'),
         ('BIRMINGHAM', 'Birmingham'),
-        ('LEEDS', 'Leeds'),
-        ('GLASGOW', 'Glasgow'),
-        ('SOUTHAMPTON', 'Southampton'),
-        ('LIVERPOOL', 'Liverpool'),
-        ('NEWCASTLE', 'Newcastle'),
-        ('SHEFFIELD', 'Sheffield'),
         ('BRIGHTON', 'Brighton'),
         ('CARDIFF', 'Cardiff'),
+        ('GLASGOW', 'Glasgow'),
+        ('LEEDS', 'Leeds'),
+        ('LIVERPOOL', 'Liverpool'),
+        ('LONDON', 'London'),
+        ('MANCHESTER', 'Manchester'),
+        ('NEWCASTLE', 'Newcastle'),
+        ('SHEFFIELD', 'Sheffield'),
+        ('SOUTHAMPTON', 'Southampton'),
+
     )
 
     COUNTY_CHOICES = (
+        ('CARDIFF', 'Cardiff'),
+        ('EAST SUSSEX', 'East Sussex'),
+        ('GLASGOW CITY', 'Glasgow City'),
         ('GREATER LONDON', 'Greater London'),
         ('GREATER MANCHESTER', 'Greater Manchester'),
-        ('WEST MIDLANDS', 'West Midlands'),
-        ('WEST YORKSHIRE', 'West Yorkshire'),
-        ('GLASGOW CITY', 'Glasgow City'),
         ('HAMPSHIRE', 'Hampshire'),
         ('MERSEYSIDE', 'Merseyside'),
-        ('TYNE AND_WARE', 'Tyne & Ware'),
         ('SOUTH YORKSHIRE', 'South Yorkshire'),
-        ('EAST SUSSEX', 'East Sussex'),
-        ('CARDIFF', 'Cardiff'),
+        ('TYNE AND_WARE', 'Tyne & Ware'),
+        ('WEST MIDLANDS', 'West Midlands'),
+        ('WEST YORKSHIRE', 'West Yorkshire'),
     )
 
     name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, verbose_name="Unique Url Slug", help_text="Example: your_van_name")
     size = models.CharField(max_length=75, choices=SIZE_CHOICES)
     location = models.CharField(max_length=75, choices=LOCATION_CHOICES)
     county = models.CharField(max_length=75, choices=COUNTY_CHOICES)
