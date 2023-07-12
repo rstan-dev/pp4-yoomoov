@@ -70,6 +70,11 @@ class Van(models.Model):
         help_text="Specify the load area with one decimal place",
     )
     image = CloudinaryField('image', default='placeholder')
+    price = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        default='0',
+    )
     date_added = models.DateTimeField(default=datetime.now, blank=True)
     is_live = models.BooleanField(default=False)
 
