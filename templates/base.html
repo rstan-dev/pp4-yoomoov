@@ -34,13 +34,23 @@
     <!-- Header -->
     <header id="header" class="fixed-top d-flex align-items-center">
         <div class="container d-flex align-items-center">
-
+            <!-- .logo -->
             <div class="logo me-auto">
-                <!-- <h1><a href="index.html">Lumia</a></h1> -->
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <a href="{% url 'index' %}"><img src="{% static 'media/logo_yoomoov_orange1.jpg' %}" alt="yoomoov logo"
+                <a href=""><img src="{% static 'media/logo_yoomoov_orange1.jpg' %}" alt="yoomoov logo"
                         class="img-fluid"></a>
-            </div>
+            </div><!-- .logo -->
+
+            <!-- .navbar -->
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="">Home </a></li>
+                    <li><a class="nav-link scrollto" href="">Services</a></li>
+                    <li><a class="nav-link scrollto" href="">Contact</a></li>
+                    <li><a class="nav-link scrollto account-link" href="">Account</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
     </header><!-- End Header -->
 
 
