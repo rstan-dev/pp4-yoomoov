@@ -50,9 +50,24 @@ class Van(models.Model):
     county = models.CharField(max_length=75, choices=COUNTY_CHOICES)
     crew = models.IntegerField(default=1)
     suitable_for = models.TextField(max_length=200)
-    load_area_width = models.IntegerField(verbose_name='Load Area Width in metres')
-    load_area_height = models.IntegerField(verbose_name='Load Area Height in metres')
-    load_area_length = models.IntegerField(verbose_name='Load Area Length in metres')
+    load_area_width = models.DecimalField(
+        max_digits=2,
+        decimal_places=1,
+        verbose_name='Load Area Width in metres',
+        help_text='Specify the load area with one decimal place',
+    )
+    load_area_height = models.DecimalField(
+        max_digits=2,
+        decimal_places=1,
+        verbose_name='Load Area Height in metres',
+        help_text="Specify the load area with one decimal place",
+    )
+    load_area_length = models.DecimalField(
+        max_digits=2,
+        decimal_places=1,
+        verbose_name='Load Area Length in metres',
+        help_text="Specify the load area with one decimal place",
+    )
     image = CloudinaryField('image', default='placeholder')
     date_added = models.DateTimeField(default=datetime.now, blank=True)
     is_live = models.BooleanField(default=False)
