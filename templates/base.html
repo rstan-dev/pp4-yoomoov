@@ -38,13 +38,15 @@
             <div class="logo me-auto">
                 <!-- <h1><a href="index.html">Lumia</a></h1> -->
                 <!-- Uncomment below if you prefer to use an image logo -->
-                <a href="index.html"><img src="assets/img/final_logo/logo_yoomoov_orange1.jpg" alt=""
+                <a href="{% url 'index' %}"><img src="{% static 'media/logo_yoomoov_orange1.jpg' %}" alt="yoomoov logo"
                         class="img-fluid"></a>
             </div>
     </header><!-- End Header -->
 
 
-    <!-- Navbar -->
+    {% block content %}
+
+    {% endblock %}
 
 
     <!-- Footer -->
