@@ -1,8 +1,23 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 {% block content %}
-<!-- Hero -->
-{% include 'partials/_hero-search.html' %}
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="container welcome-search">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="welcome-box">
+                    <div class="container text-center text-md-left" data-aos="fade-up">
+                        <h1>Welcome to <span>YooMoov</span></h1>
+                        <h2>Book a van & driver, nationwide, to help You Move!</h2>
+                        <!-- <img src="{% static 'media/hero-image.jpg' %}" alt="yoomoov logo"> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Hero -->
 
 {% endblock %}
