@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<!-- ======= Hero Section ======= -->
+{% include 'partials/_hero-search.html' %}
+<!-- End Hero -->
+
+<main id="main">
+
+
+    <!-- ======= All Vans Section ======= -->
+    <section id="home-featured" class="home-featured bg-light">
+        <div class="container">
+
+            <div class="section-title">
+                <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">ALL VANS
+                </h1>
+            </div>
+            <div class="row">
+                <!-- {% if vans %} -->
+                {% for van in vans %}
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="van">
+                        <img src="{{ van.image.url }}" alt="">
+                        <h4>{{ van.name }}</h4>
+                        <br>
+                        <div class="featured-detail">
+                            <h5>Size: {{ van.size }}</h5>
+                            <h5>Crew: {{ van.crew }}</h5>
+                            <h5>Location: {{ van.location }}</h5>
+                            <h5>County: {{ van.county }}</h5>
+                            <h5>Price: £{{ van.price }} / day</h5>
+                        </div>
+                        <button type="button" class="btn btn-warning">Details</button>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+            <div class="all-vans-btn">
+                <button type="button" class="btn btn-warning btn-all-vans"><a href="{% url 'home' %}"></a>Search
+                    Vans</button>
+            </div>
+
+        </div>
+    </section><!-- End All Vans Section -->
+
+</main><!-- End #main -->
+
+{% endblock %}
