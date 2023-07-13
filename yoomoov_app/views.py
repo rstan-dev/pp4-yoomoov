@@ -35,11 +35,18 @@ def services(request):
     """
     Renders Services page
     """
-    return render(request, 'services.html',)
+    return render(request, 'services.html')
 
 
 def contact(request):
     """
     Renders Contact page
     """
-    return render(request, 'contact.html',)
+    return render(request, 'contact.html')
+
+
+def van_detail(request):
+    """
+    Renders Van Detail page
+    """
+    return render(request, 'van_detail.html')
