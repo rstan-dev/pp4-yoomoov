@@ -7,4 +7,73 @@
 {% include 'partials/_hero-search.html' %}
 <!-- End Hero -->
 
+<main id="main">
+
+
+    <!-- ======= Featured Van Section ======= -->
+    <section id="home-featured" class="home-featured bg-light">
+        <div class="container">
+
+            <div class="section-title">
+                <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png %}" alt="">FEATURED VANS</h1>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="van">
+                        <img src="{% static 'media/small_van_placeholder.jpg' %}" alt="">
+                        <h4>Small Van Somewhere</h4>
+                        <br>
+                        <div class="featured-detail">
+                            <h5>Size: Small</h5>
+                            <h5>Crew: 1</h5>
+                            <h5>Location: Brighton</h5>
+                            <h5>County: East Sussex</h5>
+                        </div>
+                        <button type="button" class="btn btn-warning">Details</button>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="van">
+                        <img src="{% static 'media/medium_van_placeholder.jpg' %}" alt="">
+                        <h4>Medium Van Somewhere</h4>
+                        <br>
+                        <div class="featured-detail">
+                            <h5>Size: Medium</h5>
+                            <h5>Crew: 2</h5>
+                            <h5>Location: Brighton</h5>
+                            <h5>County: East Sussex</h5>
+                        </div>
+                        <button type="button" class="btn btn-warning">Details</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="van">
+                        <img src="{% static 'media/large_van_placeholder.jpg' %}" alt="">
+                        <h4>Large Van Somewhere</h4>
+                        <br>
+                        <div class="featured-detail">
+                            <h5>Size: Large</h5>
+                            <h5>Crew: 2</h5>
+                            <h5>Location: Brighton</h5>
+                            <h5>County: East Sussex</h5>
+                        </div>
+                        <button type="button" class="btn btn-warning">Details</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="all-vans-btn">
+                <button type="button" class="btn btn-warning btn-all-vans">See All Vans</button>
+            </div>
+
+        </div>
+    </section><!-- End Featured Van Section -->
+
+</main><!-- End #main -->
+
 {% endblock %}
