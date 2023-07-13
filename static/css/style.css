@@ -28,6 +28,11 @@ h6 {
   background-color: #fb8500;
 }
 
+.btn-warning a {
+  color: white;
+  text-decoration: none;
+}
+
 .no-data-notice {
   text-align: center;
 }
