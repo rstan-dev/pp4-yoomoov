@@ -27,10 +27,11 @@
                         <h4>{{ van.name }}</h4>
                         <br>
                         <div class="featured-detail">
-                            <h5>Size: placeholder</h5>
-                            <h5>Crew: placeholder</h5>
-                            <h5>Location: placeholder</h5>
-                            <h5>County: placeholder</h5>
+                            <h5>Size: {{ van.size }}</h5>
+                            <h5>Crew: {{ van.crew }}</h5>
+                            <h5>Location: {{ van.location }}</h5>
+                            <h5>County: {{ van.county }}</h5>
+                            <h5>Price: £{{ van.price }} / day</h5>
                         </div>
                         <button type="button" class="btn btn-warning">Details</button>
                     </div>
