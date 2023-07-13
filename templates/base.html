@@ -40,14 +40,14 @@
 
             <!-- .logo -->
             <div class="logo me-auto">
-                <a href=""><img src="{% static 'media/logo_yoomoov_orange1.jpg' %}" alt="yoomoov logo"
+                <a href="{% url 'home' %}"><img src="{% static 'media/logo_yoomoov_orange1.jpg' %}" alt="yoomoov logo"
                         class="img-fluid"></a>
             </div><!-- .logo -->
 
             <!-- .navbar -->
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="">Home </a></li>
+                    <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home </a></li>
                     <li><a class="nav-link scrollto" href="">Services</a></li>
                     <li><a class="nav-link scrollto" href="">Contact</a></li>
                     <li><a class="nav-link scrollto account-link" href="">Account</a></li>
