@@ -36,3 +36,10 @@ def services(request):
     Renders Services page
     """
     return render(request, 'services.html',)
+
+
+def contact(request):
+    """
+    Renders Contact page
+    """
+    return render(request, 'contact.html',)
