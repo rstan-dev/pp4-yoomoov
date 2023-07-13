@@ -598,6 +598,7 @@ section {
 
 /*--------------------------------------------------------------
 # HOME FEATURED VANS
+  & ALL VANS PAGE
 --------------------------------------------------------------*/
 .home-featured .van {
   text-align: center;
@@ -656,3 +657,97 @@ section {
     font-size: 15px;
   }
 }
+
+/*--------------------------------------------------------------
+# Services
+--------------------------------------------------------------*/
+
+.icon-box {
+  margin-bottom: 30px;
+  /* Adjust the margin as needed */
+}
+
+.icon-content {
+  display: flex;
+  align-items: center;
+}
+
+.icon-content img {
+  margin-right: 10px;
+  width: 60px;
+  height: 60px;
+}
+
+.van-services .van-type {
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+  padding: 30px 20px;
+  background: #fff;
+}
+
+.van-services .van-type img {
+  max-width: 80%;
+  margin: 0 0 30px 0;
+}
+
+.van-services .van-type h4 {
+  font-weight: 700;
+  margin-bottom: 2px;
+  font-size: 22px;
+}
+
+.van-services .van-type h5 {
+  text-align: center;
+  font-size: 18px;
+}
+
+.van-services .van-type span {
+  font-style: italic;
+  display: block;
+  font-size: 13px;
+}
+
+.services-van-detail {
+  margin-bottom: 20px;
+}
+
+
+.services-all-vans-btn {
+  text-align: center;
+  margin-bottom: 100px;
+
+}
+
+.btn-services-all-vans {
+  font-size: 30px;
+  margin-top: 50px;
+
+}
+
+@media (max-width: 400px) {
+  .icon-content img {
+    margin-right: 10px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .icon-content h4 {
+    font-size: 15px;
+  }
+
+  .van-services .van-type h4 {
+    font-weight: 700;
+    margin-bottom: 2px;
+    font-size: 20px;
+  }
+
+  .van-services .van-type h5 {
+    text-align: center;
+    font-size: 15px;
+  }
+
+  .btn-services-all-vans {
+    font-size: 25px;
+    margin-top: 50px;
+  }
