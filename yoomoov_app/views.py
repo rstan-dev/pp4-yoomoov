@@ -4,6 +4,10 @@ from .models import Van
 
 
 def home(request):
+    """
+    GETs latest 3 van listings from database
+    and renders on Home page
+    """
     vans = Van.objects.all().filter(is_live=True).order_by('-date_added')[:3]
 
     context = {
@@ -12,8 +16,16 @@ def home(request):
 
     return render(request, 'index.html', context)
 
-# class VanList(generic.ListView):
-#     model = Van
-#     queryset = Van.objects.filter(is_live=True).order_by('-date_added')
-#     template_name = 'index.html'
-#     paginate_by = 3
+
+def all_vans(request):
+    """
+    GETs all van listings frokm database
+    and renders on Al Vans page
+    """
+    vans = Van.objects.all().filter(is_live=True).order_by('-date_added')
+
+    context = {
+        'vans': vans,
+    }
+
+    return render(request, 'all_vans.html', context)
