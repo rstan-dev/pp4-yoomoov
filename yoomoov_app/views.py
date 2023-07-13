@@ -20,7 +20,7 @@ def home(request):
 def all_vans(request):
     """
     GETs all van listings frokm database
-    and renders on Al Vans page
+    and renders on All Vans page
     """
     vans = Van.objects.all().filter(is_live=True).order_by('-date_added')
 
@@ -29,3 +29,10 @@ def all_vans(request):
     }
 
     return render(request, 'all_vans.html', context)
+
+
+def services(request):
+    """
+    Renders Services page
+    """
+    return render(request, 'services.html',)

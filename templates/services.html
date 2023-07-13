@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<!-- ======= Hero Section ======= -->
+{% include 'partials/_hero-search.html' %}
+<!-- End Hero -->
+
+<main id="main">
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services bg-light">
+        <div class="container">
+
+            <div class="section-title">
+                <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">SERVICES</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="icon-box">
+                        <div class="icon-content">
+                            <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">
+                            <h4>We move your stuff from A to B</h4>
+                        </div>
+                    </div>
+                    <div class="icon-box">
+                        <div class="icon-content">
+                            <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">
+                            <h4>Choose from a variety of van sizes</h4>
+                        </div>
+                    </div>
+                    <div class="icon-box">
+                        <div class="icon-content">
+                            <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">
+                            <h4>Professional crew removes the hassle</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="icon-box">
+                        <div class="icon-content">
+                            <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">
+                            <h4>Book a suitable date in your area</h4>
+                        </div>
+                    </div>
+                    <div class="icon-box">
+                        <div class="icon-content">
+                            <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">
+                            <h4>Various van sizes available</h4>
+                        </div>
+                    </div>
+                    <div class="icon-box">
+                        <div class="icon-content">
+                            <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">
+                            <h4>We turn up and do the rest</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Our Vans Section ======= -->
+    <section id="van-services" class="van-services">
+        <div class="container">
+
+            <div class="section-title">
+                <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">OUR VANS</h1>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="van-type">
+                        <img src="{% static 'media/small_van_services.jpg' %}" alt="">
+                        <h4>Small Van</h4>
+                        <br>
+                        <div class="services-van-detail">
+                            <h5>Size: Small</h5>
+                            <h5>Typical load area (WxHxL): 1.2m x 1.5m x 1.2m</h5>
+                            <h5>Suitable for: General items, luggage, one persons belongings</h5>
+                            <h5>Crew: 1</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="van-type">
+                        <img src="{% static 'media/medium_van_services.jpg' %}" alt="">
+                        <h4>Medium Van</h4>
+                        <br>
+                        <div class="services-van-detail">
+                            <h5>Size: Medium</h5>
+                            <h5>Typical load area (WxHxL): 1.2m x 1.5m x 1.2m</h5>
+                            <h5>Suitable for: General items, luggage, one persons belongings</h5>
+                            <h5>Crew: 1</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="van-type">
+                        <img src="{% static 'media/large_van_services.jpg' %}" alt="">
+                        <h4>Large Van</h4>
+                        <br>
+                        <div class="services-van-detail">
+                            <h5>Size: Large</h5>
+                            <h5>Typical load area (WxHxL): 1.2m x 1.5m x 1.2m</h5>
+                            <h5>Suitable for: General items, luggage, one persons belongings</h5>
+                            <h5>Crew: 1</h5>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="services-all-vans-btn">
+                    <button type="button" class="btn btn-warning btn-all-vans"><a href="{% url 'all_vans' %}">See All
+                            Vans</a></button>
+                </div>
+
+            </div>
+    </section><!-- End Our Vans Section -->
+
+</main><!-- End #main -->
+{% endblock %}
