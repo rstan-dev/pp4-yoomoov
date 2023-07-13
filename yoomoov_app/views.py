@@ -4,7 +4,7 @@ from .models import Van
 
 
 def home(request):
-    vans = Van.objects.all().filter(is_live=True).order_by('-date_added')
+    vans = Van.objects.all().filter(is_live=True).order_by('-date_added')[:3]
 
     context = {
         'vans': vans,
