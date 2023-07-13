@@ -751,3 +751,61 @@ section {
     font-size: 25px;
     margin-top: 50px;
   }
+
+
+  /*--------------------------------------------------------------
+# Contact
+--------------------------------------------------------------*/
+  #contact {
+    padding: 0;
+  }
+
+  .contact-details {
+    margin-top: 0;
+    padding-bottom: 10px;
+  }
+
+  .send-message-btn {
+    margin: 50px 0 20px 0;
+    font-size: 20px;
+    align-items: center;
+  }
+
+  .contact .info-wrap {
+    background: #fff;
+    border-radius: 4px;
+  }
+
+  .contact .info i {
+    font-size: 20px;
+    color: #fb8500;
+    float: left;
+    width: 44px;
+    height: 44px;
+    background: #eaf4fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .contact .info h4 {
+    padding: 0 0 0 60px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #fb8500;
+  }
+
+  .contact .info p {
+    padding: 0 0 0 60px;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #65747f;
+  }
+
+  .contact .info:hover i {
+    background: #384046;
+    color: #fff;
+  }
