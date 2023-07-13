@@ -17,27 +17,36 @@
             <div class="section-title">
                 <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">FEATURED VANS
                 </h1>
-
             </div>
-
             <div class="row">
+                <!-- {% if vans %} -->
+                {% for van in vans %}
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                     <div class="van">
-                        <img src="" alt="">
-                        <h4>Small Van Somewhere</h4>
+                        <img src="{{ van.image.url }}" alt="">
+                        <h4>{{ van.name }}</h4>
                         <br>
                         <div class="featured-detail">
-                            <h5>Size: Small</h5>
-                            <h5>Crew: 1</h5>
-                            <h5>Location: Brighton</h5>
-                            <h5>County: East Sussex</h5>
+                            <h5>Size: placeholder</h5>
+                            <h5>Crew: placeholder</h5>
+                            <h5>Location: placeholder</h5>
+                            <h5>County: placeholder</h5>
                         </div>
                         <button type="button" class="btn btn-warning">Details</button>
-
                     </div>
                 </div>
+                {% endfor %}
 
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <!-- {% else %}
+                <div class="col-md-12 no-data-notice">
+                    <p>No Listings Available</p>
+                </div>
+
+                {% endif %} -->
+
+
+
+                <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                     <div class="van">
                         <img src="{% static 'media/medium_van_placeholder.jpg' %}" alt="">
                         <h4>Medium Van Somewhere</h4>
@@ -65,7 +74,7 @@
                         </div>
                         <button type="button" class="btn btn-warning">Details</button>
                     </div>
-                </div>
+                </div> -->
 
             </div>
             <div class="all-vans-btn">
