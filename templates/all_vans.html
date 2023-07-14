@@ -32,7 +32,8 @@
                             <h5>County: {{ van.county }}</h5>
                             <h5>Price: £{{ van.price }} / day</h5>
                         </div>
-                        <button type="button" class="btn btn-warning">Details</button>
+                        <button type="button" class="btn btn-warning"><a
+                                href="{% url 'van_detail' van.slug %}">Details</a></button>
                     </div>
                 </div>
                 {% endfor %}
