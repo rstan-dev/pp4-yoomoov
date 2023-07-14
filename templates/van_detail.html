@@ -22,17 +22,17 @@
         <div class="container">
             <div class="row gy-4">
                 <!-- Van Title -->
-                <h2>Small Van in Kemptown</h2>
+                <h2>{{ van.name }}</h2>
                 <div class="col-lg-8">
                     <!-- Detail Main Image -->
-                    <img src="{% static 'media/small_van_placeholder.jpg' %}" alt="" class="img-main img-fluid mb-3">
+                    <img src="{{ van.image.url }}" alt="" class="img-main img-fluid mb-3">
                     <!-- Fields -->
                     <div class="row mb-12 fields">
                         <div class="col-md-12">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item text-secondary">
                                     <i class="fa-solid fa-ruler"></i> Size:
-                                    <span class="float-right">Small</span>
+                                    <span class="float-right">Test</span>
                                 </li>
                                 <li class="list-group-item text-secondary">
                                     <i class="fa-solid fa-truck-ramp-box"></i> Load Area (WxHxL):
@@ -44,12 +44,12 @@
                                 </li>
                                 <li class="list-group-item text-secondary">
                                     <i class="fa-sharp fa-solid fa-location-dot"></i> Location:
-                                    <span class="float-right">Brighton
+                                    <span class="float-right">Test
                                     </span>
                                 </li>
                                 <li class="list-group-item text-secondary">
                                     <i class="fa-sharp fa-solid fa-location-dot"></i> County:
-                                    <span class="float-right">East Sussex
+                                    <span class="float-right">Test
                                     </span>
                                 </li>
                                 <li class="list-group-item text-secondary">

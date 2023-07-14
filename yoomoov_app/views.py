@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Van
 
@@ -45,8 +45,14 @@ def contact(request):
     return render(request, 'contact.html')
 
 
-def van_detail(request):
+def van_detail(request, slug):
     """
-    Renders Van Detail page
+    Renders Van Detail page, by requesting all vans
+    that are live, with a given unique slug
     """
-    return render(request, 'van_detail.html')
+    queryset = Van.objects.filter(is_live=True)
+    van = get_object_or_404(queryset, slug=slug)
+
+    return render(request, 'van_detail.html', {
+        'van': van,
+    })
