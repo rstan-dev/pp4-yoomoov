@@ -17,6 +17,7 @@
                 </h1>
             </div>
             <div class="row">
+                {% if vans %}
                 {% for van in vans %}
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                     <div class="van">
@@ -35,6 +36,7 @@
                     </div>
                 </div>
                 {% endfor %}
+                {% endif %}
             </div>
             <div class="all-vans-btn">
                 <button type="button" class="btn btn-warning btn-all-vans"><a href="{% url 'all_vans' %}">See All

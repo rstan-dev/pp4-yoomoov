@@ -65,6 +65,13 @@ def van_search(request):
     Uses context_processor for Van.LOCATION_CHOICES, Van.SIZE_CHOICES and
     Van.COUNTY_CHOICES.
     """
+    queryset_vans = Van.objects.order_by('-date_added').filter(is_live=True)
+
+    # Van Size Filter
+    if 'van-size' in request.GET:
+        van_size = request.GET['van-size']
+        if van_size:
+            queryset_vans = queryset_vans.filter(size__iexact=van_size)
 
     values = {
         'size': None,
@@ -74,6 +81,7 @@ def van_search(request):
 
     context = {
         'values': values,
+        'vans': queryset_vans
     }
 
     return render(request, 'van_filter.html', context)
