@@ -56,3 +56,20 @@ def van_detail(request, slug):
     return render(request, 'van_detail.html', {
         'van': van,
     })
+
+
+def van_search(request):
+    """
+    Renders Van Search Results page with inputs from the Hero Search Box
+    """
+    location_choices = dict(Van.LOCATION_CHOICES)
+    values = {'location': None}
+
+    context = {
+        'location_choices': location_choices,
+        'values': values,
+    }
+
+    print(location_choices)
+
+    return render(request, 'partials/_hero-search.html', context)

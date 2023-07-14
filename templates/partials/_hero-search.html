@@ -28,9 +28,9 @@
                             <div class="col-md-12 form-fields">
                                 <select name="location" class="form-control">
                                     <option selected="true" disabled="disabled">Location (All)</option>
-                                    <option value="london">London</option>
-                                    <option value="manchester">Manchester</option>
-                                    <option value="birmingham">Birmingham</option>
+                                    {% for key,value in location_choices.items %}
+                                    <option value="{{ key }}">{{ value }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                             <!-- Form Row 3 -->
