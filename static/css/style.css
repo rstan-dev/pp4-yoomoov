@@ -810,3 +810,101 @@ section {
   background: #384046;
   color: #fff;
 }
+
+/*--------------------------------------------------------------
+# Van Detail Page
+--------------------------------------------------------------*/
+.van-details {
+  padding-top: 50px;
+}
+
+.van-details .feedback-area {
+  padding: 30px;
+  box-shadow: 0px 0 30px rgba(56, 64, 70, 0.08);
+}
+
+.van-details .feedback-area ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.van-details .feedback-area ul li+li {
+  margin-top: 10px;
+}
+
+.feedback-area i {
+  color: #fb8500;
+  font-size: 50px;
+}
+
+.feedback-header {
+  list-style-type: none;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.feedback-title {
+  color: #fb8500;
+  font-size: 30px;
+}
+
+.feedback-area p {
+  padding: 0;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.gy-4 h2 {
+  color: #fb8500;
+}
+
+.list-group-flush li {
+  color: #424241;
+  font-size: 20px;
+}
+
+.list-group-flush i {
+  color: #fb8500;
+  font-size: 30px;
+  padding-right: 15px;
+}
+
+#detail-login-btn,
+#detail-enquiry-btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-login-btn,
+.detail-enquiry-btn {
+  font-size: 20px;
+}
+
+@media (max-width: 400px) {
+  .section-van-detail-header {
+    margin-top: -5px;
+  }
+
+
+  .list-group-flush li {
+    color: #424241;
+    font-size: 15px;
+  }
+
+  .list-group-flush i {
+    color: #fb8500;
+    font-size: 20px;
+    padding-right: 15px;
+  }
+
+
+  .detail-login-btn,
+  .detail-enquiry-btn {
+    font-size: 15px;
+  }
+}
