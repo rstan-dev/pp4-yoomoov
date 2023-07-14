@@ -61,9 +61,15 @@ def van_detail(request, slug):
 def van_search(request):
     """
     Renders Van Search Results page with inputs from the Hero Search Box
-    Uses contect_processor for Van.LOCATION_CHOICES
+
+    Uses conteXt_processor for Van.LOCATION_CHOICES, Van.SIZE_CHOICES and
+    Van.COUNTY_CHOICES.
     """
-    values = {'location': None}
+    values = {
+        'size': None,
+        'location': None,
+        'county': None
+        }
 
     context = {
         'values': values,

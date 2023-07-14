@@ -19,9 +19,9 @@
                             <div class="col-md-12 form-fields">
                                 <select name="van-size" class="form-control">
                                     <option selected="true" disabled="disabled">Van Size (All)</option>
-                                    <option value="small">Small</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="large">Large</option>
+                                    {% for key,value in van_size_choices.items %}
+                                    <option value="{{ key }}">{{ value }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                             <!-- Form Row 2 -->
@@ -37,9 +37,9 @@
                             <div class="col-md-12 form-fields">
                                 <select class="form-control">
                                     <option selected="true" disabled="disabled">County (All)</option>
-                                    <option value="east-sussex">East Sussex</option>
-                                    <option value="west-yorkshire">West Yorkshire</option>
-                                    <option value="hampshire">Hampshire</option>
+                                    {% for key,value in county_choices.items %}
+                                    <option value="{{ key }}">{{ value }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>

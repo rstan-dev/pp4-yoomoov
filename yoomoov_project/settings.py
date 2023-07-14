@@ -77,6 +77,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'yoomoov_app.context_processors.location_choices',
+                'yoomoov_app.context_processors.van_size_choices',
+                'yoomoov_app.context_processors.county_choices',
             ],
         },
     },
