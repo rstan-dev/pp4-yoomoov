@@ -32,34 +32,39 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item text-secondary">
                                     <i class="fa-solid fa-ruler"></i> Size:
-                                    <span class="float-right">Test</span>
+                                    <span class="float-right">{{ van.size }}</span>
                                 </li>
                                 <li class="list-group-item text-secondary">
                                     <i class="fa-solid fa-truck-ramp-box"></i> Load Area (WxHxL):
-                                    <span class="float-right">1.2m x 1.5m x 1.2m</span>
+                                    <span class="float-right">{{ van.load_area_width }}m x {{ van.load_area_height }}m x
+                                        {{ van.load_area_length }}m</span>
                                 </li>
                                 <li class="list-group-item text-secondary">
                                     <i class="fa-solid fa-cart-flatbed-suitcase"></i> Suitable for:
-                                    <span class="float-right">General items, luggage One persons belongings</span>
+                                    <span class="float-right">{{ van.suitable_for }}</span>
                                 </li>
                                 <li class="list-group-item text-secondary">
                                     <i class="fa-sharp fa-solid fa-location-dot"></i> Location:
-                                    <span class="float-right">Test
+                                    <span class="float-right">{{ van.location }}
                                     </span>
                                 </li>
                                 <li class="list-group-item text-secondary">
                                     <i class="fa-sharp fa-solid fa-location-dot"></i> County:
-                                    <span class="float-right">Test
-                                    </span>
+                                    <span class="float-right">{{ van.county }}</span>
                                 </li>
                                 <li class="list-group-item text-secondary">
                                     <i class="fa-solid fa-people-group"></i> Crew:
-                                    <span class="float-right">1
+                                    <span class="float-right">{{ van.crew }}
+                                    </span>
+                                </li>
+                                <li class="list-group-item text-secondary">
+                                    <i class="fa-solid fa-people-group"></i> Price:
+                                    <span class="float-right">£{{ van.price }} / day
                                     </span>
                                 </li>
                                 <li class="list-group-item text-secondary">
                                     <i class="fa-solid fa-clock"></i> Running since:
-                                    <span class="float-right">June 2023
+                                    <span class="float-right">{{ van.date_added }}
                                     </span>
                                 </li>
                             </ul>
