@@ -73,6 +73,12 @@ def van_search(request):
         if van_size:
             queryset_vans = queryset_vans.filter(size__iexact=van_size)
 
+    # Location Filter
+    if 'location' in request.GET:
+        location_selection = request.GET['location']
+        if location_selection:
+            queryset_vans = queryset_vans.filter(location__iexact=location_selection)
+
     values = {
         'size': None,
         'location': None,
