@@ -61,15 +61,12 @@ def van_detail(request, slug):
 def van_search(request):
     """
     Renders Van Search Results page with inputs from the Hero Search Box
+    Uses contect_processor for Van.LOCATION_CHOICES
     """
-    location_choices = dict(Van.LOCATION_CHOICES)
     values = {'location': None}
 
     context = {
-        'location_choices': location_choices,
         'values': values,
     }
-
-    print(location_choices)
 
     return render(request, 'partials/_hero-search.html', context)
