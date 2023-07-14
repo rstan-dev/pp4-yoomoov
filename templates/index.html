@@ -19,7 +19,7 @@
                 </h1>
             </div>
             <div class="row">
-                <!-- {% if vans %} -->
+                {% if vans %}
                 {% for van in vans %}
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                     <div class="van">
@@ -38,52 +38,16 @@
                     </div>
                 </div>
                 {% endfor %}
-
-                <!-- {% else %}
+                {% else %}
                 <div class="col-md-12 no-data-notice">
                     <p>No Listings Available</p>
                 </div>
-
-                {% endif %} -->
-
-
-
-                <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                    <div class="van">
-                        <img src="{% static 'media/medium_van_placeholder.jpg' %}" alt="">
-                        <h4>Medium Van Somewhere</h4>
-                        <br>
-                        <div class="featured-detail">
-                            <h5>Size: Medium</h5>
-                            <h5>Crew: 2</h5>
-                            <h5>Location: Brighton</h5>
-                            <h5>County: East Sussex</h5>
-                        </div>
-                        <button type="button" class="btn btn-warning">Details</button>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                    <div class="van">
-                        <img src="{% static 'media/large_van_placeholder.jpg' %}" alt="">
-                        <h4>Large Van Somewhere</h4>
-                        <br>
-                        <div class="featured-detail">
-                            <h5>Size: Large</h5>
-                            <h5>Crew: 2</h5>
-                            <h5>Location: Brighton</h5>
-                            <h5>County: East Sussex</h5>
-                        </div>
-                        <button type="button" class="btn btn-warning">Details</button>
-                    </div>
-                </div> -->
-
+                {% endif %}
             </div>
             <div class="all-vans-btn">
                 <button type="button" class="btn btn-warning btn-all-vans"><a href="{% url 'all_vans' %}">See All
                         Vans</a></button>
             </div>
-
         </div>
     </section><!-- End Featured Van Section -->
 
