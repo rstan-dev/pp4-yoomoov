@@ -12,13 +12,88 @@
     <!-- ======= Title Section ======= -->
     <section class="bg-light">
         <div class="container">
-
             <div class="section-title section-header section-van-detail-header">
-                <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png %}" alt="">VAN DETAIL</h1>
-
+                <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">VAN DETAIL</h1>
             </div>
     </section><!-- End Title section -->
 
+    <!-- ======= Van Details Section ======= -->
+    <section id="van-details" class="van-details">
+        <div class="container">
+            <div class="row gy-4">
+                <!-- Van Title -->
+                <h2>Small Van in Kemptown</h2>
+                <div class="col-lg-8">
+                    <!-- Detail Main Image -->
+                    <img src="{% static 'media/small_van_placeholder.jpg' %}" alt="" class="img-main img-fluid mb-3">
+                    <!-- Fields -->
+                    <div class="row mb-12 fields">
+                        <div class="col-md-12">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item text-secondary">
+                                    <i class="fa-solid fa-ruler"></i> Size:
+                                    <span class="float-right">Small</span>
+                                </li>
+                                <li class="list-group-item text-secondary">
+                                    <i class="fa-solid fa-truck-ramp-box"></i> Load Area (WxHxL):
+                                    <span class="float-right">1.2m x 1.5m x 1.2m</span>
+                                </li>
+                                <li class="list-group-item text-secondary">
+                                    <i class="fa-solid fa-cart-flatbed-suitcase"></i> Suitable for:
+                                    <span class="float-right">General items, luggage One persons belongings</span>
+                                </li>
+                                <li class="list-group-item text-secondary">
+                                    <i class="fa-sharp fa-solid fa-location-dot"></i> Location:
+                                    <span class="float-right">Brighton
+                                    </span>
+                                </li>
+                                <li class="list-group-item text-secondary">
+                                    <i class="fa-sharp fa-solid fa-location-dot"></i> County:
+                                    <span class="float-right">East Sussex
+                                    </span>
+                                </li>
+                                <li class="list-group-item text-secondary">
+                                    <i class="fa-solid fa-people-group"></i> Crew:
+                                    <span class="float-right">1
+                                    </span>
+                                </li>
+                                <li class="list-group-item text-secondary">
+                                    <i class="fa-solid fa-clock"></i> Running since:
+                                    <span class="float-right">June 2023
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Feedback section -->
+                <div class="col-lg-4">
+                    <div class="feedback-area">
+                        <li class="feedback-header">
+                            <i class="fa-solid fa-comment fa-flip-horizontal"></i>
+                            <span class="feedback-title">Feedback</span>
+                        </li>
+                        <h4>Amazing service!</h4>
+                        <h6>User-1</h6>
+                        <p>The YooMoov team turned up on time and were so nice and helpful. I will defintiley be using
+                            them again!</p>
+                        <h4>So Helpful!</h4>
+                        <h6>User-2</h6>
+                        <p>Highly recommend these guys for moving all your boxes!</p>
+                    </div>
+                    <div id="detail-login-btn">
+                        <button type="submit" class="btn btn-success detail-login-btn">Login to Book & Leave
+                            feedback</button>
+                    </div>
+                    <div id="detail-enquiry-btn">
+                        <button type="submit" class="btn btn-warning detail-enquiry-btn">Make an Enquiry</button>
+                    </div>
+                </div>
+                <div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Van Details Section -->
 
 </main><!-- End #main -->
 {% endblock %}
