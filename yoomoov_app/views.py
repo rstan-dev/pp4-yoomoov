@@ -79,6 +79,12 @@ def van_search(request):
         if location_selection:
             queryset_vans = queryset_vans.filter(location__iexact=location_selection)
 
+    # County Filter
+    if 'county' in request.GET:
+        county_selection = request.GET['county']
+        if county_selection:
+            queryset_vans = queryset_vans.filter(county__iexact=county_selection)
+
     values = {
         'size': None,
         'location': None,

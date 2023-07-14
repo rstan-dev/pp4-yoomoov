@@ -35,7 +35,7 @@
                             </div>
                             <!-- Form Row 3 -->
                             <div class="col-md-12 form-fields">
-                                <select class="form-control">
+                                <select name="county" class="form-control">
                                     <option selected="true" disabled="disabled">County (All)</option>
                                     {% for key,value in county_choices.items %}
                                     <option value="{{ key }}">{{ value }}</option>
