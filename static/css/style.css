@@ -37,7 +37,6 @@ h6 {
   text-align: center;
 }
 
-
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -53,7 +52,6 @@ h6 {
 #header .logo img {
   max-height: 70px;
 }
-
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -471,7 +469,6 @@ h6 {
   margin-top: 20px;
 }
 
-
 @media (max-width: 992px) {
   #hero {
     height: calc(100vh - 70px);
@@ -716,13 +713,11 @@ section {
 .services-all-vans-btn {
   text-align: center;
   margin-bottom: 100px;
-
 }
 
 .btn-services-all-vans {
   font-size: 30px;
   margin-top: 50px;
-
 }
 
 @media (max-width: 400px) {
@@ -752,7 +747,6 @@ section {
     margin-top: 50px;
   }
 }
-
 
 /*--------------------------------------------------------------
 # Contact
@@ -889,7 +883,6 @@ section {
   .section-van-detail-header {
     margin-top: -5px;
   }
-
 
   .list-group-flush li {
     color: #424241;
