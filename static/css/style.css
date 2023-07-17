@@ -921,3 +921,46 @@ section {
 .register-btn {
   margin-top: 20px;
 }
+
+/*--------------------------------------------------------------
+# User Dashboard
+--------------------------------------------------------------*/
+#dashboard h2 {
+  color: #fb8500;
+  font-size: 30px;
+}
+
+.create-booking-btn {
+  color: #fb8500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.create-booking-btn i {
+  font-size: 50px;
+  justify-content: center;
+}
+
+.btn-group {
+  display: inline;
+}
+
+.standard-btn {
+  width: 100px;
+  height: 50px;
+  padding: 10px;
+  text-align: center;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+@media (max-width: 400px) {
+  .create-booking-btn {
+    justify-content: center;
+  }
+
+}

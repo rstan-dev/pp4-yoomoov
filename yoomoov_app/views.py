@@ -99,6 +99,6 @@ def van_search(request):
     return render(request, 'van_filter.html', context)
 
 
-def register(request):
+def dashboard(request):
 
-    return render(request, 'register.html')
+    return render(request, 'dashboard.html')
