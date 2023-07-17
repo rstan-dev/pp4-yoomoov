@@ -7,5 +7,6 @@ urlpatterns = [
     path('services/', views.services, name='services'),
     path('contact/', views.contact, name='contact'),
     path('<slug:slug>/', views.van_detail, name='van_detail'),
-    path('search', views.van_search, name='search')
+    path('search', views.van_search, name='search'),
+    path('register', views.register, name='register')
 ]

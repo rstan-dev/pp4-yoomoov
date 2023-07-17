@@ -99,27 +99,6 @@ def van_search(request):
     return render(request, 'van_filter.html', context)
 
 
+def register(request):
 
-# def van_search(request):
-#     """
-#     Renders Van Search Results into template
-#     """
-#     queryset_vans = Van.objects.order_by('-date_added').filter(is_live=True)
-
-#     values = {
-#         'size': size,
-#         'location': location,
-#         'county': county
-#         }
-
-#     # Van Size
-#     if 'size' in request.GET:
-#         van_size = request.GET['size']
-#         if van_size:
-#             queryset_vans = queryset_vans.filter(size__iexact=van_size)
-
-#     context = {
-#         'values': values,
-#     }
-
-#     return render(request, 'van_filter.html', context)
+    return render(request, 'register.html')
