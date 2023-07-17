@@ -896,9 +896,16 @@ section {
     padding-right: 15px;
   }
 
-
   .detail-login-btn,
   .detail-enquiry-btn {
     font-size: 15px;
   }
+}
+
+/*--------------------------------------------------------------
+# Register Page
+--------------------------------------------------------------*/
+
+.register-btn {
+  margin-top: 20px;
 }
