@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main id="main">
+
+    <section class="bg-light">
+        <div class="container">
+
+            <div class="section-title section-header">
+                <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">USER DASHBOARD</h1>
+
+            </div>
+    </section>
+
+    <!-- ======= User Dashboard ======= -->
+
+    <section id="dashboard" class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-12 create-booking-btn">
+                        <h5>Create New Booking</h5>
+                        <i class="fa-solid fa-circle-plus"></i>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <h2>Your Bookings</h2>
+                    <p>Here are the vans you have booked</p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">Size</th>
+                                    <th scope="col">Van Name</th>
+                                    <th scope="col">Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01/07/2023</td>
+                                    <td>Brighton</td>
+                                    <td>Small(TEST)</td>
+                                    <td>Small Van in Kemptown(TEST)</td>
+                                    <td>Completed(TEST)</td>
+                                    <td>
+                                        <div class="btn-group mr-2 mb-2">
+                                            <a class="btn btn-warning" href="#">Edit</a>
+                                        </div>
+                                        <div class="btn-group mr-2 mb-2">
+                                            <a class="btn btn-danger" href="#">Delete</a>
+                                        </div>
+                                        <div class="btn-group mr-2 mb-2">
+                                            <a class="btn btn-success" href="#">Feedback</a>
+                                        </div>
+                                        <div class="btn-group mr-2 mb-2">
+                                            <a class="btn btn-primary" href="#">View</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>01/08/2023</td>
+                                    <td>London</td>
+                                    <td>Medium(TEST)</td>
+                                    <td>Medium Van in Camden(TEST)</td>
+                                    <td>Pending(TEST)</td>
+                                    <td>
+                                        <div class="btn-group mr-2 mb-2">
+                                            <a class="btn btn-warning" href="#">Edit</a>
+                                        </div>
+                                        <div class="btn-group mr-2 mb-2">
+                                            <a class="btn btn-danger" href="#">Delete</a>
+                                        </div>
+                                        <div class="btn-group mr-2 mb-2">
+                                            <a class="btn btn-light" href="#">Feedback</a>
+                                        </div>
+                                        <div class="btn-group mr-2 mb-2">
+                                            <a class="btn btn-primary" href="#">View</a>
+                                        </div>
+                                    </td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+
+{% endblock %}
