@@ -233,6 +233,18 @@ h6 {
   display: block;
 }
 
+.navbar-mobile .nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  /* or you can set to a specific width */
+}
+
+.navbar-mobile .nav-link i {
+  margin-right: 10px;
+}
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
