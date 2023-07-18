@@ -13,8 +13,9 @@ class VanAdmin(admin.ModelAdmin):
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
-    list_display = ('booking_number', 'date_required', 'first_name', 'last_name', 'van_name', 'van_size', 'van_location', 'status')
+    list_display = ('booking_number', 'date_required', 'first_name', 'last_name', 'van', 'van_size', 'van_location', 'status', 'price')
     list_display_links = ('booking_number',)
+    readonly_fields = ('booking_number',)
     # list_filter = ('date_required', 'location', 'status')
-    # list_editable = ('status',)
-    # search_fields = ('booking_number', 'first_name', 'last_name' 'location', 'status')
+    # list_editable = ('status', 'price')
+    # search_fields = ('booking_number', 'first_name', 'last_name', 'location', 'status')

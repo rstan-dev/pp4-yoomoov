@@ -2,48 +2,13 @@ from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime, timedelta
 from cloudinary.models import CloudinaryField
+from .choices import SIZE_CHOICES, LOCATION_CHOICES, COUNTY_CHOICES, STATUS_CHOICES
 
 
 class Van(models.Model):
     """
     Model for van listings
     """
-
-    SIZE_CHOICES = (
-        ('SMALL', 'Small'),
-        ('MEDIUM', 'Medium'),
-        ('LARGE', 'Large')
-    )
-
-    LOCATION_CHOICES = (
-        ('BIRMINGHAM', 'Birmingham'),
-        ('BRIGHTON', 'Brighton'),
-        ('CARDIFF', 'Cardiff'),
-        ('GLASGOW', 'Glasgow'),
-        ('LEEDS', 'Leeds'),
-        ('LIVERPOOL', 'Liverpool'),
-        ('LONDON', 'London'),
-        ('MANCHESTER', 'Manchester'),
-        ('NEWCASTLE', 'Newcastle'),
-        ('SHEFFIELD', 'Sheffield'),
-        ('SOUTHAMPTON', 'Southampton'),
-
-    )
-
-    COUNTY_CHOICES = (
-        ('CARDIFF', 'Cardiff'),
-        ('EAST SUSSEX', 'East Sussex'),
-        ('GLASGOW CITY', 'Glasgow City'),
-        ('GREATER LONDON', 'Greater London'),
-        ('GREATER MANCHESTER', 'Greater Manchester'),
-        ('HAMPSHIRE', 'Hampshire'),
-        ('MERSEYSIDE', 'Merseyside'),
-        ('SOUTH YORKSHIRE', 'South Yorkshire'),
-        ('TYNE AND_WARE', 'Tyne & Ware'),
-        ('WEST MIDLANDS', 'West Midlands'),
-        ('WEST YORKSHIRE', 'West Yorkshire'),
-    )
-
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True, verbose_name="Unique Url Slug", help_text="Example: your_van_name")
     size = models.CharField(max_length=75, choices=SIZE_CHOICES)
@@ -92,53 +57,29 @@ class Booking(models.Model):
     """
     Model for booking a van
     """
+    booking_number = models.CharField(max_length=200, unique=True, blank=True, editable=True)
 
-    STATUS_CHOICES = (
-        ('Pending', 'Pending'),
-        ('Approved', 'Approved'),
-        ('Completed', 'Completed')
-    )
+    van = models.ForeignKey(Van, on_delete=models.DO_NOTHING)
 
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     email = models.EmailField()
     phone = models.IntegerField()
+
+    van_size = models.CharField(max_length=75, choices=SIZE_CHOICES, default='Small')
+    van_location = models.CharField(max_length=75, choices=LOCATION_CHOICES, default='Birmingham')
+    van_county = models.CharField(max_length=75, choices=COUNTY_CHOICES, default='Cardiff')
+
     date_required = models.DateField()
     date_created = models.DateTimeField(default=datetime.now, blank=True)
     date_updated = models.DateTimeField(default=datetime.now, blank=True)
-    status = models.CharField(max_length=25, choices=STATUS_CHOICES)
-
-    van = models.ForeignKey(Van, on_delete=models.DO_NOTHING)
-
-    def van_name(self):
-        """
-        Allows Van name to be displayed in Booking Admin so adminisrator can create a manual booking
-        """
-        return self.van.name
-    van_name.short_description = 'Van Name'  # Sets column name in Admin interface
-
-    def van_size(self):
-        """
-        Allows Van size to be displayed in Booking Admin so adminisrator can create a manual booking
-        """
-        return self.van.size
-    van_size.short_description = 'Van Size'  # Sets column name in Admin interface
-
-    def van_location(self):
-        """
-        Allows Van location to be displayed in Booking Admin so adminisrator can create a manual booking
-        """
-        return self.van.location
-    van_location.short_description = 'Van Location'  # Sets column name in Admin interface
-
-    def van_county(self):
-        """
-        Allows Van county to be displayed in Booking Admin so adminisrator can create a manual booking
-        """
-        return self.van.county
-    van_county.short_description = 'Van County'  # Sets column name in Admin interface
-
-    booking_number = models.CharField(max_length=200, unique=True, blank=True, editable=False)
+    status = models.CharField(max_length=25, choices=STATUS_CHOICES, default='Pending')
+    price = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        verbose_name='Total Price',
+        default='0'
+    )
 
     def save(self, *args, **kwargs):
         """

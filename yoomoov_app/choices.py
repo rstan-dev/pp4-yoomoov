@@ -1,34 +1,40 @@
 SIZE_CHOICES = (
-        ('SMALL', 'Small'),
-        ('MEDIUM', 'Medium'),
-        ('LARGE', 'Large')
+        ('Small', 'Small'),
+        ('Medium', 'Medium'),
+        ('Large', 'Large')
     )
 
 LOCATION_CHOICES = (
-    ('BIRMINGHAM', 'Birmingham'),
-    ('BRIGHTON', 'Brighton'),
-    ('CARDIFF', 'Cardiff'),
-    ('GLASGOW', 'Glasgow'),
-    ('LEEDS', 'Leeds'),
-    ('LIVERPOOL', 'Liverpool'),
-    ('LONDON', 'London'),
-    ('MANCHESTER', 'Manchester'),
-    ('NEWCASTLE', 'Newcastle'),
-    ('SHEFFIELD', 'Sheffield'),
-    ('SOUTHAMPTON', 'Southampton'),
+    ('Birmingham', 'Birmingham'),
+    ('Brighton', 'Brighton'),
+    ('Cardiff', 'Cardiff'),
+    ('Glasgow', 'Glasgow'),
+    ('Leeds', 'Leeds'),
+    ('Liverpool', 'Liverpool'),
+    ('London', 'London'),
+    ('Manchester', 'Manchester'),
+    ('Newcastle', 'Newcastle'),
+    ('Sheffield', 'Sheffield'),
+    ('Southampton', 'Southampton'),
 
 )
 
 COUNTY_CHOICES = (
-    ('CARDIFF', 'Cardiff'),
-    ('EAST SUSSEX', 'East Sussex'),
-    ('GLASGOW CITY', 'Glasgow City'),
-    ('GREATER LONDON', 'Greater London'),
-    ('GREATER MANCHESTER', 'Greater Manchester'),
-    ('HAMPSHIRE', 'Hampshire'),
-    ('MERSEYSIDE', 'Merseyside'),
-    ('SOUTH YORKSHIRE', 'South Yorkshire'),
-    ('TYNE AND_WARE', 'Tyne & Ware'),
-    ('WEST MIDLANDS', 'West Midlands'),
-    ('WEST YORKSHIRE', 'West Yorkshire'),
+    ('Cardiff', 'Cardiff'),
+    ('East Sussex', 'East Sussex'),
+    ('Glasgow City', 'Glasgow City'),
+    ('Greater London', 'Greater London'),
+    ('Greater Manchester', 'Greater Manchester'),
+    ('Hampshire', 'Hampshire'),
+    ('Merseyside', 'Merseyside'),
+    ('South Yorkshire', 'South Yorkshire'),
+    ('Tyne & Ware', 'Tyne & Ware'),
+    ('West Midlands', 'West Midlands'),
+    ('West Yorkshire', 'West Yorkshire'),
 )
+
+STATUS_CHOICES = (
+        ('Pending', 'Pending'),
+        ('Approved', 'Approved'),
+        ('Completed', 'Completed')
+    )
