@@ -99,20 +99,53 @@ class Booking(models.Model):
         ('Completed', 'Completed')
     )
 
-    booking_number = models.CharField(max_length=200, unique=True, blank=True, editable=False)
-
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     email = models.EmailField()
     phone = models.IntegerField()
-
-    van = models.ForeignKey(Van, on_delete=models.DO_NOTHING)
     date_required = models.DateField()
     date_created = models.DateTimeField(default=datetime.now, blank=True)
     date_updated = models.DateTimeField(default=datetime.now, blank=True)
     status = models.CharField(max_length=25, choices=STATUS_CHOICES)
 
+    van = models.ForeignKey(Van, on_delete=models.DO_NOTHING)
+
+    def van_name(self):
+        """
+        Allows Van name to be displayed in Booking Admin so adminisrator can create a manual booking
+        """
+        return self.van.name
+    van_name.short_description = 'Van Name'  # Sets column name in Admin interface
+
+    def van_size(self):
+        """
+        Allows Van size to be displayed in Booking Admin so adminisrator can create a manual booking
+        """
+        return self.van.size
+    van_size.short_description = 'Van Size'  # Sets column name in Admin interface
+
+    def van_location(self):
+        """
+        Allows Van location to be displayed in Booking Admin so adminisrator can create a manual booking
+        """
+        return self.van.location
+    van_location.short_description = 'Van Location'  # Sets column name in Admin interface
+
+    def van_county(self):
+        """
+        Allows Van county to be displayed in Booking Admin so adminisrator can create a manual booking
+        """
+        return self.van.county
+    van_county.short_description = 'Van County'  # Sets column name in Admin interface
+
+    booking_number = models.CharField(max_length=200, unique=True, blank=True, editable=False)
+
     def save(self, *args, **kwargs):
+        """
+        Super Save Method saves the data to the db, to create
+        an id which is then used to create a unique booking
+        number, which is then saved again to the database
+        """
         super().save(*args, **kwargs)
         if not self.booking_number:
             self.booking_number = str(self.id + 1000)
