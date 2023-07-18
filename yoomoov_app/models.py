@@ -87,3 +87,42 @@ class Van(models.Model):
     def __str__(self):
         return self.name
 
+
+class Booking(models.Model):
+    """
+    Model for booking a van
+    """
+
+    STATUS_CHOICES = (
+        ('Pending', 'Pending'),
+        ('Approved', 'Approved'),
+        ('Completed', 'Completed')
+    )
+
+    booking_number = models.CharField(max_length=200, unique=True, blank=True, editable=False)
+
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    email = models.EmailField()
+    phone = models.IntegerField()
+
+    van = models.ForeignKey(Van, on_delete=models.DO_NOTHING)
+    date_required = models.DateField()
+    date_created = models.DateTimeField(default=datetime.now, blank=True)
+    date_updated = models.DateTimeField(default=datetime.now, blank=True)
+    status = models.CharField(max_length=25, choices=STATUS_CHOICES)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if not self.booking_number:
+            self.booking_number = str(self.id + 1000)
+            super().save(update_fields=["booking_number"])
+
+    class Meta:
+        """
+        Meta class for ordering bookings data by next booking due date
+        """
+        ordering = ['-date_required']
+
+    def __str__(self):
+        return self.booking_number
