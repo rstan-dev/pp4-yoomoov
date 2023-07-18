@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
-from .models import Van
+from .models import Van, Booking
 
 
 def home(request):
@@ -100,9 +100,9 @@ def van_search(request):
 
 
 def dashboard(request):
-    bookings = Bookings.objects.order_by('-date_required').filter(user_id=request.user.id)
+    bookings = Booking.objects.order_by('-date_required').filter(user_id=request.user.id)
 
     context = {
         'bookings': bookings
     }
-    return render(request, 'dashboard.html')
+    return render(request, 'dashboard.html', context)

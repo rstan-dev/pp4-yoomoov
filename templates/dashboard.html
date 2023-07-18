@@ -32,6 +32,7 @@
 
                 <div class="col-md-12">
                     <h2>Your Bookings</h2>
+                    {% if bookings %}
                     <p>Here are the vans you have booked</p>
                     <div class="table-responsive">
                         <table class="table">
@@ -41,17 +42,20 @@
                                     <th scope="col">Location</th>
                                     <th scope="col">Size</th>
                                     <th scope="col">Van Name</th>
+                                    <th scope="col">Price</th>
                                     <th scope="col">Status</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for booking in bookings %}
                                 <tr>
-                                    <td>01/07/2023</td>
-                                    <td>Brighton</td>
-                                    <td>Small(TEST)</td>
-                                    <td>Small Van in Kemptown(TEST)</td>
-                                    <td>Completed(TEST)</td>
+                                    <td>{{ booking.date_required }}</td>
+                                    <td>{{ booking.van_location }}</td>
+                                    <td>{{ booking.van_size }}</td>
+                                    <td>{{ booking.van }}</td>
+                                    <td>{{ booking.price }}</td>
+                                    <td>{{ booking.status }}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="6">
@@ -63,26 +67,30 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>01/08/2023</td>
-                                    <td>London</td>
-                                    <td>Medium(TEST)</td>
-                                    <td>Medium Van in Camden(TEST)</td>
-                                    <td>Pending(TEST)</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="6">
-                                        <div class="btn-group">
-                                            <a class="btn standard-btn btn-warning" href="#">Edit</a>
-                                            <a class="btn standard-btn btn-danger" href="#">Delete</a>
-                                            <a class="btn standard-btn btn-light" href="#">Feedback</a>
-                                            <a class="btn standard-btn btn-primary" href="#">View</a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                {% endfor %}
+                                <!-- <tr>
+                                        <td>01/08/2023</td>
+                                        <td>London</td>
+                                        <td>Medium(TEST)</td>
+                                        <td>Medium Van in Camden(TEST)</td>
+                                        <td>Pending(TEST)</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="btn-group">
+                                                <a class="btn standard-btn btn-warning" href="#">Edit</a>
+                                                <a class="btn standard-btn btn-danger" href="#">Delete</a>
+                                                <a class="btn standard-btn btn-light" href="#">Feedback</a>
+                                                <a class="btn standard-btn btn-primary" href="#">View</a>
+                                            </div>
+                                        </td>
+                                    </tr> -->
                             </tbody>
                         </table>
                     </div>
+                    {% else %}
+                    <h3>There are no bookings to display</h3>
+                    {% endif %}
                 </div>
             </div>
         </div>
