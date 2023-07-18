@@ -80,6 +80,7 @@ class Booking(models.Model):
         verbose_name='Total Price',
         default='0'
     )
+    user_id = user_id = models.IntegerField(blank=True, default='0')
 
     def save(self, *args, **kwargs):
         """

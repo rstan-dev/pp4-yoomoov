@@ -100,5 +100,9 @@ def van_search(request):
 
 
 def dashboard(request):
+    bookings = Bookings.objects.order_by('-date_required').filter(user_id=request.user.id)
 
+    context = {
+        'bookings': bookings
+    }
     return render(request, 'dashboard.html')
