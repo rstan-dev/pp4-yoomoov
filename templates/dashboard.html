@@ -26,7 +26,8 @@
                 <div class="col-md-12">
                     <div class="col-md-12 create-booking-btn">
                         <h5>Create New Booking</h5>
-                        <i class="fa-solid fa-circle-plus"></i>
+                        <button class="create-booking-button" data-toggle="modal" data-target="#bookingModal"><i
+                                class="fa-solid fa-circle-plus"></i></button>
                     </div>
                 </div>
 
@@ -68,23 +69,6 @@
                                     </td>
                                 </tr>
                                 {% endfor %}
-                                <!-- <tr>
-                                        <td>01/08/2023</td>
-                                        <td>London</td>
-                                        <td>Medium(TEST)</td>
-                                        <td>Medium Van in Camden(TEST)</td>
-                                        <td>Pending(TEST)</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="6">
-                                            <div class="btn-group">
-                                                <a class="btn standard-btn btn-warning" href="#">Edit</a>
-                                                <a class="btn standard-btn btn-danger" href="#">Delete</a>
-                                                <a class="btn standard-btn btn-light" href="#">Feedback</a>
-                                                <a class="btn standard-btn btn-primary" href="#">View</a>
-                                            </div>
-                                        </td>
-                                    </tr> -->
                             </tbody>
                         </table>
                     </div>
@@ -95,6 +79,78 @@
             </div>
         </div>
     </section>
+
+    <!-- Booking Modal -->
+    <div class="modal fade" id="bookingModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookingModalLabel"><img class="cow-icon" src="" alt="">Create a Booking
+                    </h5>
+                    <button type="button" class="close modal-close-btn" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="POST">
+
+                        <input type="hidden" name="user_id" value="0">
+
+                        <input type="hidden" name="user_id" value="0">
+
+                        <div class="form-group">
+                            <label for="name" class="col-form-label">First Name:</label>
+                            <input type="text" name="name" class="form-control" {% if user.is_authenticated %} value=""
+                                {% endif %} required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-form-label">Last Name:</label>
+                            <input type="text" name="name" class="form-control" {% if user.is_authenticated %} value=""
+                                {% endif %} required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">Email:</label>
+                            <input type="email" name="email" class="form-control" {% if user.is_authenticated %}
+                                value="" {% endif %} required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-form-label">Phone:</label>
+                            <input type="text" name="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="van_name" class="col-form-label">Van Name:</label>
+                            <input type="text" name="van_name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="van_size" class="col-form-label">Van Size:</label>
+                            <input type="text" name="van_size" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="van_location" class="col-form-label">Van Location:</label>
+                            <input type="text" name="van_location" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="van_county" class="col-form-label">Van County:</label>
+                            <input type="text" name="van_county" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date_required" class="col-form-label">Date Required:</label>
+                            <input type="text" name="date_required" class="form-control" required>
+                        </div>
+                        <hr>
+                        <input type="submit" value="Request Booking" class="btn btn-warning btn-block">
+                        <hr>
+                        <h5>T&Cs:<br>
+                            Please check the Status of your booking on your Dashboard.<br><br>
+                            All requests will either be Confirmed by our administrator, or
+                            they will contact you to make alternative arrangements.
+
+                        </h5>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><!-- End Booking Modal -->
 
 </main><!-- End #main -->
 
