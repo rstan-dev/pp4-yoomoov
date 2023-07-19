@@ -156,4 +156,13 @@
         }
     });
 
+    /**
+     * Activates datepicker in Booking Modal
+     */
+    $(function () {
+        $("#date_required").datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+    });
+
 })()
