@@ -158,10 +158,12 @@
 
     /**
      * Activates datepicker in Booking Modal
+     * Adjusts date format and prevents past dates from being selected
      */
     $(function () {
         $("#date_required").datepicker({
-            dateFormat: 'dd/mm/yy'
+            dateFormat: 'dd/mm/yy',
+            minDate: 0
         });
     });
 
