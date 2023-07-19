@@ -953,6 +953,12 @@ section {
   justify-content: center;
 }
 
+.create-booking-button {
+  border-style: none;
+  background-color: transparent;
+  color: #fb8500;
+}
+
 .btn-group {
   display: inline;
 }
@@ -971,4 +977,23 @@ section {
     justify-content: center;
   }
 
+}
+
+/*--------------------------------------------------------------
+# Booking Modal
+--------------------------------------------------------------*/
+.modal-title {
+  color: white;
+  font-size: 25px;
+}
+
+.modal-header {
+  background-color: #fb8500;
+}
+
+.modal-close-btn {
+  font-size: 50px;
+  background-color: transparent;
+  color: white;
+  border: white;
 }
