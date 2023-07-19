@@ -9,4 +9,5 @@ urlpatterns = [
     path('<slug:slug>/', views.van_detail, name='van_detail'),
     path('search', views.van_search, name='search'),
     path('dashboard', views.dashboard, name='dashboard'),
+    path('create_booking', views.create_booking, name='create_booking')
 ]

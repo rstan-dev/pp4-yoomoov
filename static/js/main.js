@@ -162,7 +162,7 @@
      */
     $(function () {
         $("#date_required").datepicker({
-            dateFormat: 'dd/mm/yy',
+            dateFormat: 'yy-mm-dd',
             minDate: 0
         });
     });

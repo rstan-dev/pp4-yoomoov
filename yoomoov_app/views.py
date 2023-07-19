@@ -109,3 +109,27 @@ def dashboard(request):
     }
     return render(request, 'dashboard.html', context)
 
+
+def create_booking(request):
+    """
+    Adds Booking modal form fields to Booking Model database
+    """
+    if request.method == 'POST':
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        van_name = request.POST['van_name']
+        van_size = request.POST['van_size']
+        van_location = request.POST['van_location']
+        van_county = request.POST['van_county']
+        date_required = request.POST['date_required']
+
+        booking = Booking(first_name=first_name, last_name=last_name, email=email, phone=phone, van_name=van_name, van_location=van_location, van_county=van_county, date_required=date_required)
+
+        booking.save()
+
+        return redirect('/dashboard')
+
+
+

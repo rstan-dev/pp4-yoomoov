@@ -67,6 +67,7 @@ class Booking(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=100, verbose_name="Enter customer's phone number",)
 
+    van_name = models.CharField(max_length=250, default='Enter name of van')
     van_size = models.CharField(max_length=75, choices=SIZE_CHOICES, default='Small')
     van_location = models.CharField(max_length=75, choices=LOCATION_CHOICES, default='Birmingham')
     van_county = models.CharField(max_length=75, choices=COUNTY_CHOICES, default='Cardiff')

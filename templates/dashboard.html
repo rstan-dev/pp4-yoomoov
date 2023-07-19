@@ -93,26 +93,24 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="POST">
+                    <form action="{% url 'create_booking' %}" method="POST">
+                        {% csrf_token %}
 
                         <input type="hidden" name="user_id" value="0">
 
                         <input type="hidden" name="user_id" value="0">
 
                         <div class="form-group">
-                            <label for="name" class="col-form-label">First Name:</label>
-                            <input type="text" name="name" class="form-control" {% if user.is_authenticated %} value=""
-                                {% endif %} required>
+                            <label for="first_name" class="col-form-label">First Name:</label>
+                            <input type="text" name="first_name" class="form-control" value="" required>
                         </div>
                         <div class="form-group">
-                            <label for="name" class="col-form-label">Last Name:</label>
-                            <input type="text" name="name" class="form-control" {% if user.is_authenticated %} value=""
-                                {% endif %} required>
+                            <label for="last_name" class="col-form-label">Last Name:</label>
+                            <input type="text" name="last_name" class="form-control" value="" required>
                         </div>
                         <div class="form-group">
                             <label for="email" class="col-form-label">Email:</label>
-                            <input type="email" name="email" class="form-control" {% if user.is_authenticated %}
-                                value="" {% endif %} required>
+                            <input type="email" name="email" class="form-control" value="" required>
                         </div>
                         <div class="form-group">
                             <label for="phone" class="col-form-label">Phone:</label>
@@ -124,7 +122,7 @@
                         </div>
                         <div class="form-group">
                             <label for="van_size" class="col-form-label">Van Size:</label>
-                            <select name="van-size" class="form-control">
+                            <select name="van_size" class="form-control">
                                 <option selected="true" disabled="disabled">Van Size (All)</option>
                                 {% for key,value in van_size_choices.items %}
                                 <option value="{{ key }}">{{ value }}</option>
@@ -133,7 +131,7 @@
                         </div>
                         <div class="form-group">
                             <label for="van_location" class="col-form-label">Van Location:</label>
-                            <select name="location" class="form-control">
+                            <select name="van_location" class="form-control">
                                 <option selected="true" disabled="disabled">Location (All)</option>
                                 {% for key,value in location_choices.items %}
                                 <option value="{{ key }}">{{ value }}</option>
@@ -142,7 +140,7 @@
                         </div>
                         <div class="form-group">
                             <label for="van_county" class="col-form-label">Van County:</label>
-                            <select name="county" class="form-control">
+                            <select name="van_county" class="form-control">
                                 <option selected="true" disabled="disabled">County (All)</option>
                                 {% for key,value in county_choices.items %}
                                 <option value="{{ key }}">{{ value }}</option>
