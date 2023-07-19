@@ -7,7 +7,8 @@ from .choices import SIZE_CHOICES, LOCATION_CHOICES, COUNTY_CHOICES, STATUS_CHOI
 
 class Van(models.Model):
     """
-    Model for van listings
+    Model for van listings.  SIZE, LOCATION AND COUNTY CHOICES
+    are imported from choices.py, and managed through context_processors.py
     """
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True, verbose_name="Unique Url Slug", help_text="Example: your_van_name")

@@ -60,10 +60,8 @@ def van_detail(request, slug):
 
 def van_search(request):
     """
-    Renders Van Search fields into the Hero Search Box
-
-    Uses context_processor for Van.LOCATION_CHOICES, Van.SIZE_CHOICES and
-    Van.COUNTY_CHOICES.
+    Renders a list of vans using the Search choices from the Hero
+    Van Finder Box.
     """
     queryset_vans = Van.objects.order_by('-date_added').filter(is_live=True)
 
@@ -100,6 +98,10 @@ def van_search(request):
 
 
 def dashboard(request):
+    """
+    Renders Bookings data, based on the logged in user id
+    on the users dashboard.
+    """
     bookings = Booking.objects.order_by('-date_required').filter(user_id=request.user.id)
 
     context = {
