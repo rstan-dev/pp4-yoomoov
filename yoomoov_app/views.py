@@ -106,3 +106,4 @@ def dashboard(request):
         'bookings': bookings
     }
     return render(request, 'dashboard.html', context)
+
