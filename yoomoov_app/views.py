@@ -49,13 +49,21 @@ def van_detail(request, slug):
     """
     Renders Van Detail page, by requesting all vans
     that are live, with a given unique slug
+
+    Calls the Van.object to link the Booking Modal
+    van select dropdown
     """
     queryset = Van.objects.filter(is_live=True)
     van = get_object_or_404(queryset, slug=slug)
 
-    return render(request, 'van_detail.html', {
+    vans = Van.objects.all()
+
+    context = {
         'van': van,
-    })
+        'vans': vans
+    }
+
+    return render(request, 'van_detail.html', context)
 
 
 def van_search(request):
@@ -105,7 +113,7 @@ def dashboard(request):
     Calls the van object in order to render the van name list in the
     booking form dropdown
     """
-    bookings = Booking.objects.order_by('-date_required').filter(user_id=request.user.id)
+    bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required')
 
     vans = Van.objects.all()
 
