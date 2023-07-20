@@ -117,33 +117,11 @@
                             <input type="text" name="phone" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="van_name" class="col-form-label">Van Name:</label>
-                            <input type="text" name="van_name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="van_size" class="col-form-label">Van Size:</label>
-                            <select name="van_size" class="form-control">
-                                <option selected="true" disabled="disabled">Van Size (All)</option>
-                                {% for key,value in van_size_choices.items %}
-                                <option value="{{ key }}">{{ value }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="van_location" class="col-form-label">Van Location:</label>
-                            <select name="van_location" class="form-control">
-                                <option selected="true" disabled="disabled">Location (All)</option>
-                                {% for key,value in location_choices.items %}
-                                <option value="{{ key }}">{{ value }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="van_county" class="col-form-label">Van County:</label>
-                            <select name="van_county" class="form-control">
-                                <option selected="true" disabled="disabled">County (All)</option>
-                                {% for key,value in county_choices.items %}
-                                <option value="{{ key }}">{{ value }}</option>
+                            <label for="van_id" class="col-form-label">Van Name:</label>
+                            <select name="van_id" class="form-control" required>
+                                <option value="" selected>Select a van</option>
+                                {% for van in vans %}
+                                <option value="{{ van.id }}">{{ van.name }}</option>
                                 {% endfor %}
                             </select>
                         </div>

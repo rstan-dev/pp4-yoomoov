@@ -35,7 +35,8 @@ ALLOWED_HOSTS = [
     '8000-rstandev-pp4yoomoov-vyahp3n4caz.ws-eu101.gitpod.io',
     'yoomoov.heroku.app.com',
     'yoomoov-2cbb8d75e399.herokuapp.com',
-    'localhost'
+    'localhost',
+    '8000-rstandev-pp4yoomoov-vyahp3n4caz.ws-eu102.gitpod.io',
 ]
 
 

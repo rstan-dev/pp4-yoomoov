@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import Van, Booking
 
@@ -101,35 +101,61 @@ def dashboard(request):
     """
     Renders Bookings data, based on the logged in user id
     on the users dashboard.
+
+    Calls the van object in order to render the van name list in the
+    booking form dropdown
     """
     bookings = Booking.objects.order_by('-date_required').filter(user_id=request.user.id)
 
+    vans = Van.objects.all()
+
     context = {
-        'bookings': bookings
+        'bookings': bookings,
+        'vans': vans
     }
     return render(request, 'dashboard.html', context)
 
 
 def create_booking(request):
     """
-    Adds Booking modal form fields to Booking Model database
+    Calls all Van objects so Van.id and Van.name can be linked
+    to booking form.
+
+    Retrieves Booking modal form field data and saves it to
+    Booking Model database.
     """
+
+    vans = Van.objects.all()
+
     if request.method == 'POST':
+        van_id = request.POST['van_id']
+        van = Van.objects.get(id=van_id)
+
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
         phone = request.POST['phone']
-        van_name = request.POST['van_name']
-        van_size = request.POST['van_size']
-        van_location = request.POST['van_location']
-        van_county = request.POST['van_county']
         date_required = request.POST['date_required']
 
-        booking = Booking(first_name=first_name, last_name=last_name, email=email, phone=phone, van_name=van_name, van_location=van_location, van_county=van_county, date_required=date_required)
+        booking = Booking(
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            date_required=date_required,
+            van=van,
+            van_name=van.name,
+            van_size=van.size,
+            van_location=van.location,
+            van_county=van.county,
+            price=van.price
+        )
 
         booking.save()
 
-        return redirect('/dashboard')
+        return redirect('dashboard')
+
+    return render(request, 'dashboard.html', {'vans': vans})
 
 
 
