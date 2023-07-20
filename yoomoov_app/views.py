@@ -169,4 +169,32 @@ def create_booking(request):
     return render(request, 'dashboard.html', {'vans': vans})
 
 
+def edit_booking(request):
+    """
+    Calls editBooking Modal and populates it with Booking Info
+
+    Any changes to the form are resubmitted to the database, changing status
+    back to pending
+    """
+
+    booking = get_object_or_404(Booking, id=booking_id)
+
+    vans = Van.objects.all()
+
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
+
+    else:
+        form = BookingForm(instance=Booking)
+
+    context = {
+        'form': form,
+        'booking': booking,
+        'vans': vans
+    }
+
+    return render(request, 'dashboard.html', context)
 

@@ -61,7 +61,8 @@
                                 <tr>
                                     <td colspan="6">
                                         <div class="btn-group">
-                                            <a class="btn standard-btn btn-warning" href="#">Edit</a>
+                                            <a class="btn standard-btn btn-warning" href="#" data-toggle="modal"
+                                                data-target="#editBookingModal"></a>>Edit</a>
                                             <a class="btn standard-btn btn-danger" href="#">Delete</a>
                                             <a class="btn standard-btn btn-success" href="#">Feedback</a>
                                             <a class="btn standard-btn btn-primary" href="#">View</a>
@@ -96,6 +97,7 @@
                     <form action="{% url 'create_booking' %}" method="POST">
                         {% csrf_token %}
                         <input type="hidden" name="user_id" value="{{ user.id }}">
+                        <input type="hidden" name="booking_id" value="{{ booking.id }}">
                         <div class="form-group">
                             <label for="first_name" class="col-form-label">First Name:</label>
                             <input type="text" name="first_name" class="form-control" value="" required>
@@ -139,6 +141,74 @@
             </div>
         </div>
     </div><!-- End Booking Modal -->
+
+    <!-- Edit Booking Modal -->
+    <div class="modal fade" id="editBookingModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editBookingModalLabel"><img class="cow-icon"
+                            src="{% static 'media/cow_icon_white.png' %}" alt="">Edit a Booking
+                    </h5>
+                    <button type="button" class="close modal-close-btn" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{% url 'edit_booking' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="user_id" value="{{ user.id }}">
+                        <div class="form-group">
+                            <label for="first_name" class="col-form-label">First Name:</label>
+                            <input type="text" name="first_name" class="form-control" value="{{ booking.first_name }}"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name" class="col-form-label">Last Name:</label>
+                            <input type="text" name="last_name" class="form-control" value="{{ booking.last_name }}"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">Email:</label>
+                            <input type="email" name="email" class="form-control" value="{{ booking.email }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-form-label">Phone:</label>
+                            <input type="text" name="phone" class="form-control" value="{{ booking.phone }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="van_id" class="col-form-label">Van Name:</label>
+                            <select name="van_id" class="form-control" required>
+                                <option value="" selected>Select a van</option>
+                                {% for van in vans %}
+                                <option value="{{ van.id }}" {% if van.id == booking.van_id %} selected {% endif %}>
+                                    {{ van.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date_required" class="col-form-label">Date Required:</label>
+                            <input type="text" id="date_required" name="date_required" class="form-control"
+                                value="{{ booking.date_required }}" required>
+                        </div>
+                        <hr>
+                        <input type="submit" value="Request Changes" class="btn btn-warning btn-block">
+                        <hr>
+                        <h5>T&Cs:<br>
+                            Please note that any changes to a confirmed booking, will revert the booking to Pending
+                            status.<br><br>
+                            Please check the Status of your booking on your Dashboard.<br><br>
+                            All requests will either be Confirmed by our administrator, or
+                            they will contact you to make alternative arrangements.
+
+                        </h5>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><!-- End Booking Modal -->
+
+
 
 </main><!-- End #main -->
 
