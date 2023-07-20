@@ -95,11 +95,7 @@
                 <div class="modal-body">
                     <form action="{% url 'create_booking' %}" method="POST">
                         {% csrf_token %}
-
-                        <input type="hidden" name="user_id" value="0">
-
-                        <input type="hidden" name="user_id" value="0">
-
+                        <input type="hidden" name="user_id" value="{{ user.id }}">
                         <div class="form-group">
                             <label for="first_name" class="col-form-label">First Name:</label>
                             <input type="text" name="first_name" class="form-control" value="" required>

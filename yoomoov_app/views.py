@@ -131,6 +131,8 @@ def create_booking(request):
         van_id = request.POST['van_id']
         van = Van.objects.get(id=van_id)
 
+        user_id = request.POST['user_id']
+
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
@@ -148,7 +150,8 @@ def create_booking(request):
             van_size=van.size,
             van_location=van.location,
             van_county=van.county,
-            price=van.price
+            price=van.price,
+            user_id=user_id
         )
 
         booking.save()
