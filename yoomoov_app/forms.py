@@ -1,5 +1,6 @@
 from django import forms
-from. models import Booking
+from .models import Booking, Van
+
 
 class BookingForm(forms.ModelForm):
     class Meta:
@@ -9,15 +10,15 @@ class BookingForm(forms.ModelForm):
             'last_name',
             'email',
             'phone',
-            'van_id',
+            'van',
             'date_required',
         ]
 
     def __init__(self, *args, **kwargs):
-        super().__init(*args, **kwargs)
+        super(BookingForm, self).__init(*args, **kwargs)
         self.fields['first_name'].widget.attrs.update({'class': 'form-control'})
         self.fields['last_name'].widget.attrs.update({'class': 'form-control'})
-        self.fields['email'].widget.attrs.update({'class': 'form-control'})
+        self.fields['email'].widget.attrs.update({'class': 'form-control', 'type': 'email'})
         self.fields['phone'].widget.attrs.update({'class': 'form-control'})
-        self.fields['van_id'].widget.attrs.update({'class': 'form-control'})
+        self.fields['van'].widget.attrs.update({'class': 'form-control'})
         self.fields['date_required'].widget.attrs.update({'class': 'form-control'})

@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import Van, Booking
+from .forms import BookingForm
+
 
 
 def home(request):
@@ -117,9 +119,12 @@ def dashboard(request):
 
     vans = Van.objects.all()
 
+    form = BookingForm()
+
     context = {
         'bookings': bookings,
-        'vans': vans
+        'vans': vans,
+        'form': form
     }
     return render(request, 'dashboard.html', context)
 
@@ -132,70 +137,108 @@ def create_booking(request):
     Retrieves Booking modal form field data and saves it to
     Booking Model database.
     """
+    print("create_booking is being called")
 
     vans = Van.objects.all()
+    print(vans)
+    form = BookingForm()
+    print(form)
 
     if request.method == 'POST':
-        van_id = request.POST['van_id']
-        van = Van.objects.get(id=van_id)
-
-        user_id = request.POST['user_id']
-
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']
-        phone = request.POST['phone']
-        date_required = request.POST['date_required']
-
-        booking = Booking(
-            first_name=first_name,
-            last_name=last_name,
-            email=email,
-            phone=phone,
-            date_required=date_required,
-            van=van,
-            van_name=van.name,
-            van_size=van.size,
-            van_location=van.location,
-            van_county=van.county,
-            price=van.price,
-            user_id=user_id
-        )
-
-        booking.save()
-
-        return redirect('dashboard')
-
-    return render(request, 'dashboard.html', {'vans': vans})
-
-
-def edit_booking(request):
-    """
-    Calls editBooking Modal and populates it with Booking Info
-
-    Any changes to the form are resubmitted to the database, changing status
-    back to pending
-    """
-
-    booking = get_object_or_404(Booking, id=booking_id)
-    print(f'Booking ID: {booking_id} exists and the booking details are: {booking.__dict__}')
-
-    vans = Van.objects.all()
-
-    if request.method == 'POST':
-        form = BookingForm(request.POST, instance=booking)
+        form = BookingForm(request.POST)
         if form.is_valid():
-            form.save()
+            booking = form.save(commit=False)
+            van_id = form.cleaned_data['van']
+            van = Van.objects.get(id=van_id)
+            booking.van = van
+            booking.van_name = van.name
+            booking.van_size = van.size
+            booking.van_location = van.location
+            booking.van_county = van.county
+            booking.price = van.price
+            booking.user_id = request.POST['user_id']
+            booking.save()
             return redirect('dashboard')
 
-    else:
-        form = BookingForm(instance=booking)
+        else:
+            form = BookingForm()
 
-    context = {
-        'form': form,
-        'booking': booking,
-        'vans': vans
-    }
+        context = {
+            'vans': vans,
+            'form': form
+        }
 
     return render(request, 'dashboard.html', context)
+
+
+
+    #     van_id = request.POST['van_id']
+    #     van = Van.objects.get(id=van_id)
+
+    #     user_id = request.POST['user_id']
+
+    #     first_name = request.POST['first_name']
+    #     last_name = request.POST['last_name']
+    #     email = request.POST['email']
+    #     phone = request.POST['phone']
+    #     date_required = request.POST['date_required']
+
+    #     booking = Booking(
+    #         first_name=first_name,
+    #         last_name=last_name,
+    #         email=email,
+    #         phone=phone,
+    #         date_required=date_required,
+    #         van=van,
+    #         van_name=van.name,
+    #         van_size=van.size,
+    #         van_location=van.location,
+    #         van_county=van.county,
+    #         price=van.price,
+    #         user_id=user_id
+    #     )
+
+    #     booking.save()
+
+    #     return redirect('dashboard')
+
+    #     form = BookingForm()
+
+    #     context = {
+    #         'vans': vans,
+    #         'form': form
+    #     }
+
+    # return render(request, 'dashboard.html', context)
+
+
+# def edit_booking(request):
+#     """
+#     Calls editBooking Modal and populates it with Booking Info
+
+#     Any changes to the form are resubmitted to the database, changing status
+#     back to pending
+#     """
+
+#     booking = get_object_or_404(Booking, id=booking_id)
+#     print(f'Booking ID: {booking_id} exists and the booking details are: {booking.__dict__}')
+
+#     vans = Van.objects.all()
+
+#     if request.method == 'POST':
+#         form = BookingForm(request.POST, instance=booking)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('dashboard')
+
+#     else:
+#         form = BookingForm(instance=booking)
+
+#     context = {
+#         'form': form,
+#         'booking': booking,
+#         'vans': vans
+#     }
+
+#     return render(request, 'dashboard.html', context)
 

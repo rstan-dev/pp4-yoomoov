@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'crispy_forms'
     'yoomoov_app'
 ]
 
@@ -111,9 +112,6 @@ DATABASES = {
    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
-
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -168,3 +166,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Disables account email verification for allauth
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+# Crispy Forms template pack
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
