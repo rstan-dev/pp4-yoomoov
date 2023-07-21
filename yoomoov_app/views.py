@@ -178,6 +178,7 @@ def edit_booking(request):
     """
 
     booking = get_object_or_404(Booking, id=booking_id)
+    print(f'Booking ID: {booking_id} exists and the booking details are: {booking.__dict__}')
 
     vans = Van.objects.all()
 
@@ -188,7 +189,7 @@ def edit_booking(request):
             return redirect('dashboard')
 
     else:
-        form = BookingForm(instance=Booking)
+        form = BookingForm(instance=booking)
 
     context = {
         'form': form,

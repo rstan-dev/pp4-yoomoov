@@ -167,4 +167,14 @@
         });
     });
 
+    /**
+     * Triggers an event listener when Dashboard Edit button is clicked
+     * Passes booking.id to data attribute, which is used to update the form action
+     */
+    $('edit-btn').on('click', function () {
+        let bookingID = $(this).data('booking-id');
+        let actionUrl = "{$ url 'edit_booking' 'id_placeholder' %}".replace('id_placeholder', bookingID);
+        $('#editBookingModal form').attr('action', actionUrl);
+    });
+
 })()

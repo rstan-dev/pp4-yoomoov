@@ -39,6 +39,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th scope="col">No.</th>
                                     <th scope="col">Date</th>
                                     <th scope="col">Location</th>
                                     <th scope="col">Size</th>
@@ -51,6 +52,7 @@
                             <tbody>
                                 {% for booking in bookings %}
                                 <tr>
+                                    <td>{{ booking.booking.id }}</td>
                                     <td>{{ booking.date_required }}</td>
                                     <td>{{ booking.van_location }}</td>
                                     <td>{{ booking.van_size }}</td>
@@ -61,8 +63,9 @@
                                 <tr>
                                     <td colspan="6">
                                         <div class="btn-group">
-                                            <a class="btn standard-btn btn-warning" href="#" data-toggle="modal"
-                                                data-target="#editBookingModal"></a>>Edit</a>
+                                            <a class="btn standard-btn btn-warning edit-btn"
+                                                data-booking-id="{{ booking.id }}" href="" data-toggle="modal"
+                                                data-target="#editBookingModal">Edit</a>
                                             <a class="btn standard-btn btn-danger" href="#">Delete</a>
                                             <a class="btn standard-btn btn-success" href="#">Feedback</a>
                                             <a class="btn standard-btn btn-primary" href="#">View</a>
@@ -155,7 +158,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{% url 'edit_booking' %}" method="POST">
+                    <form action="" method="POST">
                         {% csrf_token %}
                         <input type="hidden" name="user_id" value="{{ user.id }}">
                         <div class="form-group">
