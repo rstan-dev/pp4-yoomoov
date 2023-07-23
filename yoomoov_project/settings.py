@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from django.contrib.messages import constants as messages
 
 if os.path.isfile("env.py"):
     import env
@@ -170,3 +171,12 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Crispy Forms template pack
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# On-screen Messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+    messages.DEBUG: 'secondary',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+}

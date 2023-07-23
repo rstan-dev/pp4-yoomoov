@@ -156,6 +156,14 @@
         }
     });
 
+    /**
+     * Triggers a 3 second delay before onscreen messages disapear
+     */
+    setTimeout(function () {
+        $('#messages').fadeOut('slow');
+    }, 3000);
+
+
     // /**
     //  * Activates datepicker in Booking Modal
     //  * Adjusts date format and prevents past dates from being selected

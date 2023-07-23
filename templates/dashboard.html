@@ -14,13 +14,8 @@
                     DASHBOARD</h1>
                 <h2>Welcome {{ user.first_name }}:</h2>
             </div>
-            {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-                    {% endfor %}
-            </ul>
-            {% endif %}
+            <!-- Onscreen Messages -->
+            {%  include 'partials/_onscreen_messages.html' %}
     </section>
 
     <!-- ======= User Dashboard ======= -->
