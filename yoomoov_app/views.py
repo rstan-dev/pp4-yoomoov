@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views import generic, View
 from .models import Van, Booking
-from .forms import BookingForm
+from django.contrib import messages
 
 
 
@@ -119,56 +120,83 @@ def dashboard(request):
 
     vans = Van.objects.all()
 
-    form = BookingForm()
-
     context = {
         'bookings': bookings,
         'vans': vans,
-        'form': form
     }
     return render(request, 'dashboard.html', context)
 
 
-def create_booking(request):
-    """
-    Calls all Van objects so Van.id and Van.name can be linked
-    to booking form.
 
-    Retrieves Booking modal form field data and saves it to
-    Booking Model database.
-    """
-    print("create_booking is being called")
 
-    vans = Van.objects.all()
-    print(vans)
-    form = BookingForm()
-    print(form)
+# class CreateBooking(LoginRequiredMixin, FormView):
+#     """
+#     Renders a booking form for a logged in user to submit a new booking request
+#     """
+#     form_class = BookingForm
+#     template_name = 'dashboard.html'
+#     success_url = '/dashboard/'
 
-    if request.method == 'POST':
-        form = BookingForm(request.POST)
-        if form.is_valid():
-            booking = form.save(commit=False)
-            van_id = form.cleaned_data['van']
-            van = Van.objects.get(id=van_id)
-            booking.van = van
-            booking.van_name = van.name
-            booking.van_size = van.size
-            booking.van_location = van.location
-            booking.van_county = van.county
-            booking.price = van.price
-            booking.user_id = request.POST['user_id']
-            booking.save()
-            return redirect('dashboard')
+#     def form_valid(self, form):
+#         print(form.cleaned_data)
+#         form.instance.client = self.request.user
+#         form.save()
+#         messages.success(
+#             self.request,
+#             'Booking submitted successfully.')
+#         return super().form_valid(form)
 
-        else:
-            form = BookingForm()
+#     def form_invalid(self, form):
+#         messages.error(
+#             self.request, 'Error with your booking Please try again.')
+#         return super().form_invalid(form)
 
-        context = {
-            'vans': vans,
-            'form': form
-        }
+#     def post(self, request, *args, **kwargs):
+#         form = self.get_form()
+#         if form.is_valid():
+#             return self.form_valid(form)
+#         else:
+#             return self.form_invalid(form)
 
-    return render(request, 'dashboard.html', context)
+
+
+#     """  def create_booking(request):
+#     Calls all Van objects so Van.id and Van.name can be linked
+#     to booking form.
+
+#     Retrieves Booking modal form field data and saves it to
+#     Booking Model database.
+#     """
+
+#     vans = Van.objects.all()
+
+#     form = BookingForm()
+
+#     if request.method == 'POST':
+#         form = BookingForm(request.POST)
+#         if form.is_valid():
+#             booking = form.save(commit=False)
+#             van_id = form.cleaned_data['van']
+#             van = Van.objects.get(id=van_id)
+#             booking.van = van
+#             booking.van_name = van.name
+#             booking.van_size = van.size
+#             booking.van_location = van.location
+#             booking.van_county = van.county
+#             booking.price = van.price
+#             booking.user_id = request.POST['user_id']
+#             booking.save()
+#             return redirect('dashboard')
+
+#         else:
+#             form = BookingForm()
+
+#         context = {
+#             'vans': vans,
+#             'form': form
+#         }
+
+#     return render(request, 'dashboard.html', context)
 
 
 

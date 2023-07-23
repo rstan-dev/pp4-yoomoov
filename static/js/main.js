@@ -156,25 +156,25 @@
         }
     });
 
-    /**
-     * Activates datepicker in Booking Modal
-     * Adjusts date format and prevents past dates from being selected
-     */
-    $(function () {
-        $("#date_required").datepicker({
-            dateFormat: 'yy-mm-dd',
-            minDate: 0
-        });
-    });
+    // /**
+    //  * Activates datepicker in Booking Modal
+    //  * Adjusts date format and prevents past dates from being selected
+    //  */
+    // $(function () {
+    //     $("#date_required").datepicker({
+    //         dateFormat: 'yy-mm-dd',
+    //         minDate: 0
+    //     });
+    // });
 
-    /**
-     * Triggers an event listener when Dashboard Edit button is clicked
-     * Passes booking.id to data attribute, which is used to update the form action
-     */
-    $('edit-btn').on('click', function () {
-        let bookingID = $(this).data('booking-id');
-        let actionUrl = "{$ url 'edit_booking' 'id_placeholder' %}".replace('id_placeholder', bookingID);
-        $('#editBookingModal form').attr('action', actionUrl);
-    });
+    // /**
+    //  * Triggers an event listener when Dashboard Edit button is clicked
+    //  * Passes booking.id to data attribute, which is used to update the form action
+    //  */
+    // $('edit-btn').on('click', function () {
+    //     let bookingID = $(this).data('booking-id');
+    //     let actionUrl = "{$ url 'edit_booking' 'id_placeholder' %}".replace('id_placeholder', bookingID);
+    //     $('#editBookingModal form').attr('action', actionUrl);
+    // });
 
 })()

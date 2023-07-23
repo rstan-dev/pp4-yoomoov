@@ -55,8 +55,9 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    'crispy_forms'
-    'yoomoov_app'
+    'crispy_forms',
+    'yoomoov_app',
+    'crispy_bootstrap4'
 ]
 
 SITE_ID = 1

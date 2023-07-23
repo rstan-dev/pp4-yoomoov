@@ -9,6 +9,5 @@ urlpatterns = [
     path('<slug:slug>/', views.van_detail, name='van_detail'),
     path('search', views.van_search, name='search'),
     path('dashboard', views.dashboard, name='dashboard'),
-    path('create_booking', views.create_booking, name='create_booking'),
-    # path('edit_booking/<int:booking_id>/', views.edit_booking, name='edit_booking')
+
 ]
