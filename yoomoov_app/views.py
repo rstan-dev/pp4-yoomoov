@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.views import generic, View
 from .models import Van, Booking
 from django.contrib import messages
+from .forms import BookingForm
 
 
 
@@ -120,13 +121,36 @@ def dashboard(request):
 
     vans = Van.objects.all()
 
+    form = BookingForm()
+
     context = {
         'bookings': bookings,
         'vans': vans,
+        'form': form
     }
     return render(request, 'dashboard.html', context)
 
 
+def createBooking(request):
+
+    bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required')
+
+    vans = Van.objects.all()
+
+    form = BookingForm()
+    if request.method == 'POST':
+        print('Printing POST', request.POST)
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    context = {
+        'bookings': bookings,
+        'vans': vans,
+        'form': form
+        }
+
+    return render(request, 'dashboard.html', context)
 
 
 # class CreateBooking(LoginRequiredMixin, FormView):
