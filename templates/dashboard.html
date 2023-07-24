@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 
 {% block content %}
@@ -98,7 +99,7 @@
                 <div class="modal-body">
                     <form action="{% url 'create_booking' %}" method="POST">
                         {% csrf_token %}
-                        {{ form }}
+                        {{ form|crispy }}
 
                         <hr>
                         <input type="submit" value="Request Booking" class="btn btn-warning btn-block">
