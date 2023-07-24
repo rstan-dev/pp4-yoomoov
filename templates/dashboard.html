@@ -53,7 +53,7 @@
                             <tbody>
                                 {% for booking in bookings %}
                                 <tr>
-                                    <td>{{ booking.booking_number }}</td>
+                                    <td>{{ booking.id }}</td>
                                     <td>{{ booking.date_required }}</td>
                                     <td>{{ booking.van_location }}</td>
                                     <td>{{ booking.van_size }}</td>
@@ -64,8 +64,8 @@
                                 <tr>
                                     <td colspan="6">
                                         <div class="btn-group">
-                                            <a class="btn standard-btn btn-warning edit-btn" data-booking-id="" href=""
-                                                data-toggle="modal" data-target="#updateBookingModal">Edit</a>
+                                            <a class="btn standard-btn btn-warning"
+                                                href="{% url 'edit_booking' booking.id %}">Edit</a>
                                             <a class="btn standard-btn btn-danger" href="#">Delete</a>
                                             <a class="btn standard-btn btn-success" href="#">Feedback</a>
                                             <a class="btn standard-btn btn-primary" href="#">View</a>
@@ -116,36 +116,7 @@
     </div><!-- End Booking Modal -->
 
 
-    <!-- Update Booking Modal -->
-    <div class="modal fade" id="updateBookingModal" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="bookingModalLabel"><img class="cow-icon"
-                            src="{% static 'media/cow_icon_white.png' %}" alt="">Update this Booking
-                    </h5>
-                    <button type="button" class="close modal-close-btn" data-dismiss="modal">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="{% url 'update_booking' booking.id %}" method="POST">
-                        {% csrf_token %}
-                        {{ form|crispy }}
 
-                        <hr>
-                        <input type="submit" value="Request Changes" class="btn btn-warning btn-block">
-                    </form>
-                    <hr>
-                    <h5>T&Cs:<br>
-                        Please check the Status of your booking on your Dashboard.<br><br>
-                        All requests will either be Confirmed by our administrator, or
-                        they will contact you to make alternative arrangements.
-                    </h5>
-                </div>
-            </div>
-        </div>
-    </div><!-- End Update Booking Modal -->
 
 
 

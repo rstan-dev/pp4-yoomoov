@@ -119,6 +119,8 @@ def dashboard(request):
     """
     bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required')
 
+    # booking = get_object_or_404(Booking, id=booking_id)
+
     vans = Van.objects.all()
 
     form = BookingForm()
@@ -126,7 +128,8 @@ def dashboard(request):
     context = {
         'bookings': bookings,
         'vans': vans,
-        'form': form
+        'form': form,
+        # 'booking': booking
     }
     return render(request, 'dashboard.html', context)
 
@@ -134,6 +137,8 @@ def dashboard(request):
 def createBooking(request):
 
     bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required')
+
+    # booking = get_object_or_404(Booking, id=booking_id)
 
     vans = Van.objects.all()
 
@@ -152,176 +157,43 @@ def createBooking(request):
             booking.user_id = request.user.id
             booking.save()
             messages.success(request, 'Your booking has been created successfully')
+            return redirect('dashboard')
 
         form = BookingForm()
 
     context = {
         'bookings': bookings,
         'vans': vans,
-        'form': form
+        'form': form,
+        # 'booking': booking
         }
 
     return render(request, 'dashboard.html', context)
 
 
-def updateBooking(request, booking_id):
-    bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required')
+def editBooking(request, pk):
 
-    vans = Van.objects.all()
+    booking = Booking.objects.get(id=pk)
+    form = BookingForm(instance=booking)
 
-    form = BookingForm()
+    if request.method == 'POST':
+        print('Printing POST', request.POST)
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            booking = form.save(commit=False)
+            booking.van_name = booking.van.name
+            booking.van_size = booking.van.size
+            booking.van_location = booking.van.location
+            booking.van_county = booking.van.county
+            booking.price = booking.van.price
+            booking.user_id = request.user.id
+            booking.save()
+            messages.success(request, 'Your booking has been updated successfully')
+            return redirect('dashboard')
 
     context = {
-        'bookings': bookings,
-        'vans': vans,
-        'form': form
-        }
+        'form': form,
+    }
 
-    return render(request, 'dashboard.html', context)
-
-
-
-
-
-
-# class CreateBooking(LoginRequiredMixin, FormView):
-#     """
-#     Renders a booking form for a logged in user to submit a new booking request
-#     """
-#     form_class = BookingForm
-#     template_name = 'dashboard.html'
-#     success_url = '/dashboard/'
-
-#     def form_valid(self, form):
-#         print(form.cleaned_data)
-#         form.instance.client = self.request.user
-#         form.save()
-#         messages.success(
-#             self.request,
-#             'Booking submitted successfully.')
-#         return super().form_valid(form)
-
-#     def form_invalid(self, form):
-#         messages.error(
-#             self.request, 'Error with your booking Please try again.')
-#         return super().form_invalid(form)
-
-#     def post(self, request, *args, **kwargs):
-#         form = self.get_form()
-#         if form.is_valid():
-#             return self.form_valid(form)
-#         else:
-#             return self.form_invalid(form)
-
-
-
-#     """  def create_booking(request):
-#     Calls all Van objects so Van.id and Van.name can be linked
-#     to booking form.
-
-#     Retrieves Booking modal form field data and saves it to
-#     Booking Model database.
-#     """
-
-#     vans = Van.objects.all()
-
-#     form = BookingForm()
-
-#     if request.method == 'POST':
-#         form = BookingForm(request.POST)
-#         if form.is_valid():
-#             booking = form.save(commit=False)
-#             van_id = form.cleaned_data['van']
-#             van = Van.objects.get(id=van_id)
-#             booking.van = van
-#             booking.van_name = van.name
-#             booking.van_size = van.size
-#             booking.van_location = van.location
-#             booking.van_county = van.county
-#             booking.price = van.price
-#             booking.user_id = request.POST['user_id']
-#             booking.save()
-#             return redirect('dashboard')
-
-#         else:
-#             form = BookingForm()
-
-#         context = {
-#             'vans': vans,
-#             'form': form
-#         }
-
-#     return render(request, 'dashboard.html', context)
-
-
-
-    #     van_id = request.POST['van_id']
-    #     van = Van.objects.get(id=van_id)
-
-    #     user_id = request.POST['user_id']
-
-    #     first_name = request.POST['first_name']
-    #     last_name = request.POST['last_name']
-    #     email = request.POST['email']
-    #     phone = request.POST['phone']
-    #     date_required = request.POST['date_required']
-
-    #     booking = Booking(
-    #         first_name=first_name,
-    #         last_name=last_name,
-    #         email=email,
-    #         phone=phone,
-    #         date_required=date_required,
-    #         van=van,
-    #         van_name=van.name,
-    #         van_size=van.size,
-    #         van_location=van.location,
-    #         van_county=van.county,
-    #         price=van.price,
-    #         user_id=user_id
-    #     )
-
-    #     booking.save()
-
-    #     return redirect('dashboard')
-
-    #     form = BookingForm()
-
-    #     context = {
-    #         'vans': vans,
-    #         'form': form
-    #     }
-
-    # return render(request, 'dashboard.html', context)
-
-
-# def edit_booking(request):
-#     """
-#     Calls editBooking Modal and populates it with Booking Info
-
-#     Any changes to the form are resubmitted to the database, changing status
-#     back to pending
-#     """
-
-#     booking = get_object_or_404(Booking, id=booking_id)
-#     print(f'Booking ID: {booking_id} exists and the booking details are: {booking.__dict__}')
-
-#     vans = Van.objects.all()
-
-#     if request.method == 'POST':
-#         form = BookingForm(request.POST, instance=booking)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('dashboard')
-
-#     else:
-#         form = BookingForm(instance=booking)
-
-#     context = {
-#         'form': form,
-#         'booking': booking,
-#         'vans': vans
-#     }
-
-#     return render(request, 'dashboard.html', context)
+    return render(request, 'edit_booking.html', context)
 
