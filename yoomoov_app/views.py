@@ -138,11 +138,21 @@ def createBooking(request):
     vans = Van.objects.all()
 
     form = BookingForm()
+
     if request.method == 'POST':
         print('Printing POST', request.POST)
         form = BookingForm(request.POST)
         if form.is_valid():
-            form.save()
+            booking = form.save(commit=False)
+            booking.van_name = booking.van.name
+            booking.van_size = booking.van.size
+            booking.van_location = booking.van.location
+            booking.van_county = booking.van.county
+            booking.price = booking.van.price
+            booking.user_id = request.user.id
+            booking.save()
+
+        form = BookingForm()
 
     context = {
         'bookings': bookings,
