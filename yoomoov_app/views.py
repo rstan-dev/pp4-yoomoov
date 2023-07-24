@@ -186,6 +186,7 @@ def editBooking(request, pk):
             booking.van_location = booking.van.location
             booking.van_county = booking.van.county
             booking.price = booking.van.price
+            booking.status = 'Pending'
             booking.user_id = request.user.id
             booking.save()
             messages.success(request, 'Your booking has been updated successfully')
