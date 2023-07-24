@@ -151,6 +151,7 @@ def createBooking(request):
             booking.price = booking.van.price
             booking.user_id = request.user.id
             booking.save()
+            messages.success(request, 'Your booking has been created successfully')
 
         form = BookingForm()
 
