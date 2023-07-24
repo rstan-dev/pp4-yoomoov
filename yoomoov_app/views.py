@@ -164,6 +164,26 @@ def createBooking(request):
     return render(request, 'dashboard.html', context)
 
 
+def updateBooking(request, booking_id):
+    bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required')
+
+    vans = Van.objects.all()
+
+    form = BookingForm()
+
+    context = {
+        'bookings': bookings,
+        'vans': vans,
+        'form': form
+        }
+
+    return render(request, 'dashboard.html', context)
+
+
+
+
+
+
 # class CreateBooking(LoginRequiredMixin, FormView):
 #     """
 #     Renders a booking form for a logged in user to submit a new booking request
