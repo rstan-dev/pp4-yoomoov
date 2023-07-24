@@ -17,21 +17,29 @@
             {%  include 'partials/_onscreen_messages.html' %}
     </section>
 
-    <div class="">
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{ form|crispy }}
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
 
-            <hr>
-            <input type="submit" value="Request Changes" class="btn btn-warning btn-block">
-        </form>
-        <hr>
-        <h5>T&Cs:<br>
-            Please check the Status of your booking on your Dashboard.<br><br>
-            All requests will either be Confirmed by our administrator, or
-            they will contact you to make alternative arrangements.
-        </h5>
-    </div>
+                        <hr>
+                        <input type="submit" value="Request Changes" class="btn btn-warning btn-block">
+                    </form>
+                    <hr>
+                    <a href="{% url 'dashboard' %}" class="btn btn-danger btn-block">Cancel Changes</a>
+                    <hr>
+                    <h5>T&Cs:<br>
+                        Please check the Status of your booking on your Dashboard.<br><br>
+                        All requests will either be Confirmed by our administrator, or
+                        they will contact you to make alternative arrangements.
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </main><!-- End #main -->
 
