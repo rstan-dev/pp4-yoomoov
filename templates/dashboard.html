@@ -69,7 +69,8 @@
                                             <a class="btn standard-btn btn-danger"
                                                 href=" {% url 'delete_booking' booking.id %}">Delete</a>
                                             <a class="btn standard-btn btn-success" href="#">Feedback</a>
-                                            <a class="btn standard-btn btn-primary" href="#">View</a>
+                                            <a class="btn standard-btn btn-primary"
+                                                href="{% url 'van_detail' slug=booking.van.slug %}">View</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -86,7 +87,7 @@
     </section>
 
     <!-- Booking Modal -->
-    <div class="modal fade" id="bookingModal" role="dialog">
+    <div class=" modal fade" id="bookingModal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -107,8 +108,10 @@
                     </form>
                     <hr>
                     <h5>T&Cs:<br>
-                        Please check the Status of your booking on your Dashboard.<br><br>
-                        All requests will either be Confirmed by our administrator, or
+                        Please check the Status of your booking on your
+                        Dashboard.<br><br>
+                        All requests will either be Confirmed by our
+                        administrator, or
                         they will contact you to make alternative arrangements.
                     </h5>
                 </div>
