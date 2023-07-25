@@ -145,8 +145,8 @@
                                     <td>{{ feedback.booking.booking_number }}</td>
                                     <td>{{ feedback.booking.date_required }}</td>
                                     <td>{{ feedback.booking.van }}</td>
-                                    <td>{{ feedback.title }} {{ feedback.comments }}</td>
-                                    <td>Approved</td>
+                                    <td><strong>{{ feedback.title }}</strong><br>{{ feedback.comment }}</td>
+                                    <td>{{ feedback.is_approved }}</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
