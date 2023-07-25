@@ -66,7 +66,8 @@
                                         <div class="btn-group">
                                             <a class="btn standard-btn btn-warning"
                                                 href="{% url 'edit_booking' booking.id %}">Edit</a>
-                                            <a class="btn standard-btn btn-danger" href="#">Delete</a>
+                                            <a class="btn standard-btn btn-danger"
+                                                href=" {% url 'delete_booking' booking.id %}">Delete</a>
                                             <a class="btn standard-btn btn-success" href="#">Feedback</a>
                                             <a class="btn standard-btn btn-primary" href="#">View</a>
                                         </div>
@@ -114,12 +115,6 @@
             </div>
         </div>
     </div><!-- End Booking Modal -->
-
-
-
-
-
-
 
 </main><!-- End #main -->
 

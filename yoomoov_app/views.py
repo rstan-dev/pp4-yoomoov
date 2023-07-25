@@ -198,3 +198,13 @@ def editBooking(request, pk):
 
     return render(request, 'edit_booking.html', context)
 
+
+def deleteBooking(request, pk):
+
+    booking = Booking.objects.get(id=pk)
+    context = {
+        'booking': booking
+    }
+
+    return render(request, 'delete_booking.html', context)
+
