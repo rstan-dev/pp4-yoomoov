@@ -4,6 +4,9 @@ from django.views import generic, View
 from .models import Van, Booking, Feedback
 from django.contrib import messages
 from .forms import BookingForm
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 
@@ -57,14 +60,27 @@ def van_detail(request, slug):
     Calls the Van.object to link the Booking Modal
     van select dropdown
     """
+
+    logger.debug("Van Detail view is being executed.")
+
     queryset = Van.objects.filter(is_live=True)
+
     van = get_object_or_404(queryset, slug=slug)
 
     vans = Van.objects.all()
 
+    feedbacks = Feedback.objects.filter(is_approved='Approved', van=van).order_by('date_created')
+
+
+
+    # print("Slug:", slug)
+    # print("Van:", van)
+    # print("Feedbacks:", feedbacks)
+
     context = {
         'van': van,
-        'vans': vans
+        'vans': vans,
+        'feedbacks': feedbacks
     }
 
     return render(request, 'van_detail.html', context)
@@ -75,6 +91,7 @@ def van_search(request):
     Renders a list of vans using the Search choices from the Hero
     Van Finder Box.
     """
+
     queryset_vans = Van.objects.order_by('-date_added').filter(is_live=True)
 
     # Van Size Filter
