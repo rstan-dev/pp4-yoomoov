@@ -122,7 +122,7 @@ class Feedback(models.Model):
     title = models.CharField(max_length=200, unique=True)
     comment = models.TextField(max_length=500)
     rating = models.IntegerField(choices=RATING_CHOICES, default=5)
-    is_approved = models.BooleanField(default=False)
+    is_approved = models.CharField(max_length=25, choices=APPROVAL_CHOICES, default='Pending')
     date_created = models.DateTimeField(default=datetime.now, blank=True)
     date_last_updated = models.DateTimeField(default=datetime.now, blank=True)
 
