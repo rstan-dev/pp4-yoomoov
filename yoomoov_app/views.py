@@ -202,6 +202,11 @@ def editBooking(request, pk):
 def deleteBooking(request, pk):
 
     booking = Booking.objects.get(id=pk)
+    if request.method == "POST":
+        booking.delete()
+        messages.success(request, 'Your booking has been successfully deleted')
+        return redirect('dashboard')
+
     context = {
         'booking': booking
     }
