@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime, timedelta
 from cloudinary.models import CloudinaryField
-from .choices import SIZE_CHOICES, LOCATION_CHOICES, COUNTY_CHOICES, STATUS_CHOICES
+from .choices import SIZE_CHOICES, LOCATION_CHOICES, COUNTY_CHOICES, STATUS_CHOICES, RATING_CHOICES
 
 
 class Van(models.Model):
@@ -106,3 +106,32 @@ class Booking(models.Model):
 
     def __str__(self):
         return self.booking_number
+
+
+class Feedback(models.Model):
+    """
+    Model for capturing feedback
+    """
+    booking = models.ForeignKey(Booking, on_delete=models.CASCADE)
+    van = models.ForeignKey(Van, on_delete=models.CASCADE)
+    user_fk = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    booking_number = models.CharField(max_length=200, unique=True, blank=True, editable=True)
+    van_name = van_name = models.CharField(max_length=250, default='Enter name of van')
+
+    title = models.CharField(max_length=200, unique=True)
+    comment = models.TextField(max_length=500)
+    rating = models.IntegerField(choices=RATING_CHOICES, default=5)
+    is_approved = models.BooleanField(default=False)
+    date_created = models.DateTimeField(default=datetime.now, blank=True)
+    date_last_updated = models.DateTimeField(default=datetime.now, blank=True)
+
+    class Meta:
+        """
+        Meta class for ordering feedback by latest date-created
+        """
+        ordering = ['-date_created']
+
+    def __str__(self):
+        return self.title
+

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Van, Booking
+from .models import Van, Booking, Feedback
 
 
 @admin.register(Van)
@@ -19,3 +19,9 @@ class BookingAdmin(admin.ModelAdmin):
     list_filter = ('date_required', 'van_location', 'status')
     list_editable = ('status', 'price')
     search_fields = ('booking_number', 'first_name', 'last_name', 'van_location', 'status')
+
+@admin.register(Feedback)
+class FeedbackAdmin(admin.ModelAdmin):
+    list_display = ('booking_number', 'van_name', 'title', 'rating', 'is_approved')
+    list_display_links = ('title',)
+    list_editable = ('is_approved',)
