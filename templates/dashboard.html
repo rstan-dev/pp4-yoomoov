@@ -53,7 +53,7 @@
                             <tbody>
                                 {% for booking in bookings %}
                                 <tr>
-                                    <td>{{ booking.id }}</td>
+                                    <td>{{ booking.booking_number }}</td>
                                     <td>{{ booking.date_required }}</td>
                                     <td>{{ booking.van_location }}</td>
                                     <td>{{ booking.van_size }}</td>
@@ -118,6 +118,42 @@
             </div>
         </div>
     </div><!-- End Booking Modal -->
+
+    <!-- ======= Feedback Section ======= -->
+    <section id="dashboard" class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Your Feedback</h2>
+                    <p>Here is the feedback you have left</p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Booking No.</th>
+                                    <th scope="col">Booking Date</th>
+                                    <th scope="col">Van Name</th>
+                                    <th scope="col">Your Feedback</th>
+                                    <th scope="col">Status</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1001</td>
+                                    <td>01/07/2023</td>
+                                    <td>Small Van in Kemptown</td>
+                                    <td>The YooMoov team turned up on time and were so nice and helpful. I will
+                                        defintiley be using them again!</td>
+                                    <td>Approved</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </main><!-- End #main -->
 
