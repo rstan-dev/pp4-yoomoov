@@ -82,7 +82,10 @@ class Booking(models.Model):
         verbose_name='Total Price',
         default='0'
     )
-    user_id = user_id = models.IntegerField(blank=True, default='0')
+    user_id = models.IntegerField(blank=True, default='0')
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
 
     def save(self, *args, **kwargs):
         """
