@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views import generic, View
-from .models import Van, Booking
+from .models import Van, Booking, Feedback
 from django.contrib import messages
 from .forms import BookingForm
 
@@ -119,17 +119,17 @@ def dashboard(request):
     """
     bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required')
 
-    # booking = get_object_or_404(Booking, id=booking_id)
-
     vans = Van.objects.all()
 
     form = BookingForm()
+
+    feedbacks = Feedback.objects.filter(user_fk=request.user).order_by('date_created')
 
     context = {
         'bookings': bookings,
         'vans': vans,
         'form': form,
-        # 'booking': booking
+        'feedbacks': feedbacks
     }
     return render(request, 'dashboard.html', context)
 

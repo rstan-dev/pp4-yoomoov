@@ -46,3 +46,8 @@ RATING_CHOICES = (
         (4, '4'),
         (5, '5'),
     )
+
+APPROVAL_CHOICES = (
+        ('Pending', 'Pending'),
+        ('Approved', 'Approved'),
+    )

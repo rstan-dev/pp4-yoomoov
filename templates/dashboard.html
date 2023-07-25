@@ -125,6 +125,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>Your Feedback</h2>
+                    {% if feedbacks %}
                     <p>Here is the feedback you have left</p>
                     <div class="table-responsive">
                         <table class="table">
@@ -139,17 +140,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for feedback in feedbacks %}
                                 <tr>
-                                    <td>1001</td>
-                                    <td>01/07/2023</td>
-                                    <td>Small Van in Kemptown</td>
-                                    <td>The YooMoov team turned up on time and were so nice and helpful. I will
-                                        defintiley be using them again!</td>
+                                    <td>{{ feedback.booking.booking_number }}</td>
+                                    <td>{{ feedback.booking.date_required }}</td>
+                                    <td>{{ feedback.booking.van }}</td>
+                                    <td>{{ feedback.title }} {{ feedback.comments }}</td>
                                     <td>Approved</td>
                                 </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
+                    {% else %}
+                    <h3>There is no feedback to display</h3>
+                    {% endif %}
                 </div>
             </div>
         </div>
