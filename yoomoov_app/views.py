@@ -250,12 +250,33 @@ def deleteBooking(request, pk):
     return render(request, 'delete_booking.html', context)
 
 
-def leaveFeedback(request):
+def leaveFeedback(request, pk):
 
+    booking = Booking.objects.get(id=pk)
     form = FeedbackForm()
 
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+
+        if form.is_valid():
+            print('Printing POST', request.POST)
+            print("form is valid")
+            feedback = form.save(commit=False)
+            feedback.booking = booking
+            feedback.van = booking.van
+            feedback.booking_number = booking.booking_number
+            feedback.van_name = booking.van_name
+            feedback.user_fk = request.user
+            feedback.save()
+            print("feedback saved successfully")
+            messages.success(request, 'Your feedback has been submitted for review successfully')
+            return redirect('dashboard')
+        else:
+            print("Form is not valid:", form.errors)
+
     context = {
-        'form': form
+        'form': form,
+        'booking': booking,
     }
 
     return render(request, 'leave_feedback.html', context)

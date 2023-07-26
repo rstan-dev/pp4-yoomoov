@@ -31,7 +31,7 @@ class BookingForm(forms.ModelForm):
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
-        fields = ['van', 'title', 'comment', 'rating']
+        fields = ['title', 'comment', 'rating']
 
 
 

@@ -69,7 +69,8 @@
                                             <a class="btn standard-btn btn-danger"
                                                 href=" {% url 'delete_booking' booking.id %}">Delete</a>
                                             {% if booking.status == 'Completed' %}
-                                            <a class="btn standard-btn btn-info" href="#">Feedback</a>
+                                            <a class="btn standard-btn btn-info"
+                                                href="{% url 'leave_feedback' booking.id %}">Feedback</a>
                                             {% else %}
                                             <a class="btn standard-btn btn-light" href="#">Feedback</a>
                                             {% endif %}

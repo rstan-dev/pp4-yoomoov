@@ -117,7 +117,7 @@ class Feedback(models.Model):
     user_fk = models.ForeignKey(User, on_delete=models.CASCADE)
 
     booking_number = models.CharField(max_length=200, unique=True, blank=True, editable=True)
-    van_name = van_name = models.CharField(max_length=250, default='Enter name of van')
+    van_name = models.CharField(max_length=250, default='Enter name of van')
 
     title = models.CharField(max_length=200, unique=True)
     comment = models.TextField(max_length=500)
