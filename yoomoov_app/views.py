@@ -69,7 +69,7 @@ def van_detail(request, slug):
 
     vans = Van.objects.all()
 
-    feedbacks = Feedback.objects.filter(is_approved='Approved', van=van).order_by('date_created')
+    van_feedbacks = Feedback.objects.filter(is_approved='Approved', van=van).order_by('date_created')
 
 
 
@@ -80,7 +80,7 @@ def van_detail(request, slug):
     context = {
         'van': van,
         'vans': vans,
-        'feedbacks': feedbacks
+        'van_feedbacks': van_feedbacks
     }
 
     return render(request, 'van_detail.html', context)
