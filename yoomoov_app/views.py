@@ -9,7 +9,6 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-
 def home(request):
     """
     GETs latest 3 van listings from database
@@ -59,9 +58,10 @@ def van_detail(request, slug):
 
     Calls the Van.object to link the Booking Modal
     van select dropdown
-    """
 
-    logger.debug("Van Detail view is being executed.")
+    Calls Feedback.object to call any feedback specific to a van
+    to display on van detail page
+    """
 
     queryset = Van.objects.filter(is_live=True)
 
@@ -70,12 +70,6 @@ def van_detail(request, slug):
     vans = Van.objects.all()
 
     van_feedbacks = Feedback.objects.filter(is_approved='Approved', van=van).order_by('date_created')
-
-
-
-    # print("Slug:", slug)
-    # print("Van:", van)
-    # print("Feedbacks:", feedbacks)
 
     context = {
         'van': van,
@@ -133,6 +127,10 @@ def dashboard(request):
 
     Calls the van object in order to render the van name list in the
     booking form dropdown
+
+    Calls the BookingForm from forms.py to display when Create Booking button is clicked
+
+    Calls the Feedback objects to display any feedback left by a user
     """
     bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required')
 
@@ -152,17 +150,23 @@ def dashboard(request):
 
 
 def createBooking(request):
+    """
+    Method for creating a booking and updating the Booking model.
+    Displays the bookings by user on the dashboard
+    Calls the Van objects to display the van names in the booking form
+    For any POST methods, the form is validated and booking fields are
+    saved to the database.
+    A success message is displayed on screen to the user
+    A new instance of the Booking Form is created to clear out the fields
+    """
 
     bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required')
-
-    # booking = get_object_or_404(Booking, id=booking_id)
 
     vans = Van.objects.all()
 
     form = BookingForm()
 
     if request.method == 'POST':
-        print('Printing POST', request.POST)
         form = BookingForm(request.POST)
         if form.is_valid():
             booking = form.save(commit=False)
@@ -182,14 +186,21 @@ def createBooking(request):
         'bookings': bookings,
         'vans': vans,
         'form': form,
-        # 'booking': booking
         }
 
     return render(request, 'dashboard.html', context)
 
 
 def editBooking(request, pk):
-
+    """
+    Method to edit/update booking details
+    Booking objects are called using the booking id primary key (pk)
+    The booking form is generated, prefilled, on a dedicated edit_booking page
+    with an instance of the booking.
+    Any changes to the form are saved and a success message is displayed
+    to the user.
+    User is redirected back to the dashboard on completion.
+    """
     booking = Booking.objects.get(id=pk)
     form = BookingForm(instance=booking)
 
@@ -217,7 +228,14 @@ def editBooking(request, pk):
 
 
 def deleteBooking(request, pk):
-
+    """
+    Method to delete a specific booking.
+    Booking objects are called using the booking id primary key (pk)
+    User is taken to a dedicated delete_booking page with a confirmation
+    message and a cancel button.
+    User is redirected back to the dashboard on completion with a success
+    messgae displayed on screen
+    """
     booking = Booking.objects.get(id=pk)
     if request.method == "POST":
         booking.delete()
@@ -229,4 +247,3 @@ def deleteBooking(request, pk):
     }
 
     return render(request, 'delete_booking.html', context)
-
