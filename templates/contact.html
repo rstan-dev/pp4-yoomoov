@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 
 {% block content %}
@@ -26,21 +27,27 @@
                     <div class="info-wrap">
                         <div class="row">
                             <div class="col-lg-4 info">
-                                <i class="fa-sharp fa-solid fa-location-dot contact-icons"></i>
-                                <h4>Location:</h4>
-                                <p>124 City Road, London, EC1V 2NX</p>
+                                <div class="icon-header">
+                                    <i class="fa-sharp fa-solid fa-location-dot contact-icons"></i>
+                                    <h4>Location:</h4>
+                                </div>
+                                <h5>124 City Road, London</h5>
                             </div>
 
                             <div class="col-lg-4 info mt-4 mt-lg-0 contact-icons">
-                                <i class="fa-solid fa-envelope contact-icons"></i>
-                                <h4>Email:</h4>
-                                <p>info@yoomoov.com</p>
+                                <div class="icon-header">
+                                    <i class="fa-solid fa-envelope contact-icons"></i>
+                                    <h4>Email:</h4>
+                                </div>
+                                <h5>info@yoomoov.com</h5>
                             </div>
 
                             <div class="col-lg-4 info mt-4 mt-lg-0">
-                                <i class="fa-solid fa-phone contact-icons"></i>
-                                <h4>Call:</h4>
-                                <p>01234 567891</p>
+                                <div class="icon-header">
+                                    <i class="fa-solid fa-phone contact-icons"></i>
+                                    <h4>Call:</h4>
+                                </div>
+                                <h5>01234 567891</h5>
                             </div>
                         </div>
                     </div>
@@ -53,21 +60,25 @@
     <section id="login" class="bg-light py-5">
         <div class="container">
             <div class="card-body">
-                <form action="index.html">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" name="name" class="form-control" id="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" name="email" class="form-control" id="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea rows="5" name="message" class="form-control" id="message" required></textarea>
-                    </div>
-                    <input type="submit" value="Send Message" class="btn btn-warning btn-block send-message-btn">
-                </form>
+                <div class="contact-form-container mx-auto my-4">
+                    <form action="index.html">
+                        <div class="form-group">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <label for="name">Your Name</label>
+                            <input type="text" name="name" class="form-control" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" name="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea rows="5" name="message" class="form-control" id="message" required></textarea>
+                        </div>
+                        <input type="submit" value="Send Message" class="btn btn-warning btn-block send-message-btn">
+                    </form>
+                </div>
             </div>
         </div>
     </section><!-- End Contact Form Section -->
