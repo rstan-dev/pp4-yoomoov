@@ -81,7 +81,7 @@
                         {% if van_feedbacks %}
                         {% for van_feedback in van_feedbacks %}
                         <h4>{{ van_feedback.title}}</h4>
-                        <h6>{{ van_feedback.user }}</h6>
+                        <h6>Left by: {{ van_feedback.user_fk }}</h6>
                         <p>{{ van_feedback.comment }}</p>
                         {% endfor %}
                         {% else %}
