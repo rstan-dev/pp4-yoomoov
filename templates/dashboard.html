@@ -59,7 +59,7 @@
                                     <td>{{ booking.van_size }}</td>
                                     <td>{{ booking.van }}</td>
                                     <td>{{ booking.price }}</td>
-                                    <td>{{ booking.status }}</td>
+                                    <td class="booking-status">{{ booking.status }}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="6">
@@ -68,7 +68,11 @@
                                                 href="{% url 'edit_booking' booking.id %}">Edit</a>
                                             <a class="btn standard-btn btn-danger"
                                                 href=" {% url 'delete_booking' booking.id %}">Delete</a>
-                                            <a class="btn standard-btn btn-success" href="#">Feedback</a>
+                                            {% if booking.status == 'Completed' %}
+                                            <a class="btn standard-btn btn-info" href="#">Feedback</a>
+                                            {% else %}
+                                            <a class="btn standard-btn btn-light" href="#">Feedback</a>
+                                            {% endif %}
                                             <a class="btn standard-btn btn-primary"
                                                 href="{% url 'van_detail' slug=booking.van.slug %}">View</a>
                                         </div>
