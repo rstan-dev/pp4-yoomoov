@@ -5,6 +5,7 @@ from .models import Van, Booking, Feedback
 from django.contrib import messages
 from .forms import BookingForm, FeedbackForm
 import logging
+from django.db.models import Exists, OuterRef
 
 logger = logging.getLogger(__name__)
 
@@ -133,7 +134,7 @@ def dashboard(request):
 
     Calls the Feedback objects to display any feedback left by a user
     """
-    bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required')
+    # bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required')
 
     vans = Van.objects.all()
 
@@ -141,11 +142,19 @@ def dashboard(request):
 
     feedbacks = Feedback.objects.filter(user_fk=request.user).order_by('date_created')
 
+    # Query to check whether each booking has associated feedback.
+    has_feedback = Feedback.objects.filter(user_fk=request.user, booking_number=OuterRef('booking_number'))
+
+    # Annotate each booking with a flag indicating whether it has feedback.
+    bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required').annotate(has_feedback=Exists(has_feedback))
+
+
+
     context = {
         'bookings': bookings,
         'vans': vans,
         'form': form,
-        'feedbacks': feedbacks
+        'feedbacks': feedbacks,
     }
     return render(request, 'dashboard.html', context)
 
