@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 def home(request):
     """
-    GETs latest 3 van listings from database
+    Gets latest 3 van listings from database
     and renders on Home page
     """
     vans = Van.objects.all().filter(is_live=True).order_by('-date_added')[:3]
@@ -25,7 +25,7 @@ def home(request):
 
 def all_vans(request):
     """
-    GETs all van listings frokm database
+    Gets all van listings from database
     and renders on All Vans page
     """
     vans = Van.objects.all().filter(is_live=True).order_by('-date_added')
@@ -128,7 +128,8 @@ def dashboard(request):
     Calls the van object in order to render the van name list in the
     booking form dropdown
 
-    Calls the BookingForm from forms.py to display when Create Booking button is clicked
+    Calls the BookingForm from forms.py to display when Create Booking button
+    is clicked
 
     Calls the Feedback objects to display any feedback left by a user
     """
@@ -152,12 +153,12 @@ def dashboard(request):
 def createBooking(request):
     """
     Method for creating a booking and updating the Booking model.
-    Displays the bookings by user on the dashboard
+    Displays the bookings by user on the dashboard.
     Calls the Van objects to display the van names in the booking form
     For any POST methods, the form is validated and booking fields are
     saved to the database.
-    A success message is displayed on screen to the user
-    A new instance of the Booking Form is created to clear out the fields
+    A success message is displayed on screen to the user.
+    A new instance of the Booking Form is created to clear out the fields.
     """
 
     bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required')
@@ -193,8 +194,8 @@ def createBooking(request):
 
 def editBooking(request, pk):
     """
-    Method to edit/update booking details
-    Booking objects are called using the booking id primary key (pk)
+    Method to edit/update booking details.
+    Booking objects are called using the booking id primary key (pk).
     The booking form is generated, prefilled, on a dedicated edit_booking page
     with an instance of the booking.
     Any changes to the form are saved and a success message is displayed
@@ -230,11 +231,11 @@ def editBooking(request, pk):
 def deleteBooking(request, pk):
     """
     Method to delete a specific booking.
-    Booking objects are called using the booking id primary key (pk)
+    Booking objects are called using the booking id primary key (pk).
     User is taken to a dedicated delete_booking page with a confirmation
     message and a cancel button.
     User is redirected back to the dashboard on completion with a success
-    messgae displayed on screen
+    messgae displayed on screen.
     """
     booking = Booking.objects.get(id=pk)
     if request.method == "POST":
