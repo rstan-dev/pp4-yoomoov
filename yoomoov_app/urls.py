@@ -11,6 +11,6 @@ urlpatterns = [
     path('create_booking/', views.createBooking, name='create_booking'),
     path('edit_booking/<str:pk>', views.editBooking, name='edit_booking'),
     path('delete_booking/<str:pk>', views.deleteBooking, name='delete_booking'),
+    path('leave_feedback', views.leaveFeedback, name='leave_feedback'),
     path('<slug:slug>/', views.van_detail, name='van_detail'),
-
 ]

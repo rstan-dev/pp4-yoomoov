@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.views import generic, View
 from .models import Van, Booking, Feedback
 from django.contrib import messages
-from .forms import BookingForm
+from .forms import BookingForm, FeedbackForm
 import logging
 
 logger = logging.getLogger(__name__)
@@ -248,3 +248,15 @@ def deleteBooking(request, pk):
     }
 
     return render(request, 'delete_booking.html', context)
+
+
+def leaveFeedback(request):
+
+    form = FeedbackForm()
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'leave_feedback.html', context)
+

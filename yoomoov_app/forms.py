@@ -2,7 +2,7 @@ from django import forms
 from django.forms import ModelForm
 from django.core.exceptions import ValidationError
 from django.utils import timezone
-from .models import Booking
+from .models import Booking, Feedback
 
 
 class DateInput(forms.DateInput):
@@ -26,6 +26,12 @@ class BookingForm(forms.ModelForm):
         if date_required and date_required < timezone.localdate():
             raise ValidationError("Please select a future date")
         return date_required
+
+
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = ['van', 'title', 'comment', 'rating']
 
 
 
