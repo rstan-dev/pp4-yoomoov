@@ -972,6 +972,12 @@ section {
   border-radius: 5px;
 }
 
+.feedback-btn-submitted {
+  font-size: 12px;
+  padding: 5px;
+  text-align: center;
+}
+
 @media (max-width: 400px) {
   .create-booking-btn {
     justify-content: center;
