@@ -163,6 +163,28 @@ class Feedback(models.Model):
     date_created = models.DateTimeField(default=datetime.now, blank=True)
     date_last_updated = models.DateTimeField(default=datetime.now, blank=True)
 
+    # Field for status change to notify user
+    is_approved_notified = models.BooleanField(default=False)
+
+    def save(self, *args, **kwargs):
+        """
+        Super save method to update the aproval status of the feedback, which triggers an email notification to the user
+        """
+        if self.is_approved == 'Approved' and not self.is_approved_notified:
+            # Send email
+            send_mail(
+                'Feedback for ' + str(self.booking_number) + ' Approved',
+                'Your feedback for booking ' + str(self.booking_number) + ' ' + self.van_name + ' has been approved and published. Please login to your Dashboard to view. Kind regards, YooMoov Admin Team',
+                'yoomoov@outlook.com',
+                [self.user_fk.email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
+                fail_silently=False,
+            )
+
+            # Set is_approved_notified to True since the user has been notified now
+            self.is_approved_notified = True
+
+        super().save(*args, **kwargs)
+
     class Meta:
         """
         Meta class for ordering feedback by latest date-created

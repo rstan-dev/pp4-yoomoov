@@ -349,6 +349,15 @@ def leaveFeedback(request, pk):
             feedback.user_fk = request.user
             feedback.save()
             print("feedback saved successfully")
+
+            send_mail(
+                'Feedback left for: ' + str(booking.booking_number) + ' ' + booking.van_name,
+                'A user has left feedback for: ' + str(booking.booking_number) + ' ' + booking.van_name + ', for: ' + booking.date_required.strftime('%d %B %Y') + '. Please login to your dashboard for more details. Kind regards, YooMoov',
+                'yoomoov@outlook.com',
+                [booking.email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
+            fail_silently=False
+            )
+
             messages.success(request, 'Your feedback has been submitted for review successfully')
             return redirect('dashboard')
         else:
