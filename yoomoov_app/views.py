@@ -234,11 +234,12 @@ def createBooking(request):
 
             send_mail(
                 'New booking for: ' + booking.van_name,
-                'There has been a new booking created for ' + booking.van_name + ', for: ' + booking.date_required.strftime('%d %B %Y') + ' . Please login to your Dashboard to view the Status.',
+                'There has been a new booking created for ' + booking.van_name + ', for: ' + booking.date_required.strftime('%d %B %Y') + ' . Please login to your Dashboard to view the Status. Kind regards, YooMoov',
                 'yoomoov@outlook.com',
                 [booking.email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
             fail_silently=False
             )
+
             messages.success(request, 'Your booking has been created successfully')
             return redirect('dashboard')
 
@@ -279,6 +280,15 @@ def editBooking(request, pk):
             booking.status = 'Pending'
             booking.user_id = request.user.id
             booking.save()
+
+            send_mail(
+                'Updated booking for: ' + str(booking.booking_number) + ' ' + booking.van_name,
+                'There has been a change to booking ' + str(booking.booking_number) + ' ' + booking.van_name + ', for: ' + booking.date_required.strftime('%d %B %Y') + ' . Please login to your Dashboard to view the Status. Kind regards, YooMoov',
+                'yoomoov@outlook.com',
+                [booking.email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
+            fail_silently=False
+            )
+
             messages.success(request, 'Your booking has been updated successfully')
             return redirect('dashboard')
 
