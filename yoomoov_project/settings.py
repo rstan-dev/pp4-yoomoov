@@ -202,7 +202,10 @@ LOGGING = {
 }
 
 # Email Config
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#Setting for development tests (remove for production)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Setting for production (enable for deployment)
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.office365.com'
 EMAIL_HOST_USER = 'yoomoov@outlook.com'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')

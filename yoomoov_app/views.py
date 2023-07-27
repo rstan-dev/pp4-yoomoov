@@ -6,6 +6,7 @@ from django.contrib import messages
 from .forms import BookingForm, FeedbackForm
 import logging
 from django.db.models import Exists, OuterRef
+from django.core.mail import send_mail
 
 logger = logging.getLogger(__name__)
 
@@ -49,6 +50,22 @@ def contact(request):
     """
     Renders Contact page
     """
+    print(request.method)
+    print(request.POST)
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        message = request.POST['message']
+
+        send_mail(
+            'Van Enquiry',
+            'There has been an enquiry from: ' + name + 'from email:' + email + '. Their message is as follows: "' + message + '." An administrator will respond within 24 hours.',
+            'yoomoov@outlook.com',
+            [email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'], fail_silently=False
+        )
+        messages.success(request, "Your message has been sent! We will respond within 24 hours.")
+        return redirect('home')
+
     return render(request, 'contact.html')
 
 
