@@ -311,6 +311,15 @@ def deleteBooking(request, pk):
     booking = Booking.objects.get(id=pk)
     if request.method == "POST":
         booking.delete()
+
+        send_mail(
+                'Deleted booking for: ' + str(booking.booking_number) + ' ' + booking.van_name,
+                'This booking has been deleted: ' + str(booking.booking_number) + ' ' + booking.van_name + ', for: ' + booking.date_required.strftime('%d %B %Y') + '. Kind regards, YooMoov',
+                'yoomoov@outlook.com',
+                [booking.email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
+            fail_silently=False
+            )
+
         messages.success(request, 'Your booking has been successfully deleted')
         return redirect('dashboard')
 

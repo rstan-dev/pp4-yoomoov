@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from datetime import datetime, timedelta
 from cloudinary.models import CloudinaryField
 from .choices import SIZE_CHOICES, LOCATION_CHOICES, COUNTY_CHOICES, STATUS_CHOICES, RATING_CHOICES, APPROVAL_CHOICES
+from django.core.mail import send_mail
 
 
 class Van(models.Model):
@@ -57,6 +58,8 @@ class Van(models.Model):
 class Booking(models.Model):
     """
     Model for booking a van
+
+    Fields added to notify user when booking status has changed
     """
     booking_number = models.CharField(max_length=200, unique=True, blank=True, editable=True)
 
@@ -86,6 +89,10 @@ class Booking(models.Model):
 
     user_fk = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
+    # Fields for status change to notify user
+    is_approved_notified = models.BooleanField(default=False)
+    is_completed_notified = models.BooleanField(default=False)
+
 
     def save(self, *args, **kwargs):
         """
@@ -94,9 +101,39 @@ class Booking(models.Model):
         number, which is then saved again to the database
         """
         super().save(*args, **kwargs)
+
         if not self.booking_number:
             self.booking_number = str(self.id + 1000)
             super().save(update_fields=["booking_number"])
+
+        if self.status == 'Approved' and not self.is_approved_notified:
+            # Send email
+            send_mail(
+                'Booking ' + str(self.booking_number) + ' Approved',
+                'Your booking ' + str(self.booking_number) + ' ' + self.van_name + ' has been approved. Please login to your Dashboard for more details. Kind regards, YooMoov Admin Team',
+                'yoomoov@outlook.com',
+                [self.email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
+                fail_silently=False,
+            )
+
+            # Set is_approved_notified to True since the user has been notified now
+            self.is_approved_notified = True
+            super().save(update_fields=["is_approved_notified"])
+
+        # Check if the status has changed to 'Completed' and the user hasn't been notified yet
+        elif self.status == 'Completed' and not self.is_completed_notified:
+            # Send email
+            send_mail(
+                'Booking ' + str(self.booking_number) + ' Completed',
+                'Your booking ' + str(self.booking_number) + ' ' + self.van_name + ' has been completed. Please login to your Dashboard to leave feedback. Kind regards, YooMoov Admin Team',
+                'yoomoov@outlook.com',
+                [self.email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
+                fail_silently=False,
+            )
+
+            # Set is_completed_notified to True since the user has been notified now
+            self.is_completed_notified = True
+            super().save(update_fields=["is_completed_notified"])
 
     class Meta:
         """
