@@ -46,10 +46,23 @@ def services(request):
     return render(request, 'services.html')
 
 
-def contact(request):
+def contact(request, slug=None):
     """
-    Renders Contact page
+    Renders Contact page form and submits user data via email to the administrator and
+    to the user.
+
+    Contact view is accessed directly via the Contact link in the menu bar, or via
+    the van_detail page.
+
+    If the contact form is accessed directly by the menu bar, the page redirects to the home page.
+    if the contact form is accessed by the van_detail page, the email includes the van details and
+    redirects the user back to the van_detail page
     """
+
+    van = None
+    if slug is not None:
+        van = get_object_or_404(Van, slug=slug)
+
     print(request.method)
     print(request.POST)
     if request.method == 'POST':
@@ -57,16 +70,30 @@ def contact(request):
         email = request.POST['email']
         message = request.POST['message']
 
-        send_mail(
-            'Van Enquiry',
-            'There has been an enquiry from: ' + name + 'from email:' + email + '. Their message is as follows: "' + message + '." An administrator will respond within 24 hours.',
-            'yoomoov@outlook.com',
-            [email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'], fail_silently=False
-        )
-        messages.success(request, "Your message has been sent! We will respond within 24 hours.")
-        return redirect('home')
+        subject = 'Van Enquiry'
+        if van is not None:
+            subject += ' ' + van.name
 
-    return render(request, 'contact.html')
+        send_mail(
+            subject,
+            'There has been an enquiry from: ' + name + ' from email: ' + email + '. Their message is as follows: "' + message + '." An administrator will respond within 24 hours.',
+            'yoomoov@outlook.com',
+            [email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
+            fail_silently=False
+        )
+
+        messages.success(request, "Your message has been sent! We will respond within 24 hours.")
+
+        if van is not None:
+            return redirect('van_detail', slug=slug)
+        else:
+            return redirect('home')
+
+    context = {
+        'van': van
+    }
+
+    return render(request, 'contact.html', context)
 
 
 def van_detail(request, slug):

@@ -100,7 +100,9 @@
                         {% endif %}
                     </div>
                     <div id="detail-enquiry-btn">
-                        <a href="{% url 'contact' %}" class="btn btn-warning detail-enquiry-btn">Make an Enquiry</a>
+                        <a href="{% url 'contact_from_van' slug=van.slug %}"
+                            class="btn btn-warning detail-enquiry-btn">Make an
+                            Enquiry</a>
                     </div>
                 </div>
                 <div>
