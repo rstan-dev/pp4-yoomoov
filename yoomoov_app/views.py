@@ -231,6 +231,14 @@ def createBooking(request):
             booking.price = booking.van.price
             booking.user_id = request.user.id
             booking.save()
+
+            send_mail(
+                'New booking for: ' + booking.van_name,
+                'There has been a new booking created for ' + booking.van_name + ', for: ' + booking.date_required.strftime('%d %B %Y') + ' . Please login to your Dashboard to view the Status.',
+                'yoomoov@outlook.com',
+                [booking.email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
+            fail_silently=False
+            )
             messages.success(request, 'Your booking has been created successfully')
             return redirect('dashboard')
 
