@@ -59,7 +59,9 @@
                                     <td>{{ booking.van_size }}</td>
                                     <td>{{ booking.van }}</td>
                                     <td>{{ booking.price }}</td>
-                                    <td class="booking-status">{{ booking.status }}</td>
+                                    <td
+                                        class="booking-status {% if booking.status == 'Pending' %}pending{% elif booking.status == 'Approved' %}approved{% elif booking.status == 'Completed' %}completed{% endif %}">
+                                        {{ booking.status }}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="6">

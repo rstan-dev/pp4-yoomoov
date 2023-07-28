@@ -1035,6 +1035,21 @@ section {
   text-align: center;
 }
 
+.pending {
+  color: red !important;
+  font-weight: bold;
+}
+
+.approved {
+  color: #fb8500 !important;
+  font-weight: bold;
+}
+
+.completed {
+  color: #28a745 !important;
+  font-weight: bold;
+}
+
 @media (max-width: 400px) {
   .create-booking-btn {
     justify-content: center;
