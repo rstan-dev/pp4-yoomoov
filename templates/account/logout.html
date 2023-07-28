@@ -23,19 +23,24 @@
       <div class="row">
         <div class="col-md-6 mx-auto">
           <div class="card">
-
-            <p>{% trans 'Are you sure you want to sign out?' %}</p>
-
-            <form method="post" action="{% url 'account_logout' %}">
-              {% csrf_token %}
-              {% if redirect_field_value %}
-              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-              {% endif %}
-              <button class="btn btn-warning btn-block login-btn" type="submit">{% trans 'Sign Out' %}</button>
-            </form>
+            <div class="contact-form-container mx-auto my-4"></div>
+            <div class="card-body">
+              <h5>{% trans 'Are you sure you want to sign out?' %}</h5>
+              <form method="post" action="{% url 'account_logout' %}">
+                {% csrf_token %}
+                {% if redirect_field_value %}
+                <div class="form-group">
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"
+                    class="form-control" />
+                </div>
+                {% endif %}
+                <button class="btn btn-warning btn-block login-btn" type="submit">{% trans 'Sign Out' %}</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   </section><!-- End Login Section -->
 
