@@ -59,7 +59,7 @@
                     <li><a class="nav-link scrollto" href="{% url 'contact' %}">Contact</a></li>
                     {% if user.is_authenticated %}
                     <li><a class="nav-link scrollto account-link" href="{% url 'dashboard' %}"><i
-                                class="fa-solid fa-user"></i>Dashboard</a></li>
+                                class="fa-solid fa-user"></i>Welcome {{ user}} - Dashboard</a></li>
                     <li><a class="nav-link scrollto account-link" href="{% url 'account_logout' %}"><i
                                 class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
                     {% else %}
@@ -101,7 +101,7 @@
 
                         {% endif %}
                     </ul>
-                    <i class="bi bi-list mobile-nav-toggle"></i>
+
                 </nav>
                 <!--nav -->
                 <div class="copyright">
