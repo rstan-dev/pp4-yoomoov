@@ -5,7 +5,7 @@ from .models import Van, Booking, Feedback
 from django.contrib import messages
 from .forms import BookingForm, FeedbackForm
 import logging
-from django.db.models import Exists, OuterRef
+from django.db.models import Exists, OuterRef, Count
 from django.core.mail import send_mail
 from django.core.paginator import Paginator
 
@@ -192,20 +192,26 @@ def dashboard(request):
     feedbacks = Feedback.objects.filter(user_fk=request.user).order_by('date_created')
 
     # Query to check whether each booking has associated feedback.
-    has_feedback = Feedback.objects.filter(user_fk=request.user, booking_number=OuterRef('booking_number'))
+    # has_feedback = Feedback.objects.filter(user_fk=request.user, booking_number=OuterRef('booking_number'))
 
     # Annotate each booking with a flag indicating whether it has feedback.
-    bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required').annotate(has_feedback=Exists(has_feedback))
+    bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required').annotate(count_feedback=Count('feedback'))
 
-    paginator = Paginator(bookings, 4)
-    page_number = request.GET.get('page')
-    page_listings = paginator.get_page(page_number)
+    # Paginator for bookings table
+    bookings_paginator = Paginator(bookings, 4)
+    bookings_page_number = request.GET.get('page')
+    page_bookings = bookings_paginator.get_page(bookings_page_number)
+
+    # Paginator for feedback table
+    feedback_paginator = Paginator(feedbacks, 3)
+    feedback_page_number = request.GET.get('page')
+    page_feedback = feedback_paginator.get_page(feedback_page_number)
 
     context = {
-        'bookings': page_listings,
+        'bookings': page_bookings,
         'vans': vans,
         'form': form,
-        'feedbacks': feedbacks,
+        'feedbacks': page_feedback,
     }
     return render(request, 'dashboard.html', context)
 
