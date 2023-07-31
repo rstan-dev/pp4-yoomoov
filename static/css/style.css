@@ -1055,6 +1055,41 @@ section {
   font-size: 20px;
 }
 
+.item-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+}
+
+.van-detail-icon {
+  color: #fb8500;
+  font-size: 30px;
+  padding: 0 15px 0 15px;
+}
+
+.van-spec {
+  color: #424241;
+  font-size: 20px;
+  padding: 0 15px 0 15px;
+}
+
+.van-spec-detail {
+  color: #424241;
+  font-size: 20px;
+  padding: 0 15px 0 15px;
+}
+
+.van-detail-table {
+  border-collapse: collapse;
+}
+
+.van-detail-table tr {
+  border-bottom: 1px solid #d8d8d5;
+
+}
+
 @media (max-width: 400px) {
   .section-van-detail-header {
     margin-top: -5px;
