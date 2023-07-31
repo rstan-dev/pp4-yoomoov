@@ -197,10 +197,12 @@ def dashboard(request):
     # Annotate each booking with a flag indicating whether it has feedback.
     bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required').annotate(has_feedback=Exists(has_feedback))
 
-
+    paginator = Paginator(bookings, 4)
+    page_number = request.GET.get('page')
+    page_listings = paginator.get_page(page_number)
 
     context = {
-        'bookings': bookings,
+        'bookings': page_listings,
         'vans': vans,
         'form': form,
         'feedbacks': feedbacks,
