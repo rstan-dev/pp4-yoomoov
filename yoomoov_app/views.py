@@ -7,6 +7,7 @@ from .forms import BookingForm, FeedbackForm
 import logging
 from django.db.models import Exists, OuterRef
 from django.core.mail import send_mail
+from django.core.paginator import Paginator
 
 logger = logging.getLogger(__name__)
 
@@ -32,8 +33,12 @@ def all_vans(request):
     """
     vans = Van.objects.all().filter(is_live=True).order_by('-date_added')
 
+    paginator = Paginator(vans, 6)
+    page_number = request.GET.get('page')
+    page_listings = paginator.get_page(page_number)
+
     context = {
-        'vans': vans,
+        'vans': page_listings,
     }
 
     return render(request, 'all_vans.html', context)
