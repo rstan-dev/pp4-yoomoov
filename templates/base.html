@@ -51,34 +51,35 @@
                         class="img-fluid"></a>
             </div><!-- .logo -->
 
-            {% if request.path %}
-            <p>Debug: Current Path - "{{ request.path }}"</p>
-            {% endif %}
-            <p>Debug: URL Name - "{{ 'home' }}"</p>
-
             <!-- .navbar -->
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
                     <li {% if request.path == '/' %} class="nav-item active" {% else %} class="nav-item" {% endif %}><a
-                            class="nav-link scrollto" href="{% url 'home' %}">Home </a></li>
+                            class="scrollto" href="{% url 'home' %}">Home </a></li>
 
-                    <li><a class="nav-link scrollto" href="{% url 'services' %}">Services</a>
+                    <li {% if request.path == '/services/' %} class="nav-item active" {% else %} class="nav-item"
+                        {% endif %}><a class="nav-link scrollto" href="{% url 'services' %}">Services</a>
                     </li>
 
-                    <li><a class="nav-link scrollto" href="{% url 'all_vans' %}">Vans</a></li>
-                    <li><a class="nav-link scrollto contact-icon" href="{% url 'contact' %}"><i
+                    <li {% if request.path == '/all_vans/' %} class="nav-item active" {% else %} class="nav-item"
+                        {% endif %}><a class="nav-link scrollto" href="{% url 'all_vans' %}">Vans</a></li>
+                    <li {% if request.path == '/contact/' %} class="nav-item active" {% else %} class="nav-item"
+                        {% endif %}><a class="nav-link scrollto contact-icon" href="{% url 'contact' %}"><i
                                 class="fa-solid fa-paper-plane"></i></a></li>
 
                     {% if user.is_authenticated %}
-                    <li><a class="nav-link scrollto account-link dashboard-icon" href="{% url 'dashboard' %}"><i
-                                class="fa-solid fa-gauge"></i></a></li>
+                    <li {% if request.path == '/dashboard' %} class="nav-item active" {% else %} class="nav-item"
+                        {% endif %}><a class="nav-link scrollto account-link dashboard-icon"
+                            href="{% url 'dashboard' %}"><i class="fa-solid fa-gauge"></i></a></li>
 
-                    <li><a class="nav-link scrollto account-link logout-icon" href="{% url 'account_logout' %}"><i
-                                class="fa-solid fa-right-from-bracket"></i></a></li>
+                    <li {% if request.path == '/accounts/logout/' %} class="nav-item active" {% else %} class="nav-item"
+                        {% endif %}><a class="nav-link scrollto account-link logout-icon"
+                            href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket"></i></a></li>
 
                     {% else %}
-                    <li><a class="nav-link scrollto account-link account-icon" href="{% url 'account_login' %}"><i
-                                class="fa-solid fa-user"></i></a></li>
+                    <li {% if request.path == '/accounts/login/' %} class="nav-item active" {% else %} class="nav-item"
+                        {% endif %}><a class="nav-link scrollto account-link account-icon"
+                            href="{% url 'account_login' %}"><i class="fa-solid fa-user"></i></a></li>
 
                     {% endif %}
                 </ul>
@@ -101,19 +102,30 @@
                 <!--nav -->
                 <nav class="navbar-footer navbar order-last order-lg-0">
                     <ul>
-                        <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home </a></li>
-                        <li><a class="nav-link scrollto" href="{% url 'services' %}">Services</a></li>
-                        <li><a class="nav-link scrollto" href="{% url 'all_vans' %}">Vans</a></li>
-                        <li><a class="nav-link scrollto" href="{% url 'contact' %}"><i
+                        <li {% if request.path == '/' %} class="nav-item active" {% else %} class="nav-item"
+                            {% endif %}><a class="nav-link scrollto" href="{% url 'home' %}">Home </a></li>
+                        <li {% if request.path == '/services/' %} class="nav-item active" {% else %} class="nav-item"
+                            {% endif %}><a class="nav-link scrollto" href="{% url 'services' %}">Services</a></li>
+
+                        <li {% if request.path == '/all_vans/' %} class="nav-item active" {% else %} class="nav-item"
+                            {% endif %}><a class="nav-link scrollto" href="{% url 'all_vans' %}">Vans</a></li>
+
+                        <li {% if request.path == '/contact/' %} class="nav-item active" {% else %} class="nav-item"
+                            {% endif %}><a class="nav-link scrollto" href="{% url 'contact' %}"><i
                                     class="fa-solid fa-paper-plane"></i>Contact</a></li>
                         {% if user.is_authenticated %}
-                        <li><a class="nav-link scrollto account-link" href="{% url 'dashboard' %}"><i
+                        <li {% if request.path == '/dashboard' %} class="nav-item active" {% else %} class="nav-item"
+                            {% endif %}><a class="nav-link scrollto account-link" href="{% url 'dashboard' %}"><i
                                     class="fa-solid fa-gauge"></i>Dashboard</a></li>
-                        <li><a class="nav-link scrollto account-link" href="{% url 'account_logout' %}"><i
+                        <li {% if request.path == '/accounts/logout/' %} class="nav-item active" {% else %}
+                            class="nav-item" {% endif %}><a class="nav-link scrollto account-link"
+                                href="{% url 'account_logout' %}"><i
                                     class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
                         {% else %}
-                        <li><a class="nav-link scrollto account-link" href="{% url 'account_login' %}"><i
-                                    class="fa-solid fa-user"></i>Login / Register</a></li>
+                        <li {% if request.path == '/accounts/login/' %} class="nav-item active" {% else %}
+                            class="nav-item" {% endif %}><a class="nav-link scrollto account-link"
+                                href="{% url 'account_login' %}"><i class="fa-solid fa-user"></i>Login / Register</a>
+                        </li>
 
                         {% endif %}
                     </ul>

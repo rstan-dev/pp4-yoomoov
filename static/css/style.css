@@ -95,22 +95,17 @@ h6 {
   font-size: 25px;
   line-height: 0;
   margin-left: 5px;
-  padding-top: 7.5px;
+  padding-top: 5px;
 }
 
-.navbar .active,
-.navbar .active:focus {
-  color: white;
-  text-decoration: underline;
+.navbar .active a,
+.navbar .active a:focus {
+  color: #384046;
 }
 
 .navbar a:hover,
 .navbar li:hover>a {
   color: #384046
-}
-
-.nav-link i {
-  margin-right: 5px;
 }
 
 /**
@@ -303,6 +298,15 @@ h6 {
   display: flex;
   list-style: none;
   align-items: left;
+}
+
+.nav-link .active a,
+.nav-link .active a:focus {
+  color: #384046;
+}
+
+.nav-link i {
+  margin-right: 5px;
 }
 
 #footer .footer-top {
