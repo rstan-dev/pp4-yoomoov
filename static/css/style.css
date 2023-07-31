@@ -92,9 +92,10 @@ h6 {
 
 .navbar a i,
 .navbar a:focus i {
-  font-size: 15px;
+  font-size: 25px;
   line-height: 0;
   margin-left: 5px;
+  padding-top: 7.5px;
 }
 
 .navbar .active,
@@ -137,6 +138,44 @@ h6 {
     max-height: 60px;
   }
 }
+
+.contact-icon:hover i {
+  display: none;
+}
+
+.contact-icon:hover::after {
+  content: "Contact";
+  display: inline-block;
+}
+
+.account-icon:hover i {
+  display: none;
+}
+
+.account-icon:hover::after {
+  content: "Login/ Register";
+  display: inline-block;
+}
+
+.dashboard-icon:hover i {
+  display: none;
+}
+
+.dashboard-icon:hover::after {
+  content: "Your Dashboard";
+  display: inline-block;
+}
+
+.logout-icon:hover i {
+  display: none;
+}
+
+.logout-icon:hover::after {
+  content: "Logout";
+  display: inline-block;
+}
+
+
 
 @media (max-width: 600px) {
 
@@ -220,7 +259,7 @@ h6 {
 }
 
 .navbar-mobile .dropdown ul a i {
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .navbar-mobile .dropdown ul a:hover,
@@ -243,6 +282,7 @@ h6 {
 
 .navbar-mobile .nav-link i {
   margin-right: 10px;
+  margin-bottom: 15px;
 }
 
 /*--------------------------------------------------------------
