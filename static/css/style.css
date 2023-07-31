@@ -1148,6 +1148,10 @@ section {
   font-weight: bold;
 }
 
+.dashboard-btn-grp {
+  text-align: right;
+}
+
 @media (max-width: 400px) {
   .create-booking-btn {
     justify-content: center;

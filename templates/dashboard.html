@@ -78,24 +78,25 @@
                                         {{ booking.status }}</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="6">
+                                    <td colspan="7" class="dashboard-btn-grp">
                                         <div class="btn-group">
-                                            <a class="btn standard-btn btn-warning"
+                                            <a class="btn btn-sm btn-outline-warning"
                                                 href="{% url 'edit_booking' booking.id %}">Edit</a>
-                                            <a class="btn standard-btn btn-danger"
+                                            <a class="btn btn-sm btn-outline-danger"
                                                 href=" {% url 'delete_booking' booking.id %}">Delete</a>
                                             {% if booking.status == 'Completed' %}
                                             {% if booking.has_feedback %}
-                                            <a class="btn standard-btn btn-secondary feedback-btn-submitted"
-                                                href="">Feedback<br>Submitted</a>
+                                            <a class="btn btn-sm btn-outline-success feedback-btn-submitted"
+                                                href="">Feedback
+                                                Submitted</a>
                                             {% else %}
-                                            <a class="btn standard-btn btn-info"
-                                                href="{% url 'leave_feedback' booking.id %}">Feedback</a>
+                                            <a class="btn btn-sm btn-outline-info"
+                                                href="{% url 'leave_feedback' booking.id %}">Leave Feedback</a>
                                             {% endif %}
                                             {% else %}
-                                            <a class="btn standard-btn btn-light" href="#">Feedback</a>
+                                            <a class="btn btn-sm btn-outline-secondary" href="#">No Feedback Yet</a>
                                             {% endif %}
-                                            <a class="btn standard-btn btn-primary"
+                                            <a class="btn btn-sm btn-outline-primary"
                                                 href="{% url 'van_detail' slug=booking.van.slug %}">View</a>
                                         </div>
                                     </td>
@@ -172,7 +173,9 @@
                                     <td>{{ feedback.booking.date_required }}</td>
                                     <td>{{ feedback.booking.van }}</td>
                                     <td><strong>{{ feedback.title }}</strong><br>{{ feedback.comment }}</td>
-                                    <td>{{ feedback.is_approved }}</td>
+                                    <td
+                                        class="feedback-status {% if feedback.is_approved == 'Pending' %}pending{% elif feedback.is_approved == 'Approved' %}approved{% endif %}">
+                                        {{ feedback.is_approved }}</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
