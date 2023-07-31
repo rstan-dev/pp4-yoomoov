@@ -38,6 +38,20 @@ h6 {
   font-size: 25px;
 }
 
+.pagination {
+  margin-top: 20px;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #fb8500;
+  border-color: #fb8500;
+  color: white;
+}
+
+.pagination .page-item .page-link {
+  color: #fb8500;
+}
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
