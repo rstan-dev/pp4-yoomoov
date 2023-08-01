@@ -32,7 +32,7 @@ class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
         fields = ['title', 'comment', 'rating']
-
-
-
-
+        labels = {
+            'title': 'Title (enter a short headline for your feedback)',
+            'rating': 'Rating (choose between 1 for poor and 5 for excellent)',
+        }

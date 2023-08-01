@@ -55,7 +55,7 @@
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
                     <li {% if request.path == '/' %} class="nav-item active" {% else %} class="nav-item" {% endif %}><a
-                            class="scrollto" href="{% url 'home' %}">Home </a></li>
+                            class="nav-link scrollto" href="{% url 'home' %}">Home </a></li>
 
                     <li {% if request.path == '/services/' %} class="nav-item active" {% else %} class="nav-item"
                         {% endif %}><a class="nav-link scrollto" href="{% url 'services' %}">Services</a>
