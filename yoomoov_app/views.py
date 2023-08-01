@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.views import generic, View
 from .models import Van, Booking, Feedback
 from django.contrib import messages
-from .forms import BookingForm, FeedbackForm
+from .forms import BookingForm, FeedbackForm, ContactForm
 import logging
 from django.db.models import Exists, OuterRef, Count
 from django.core.mail import send_mail
@@ -68,12 +68,12 @@ def contact(request, slug=None):
     if slug is not None:
         van = get_object_or_404(Van, slug=slug)
 
-    print(request.method)
-    print(request.POST)
     if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        message = request.POST['message']
+        contact_form = ContactForm(request.POST)
+        if contact_form.is_valid():
+            name = contact_form.cleaned_data['name']
+            email = contact_form.cleaned_data['email']
+            message = contact_form.cleaned_data['message']
 
         subject = 'Van Enquiry'
         if van is not None:
@@ -94,8 +94,12 @@ def contact(request, slug=None):
         else:
             return redirect('home')
 
+    else:
+        contact_form = ContactForm()
+
     context = {
-        'van': van
+        'van': van,
+        'contact_form': contact_form,
     }
 
     return render(request, 'contact.html', context)

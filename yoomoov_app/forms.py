@@ -3,6 +3,8 @@ from django.forms import ModelForm
 from django.core.exceptions import ValidationError
 from django.utils import timezone
 from .models import Booking, Feedback
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Submit
 
 
 class DateInput(forms.DateInput):
@@ -36,3 +38,18 @@ class FeedbackForm(forms.ModelForm):
             'title': 'Title (enter a short headline for your feedback)',
             'rating': 'Rating (choose between 1 for poor and 5 for excellent)',
         }
+
+
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    message = forms.CharField(widget=forms.Textarea)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            'name',
+            'email',
+            'message',
+        )
