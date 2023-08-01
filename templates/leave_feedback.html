@@ -23,9 +23,10 @@
                 <div class="col-md-8 offset-md-2">
                     <form action="" method="POST">
                         {% csrf_token %}
-                        <p>Booking No: {{ booking.booking_number }}</p>
-                        <p>Van Name: {{ booking.van_name }}</p>
-                        <p>Required date: {{ booking.date_required }}</p>
+                        <h5>Booking No: {{ booking.booking_number }}</h5>
+                        <h5>Van Name: {{ booking.van_name }}</h5>
+                        <h5>Date of Booking: {{ booking.date_required }}</h5>
+                        <br>
                         {{ form|crispy }}
 
                         <hr>
