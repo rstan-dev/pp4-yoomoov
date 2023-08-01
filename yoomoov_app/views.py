@@ -191,11 +191,15 @@ def dashboard(request):
 
     feedbacks = Feedback.objects.filter(user_fk=request.user).order_by('date_created')
 
-    # Query to check whether each booking has associated feedback.
-    # has_feedback = Feedback.objects.filter(user_fk=request.user, booking_number=OuterRef('booking_number'))
+    # Query to check whether each booking has associated feedback - adjusts "Leave Feedback" button to "Feedback Submitted"
+    has_feedback = Booking.objects.filter(user_fk=request.user, booking_number=OuterRef('booking_number'))
 
     # Annotate each booking with a flag indicating whether it has feedback.
-    bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required').annotate(count_feedback=Count('feedback'))
+    # bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required').annotate(count_feedback=Count('feedback'))
+
+    bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required').annotate(
+        has_feedback=Exists(Feedback.objects.filter(booking=OuterRef('pk')))
+    )
 
     # Paginator for bookings table
     bookings_paginator = Paginator(bookings, 4)
@@ -212,6 +216,7 @@ def dashboard(request):
         'vans': vans,
         'form': form,
         'feedbacks': page_feedback,
+        'has_feedback': has_feedback
     }
     return render(request, 'dashboard.html', context)
 
