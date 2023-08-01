@@ -80,22 +80,20 @@
                                 <tr>
                                     <td colspan="7" class="dashboard-btn-grp">
                                         <div class="btn-group">
-                                            <a class="btn btn-sm btn-outline-warning"
-                                                href="{% url 'edit_booking' booking.id %}">Edit</a>
-                                            <a class="btn btn-sm btn-outline-danger"
-                                                href=" {% url 'delete_booking' booking.id %}">Delete</a>
                                             {% if booking.status == 'Completed' %}
                                             {% if booking.has_feedback %}
-                                            <a class="btn btn-sm btn-outline-success feedback-btn-submitted"
-                                                href="">Feedback
-                                                Submitted</a>
+                                            <button class="btn btn-sm btn-outline-success feedback-btn-submitted"
+                                                disabled href="">Feedback
+                                                Submitted</button>
                                             {% else %}
                                             <a class="btn btn-sm btn-outline-info"
                                                 href="{% url 'leave_feedback' booking.id %}">Leave Feedback</a>
                                             {% endif %}
                                             {% else %}
-                                            <a class="btn btn-sm btn-outline-secondary" href="#">Feedback
-                                                Unavailable</a>
+                                            <a class="btn btn-sm btn-outline-warning"
+                                                href="{% url 'edit_booking' booking.id %}">Edit</a>
+                                            <a class="btn btn-sm btn-outline-danger"
+                                                href=" {% url 'delete_booking' booking.id %}">Delete</a>
                                             {% endif %}
                                             <a class="btn btn-sm btn-outline-primary"
                                                 href="{% url 'van_detail' slug=booking.van.slug %}">View</a>
