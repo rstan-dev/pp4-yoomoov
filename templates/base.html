@@ -64,22 +64,22 @@
                     <li {% if request.path == '/all_vans/' %} class="nav-item active" {% else %} class="nav-item"
                         {% endif %}><a class="nav-link scrollto" href="{% url 'all_vans' %}">Vans</a></li>
                     <li {% if request.path == '/contact/' %} class="nav-item active" {% else %} class="nav-item"
-                        {% endif %}><a class="nav-link scrollto contact-icon" href="{% url 'contact' %}"><i
-                                class="fa-solid fa-paper-plane"></i></a></li>
+                        {% endif %}><a class="nav-link scrollto" href="{% url 'contact' %}">Contact</a></li>
 
                     {% if user.is_authenticated %}
                     <li {% if request.path == '/dashboard' %} class="nav-item active" {% else %} class="nav-item"
-                        {% endif %}><a class="nav-link scrollto account-link dashboard-icon"
-                            href="{% url 'dashboard' %}"><i class="fa-solid fa-gauge"></i></a></li>
+                        {% endif %}><a class="nav-link scrollto " href="{% url 'dashboard' %}"><i
+                                class="fa-solid fa-gauge"></i>Dashboard</a></li>
 
                     <li {% if request.path == '/accounts/logout/' %} class="nav-item active" {% else %} class="nav-item"
-                        {% endif %}><a class="nav-link scrollto account-link logout-icon"
-                            href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                        {% endif %}><a class="nav-link scrollto" href="{% url 'account_logout' %}"><i
+                                class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
 
                     {% else %}
                     <li {% if request.path == '/accounts/login/' %} class="nav-item active" {% else %} class="nav-item"
-                        {% endif %}><a class="nav-link scrollto account-link account-icon"
-                            href="{% url 'account_login' %}"><i class="fa-solid fa-user"></i></a></li>
+                        {% endif %}><a class="nav-link scrollto" href="{% url 'account_login' %}"><i
+                                class="fa-solid fa-user"></i>Login / Register</a>
+                    </li>
 
                     {% endif %}
                 </ul>
@@ -111,8 +111,7 @@
                             {% endif %}><a class="nav-link scrollto" href="{% url 'all_vans' %}">Vans</a></li>
 
                         <li {% if request.path == '/contact/' %} class="nav-item active" {% else %} class="nav-item"
-                            {% endif %}><a class="nav-link scrollto" href="{% url 'contact' %}"><i
-                                    class="fa-solid fa-paper-plane"></i>Contact</a></li>
+                            {% endif %}><a class="nav-link scrollto" href="{% url 'contact' %}">Contact</a></li>
                         {% if user.is_authenticated %}
                         <li {% if request.path == '/dashboard' %} class="nav-item active" {% else %} class="nav-item"
                             {% endif %}><a class="nav-link scrollto account-link" href="{% url 'dashboard' %}"><i

@@ -142,7 +142,7 @@ h6 {
   color: #fff;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 992px) {
   .mobile-nav-toggle {
     display: block;
   }
@@ -156,7 +156,7 @@ h6 {
   }
 }
 
-.contact-icon:hover i {
+/* .contact-icon:hover i {
   display: none;
 }
 
@@ -190,7 +190,7 @@ h6 {
 .logout-icon:hover::after {
   content: "Logout";
   display: inline-block;
-}
+} */
 
 /* Nav Bar Media Query */
 @media (max-width: 600px) {
