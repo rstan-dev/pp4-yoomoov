@@ -63,6 +63,12 @@
             {%  include 'partials/_onscreen_messages.html' %}
             <div class="card-body">
                 <div class="contact-form-container mx-auto my-4">
+                    {% if slug %}
+                    <h4 class="enquiry-icon"><i class="fa-solid fa-paper-plane"></i><span> </span>Enquiry for:</h4>
+                    <h4>Van: {{ van.name }}</h4>
+                    <h4>Location: {{van.location }}</h4>
+                    <br>
+                    {% endif %}
                     <form
                         action="{% if van %}{% url 'contact_from_van' slug=van.slug %}{% else %}{% url 'contact' %}{% endif %}"
                         method="POST">

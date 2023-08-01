@@ -100,6 +100,7 @@ def contact(request, slug=None):
     context = {
         'van': van,
         'contact_form': contact_form,
+        'slug': slug
     }
 
     return render(request, 'contact.html', context)
