@@ -253,6 +253,7 @@ def createBooking(request):
             booking.van_county = booking.van.county
             booking.price = booking.van.price
             booking.user_id = request.user.id
+            booking.user_fk = request.user
             booking.save()
 
             send_mail(
