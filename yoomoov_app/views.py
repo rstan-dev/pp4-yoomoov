@@ -54,15 +54,17 @@ def services(request):
 
 def contact(request, slug=None):
     """
-    Renders Contact page form and submits user data via email to the administrator and
-    to the user.
+    Renders Contact page form and submits user data via email to the
+    administrator and to the user.
 
-    Contact view is accessed directly via the Contact link in the menu bar, or via
-    the van_detail page.
+    Contact view is accessed directly via the Contact link in the menu bar,
+    or via the van_detail page.
 
-    If the contact form is accessed directly by the menu bar, the page redirects to the home page.
-    if the contact form is accessed by the van_detail page, the email includes the van details and
-    redirects the user back to the van_detail page
+    If the contact form is accessed directly by the menu bar, the page
+    redirects to the home page.
+
+    If the contact form is accessed by the van_detail page, the email includes
+    the van details and redirects the user back to the van_detail page
     """
 
     van = None
@@ -82,13 +84,16 @@ def contact(request, slug=None):
 
         send_mail(
             subject,
-            'There has been an enquiry from: ' + name + ' from email: ' + email + '. Their message is as follows: "' + message + '." An administrator will respond within 24 hours.',
+            'There has been an enquiry from: ' + name + ' from email: '
+            + email + '. Their message is as follows: "' + message + '." '
+            'An administrator will respond within 24 hours.',
             'yoomoov@outlook.com',
             [email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
             fail_silently=False
         )
 
-        messages.success(request, "Your message has been sent! We will respond within 24 hours.")
+        messages.success(request, "Your message has been sent! "
+                                  "We will respond within 24 hours.")
 
         if van is not None:
             return redirect('van_detail', slug=slug)
@@ -125,7 +130,8 @@ def van_detail(request, slug):
 
     vans = Van.objects.all()
 
-    van_feedbacks = Feedback.objects.filter(is_approved='Approved', van=van).order_by('date_created')
+    van_feedbacks = Feedback.objects.filter(is_approved='Approved',
+                                            van=van).order_by('date_created')
 
     context = {
         'van': van,
@@ -154,13 +160,15 @@ def van_search(request):
     if 'location' in request.GET:
         location_selection = request.GET['location']
         if location_selection:
-            queryset_vans = queryset_vans.filter(location__iexact=location_selection)
+            queryset_vans = queryset_vans.filter(
+                location__iexact=location_selection)
 
     # County Filter
     if 'county' in request.GET:
         county_selection = request.GET['county']
         if county_selection:
-            queryset_vans = queryset_vans.filter(county__iexact=county_selection)
+            queryset_vans = queryset_vans.filter(
+                county__iexact=county_selection)
 
     values = {
         'size': None,
@@ -189,21 +197,23 @@ def dashboard(request):
 
     Calls the Feedback objects to display any feedback left by a user
     """
-    # bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required')
 
     vans = Van.objects.all()
 
     form = BookingForm()
 
-    feedbacks = Feedback.objects.filter(user_fk=request.user).order_by('date_created')
+    feedbacks = Feedback.objects.filter(
+        user_fk=request.user).order_by('date_created')
 
-    # Query to check whether each booking has associated feedback - adjusts "Leave Feedback" button to "Feedback Submitted"
-    has_feedback = Booking.objects.filter(user_fk=request.user, booking_number=OuterRef('booking_number'))
+    # Query to check whether each booking has associated feedback -
+    # adjusts "Leave Feedback" button to "Feedback Submitted"
+    has_feedback = Booking.objects.filter(user_fk=request.user,
+                                          booking_number=OuterRef(
+                                            'booking_number'))
 
     # Annotate each booking with a flag indicating whether it has feedback.
-    # bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required').annotate(count_feedback=Count('feedback'))
-
-    bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required').annotate(
+    bookings = Booking.objects.filter(
+        user_id=request.user.id).order_by('date_required').annotate(
         has_feedback=Exists(Feedback.objects.filter(booking=OuterRef('pk')))
     )
 
@@ -238,7 +248,8 @@ def createBooking(request):
     A new instance of the Booking Form is created to clear out the fields.
     """
 
-    bookings = Booking.objects.filter(user_id=request.user.id).order_by('date_required')
+    bookings = Booking.objects.filter(
+        user_id=request.user.id).order_by('date_required')
 
     vans = Van.objects.all()
 
@@ -261,13 +272,18 @@ def createBooking(request):
 
             send_mail(
                 'New booking for: ' + booking.van_name,
-                'There has been a new booking created for ' + booking.van_name + ', for: ' + booking.date_required.strftime('%d %B %Y') + ' . Please login to your Dashboard to view the Status. Kind regards, YooMoov',
+                'There has been a new booking created for ' + booking.van_name
+                + ', for: ' + booking.date_required.strftime('%d %B %Y') +
+                ' . Please login to your Dashboard to view the Status. Kind '
+                'regards, YooMoov',
                 'yoomoov@outlook.com',
-                [booking.email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
-            fail_silently=False
+                [booking.email, 'yoomoov@outlook.com',
+                                'russ.smith1001@gmail.com'],
+                fail_silently=False
             )
 
-            messages.success(request, 'Your booking has been created successfully')
+            messages.success(request, 'Your booking has been created '
+                                      'successfully')
             return redirect('dashboard')
 
         else:
@@ -312,14 +328,20 @@ def editBooking(request, pk):
             booking.save()
 
             send_mail(
-                'Updated booking for: ' + str(booking.booking_number) + ' ' + booking.van_name,
-                'There has been a change to booking ' + str(booking.booking_number) + ' ' + booking.van_name + ', for: ' + booking.date_required.strftime('%d %B %Y') + ' . Please login to your Dashboard to view the Status. Kind regards, YooMoov',
+                'Updated booking for: ' + str(booking.booking_number) + ' '
+                + booking.van_name, 'There has been a change to booking '
+                + str(booking.booking_number) + ' ' + booking.van_name +
+                ', for: ' + booking.date_required.strftime('%d %B %Y') +
+                ' . Please login to your Dashboard to view the Status. Kind '
+                'regards, YooMoov',
                 'yoomoov@outlook.com',
-                [booking.email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
-            fail_silently=False
+                [booking.email, 'yoomoov@outlook.com',
+                                'russ.smith1001@gmail.com'],
+                fail_silently=False
             )
 
-            messages.success(request, 'Your booking has been updated successfully')
+            messages.success(request, 'Your booking has been updated '
+                                      'successfully')
             return redirect('dashboard')
 
     context = {
@@ -343,11 +365,15 @@ def deleteBooking(request, pk):
         booking.delete()
 
         send_mail(
-                'Deleted booking for: ' + str(booking.booking_number) + ' ' + booking.van_name,
-                'This booking has been deleted: ' + str(booking.booking_number) + ' ' + booking.van_name + ', for: ' + booking.date_required.strftime('%d %B %Y') + '. Kind regards, YooMoov',
+                'Deleted booking for: ' + str(booking.booking_number) + ' '
+                + booking.van_name, 'This booking has been deleted: '
+                + str(booking.booking_number) + ' ' + booking.van_name +
+                ', for: ' + booking.date_required.strftime('%d %B %Y') +
+                '. Kind regards, YooMoov',
                 'yoomoov@outlook.com',
-                [booking.email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
-            fail_silently=False
+                [booking.email, 'yoomoov@outlook.com',
+                                'russ.smith1001@gmail.com'],
+                fail_silently=False
             )
 
         messages.success(request, 'Your booking has been successfully deleted')
@@ -381,14 +407,20 @@ def leaveFeedback(request, pk):
             print("feedback saved successfully")
 
             send_mail(
-                'Feedback left for: ' + str(booking.booking_number) + ' ' + booking.van_name,
-                'A user has left feedback for: ' + str(booking.booking_number) + ' ' + booking.van_name + ', for: ' + booking.date_required.strftime('%d %B %Y') + '. Please login to your dashboard for more details. Kind regards, YooMoov',
+                'Feedback left for: ' + str(booking.booking_number) + ' '
+                + booking.van_name, 'A user has left feedback for: '
+                + str(booking.booking_number) + ' ' + booking.van_name +
+                ', for: ' + booking.date_required.strftime('%d %B %Y') +
+                '. Please login to your dashboard for more details. Kind '
+                'regards, YooMoov',
                 'yoomoov@outlook.com',
-                [booking.email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
-            fail_silently=False
+                [booking.email, 'yoomoov@outlook.com',
+                                'russ.smith1001@gmail.com'],
+                fail_silently=False
             )
 
-            messages.success(request, 'Your feedback has been submitted for review successfully')
+            messages.success(request, 'Your feedback has been submitted for '
+                                      'review successfully')
             return redirect('dashboard')
         else:
             print("Form is not valid:", form.errors)
