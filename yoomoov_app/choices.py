@@ -1,7 +1,7 @@
 SIZE_CHOICES = (
-        ('Small', 'Small'),
-        ('Medium', 'Medium'),
-        ('Large', 'Large')
+    ('Small', 'Small'),
+    ('Medium', 'Medium'),
+    ('Large', 'Large')
     )
 
 LOCATION_CHOICES = (
@@ -16,8 +16,7 @@ LOCATION_CHOICES = (
     ('Newcastle', 'Newcastle'),
     ('Sheffield', 'Sheffield'),
     ('Southampton', 'Southampton'),
-
-)
+    )
 
 COUNTY_CHOICES = (
     ('Cardiff', 'Cardiff'),
@@ -31,23 +30,23 @@ COUNTY_CHOICES = (
     ('Tyne & Ware', 'Tyne & Ware'),
     ('West Midlands', 'West Midlands'),
     ('West Yorkshire', 'West Yorkshire'),
-)
+    )
 
 STATUS_CHOICES = (
-        ('Pending', 'Pending'),
-        ('Approved', 'Approved'),
-        ('Completed', 'Completed')
+    ('Pending', 'Pending'),
+    ('Approved', 'Approved'),
+    ('Completed', 'Completed')
     )
 
 RATING_CHOICES = (
-        (1, '1'),
-        (2, '2'),
-        (3, '3'),
-        (4, '4'),
-        (5, '5'),
+    (1, '1'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
+    (5, '5'),
     )
 
 APPROVAL_CHOICES = (
-        ('Pending', 'Pending'),
-        ('Approved', 'Approved'),
+    ('Pending', 'Pending'),
+    ('Approved', 'Approved'),
     )
