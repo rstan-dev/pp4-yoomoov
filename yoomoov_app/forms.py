@@ -18,7 +18,8 @@ class DateInput(forms.DateInput):
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ['first_name', 'last_name', 'email', 'phone', 'van', 'date_required']
+        fields = ['first_name', 'last_name', 'email', 'phone', 'van',
+                  'date_required']
         widgets = {
             'date_required': DateInput(),
         }
@@ -33,12 +34,13 @@ class BookingForm(forms.ModelForm):
         cleaned_data = super().clean()
         van = cleaned_data.get('van')
         date_required = cleaned_data.get('date_required')
-
         if van and date_required:
-            if Booking.objects.filter(van=van, date_required=date_required).exists():
-                print("Validation error: The selected van is already booked for the selected date.")
-                raise forms.ValidationError("The selected van is already booked for the selected date.")
-
+            if Booking.objects.filter(
+                                      van=van,
+                                      date_required=date_required).exists():
+                raise forms.ValidationError(
+                    "The selected van is already booked for the selected date."
+                    )
         return cleaned_data
 
 
