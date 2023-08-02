@@ -29,6 +29,18 @@ class BookingForm(forms.ModelForm):
             raise ValidationError("Please select a future date")
         return date_required
 
+    def clean(self):
+        cleaned_data = super().clean()
+        van = cleaned_data.get('van')
+        date_required = cleaned_data.get('date_required')
+
+        if van and date_required:
+            if Booking.objects.filter(van=van, date_required=date_required).exists():
+                print("Validation error: The selected van is already booked for the selected date.")
+                raise forms.ValidationError("The selected van is already booked for the selected date.")
+
+        return cleaned_data
+
 
 class FeedbackForm(forms.ModelForm):
     class Meta:

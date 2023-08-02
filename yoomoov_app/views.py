@@ -245,8 +245,10 @@ def createBooking(request):
     form = BookingForm()
 
     if request.method == 'POST':
+        print("Form Submited")
         form = BookingForm(request.POST)
         if form.is_valid():
+            print("Form is valid")
             booking = form.save(commit=False)
             booking.van_name = booking.van.name
             booking.van_size = booking.van.size
@@ -268,7 +270,10 @@ def createBooking(request):
             messages.success(request, 'Your booking has been created successfully')
             return redirect('dashboard')
 
-        form = BookingForm()
+        else:
+            messages.error(request, form.errors)
+
+    form = BookingForm()
 
     context = {
         'bookings': bookings,
@@ -293,7 +298,7 @@ def editBooking(request, pk):
     form = BookingForm(instance=booking)
 
     if request.method == 'POST':
-        print('Printing POST', request.POST)
+        # print('Printing POST', request.POST)
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             booking = form.save(commit=False)

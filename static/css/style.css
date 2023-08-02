@@ -763,6 +763,10 @@ section {
   }
 }
 
+#messages .alert ul {
+  list-style-type: none;
+}
+
 /*--------------------------------------------------------------
 # HOME FEATURED VANS
   & ALL VANS PAGE
