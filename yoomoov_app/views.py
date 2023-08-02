@@ -8,6 +8,7 @@ import logging
 from django.db.models import Exists, OuterRef, Count
 from django.core.mail import send_mail
 from django.core.paginator import Paginator
+from allauth.account.views import LoginView
 
 logger = logging.getLogger(__name__)
 
@@ -395,3 +396,11 @@ def leaveFeedback(request, pk):
     return render(request, 'leave_feedback.html', context)
 
 
+class CustomLoginView(LoginView):
+    """
+    Custom Login View to activate valiation messages
+    """
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = self.get_form()
+        return context
