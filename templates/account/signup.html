@@ -11,23 +11,19 @@
 
   <section class="bg-light section-header">
     <div class="container">
-
       <div class="section-title ">
         <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">SIGN UP</h1>
-
       </div>
 
       <!-- ======= Breadcrumbs ======= -->
       <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
-
           <div class="d-flex justify-content-between align-items-center">
             <ol>
               <li><a href="{% url 'home' %}">Home</a></li>
               <li>Signup</li>
             </ol>
           </div>
-
         </div>
       </section><!-- End Breadcrumbs -->
   </section>
@@ -66,7 +62,6 @@
                       </div>
                       {% endif %}
                     </div>
-
                     <div class="form-group {% if form.email.errors %}has-error{% endif %}">
                       <label for="id_email">E-mail (optional):</label>
                       <input class="form-control" type="email" name="email" placeholder="E-mail address"
@@ -84,7 +79,6 @@
                       </div>
                       {% endif %}
                     </div>
-
                     <div class="form-group {% if form.password1.errors %}has-error{% endif %}">
                       <label for="id_password1">Password:</label>
                       <input class="form-control" type="password" name="password1" placeholder="Password"
@@ -102,7 +96,6 @@
                       </div>
                       {% endif %}
                     </div>
-
                     <div class="form-group {% if form.password2.errors %}has-error{% endif %}">
                       <label for="id_password2">Confirm Password:</label>
                       <input class="form-control" type="password" name="password2" placeholder="Re-enter password"
@@ -134,6 +127,5 @@
       </div>
     </div>
   </section><!-- End Signup Section -->
-
 </main><!-- End #main -->
 {% endblock %}
