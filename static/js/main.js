@@ -157,10 +157,10 @@
     });
 
     /**
-     * Triggers a 3 second delay before onscreen messages disapear
+     * Triggers a 3 second delay before onscreen messages disappear
+     * Credit to Brad Traversy @ Traversy Media https://www.traversymedia.com/Python-Django-Dev-To-Deployment
      */
     setTimeout(function () {
         $('#messages').fadeOut('slow');
     }, 3000);
-
 })()
