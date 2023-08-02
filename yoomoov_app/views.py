@@ -271,7 +271,7 @@ def createBooking(request):
             return redirect('dashboard')
 
         else:
-            messages.error(request, form.errors)
+            messages.error(request, form.non_field_errors())
 
     form = BookingForm()
 
