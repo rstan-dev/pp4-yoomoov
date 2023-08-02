@@ -2,14 +2,11 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-
 {% block content %}
 
 <main id="main">
-
     <section class="bg-light">
         <div class="container">
-
             <div class="section-title section-header">
                 <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">USER
                     DASHBOARD</h1>
@@ -19,22 +16,20 @@
             <!-- ======= Breadcrumbs ======= -->
             <section id="breadcrumbs" class="breadcrumbs">
                 <div class="container">
-
                     <div class="d-flex justify-content-between align-items-center">
                         <ol>
                             <li><a href="{% url 'home' %}">Home</a></li>
                             <li>Dashboard</li>
                         </ol>
                     </div>
-
                 </div>
             </section><!-- End Breadcrumbs -->
+
             <!-- Onscreen Messages -->
             {%  include 'partials/_onscreen_messages.html' %}
     </section>
 
-    <!-- ======= User Dashboard ======= -->
-
+    <!-- ======= Bookings Dashboard ======= -->
     <section id="dashboard" class="py-4">
         <div class="container">
             <div class="row">
@@ -42,10 +37,10 @@
                     <div class="col-md-12 create-booking-btn">
                         <h4>Create New Booking</h4>
                         <button class="create-booking-button" data-toggle="modal" data-target="#bookingModal"><i
-                                class="fa-solid fa-circle-plus"></i></button>
+                                class="fa-solid fa-circle-plus"></i>
+                        </button>
                     </div>
                 </div>
-
                 <div class="col-md-12">
                     <h2>Your Bookings</h2>
                     {% if bookings %}
@@ -124,7 +119,6 @@
                     <li class="page-item disabled">
                         <a href="" class="page-link">&laquo</a>
                     </li>
-
                     {% endif %}
                     {% for i in bookings.paginator.page_range %}
                     {% if bookings.number == i %}
@@ -135,10 +129,8 @@
                     <li class="page-item">
                         <a href="?page={{i}}" class="page-link">{{i}}</a>
                     </li>
-
                     {% endif %}
                     {% endfor %}
-
                     {% if bookings.has_next %}
                     <li class="page-item">
                         <a href="?page={{listings.next_page_number}}" class="page-link">&raquo</a>
@@ -147,13 +139,12 @@
                     <li class="page-item disabled">
                         <a href="" class="page-link">&raquo</a>
                     </li>
-
                     {% endif %}
                 </ul>
                 {% endif %}
             </div>
-        </div> <!-- EndPagination -->
-    </section>
+        </div> <!-- End Pagination -->
+    </section> <!-- End Bookings Dashboard -->
 
     <!-- Booking Modal -->
     <div class=" modal fade" id="bookingModal" role="dialog">
@@ -220,7 +211,6 @@
                                     <th scope="col">Van Name</th>
                                     <th scope="col">Your Feedback</th>
                                     <th scope="col">Status</th>
-
                                 </tr>
                             </thead>
                             <tbody>
@@ -258,7 +248,6 @@
                     <li class="page-item disabled">
                         <a href="" class="page-link">&laquo</a>
                     </li>
-
                     {% endif %}
                     {% for i in feedbacks.paginator.page_range %}
                     {% if feedbacks.number == i %}
@@ -269,10 +258,8 @@
                     <li class="page-item">
                         <a href="?page={{i}}" class="page-link">{{i}}</a>
                     </li>
-
                     {% endif %}
                     {% endfor %}
-
                     {% if feedbacks.has_next %}
                     <li class="page-item">
                         <a href="?page={{listings.next_page_number}}" class="page-link">&raquo</a>
@@ -281,14 +268,11 @@
                     <li class="page-item disabled">
                         <a href="" class="page-link">&raquo</a>
                     </li>
-
                     {% endif %}
                 </ul>
                 {% endif %}
             </div>
         </div> <!-- EndPagination -->
-    </section>
-
+    </section><!-- End Feedback Section -->
 </main><!-- End #main -->
-
 {% endblock %}
