@@ -2,17 +2,16 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-
 {% block content %}
 
 <main id="main">
 
     <section class="bg-light">
         <div class="container">
-
             <div class="section-title section-header">
                 <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">Leave Feedback</h1>
             </div>
+
             <!-- Onscreen Messages -->
             {%  include 'partials/_onscreen_messages.html' %}
     </section>
@@ -28,7 +27,6 @@
                         <h5>Date of Booking: {{ booking.date_required }}</h5>
                         <br>
                         {{ form|crispy }}
-
                         <hr>
                         <input type="submit" value="Submit Feedback" class="btn btn-warning btn-block">
                     </form>
@@ -45,8 +43,6 @@
             </div>
         </div>
     </section>
-
 </main><!-- End #main -->
-
 
 {% endblock %}
