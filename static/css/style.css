@@ -156,45 +156,8 @@ h6 {
   }
 }
 
-/* .contact-icon:hover i {
-  display: none;
-}
-
-.contact-icon:hover::after {
-  content: "Contact";
-  display: inline-block;
-}
-
-.account-icon:hover i {
-  display: none;
-}
-
-.account-icon:hover::after {
-  content: "Login/ Register";
-  display: inline-block;
-}
-
-.dashboard-icon:hover i {
-  display: none;
-}
-
-.dashboard-icon:hover::after {
-  content: "Your Dashboard";
-  display: inline-block;
-}
-
-.logout-icon:hover i {
-  display: none;
-}
-
-.logout-icon:hover::after {
-  content: "Logout";
-  display: inline-block;
-} */
-
 /* Nav Bar Media Query */
 @media (max-width: 600px) {
-
   #header .logo img {
     max-height: 40px;
   }
@@ -240,7 +203,6 @@ h6 {
 
 .navbar-mobile .active {
   color: #fb8500;
-  /* text-decoration: underline; */
 }
 
 .navbar-mobile a:hover,
@@ -293,7 +255,6 @@ h6 {
   align-items: center;
   justify-content: flex-start;
   width: auto;
-  /* or you can set to a specific width */
 }
 
 .navbar-mobile .nav-link i {
@@ -654,7 +615,6 @@ h6 {
   color: #fb8500;
 }
 
-
 .breadcrumbs ol li+li::before {
   display: inline-block;
   padding-right: 10px;
@@ -706,7 +666,6 @@ section {
   position: relative;
 }
 
-
 .cow-icon {
   width: 75px;
   height: 75px;
@@ -728,7 +687,6 @@ section {
 }
 
 @media (max-width: 768px) {
-
   .section-title h1 {
     font-size: 45px;
     font-weight: 600;
@@ -746,7 +704,6 @@ section {
 }
 
 @media (max-width: 400px) {
-
   .section-title h1 {
     font-size: 30px;
     font-weight: 600;
@@ -832,7 +789,6 @@ section {
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
-
 .icon-box {
   margin-bottom: 30px;
   /* Adjust the margin as needed */
@@ -883,7 +839,6 @@ section {
   margin-bottom: 20px;
 }
 
-
 .services-all-vans-btn {
   text-align: center;
   margin-bottom: 100px;
@@ -933,7 +888,6 @@ section {
   margin-top: 0;
   padding-bottom: 10px;
   align-items: center;
-
 }
 
 .send-message-btn {
@@ -992,7 +946,6 @@ section {
 .icon-header {
   display: flex;
   align-items: center;
-  /* adjust this to set the space between the icon and the text */
 }
 
 .info {
@@ -1113,7 +1066,6 @@ section {
 
 .van-detail-table tr {
   border-bottom: 1px solid #d8d8d5;
-
 }
 
 @media (max-width: 400px) {
@@ -1141,7 +1093,6 @@ section {
 /*--------------------------------------------------------------
 # Register Page
 --------------------------------------------------------------*/
-
 .register-btn {
   margin-top: 20px;
 }
@@ -1217,7 +1168,6 @@ section {
   .create-booking-btn {
     justify-content: center;
   }
-
 }
 
 /*--------------------------------------------------------------
