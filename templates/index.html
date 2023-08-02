@@ -1,14 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block content %}
 <!-- ======= Hero Section ======= -->
 {% include 'partials/_hero-search.html' %}
 <!-- End Hero -->
 
 <main id="main">
-
 
     <!-- ======= Featured Van Section ======= -->
     <section id="home-featured" class="home-featured bg-light">
@@ -17,13 +15,11 @@
             <!-- ======= Breadcrumbs ======= -->
             <section id="breadcrumbs" class="breadcrumbs">
                 <div class="container">
-
                     <div class="d-flex justify-content-between align-items-center">
                         <ol>
                             <li>Home</li>
                         </ol>
                     </div>
-
                 </div>
             </section><!-- End Breadcrumbs -->
 
@@ -31,7 +27,8 @@
                 <!-- Onscreen Messages -->
                 {%  include 'partials/_onscreen_messages.html' %}
 
-                <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">FEATURED VANS
+                <h1>
+                    <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">FEATURED VANS
                 </h1>
             </div>
             <div class="row">
@@ -49,8 +46,9 @@
                             <h5>County: {{ van.county }}</h5>
                             <h5>Price: £{{ van.price }} / day</h5>
                         </div>
-                        <button type="button" class="btn btn-warning"><a
-                                href="{% url 'van_detail' van.slug %}">Details</a></button>
+                        <button type="button" class="btn btn-warning">
+                            <a href="{% url 'van_detail' van.slug %}">Details</a>
+                        </button>
                     </div>
                 </div>
                 {% endfor %}
@@ -61,12 +59,12 @@
                 {% endif %}
             </div>
             <div class="all-vans-btn">
-                <button type="button" class="btn btn-warning btn-all-vans"><a href="{% url 'all_vans' %}">See All
-                        Vans</a></button>
+                <button type="button" class="btn btn-warning btn-all-vans">
+                    <a href="{% url 'all_vans' %}">See All Vans</a>
+                </button>
             </div>
         </div>
     </section><!-- End Featured Van Section -->
-
 </main><!-- End #main -->
 
 {% endblock %}
