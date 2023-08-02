@@ -12,7 +12,9 @@ class Van(models.Model):
     are imported from choices.py, and managed through context_processors.py
     """
     name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True, verbose_name="Unique Url Slug", help_text="Example: your_van_name")
+    slug = models.SlugField(max_length=200, unique=True,
+                            verbose_name="Unique Url Slug",
+                            help_text="Example: your_van_name")
     size = models.CharField(max_length=75, choices=SIZE_CHOICES)
     location = models.CharField(max_length=75, choices=LOCATION_CHOICES)
     county = models.CharField(max_length=75, choices=COUNTY_CHOICES)
@@ -61,24 +63,30 @@ class Booking(models.Model):
 
     Fields added to notify user when booking status has changed
     """
-    booking_number = models.CharField(max_length=200, unique=True, blank=True, editable=True)
+    booking_number = models.CharField(max_length=200, unique=True, blank=True,
+                                      editable=True)
 
     van = models.ForeignKey(Van, on_delete=models.DO_NOTHING)
 
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     email = models.EmailField()
-    phone = models.CharField(max_length=100, verbose_name="Enter customer's phone number",)
+    phone = models.CharField(max_length=100,
+                             verbose_name="Enter customer's phone number",)
 
     van_name = models.CharField(max_length=250, default='Enter name of van')
-    van_size = models.CharField(max_length=75, choices=SIZE_CHOICES, default='Small')
-    van_location = models.CharField(max_length=75, choices=LOCATION_CHOICES, default='Birmingham')
-    van_county = models.CharField(max_length=75, choices=COUNTY_CHOICES, default='Cardiff')
+    van_size = models.CharField(max_length=75, choices=SIZE_CHOICES,
+                                default='Small')
+    van_location = models.CharField(max_length=75, choices=LOCATION_CHOICES,
+                                    default='Birmingham')
+    van_county = models.CharField(max_length=75, choices=COUNTY_CHOICES,
+                                  default='Cardiff')
 
     date_required = models.DateField()
     date_created = models.DateTimeField(default=datetime.now, blank=True)
     date_updated = models.DateTimeField(default=datetime.now, blank=True)
-    status = models.CharField(max_length=25, choices=STATUS_CHOICES, default='Pending')
+    status = models.CharField(max_length=25, choices=STATUS_CHOICES,
+                              default='Pending')
     price = models.DecimalField(
         max_digits=6,
         decimal_places=2,
@@ -92,7 +100,6 @@ class Booking(models.Model):
     # Fields for status change to notify user
     is_approved_notified = models.BooleanField(default=False)
     is_completed_notified = models.BooleanField(default=False)
-
 
     def save(self, *args, **kwargs):
         """
@@ -110,28 +117,38 @@ class Booking(models.Model):
             # Send email
             send_mail(
                 'Booking ' + str(self.booking_number) + ' Approved',
-                'Your booking ' + str(self.booking_number) + ' ' + self.van_name + ' has been approved. Please login to your Dashboard for more details. Kind regards, YooMoov Admin Team',
+                'Your booking ' + str(self.booking_number) + ' ' +
+                self.van_name + ' has been approved. Please login to your '
+                'Dashboard for more details. Kind regards, YooMoov Admin Team',
                 'yoomoov@outlook.com',
-                [self.email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
+                [self.email, 'yoomoov@outlook.com',
+                             'russ.smith1001@gmail.com'],
                 fail_silently=False,
             )
 
-            # Set is_approved_notified to True since the user has been notified now
+            # Set is_approved_notified to True since the user has been
+            # notified now
             self.is_approved_notified = True
             super().save(update_fields=["is_approved_notified"])
 
-        # Check if the status has changed to 'Completed' and the user hasn't been notified yet
+        # Check if the status has changed to 'Completed' and the user hasn't
+        # been notified yet
         elif self.status == 'Completed' and not self.is_completed_notified:
             # Send email
             send_mail(
                 'Booking ' + str(self.booking_number) + ' Completed',
-                'Your booking ' + str(self.booking_number) + ' ' + self.van_name + ' has been completed. Please login to your Dashboard to leave feedback. Kind regards, YooMoov Admin Team',
+                'Your booking ' + str(self.booking_number) + ' ' +
+                self.van_name + ' has been completed. Please login to your '
+                'Dashboard to leave feedback. Kind regards, YooMoov Admin '
+                'Team',
                 'yoomoov@outlook.com',
-                [self.email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
+                [self.email, 'yoomoov@outlook.com',
+                             'russ.smith1001@gmail.com'],
                 fail_silently=False,
             )
 
-            # Set is_completed_notified to True since the user has been notified now
+            # Set is_completed_notified to True since the user has been
+            # notified now
             self.is_completed_notified = True
             super().save(update_fields=["is_completed_notified"])
 
@@ -153,13 +170,15 @@ class Feedback(models.Model):
     van = models.ForeignKey(Van, on_delete=models.CASCADE)
     user_fk = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    booking_number = models.CharField(max_length=200, unique=True, blank=True, editable=True)
+    booking_number = models.CharField(max_length=200, unique=True,
+                                      blank=True, editable=True)
     van_name = models.CharField(max_length=250, default='Enter name of van')
 
     title = models.CharField(max_length=200, unique=True)
     comment = models.TextField(max_length=500)
     rating = models.IntegerField(choices=RATING_CHOICES, default=5)
-    is_approved = models.CharField(max_length=25, choices=APPROVAL_CHOICES, default='Pending')
+    is_approved = models.CharField(max_length=25, choices=APPROVAL_CHOICES,
+                                   default='Pending')
     date_created = models.DateTimeField(default=datetime.now, blank=True)
     date_last_updated = models.DateTimeField(default=datetime.now, blank=True)
 
@@ -168,19 +187,25 @@ class Feedback(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Super save method to update the aproval status of the feedback, which triggers an email notification to the user
+        Super save method to update the aproval status of the feedback, which
+        triggers an email notification to the user
         """
         if self.is_approved == 'Approved' and not self.is_approved_notified:
             # Send email
             send_mail(
                 'Feedback for ' + str(self.booking_number) + ' Approved',
-                'Your feedback for booking ' + str(self.booking_number) + ' ' + self.van_name + ' has been approved and published. Please login to your Dashboard to view. Kind regards, YooMoov Admin Team',
+                'Your feedback for booking ' + str(self.booking_number) + ' '
+                + self.van_name + ' has been approved and published. Please '
+                'login to your Dashboard to view. Kind regards, YooMoov Admin '
+                'Team',
                 'yoomoov@outlook.com',
-                [self.user_fk.email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
+                [self.user_fk.email, 'yoomoov@outlook.com',
+                                     'russ.smith1001@gmail.com'],
                 fail_silently=False,
             )
 
-            # Set is_approved_notified to True since the user has been notified now
+            # Set is_approved_notified to True since the user has been
+            # notified now
             self.is_approved_notified = True
 
         super().save(*args, **kwargs)
@@ -193,4 +218,3 @@ class Feedback(models.Model):
 
     def __str__(self):
         return self.title
-
