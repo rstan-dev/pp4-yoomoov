@@ -12,7 +12,7 @@
     <section class="bg-light">
         <div class="container">
             <div class="section-title section-header section-van-detail-header">
-                <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">VAN DETAIL</h1>
+                <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="Cow Icon">VAN DETAIL</h1>
             </div>
 
             <!-- ======= Breadcrumbs ======= -->
@@ -41,7 +41,7 @@
                 <h2>{{ van.name }}</h2>
                 <div class="col-lg-8">
                     <!-- Detail Main Image -->
-                    <img src="{{ van.image.url }}" alt="" class="img-main img-fluid mb-3">
+                    <img src="{{ van.image.url }}" alt="{{ van.name }}" class="img-main img-fluid mb-3">
                     <!-- Fields -->
                     <div class="row mb-12 fields">
                         <div class="col-md-12">

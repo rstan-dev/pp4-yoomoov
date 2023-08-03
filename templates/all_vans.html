@@ -27,7 +27,7 @@
             </section><!-- End Breadcrumbs -->
 
             <div class="section-title">
-                <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="">ALL VANS
+                <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="Cow Icon">ALL VANS
                 </h1>
             </div>
             <div class="row">
@@ -35,7 +35,7 @@
                 {% for van in vans %}
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                     <div class="van">
-                        <img src="{{ van.image.url }}" alt="">
+                        <img src="{{ van.image.url }}" alt="{{ van.name }}">
                         <h4>{{ van.name }}</h4>
                         <br>
                         <div class="featured-detail">
