@@ -10,8 +10,8 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
-  color: #444444;
+  font-family: "Raleway", sans-serif;
+  color: #495057;
 }
 
 h1,
@@ -24,12 +24,12 @@ h6 {
 }
 
 .btn-warning {
-  color: white;
+  color: #fff;
   background-color: #fb8500;
 }
 
 .btn-warning a {
-  color: white;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -45,7 +45,7 @@ h6 {
 .pagination .page-item.active .page-link {
   background-color: #fb8500;
   border-color: #fb8500;
-  color: white;
+  color: #fff;
 }
 
 .pagination .page-item .page-link {
@@ -103,7 +103,7 @@ h6 {
   font-family: "Poppins", sans-serif;
   font-size: 15px;
   font-weight: 500;
-  color: white;
+  color: #fff;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -118,19 +118,19 @@ h6 {
 
 .navbar .active a,
 .navbar .active a:focus {
-  color: #384046;
+  color: #495057;
 }
 
 .navbar a:hover,
 .navbar li:hover>a {
-  color: #384046
+  color: #495057
 }
 
 /**
 * Mobile Navigation
 */
 .mobile-nav-toggle {
-  color: white;
+  color: #fff;
   font-size: 28px;
   cursor: pointer;
   display: none;
@@ -208,7 +208,7 @@ h6 {
 .navbar-mobile a:hover,
 
 .navbar-mobile li:hover>a {
-  color: #384046;
+  color: #495057;
 }
 
 .navbar-mobile .getstarted,
@@ -266,7 +266,7 @@ h6 {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  color: white;
+  color: #fff;
   font-size: 14px;
   background: #fb8500;
 }
@@ -281,7 +281,7 @@ h6 {
 
 .nav-link .active a,
 .nav-link .active a:focus {
-  color: #384046;
+  color: #495057;
 }
 
 .nav-link i {
@@ -310,13 +310,13 @@ h6 {
   line-height: 24px;
   margin-bottom: 0;
   font-family: "Raleway", sans-serif;
-  color: #777777;
+  color: #495057;
 }
 
 #footer .footer-top h4 {
   font-size: 16px;
   font-weight: bold;
-  color: #444444;
+  color: #495057;
   position: relative;
   padding-bottom: 12px;
 }
@@ -349,7 +349,7 @@ h6 {
 }
 
 #footer .footer-top .footer-links ul a {
-  color: #777777;
+  color: #495057;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
@@ -367,7 +367,7 @@ h6 {
 #footer .footer-newsletter h4 {
   font-size: 16px;
   font-weight: bold;
-  color: #444444;
+  color: #495057;
   position: relative;
   padding-bottom: 12px;
 }
@@ -411,13 +411,13 @@ h6 {
 #footer .credits {
   padding-top: 5px;
   font-size: 13px;
-  color: #444444;
+  color: #495057;
 }
 
 #footer .social-links a {
   font-size: 30px;
   display: inline-block;
-  background: white;
+  background: #fff;
   color: #fb8500;
   border-radius: 5px;
   line-height: 1;
@@ -430,7 +430,7 @@ h6 {
 }
 
 #footer .social-links a:hover {
-  background: #384046;
+  background: #495057;
   color: #fff;
   text-decoration: none;
 }
@@ -445,7 +445,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #3498db;
+  background: #0d6efd;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -518,7 +518,7 @@ h6 {
 }
 
 .search-box {
-  background-color: #ffffff;
+  background-color: #fff;
   padding: 20px;
 }
 
@@ -532,7 +532,7 @@ h6 {
 }
 
 .btn-search {
-  color: white;
+  color: #fff;
   background-color: #fb8500;
 }
 
@@ -618,7 +618,7 @@ h6 {
 .breadcrumbs ol li+li::before {
   display: inline-block;
   padding-right: 10px;
-  color: #4f5a62;
+  color: #495057;
   content: "/";
 }
 
@@ -911,7 +911,7 @@ section {
   float: left;
   width: 44px;
   height: 44px;
-  background: #eaf4fb;
+  background: #f7fbfe;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -931,11 +931,11 @@ section {
   padding: 0 0 0 60px;
   margin-bottom: 0;
   font-size: 14px;
-  color: #65747f;
+  color: #495057;
 }
 
 .contact .info:hover i {
-  background: #384046;
+  background: #495057;
   color: #fff;
 }
 
@@ -1011,7 +1011,7 @@ section {
 }
 
 .list-group-flush li {
-  color: #424241;
+  color: #495057;
   font-size: 20px;
 }
 
@@ -1049,13 +1049,13 @@ section {
 }
 
 .van-spec {
-  color: #424241;
+  color: #495057;
   font-size: 20px;
   padding: 0 15px 0 15px;
 }
 
 .van-spec-detail {
-  color: #424241;
+  color: #495057;
   font-size: 20px;
   padding: 0 15px 0 15px;
 }
@@ -1074,7 +1074,7 @@ section {
   }
 
   .list-group-flush li {
-    color: #424241;
+    color: #495057;
     font-size: 15px;
   }
 
@@ -1146,7 +1146,7 @@ section {
 }
 
 .pending {
-  color: red !important;
+  color: #dc3545 !important;
   font-weight: bold;
 }
 
@@ -1174,7 +1174,7 @@ section {
 # Booking Modal
 --------------------------------------------------------------*/
 .modal-title {
-  color: white;
+  color: #fff;
   font-size: 25px;
 }
 
