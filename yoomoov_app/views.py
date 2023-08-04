@@ -9,6 +9,7 @@ from django.db.models import Exists, OuterRef, Count
 from django.core.mail import send_mail
 from django.core.paginator import Paginator
 from allauth.account.views import LoginView
+from django.contrib.auth.decorators import login_required
 
 logger = logging.getLogger(__name__)
 
@@ -184,6 +185,7 @@ def van_search(request):
     return render(request, 'van_filter.html', context)
 
 
+@login_required
 def dashboard(request):
     """
     Renders Bookings data, based on the logged in user id
