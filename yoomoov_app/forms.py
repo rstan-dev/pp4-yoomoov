@@ -16,28 +16,51 @@ class DateInput(forms.DateInput):
 
 
 class BookingForm(forms.ModelForm):
+    """
+    BookingForm used for Creating a Booking and Updating a Booking
+    Form uses three validations, one to prevent bookings in the past,
+    one to check if a booking has been made for a van on a specific date,
+    and raises an error to prevent a double booking.
+    Another validation checks if it has a booking id assigned, to ignore the
+    first validation - in the case of editing / updating a booking.
+    """
+    booking_id = forms.IntegerField(required=False, widget=forms.HiddenInput())
+
     class Meta:
         model = Booking
-        fields = ['first_name', 'last_name', 'email', 'phone', 'van',
-                  'date_required']
+        fields = ['booking_id', 'first_name', 'last_name', 'email', 'phone',
+                  'van', 'date_required']
         widgets = {
             'date_required': DateInput(),
         }
 
     def clean_date_required(self):
+        """
+        Validates to prevent past bookings
+        """
         date_required = self.cleaned_data.get('date_required')
         if date_required and date_required < timezone.localdate():
             raise ValidationError("Please select a future date")
         return date_required
 
     def clean(self):
+        """
+        Validates to prevent a double booking, except if there is a booking id
+        """
         cleaned_data = super().clean()
         van = cleaned_data.get('van')
         date_required = cleaned_data.get('date_required')
+        booking_id = cleaned_data.get('booking_id')
+
         if van and date_required:
-            if Booking.objects.filter(
+            query_bookings = Booking.objects.filter(
                                       van=van,
-                                      date_required=date_required).exists():
+                                      date_required=date_required)
+
+            if booking_id:
+                query_bookings = query_bookings.exclude(id=booking_id)
+
+            if query_bookings.exists():
                 raise forms.ValidationError(
                     "The selected van is already booked for the selected date."
                     )

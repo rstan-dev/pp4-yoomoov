@@ -311,10 +311,9 @@ def editBooking(request, pk):
     User is redirected back to the dashboard on completion.
     """
     booking = Booking.objects.get(id=pk)
-    form = BookingForm(instance=booking)
+    form = BookingForm(instance=booking, initial={'booking_id': booking.id})
 
     if request.method == 'POST':
-        # print('Printing POST', request.POST)
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             booking = form.save(commit=False)
@@ -435,7 +434,7 @@ def leaveFeedback(request, pk):
 
 class CustomLoginView(LoginView):
     """
-    Custom Login View to activate valiation messages
+    Custom Login View to activate validation messages
     """
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
