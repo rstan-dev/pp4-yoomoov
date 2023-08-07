@@ -4,275 +4,272 @@
 
 {% block content %}
 
-<main id="main">
-    <section class="bg-light">
-        <div class="container">
-            <div class="section-title section-header">
-                <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="Cow Icon">USER
-                    DASHBOARD</h1>
-                <h2><strong>Welcome {{ user.first_name }}:</strong></h2>
-            </div>
-
-            <!-- ======= Breadcrumbs ======= -->
-            <section id="breadcrumbs" class="breadcrumbs">
-                <div class="container">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <ol>
-                            <li><a href="{% url 'home' %}">Home</a></li>
-                            <li>Dashboard</li>
-                        </ol>
-                    </div>
-                </div>
-            </section><!-- End Breadcrumbs -->
-
-            <!-- Onscreen Messages -->
-            {%  include 'partials/_onscreen_messages.html' %}
-    </section>
-
-    <!-- ======= Bookings Dashboard ======= -->
-    <section id="dashboard" class="py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="col-md-12 create-booking-btn">
-                        <h4>Create New Booking</h4>
-                        <button class="create-booking-button" data-toggle="modal" data-target="#bookingModal"><i
-                                class="fa-solid fa-circle-plus"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <h2>Your Bookings</h2>
-                    {% if bookings %}
-                    <h4>Here are the vans you have booked:</h4>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">No.</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Location</th>
-                                    <th scope="col">Size</th>
-                                    <th scope="col">Van Name</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Status</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for booking in bookings %}
-                                <tr>
-                                    <td>{{ booking.booking_number }}</td>
-                                    <td>{{ booking.date_required }}</td>
-                                    <td>{{ booking.van_location }}</td>
-                                    <td>{{ booking.van_size }}</td>
-                                    <td>{{ booking.van }}</td>
-                                    <td>£{{ booking.price }}</td>
-                                    <td
-                                        class="booking-status {% if booking.status == 'Pending' %}pending{% elif booking.status == 'Approved' %}approved{% elif booking.status == 'Completed' %}completed{% endif %}">
-                                        {{ booking.status }}</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="7" class="dashboard-btn-grp">
-                                        <div class="btn-group">
-                                            {% if booking.status == 'Completed' %}
-                                            {% if booking.has_feedback %}
-                                            <button class="btn btn-sm btn-outline-success feedback-btn-submitted"
-                                                disabled href="">Feedback
-                                                Submitted</button>
-                                            {% else %}
-                                            <a class="btn btn-sm btn-outline-info"
-                                                href="{% url 'leave_feedback' booking.id %}">Leave Feedback</a>
-                                            {% endif %}
-                                            {% else %}
-                                            <a class="btn btn-sm btn-outline-warning"
-                                                href="{% url 'edit_booking' booking.id %}">Edit</a>
-                                            <a class="btn btn-sm btn-outline-danger"
-                                                href=" {% url 'delete_booking' booking.id %}">Delete</a>
-                                            {% endif %}
-                                            <a class="btn btn-sm btn-outline-primary"
-                                                href="{% url 'van_detail' slug=booking.van.slug %}">View</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                    {% else %}
-                    <h4>There are no bookings to display</h4>
-                    {% endif %}
-                </div>
-            </div>
+<section class="bg-light">
+    <div class="container">
+        <div class="section-title section-header">
+            <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="Cow Icon">USER
+                DASHBOARD</h1>
+            <h2><strong>Welcome {{ user.first_name }}:</strong></h2>
         </div>
 
-        <!-- Pagination -->
-        <div class="row">
-            <div class="col-md-12 d-flex justify-content-center">
-                {% if bookings.has_other_pages %}
-                <ul class="pagination">
-                    {% if booking.has_previous %}
-                    <li class="page-item">
-                        <a href="?page={{listings.previous_page_number}}" class="page-link">&laquo</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item disabled">
-                        <a href="" class="page-link">&laquo</a>
-                    </li>
-                    {% endif %}
-                    {% for i in bookings.paginator.page_range %}
-                    {% if bookings.number == i %}
-                    <li class="page-item active">
-                        <a href="" class="page-link">{{i}}</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item">
-                        <a href="?page={{i}}" class="page-link">{{i}}</a>
-                    </li>
-                    {% endif %}
-                    {% endfor %}
-                    {% if bookings.has_next %}
-                    <li class="page-item">
-                        <a href="?page={{listings.next_page_number}}" class="page-link">&raquo</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item disabled">
-                        <a href="" class="page-link">&raquo</a>
-                    </li>
-                    {% endif %}
-                </ul>
-                {% endif %}
+        <!-- ======= Breadcrumbs ======= -->
+        <div id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <ol>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li>Dashboard</li>
+                    </ol>
+                </div>
             </div>
-        </div> <!-- End Pagination -->
-    </section> <!-- End Bookings Dashboard -->
+        </div><!-- End Breadcrumbs -->
 
-    <!-- Booking Modal -->
-    <div class=" modal fade" id="bookingModal" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="bookingModalLabel"><img class="cow-icon"
-                            src="{% static 'media/cow_icon_white.png' %}" alt="Cow Icon">Create a Booking
-                    </h5>
-                    <button type="button" class="close modal-close-btn" data-dismiss="modal">
-                        <span>&times;</span>
+        <!-- Onscreen Messages -->
+        {%  include 'partials/_onscreen_messages.html' %}
+    </div>
+</section>
+
+<!-- ======= Bookings Dashboard ======= -->
+<div class="dashboard py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12 create-booking-btn">
+                    <h4>Create New Booking</h4>
+                    <button class="create-booking-button" data-toggle="modal" data-target="#bookingModal"><i
+                            class="fa-solid fa-circle-plus"></i>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form action="{% url 'create_booking' %}" method="POST">
-                        {% csrf_token %}
-                        {{ form|crispy }}
-                        <hr>
-                        <div id="messages" class="container">
-                            {% if form.non_field_errors %}
-                            <div class="alert alert-danger alert-dismissable text-center" role="alert">
-                                {% for error in form.non_field_errors %}
-                                <strong>{{ error }}</strong>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                            {% for field in form %}
-                            {% if field.errors %}
-                            <div class="alert alert-danger alert-dismissable text-center" role="alert">
-                                <strong>{{ field.errors|join:" " }}</strong>
-                            </div>
-                            {% endif %}
+            </div>
+            <div class="col-md-12">
+                <h2>Your Bookings</h2>
+                {% if bookings %}
+                <h4>Here are the vans you have booked:</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Size</th>
+                                <th scope="col">Van Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for booking in bookings %}
+                            <tr>
+                                <td>{{ booking.booking_number }}</td>
+                                <td>{{ booking.date_required }}</td>
+                                <td>{{ booking.van_location }}</td>
+                                <td>{{ booking.van_size }}</td>
+                                <td>{{ booking.van }}</td>
+                                <td>£{{ booking.price }}</td>
+                                <td
+                                    class="booking-status {% if booking.status == 'Pending' %}pending{% elif booking.status == 'Approved' %}approved{% elif booking.status == 'Completed' %}completed{% endif %}">
+                                    {{ booking.status }}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" class="dashboard-btn-grp">
+                                    <div class="btn-group">
+                                        {% if booking.status == 'Completed' %}
+                                        {% if booking.has_feedback %}
+                                        <button class="btn btn-sm btn-outline-success feedback-btn-submitted"
+                                            disabled>Feedback Submitted</button>
+                                        {% else %}
+                                        <a class="btn btn-sm btn-outline-info"
+                                            href="{% url 'leave_feedback' booking.id %}">Leave Feedback</a>
+                                        {% endif %}
+                                        {% else %}
+                                        <a class="btn btn-sm btn-outline-warning"
+                                            href="{% url 'edit_booking' booking.id %}">Edit</a>
+                                        <a class="btn btn-sm btn-outline-danger"
+                                            href=" {% url 'delete_booking' booking.id %}">Delete</a>
+                                        {% endif %}
+                                        <a class="btn btn-sm btn-outline-primary"
+                                            href="{% url 'van_detail' slug=booking.van.slug %}">View</a>
+                                    </div>
+                                </td>
+                            </tr>
                             {% endfor %}
-                        </div>
-                        <input type="submit" value="Request Booking" class="btn btn-warning btn-block">
-                    </form>
-                    <hr>
-                    <h5>T&Cs:<br>
-                        Please check the Status of your booking on your
-                        Dashboard.<br><br>
-                        All requests will either be Confirmed by our
-                        administrator, or
-                        they will contact you to make alternative arrangements.
-                    </h5>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-        </div>
-    </div><!-- End Booking Modal -->
-
-    <!-- ======= Feedback Section ======= -->
-    <section id="dashboard" class="py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Your Feedback</h2>
-                    {% if feedbacks %}
-                    <h4>Here is the feedback you have left:</h4>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Booking No.</th>
-                                    <th scope="col">Booking Date</th>
-                                    <th scope="col">Van Name</th>
-                                    <th scope="col">Your Feedback</th>
-                                    <th scope="col">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for feedback in feedbacks %}
-                                <tr>
-                                    <td>{{ feedback.booking.booking_number }}</td>
-                                    <td>{{ feedback.booking.date_required }}</td>
-                                    <td>{{ feedback.booking.van }}</td>
-                                    <td><strong>{{ feedback.title }}</strong><br>{{ feedback.comment }}</td>
-                                    <td
-                                        class="feedback-status {% if feedback.is_approved == 'Pending' %}pending{% elif feedback.is_approved == 'Approved' %}approved{% endif %}">
-                                        {{ feedback.is_approved }}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                    {% else %}
-                    <h4>There is no feedback to display</h4>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-
-        <!-- Pagination -->
-        <div class="row">
-            <div class="col-md-12 d-flex justify-content-center">
-                {% if feedbacks.has_other_pages %}
-                <ul class="pagination">
-                    {% if feedbacks.has_previous %}
-                    <li class="page-item">
-                        <a href="?page={{listings.previous_page_number}}" class="page-link">&laquo</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item disabled">
-                        <a href="" class="page-link">&laquo</a>
-                    </li>
-                    {% endif %}
-                    {% for i in feedbacks.paginator.page_range %}
-                    {% if feedbacks.number == i %}
-                    <li class="page-item active">
-                        <a href="" class="page-link">{{i}}</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item">
-                        <a href="?page={{i}}" class="page-link">{{i}}</a>
-                    </li>
-                    {% endif %}
-                    {% endfor %}
-                    {% if feedbacks.has_next %}
-                    <li class="page-item">
-                        <a href="?page={{listings.next_page_number}}" class="page-link">&raquo</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item disabled">
-                        <a href="" class="page-link">&raquo</a>
-                    </li>
-                    {% endif %}
-                </ul>
+                {% else %}
+                <h4>There are no bookings to display</h4>
                 {% endif %}
             </div>
-        </div> <!-- EndPagination -->
-    </section><!-- End Feedback Section -->
-</main><!-- End #main -->
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+            {% if bookings.has_other_pages %}
+            <ul class="pagination">
+                {% if booking.has_previous %}
+                <li class="page-item">
+                    <a href="?page={{listings.previous_page_number}}" class="page-link">&laquo;</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a href="" class="page-link">&laquo;</a>
+                </li>
+                {% endif %}
+                {% for i in bookings.paginator.page_range %}
+                {% if bookings.number == i %}
+                <li class="page-item active">
+                    <a href="" class="page-link">{{i}}</a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                    <a href="?page={{i}}" class="page-link">{{i}}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+                {% if bookings.has_next %}
+                <li class="page-item">
+                    <a href="?page={{listings.next_page_number}}" class="page-link">&raquo;</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a href="" class="page-link">&raquo;</a>
+                </li>
+                {% endif %}
+            </ul>
+            {% endif %}
+        </div>
+    </div> <!-- End Pagination -->
+</div> <!-- End Bookings Dashboard -->
+
+<!-- Booking Modal -->
+<div class=" modal fade" id="bookingModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bookingModalLabel"><img class="cow-icon"
+                        src="{% static 'media/cow_icon_white.png' %}" alt="Cow Icon">Create a Booking
+                </h5>
+                <button type="button" class="close modal-close-btn" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'create_booking' %}" method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <hr>
+                    <div id="messages" class="container">
+                        {% if form.non_field_errors %}
+                        <div class="alert alert-danger alert-dismissable text-center" role="alert">
+                            {% for error in form.non_field_errors %}
+                            <strong>{{ error }}</strong>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% for field in form %}
+                        {% if field.errors %}
+                        <div class="alert alert-danger alert-dismissable text-center" role="alert">
+                            <strong>{{ field.errors|join:" " }}</strong>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <input type="submit" value="Request Booking" class="btn btn-warning btn-block">
+                </form>
+                <hr>
+                <h5>T&Cs:<br>
+                    Please check the Status of your booking on your
+                    Dashboard.<br><br>
+                    All requests will either be Confirmed by our
+                    administrator, or
+                    they will contact you to make alternative arrangements.
+                </h5>
+            </div>
+        </div>
+    </div>
+</div><!-- End Booking Modal -->
+
+<!-- ======= Feedback Section ======= -->
+<div class="dashboard py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Your Feedback</h2>
+                {% if feedbacks %}
+                <h4>Here is the feedback you have left:</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Booking No.</th>
+                                <th scope="col">Booking Date</th>
+                                <th scope="col">Van Name</th>
+                                <th scope="col">Your Feedback</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for feedback in feedbacks %}
+                            <tr>
+                                <td>{{ feedback.booking.booking_number }}</td>
+                                <td>{{ feedback.booking.date_required }}</td>
+                                <td>{{ feedback.booking.van }}</td>
+                                <td><strong>{{ feedback.title }}</strong><br>{{ feedback.comment }}</td>
+                                <td
+                                    class="feedback-status {% if feedback.is_approved == 'Pending' %}pending{% elif feedback.is_approved == 'Approved' %}approved{% endif %}">
+                                    {{ feedback.is_approved }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <h4>There is no feedback to display</h4>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+            {% if feedbacks.has_other_pages %}
+            <ul class="pagination">
+                {% if feedbacks.has_previous %}
+                <li class="page-item">
+                    <a href="?page={{listings.previous_page_number}}" class="page-link">&laquo;</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a href="" class="page-link">&laquo;</a>
+                </li>
+                {% endif %}
+                {% for i in feedbacks.paginator.page_range %}
+                {% if feedbacks.number == i %}
+                <li class="page-item active">
+                    <a href="" class="page-link">{{i}}</a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                    <a href="?page={{i}}" class="page-link">{{i}}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+                {% if feedbacks.has_next %}
+                <li class="page-item">
+                    <a href="?page={{listings.next_page_number}}" class="page-link">&raquo;</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a href="" class="page-link">&raquo;</a>
+                </li>
+                {% endif %}
+            </ul>
+            {% endif %}
+        </div>
+    </div> <!-- EndPagination -->
+</div><!-- End Feedback Section -->
 {% endblock %}
