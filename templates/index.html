@@ -6,65 +6,57 @@
 {% include 'partials/_hero-search.html' %}
 <!-- End Hero -->
 
-<main id="main">
+<!-- ======= Featured Van Section ======= -->
+<section id="home-featured" class="home-featured bg-light">
+    <div class="container">
 
-    <!-- ======= Featured Van Section ======= -->
-    <section id="home-featured" class="home-featured bg-light">
-        <div class="container">
-
-            <!-- ======= Breadcrumbs ======= -->
-            <section id="breadcrumbs" class="breadcrumbs">
-                <div class="container">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <ol>
-                            <li>Home</li>
-                        </ol>
-                    </div>
+        <!-- ======= Breadcrumbs ======= -->
+        <div id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <ol>
+                        <li>Home</li>
+                    </ol>
                 </div>
-            </section><!-- End Breadcrumbs -->
+            </div>
+        </div><!-- End Breadcrumbs -->
 
-            <div class="section-title">
-                <!-- Onscreen Messages -->
-                {%  include 'partials/_onscreen_messages.html' %}
+        <div class="section-title">
+            <!-- Onscreen Messages -->
+            {%  include 'partials/_onscreen_messages.html' %}
 
-                <h1>
-                    <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="Cow Icon">FEATURED VANS
-                </h1>
-            </div>
-            <div class="row">
-                {% if vans %}
-                {% for van in vans %}
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                    <div class="van">
-                        <img src="{{ van.image.url }}" alt="{{ van.name }}">
-                        <h4>{{ van.name }}</h4>
-                        <br>
-                        <div class="featured-detail">
-                            <h5>Size: {{ van.size }}</h5>
-                            <h5>Crew: {{ van.crew }}</h5>
-                            <h5>Location: {{ van.location }}</h5>
-                            <h5>County: {{ van.county }}</h5>
-                            <h5>Price: £{{ van.price }} / day</h5>
-                        </div>
-                        <button type="button" class="btn btn-warning">
-                            <a href="{% url 'van_detail' van.slug %}">Details</a>
-                        </button>
-                    </div>
-                </div>
-                {% endfor %}
-                {% else %}
-                <div class="col-md-12 no-data-notice">
-                    <p>No Listings Available</p>
-                </div>
-                {% endif %}
-            </div>
-            <div class="all-vans-btn">
-                <button type="button" class="btn btn-warning btn-all-vans">
-                    <a href="{% url 'all_vans' %}">See All Vans</a>
-                </button>
-            </div>
+            <h1>
+                <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="Cow Icon">FEATURED VANS
+            </h1>
         </div>
-    </section><!-- End Featured Van Section -->
-</main><!-- End #main -->
-
+        <div class="row">
+            {% if vans %}
+            {% for van in vans %}
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="van">
+                    <img src="{{ van.image.url }}" alt="{{ van.name }}">
+                    <h4>{{ van.name }}</h4>
+                    <br>
+                    <div class="featured-detail">
+                        <h5>Size: {{ van.size }}</h5>
+                        <h5>Crew: {{ van.crew }}</h5>
+                        <h5>Location: {{ van.location }}</h5>
+                        <h5>County: {{ van.county }}</h5>
+                        <h5>Price: £{{ van.price }} / day</h5>
+                    </div>
+                    <a href="{% url 'van_detail' van.slug %}" class="btn btn-warning" role="button">Details</a>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="col-md-12 no-data-notice">
+                <p>No Listings Available</p>
+            </div>
+            {% endif %}
+        </div>
+        <div class="all-vans-btn">
+            <a href="{% url 'all_vans' %}" class="btn btn-warning btn-all-vans" role="button">See All Vans</a>
+        </div>
+    </div>
+</section><!-- End Featured Van Section -->
 {% endblock %}

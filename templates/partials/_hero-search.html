@@ -18,7 +18,7 @@
                         <div class="form-row">
                             <div class="col-md-12 form-fields">
                                 <select name="van-size" class="form-control">
-                                    <option selected="true" disabled="disabled">Van Size (All)</option>
+                                    <option selected disabled>Van Size (All)</option>
                                     {% for key,value in van_size_choices.items %}
                                     <option value="{{ key }}">{{ value }}</option>
                                     {% endfor %}
@@ -27,7 +27,7 @@
                             <!-- Form Row 2 -->
                             <div class="col-md-12 form-fields">
                                 <select name="location" class="form-control">
-                                    <option selected="true" disabled="disabled">Location (All)</option>
+                                    <option selected disabled>Location (All)</option>
                                     {% for key,value in location_choices.items %}
                                     <option value="{{ key }}">{{ value }}</option>
                                     {% endfor %}
@@ -36,7 +36,7 @@
                             <!-- Form Row 3 -->
                             <div class="col-md-12 form-fields">
                                 <select name="county" class="form-control">
-                                    <option selected="true" disabled="disabled">County (All)</option>
+                                    <option selected disabled>County (All)</option>
                                     {% for key,value in county_choices.items %}
                                     <option value="{{ key }}">{{ value }}</option>
                                     {% endfor %}
