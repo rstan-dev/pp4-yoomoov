@@ -7,125 +7,123 @@
 
 {% block content %}
 
-<main id="main">
+<section class="bg-light section-header">
+  <div class="container">
+    <div class="section-title ">
+      <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="Cow Icon">SIGN UP</h1>
+    </div>
 
-  <section class="bg-light section-header">
-    <div class="container">
-      <div class="section-title ">
-        <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="Cow Icon">SIGN UP</h1>
-      </div>
-
-      <!-- ======= Breadcrumbs ======= -->
-      <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
-          <div class="d-flex justify-content-between align-items-center">
-            <ol>
-              <li><a href="{% url 'home' %}">Home</a></li>
-              <li>Signup</li>
-            </ol>
-          </div>
+    <!-- ======= Breadcrumbs ======= -->
+    <div id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>Signup</li>
+          </ol>
         </div>
-      </section><!-- End Breadcrumbs -->
-  </section>
-  <!-- Onscreen Messages -->
-  {%  include 'partials/_onscreen_messages.html' %}
+      </div>
+    </div><!-- End Breadcrumbs -->
+  </div>
+</section>
+<!-- Onscreen Messages -->
+{%  include 'partials/_onscreen_messages.html' %}
 
-  <!-- ======= Signup Section ======= -->
-  <section id="login" class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <div class="card">
-            <div class="card-body">
-              <h5>{% blocktrans %}Already have an account?</h5>
-              <h5>Then please <a href="{{ login_url }}">sign
-                  in</a>.{% endblocktrans %}
-              </h5>
-              <div class="contact-form-container mx-auto my-4">
-                <div class="card-body">
-                  <form class="signup" id="signup_form" method="POST" action="{% url 'account_signup' %}">
-                    {% csrf_token %}
-                    <div class="form-group {% if form.username.errors %}has-error{% endif %}">
-                      <label for="id_username">Username:</label>
-                      <input class="form-control" type="text" name="username" placeholder="Username"
-                        autocomplete="username" minlength="1" maxlength="150" required="" id="id_username">
-                      {% if form.username.errors %}
-                      <br>
-                      <div id="messages" class="container">
-                        <div class="alert alert-danger alert-dismissable text-center" role="alert">
-                          <button type="button" class="close" data-dismiss="alert"><span
-                              aria-hidden="true">&times;</span></button>
-                          <strong>
-                            {{ form.username.errors.as_text }}
-                          </strong>
-                        </div>
+<!-- ======= Signup Section ======= -->
+<section id="login" class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h5>{% blocktrans %}Already have an account?</h5>
+            <h5>Then please <a href="{{ login_url }}">sign
+                in</a>.{% endblocktrans %}
+            </h5>
+            <div class="contact-form-container mx-auto my-4">
+              <div class="card-body">
+                <form class="signup" id="signup_form" method="POST" action="{% url 'account_signup' %}">
+                  {% csrf_token %}
+                  <div class="form-group {% if form.username.errors %}has-error{% endif %}">
+                    <label for="id_username">Username:</label>
+                    <input class="form-control" type="text" name="username" placeholder="Username"
+                      autocomplete="username" minlength="1" maxlength="150" required="" id="id_username">
+                    {% if form.username.errors %}
+                    <br>
+                    <div id="messages" class="container">
+                      <div class="alert alert-danger alert-dismissable text-center" role="alert">
+                        <button type="button" class="close" data-dismiss="alert"><span
+                            aria-hidden="true">&times;</span></button>
+                        <strong>
+                          {{ form.username.errors.as_text }}
+                        </strong>
                       </div>
-                      {% endif %}
                     </div>
-                    <div class="form-group {% if form.email.errors %}has-error{% endif %}">
-                      <label for="id_email">E-mail (optional):</label>
-                      <input class="form-control" type="email" name="email" placeholder="E-mail address"
-                        autocomplete="email" maxlength="320" id="id_email">
-                      {% if form.email.errors %}
-                      <br>
-                      <div id="messages" class="container">
-                        <div class="alert alert-danger alert-dismissable text-center" role="alert">
-                          <button type="button" class="close" data-dismiss="alert"><span
-                              aria-hidden="true">&times;</span></button>
-                          <strong>
-                            {{ form.email.errors.as_text }}
-                          </strong>
-                        </div>
-                      </div>
-                      {% endif %}
-                    </div>
-                    <div class="form-group {% if form.password1.errors %}has-error{% endif %}">
-                      <label for="id_password1">Password:</label>
-                      <input class="form-control" type="password" name="password1" placeholder="Password"
-                        autocomplete="new-password" required="" id="id_password1">
-                      {% if form.password1.errors %}
-                      <br>
-                      <div id="messages" class="container">
-                        <div class="alert alert-danger alert-dismissable text-center" role="alert">
-                          <button type="button" class="close" data-dismiss="alert"><span
-                              aria-hidden="true">&times;</span></button>
-                          <strong>
-                            {{ form.password1.errors.as_text }}
-                          </strong>
-                        </div>
-                      </div>
-                      {% endif %}
-                    </div>
-                    <div class="form-group {% if form.password2.errors %}has-error{% endif %}">
-                      <label for="id_password2">Confirm Password:</label>
-                      <input class="form-control" type="password" name="password2" placeholder="Re-enter password"
-                        autocomplete="new-password" required="" id="id_password2">
-                      {% if form.password2.errors %}
-                      <br>
-                      <div id="messages" class="container">
-                        <div class="alert alert-danger alert-dismissable text-center" role="alert">
-                          <button type="button" class="close" data-dismiss="alert"><span
-                              aria-hidden="true">&times;</span></button>
-                          <strong>
-                            {{ form.password2.errors.as_text }}
-                          </strong>
-                        </div>
-                      </div>
-                      {% endif %}
-                    </div>
-                    {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                     {% endif %}
-                    <button type="submit" class="btn btn-warning btn-block login-btn">{% trans "Sign Up" %}
-                      &raquo;</button>
-                  </form>
-                </div>
+                  </div>
+                  <div class="form-group {% if form.email.errors %}has-error{% endif %}">
+                    <label for="id_email">E-mail (optional):</label>
+                    <input class="form-control" type="email" name="email" placeholder="E-mail address"
+                      autocomplete="email" maxlength="320" id="id_email">
+                    {% if form.email.errors %}
+                    <br>
+                    <div id="messages" class="container">
+                      <div class="alert alert-danger alert-dismissable text-center" role="alert">
+                        <button type="button" class="close" data-dismiss="alert"><span
+                            aria-hidden="true">&times;</span></button>
+                        <strong>
+                          {{ form.email.errors.as_text }}
+                        </strong>
+                      </div>
+                    </div>
+                    {% endif %}
+                  </div>
+                  <div class="form-group {% if form.password1.errors %}has-error{% endif %}">
+                    <label for="id_password1">Password:</label>
+                    <input class="form-control" type="password" name="password1" placeholder="Password"
+                      autocomplete="new-password" required="" id="id_password1">
+                    {% if form.password1.errors %}
+                    <br>
+                    <div id="messages" class="container">
+                      <div class="alert alert-danger alert-dismissable text-center" role="alert">
+                        <button type="button" class="close" data-dismiss="alert"><span
+                            aria-hidden="true">&times;</span></button>
+                        <strong>
+                          {{ form.password1.errors.as_text }}
+                        </strong>
+                      </div>
+                    </div>
+                    {% endif %}
+                  </div>
+                  <div class="form-group {% if form.password2.errors %}has-error{% endif %}">
+                    <label for="id_password2">Confirm Password:</label>
+                    <input class="form-control" type="password" name="password2" placeholder="Re-enter password"
+                      autocomplete="new-password" required="" id="id_password2">
+                    {% if form.password2.errors %}
+                    <br>
+                    <div id="messages" class="container">
+                      <div class="alert alert-danger alert-dismissable text-center" role="alert">
+                        <button type="button" class="close" data-dismiss="alert"><span
+                            aria-hidden="true">&times;</span></button>
+                        <strong>
+                          {{ form.password2.errors.as_text }}
+                        </strong>
+                      </div>
+                    </div>
+                    {% endif %}
+                  </div>
+                  {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                  {% endif %}
+                  <button type="submit" class="btn btn-warning btn-block login-btn">{% trans "Sign Up" %}
+                    &raquo;</button>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section><!-- End Signup Section -->
-</main><!-- End #main -->
+  </div>
+</section><!-- End Signup Section -->
 {% endblock %}

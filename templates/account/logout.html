@@ -6,58 +6,56 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
-<main id="main">
 
-  <section class="bg-light section-header">
-    <div class="container">
-      <div class="section-title ">
-        <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="Cow Icon">SIGN OUT</h1>
-      </div>
+<section class="bg-light section-header">
+  <div class="container">
+    <div class="section-title ">
+      <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="Cow Icon">SIGN OUT</h1>
+    </div>
 
-      <!-- ======= Breadcrumbs ======= -->
-      <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
-          <div class="d-flex justify-content-between align-items-center">
-            <ol>
-              <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
-              <li>Sign out</li>
-            </ol>
-          </div>
+    <!-- ======= Breadcrumbs ======= -->
+    <div id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <ol>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li>Sign out</li>
+          </ol>
         </div>
-      </section><!-- End Breadcrumbs -->
-  </section>
+      </div>
+    </div><!-- End Breadcrumbs -->
+  </div>
+</section>
 
-  <!-- ======= Sign Out Section ======= -->
-  <section id="login" class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <div class="card">
-            <div class="contact-form-container mx-auto my-4"></div>
-            <div class="card-body">
-              <h5>{% trans 'Are you sure you want to sign out?' %}</h5>
+<!-- ======= Sign Out Section ======= -->
+<section id="login" class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="card">
+          <div class="contact-form-container mx-auto my-4"></div>
+          <div class="card-body">
+            <h5>{% trans 'Are you sure you want to sign out?' %}</h5>
+            <br>
+            <br>
+            <form method="post" action="{% url 'account_logout' %}">
+              {% csrf_token %}
+              {% if redirect_field_value %}
+              <div class="form-group">
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"
+                  class="form-control" />
+              </div>
+              {% endif %}
+              <button class="btn btn-success btn-block login-btn" type="submit">{% trans 'Sign Out' %}</button>
               <br>
-              <br>
-              <form method="post" action="{% url 'account_logout' %}">
-                {% csrf_token %}
-                {% if redirect_field_value %}
-                <div class="form-group">
-                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"
-                    class="form-control" />
-                </div>
-                {% endif %}
-                <button class="btn btn-success btn-block login-btn" type="submit">{% trans 'Sign Out' %}</button>
-                <br>
-              </form>
-              <a class="btn btn-danger btn-block login-btn" type="submit" href="{% url 'dashboard' %}">Cancel /
-                Return to Dashboard</a>
-            </div>
+            </form>
+            <a class="btn btn-danger btn-block login-btn" type="submit" href="{% url 'dashboard' %}">Cancel /
+              Return to Dashboard</a>
           </div>
         </div>
       </div>
     </div>
-    </div>
-  </section><!-- End Login Section -->
-</main><!-- End #main -->
-
+  </div>
+  </div>
+</section><!-- End Login Section -->
 {% endblock %}
