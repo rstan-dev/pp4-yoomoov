@@ -5,6 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="YooMoov is a nationwide van and driver booking site, to help you moove your items safely and quickly">
     <!-- Favicon -->
     <link href="{% static 'media/favicon-16x16.png' %}" rel="icon">
 
@@ -46,8 +48,8 @@
 
             <!-- .logo -->
             <div class="logo me-auto">
-                <a href="{% url 'home' %}"><img src="{% static 'media/logo_yoomoov_orange1.jpg' %}"
-                        alt="YooMoov - Crewed van removal service nationwide" class="img-fluid"></a>
+                <a href="{% url 'home' %}"><img src="{% static 'media/logo_yoomoov_orange1.jpg' %}" width="auto"
+                        height="auto" alt="YooMoov - Crewed van removal service nationwide" class="img-fluid"></a>
             </div><!-- .logo -->
 
             <!-- .navbar -->
@@ -129,14 +131,17 @@
                 </div>
             </div>
             <div class="social-links text-center text-md-right pt-3 pt-md-0">
-                <a href="https://facebook.com/" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="https://instagram.com/" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="https://twitter.com/" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="https://facebook.com/" class="facebook" aria-label="Follow us on Facebook"><i
+                        class="bx bxl-facebook"></i></a>
+                <a href="https://instagram.com/" class="instagram" aria-label="Follow us on Instagram"><i
+                        class="bx bxl-instagram"></i></a>
+                <a href="https://twitter.com/" class="twitter" aria-label="Follow us on Twitter"><i
+                        class="bx bxl-twitter"></i></a>
             </div>
         </div>
     </footer><!-- End Footer -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+    <a href="#" aria-label="Back to Top Button" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
     <!-- Popper.js -->

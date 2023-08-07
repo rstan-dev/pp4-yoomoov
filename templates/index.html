@@ -26,7 +26,8 @@
             {%  include 'partials/_onscreen_messages.html' %}
 
             <h1>
-                <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="Cow Icon">FEATURED VANS
+                <img class="cow-icon" height="auto" width="auto" src="{% static 'media/cow_icon.png' %}"
+                    alt="Cow Icon">FEATURED VANS
             </h1>
         </div>
         <div class="row">
@@ -34,15 +35,15 @@
             {% for van in vans %}
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                 <div class="van">
-                    <img src="{{ van.image.url }}" alt="{{ van.name }}">
-                    <h4>{{ van.name }}</h4>
+                    <img src="{{ van.image.url }}" height="auto" width="auto" alt="{{ van.name }}">
+                    <h2 class="van-name">{{ van.name }}</h2>
                     <br>
                     <div class="featured-detail">
-                        <h5>Size: {{ van.size }}</h5>
-                        <h5>Crew: {{ van.crew }}</h5>
-                        <h5>Location: {{ van.location }}</h5>
-                        <h5>County: {{ van.county }}</h5>
-                        <h5>Price: £{{ van.price }} / day</h5>
+                        <p>Size: {{ van.size }}</p>
+                        <p>Crew: {{ van.crew }}</p>
+                        <p>Location: {{ van.location }}</p>
+                        <p>County: {{ van.county }}</p>
+                        <p>Price: £{{ van.price }} / day</p>
                     </div>
                     <a href="{% url 'van_detail' van.slug %}" class="btn btn-warning" role="button">Details</a>
                 </div>

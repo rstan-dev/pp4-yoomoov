@@ -735,16 +735,18 @@ section {
 
 .home-featured .van img {
   max-width: 80%;
+  height: auto;
+  aspect-ratio: 10 / 6;
   margin: 0 0 30px 0;
 }
 
-.home-featured .van h4 {
+.van-name {
   font-weight: 700;
   margin-bottom: 2px;
   font-size: 22px;
 }
 
-.home-featured .van h5 {
+.featured-detail p {
   text-align: center;
   font-size: 18px;
 }
