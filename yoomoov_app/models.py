@@ -2,8 +2,15 @@ from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime, timedelta
 from cloudinary.models import CloudinaryField
-from .choices import SIZE_CHOICES, LOCATION_CHOICES, COUNTY_CHOICES, STATUS_CHOICES, RATING_CHOICES, APPROVAL_CHOICES
 from django.core.mail import send_mail
+from .choices import (
+    SIZE_CHOICES,
+    LOCATION_CHOICES,
+    COUNTY_CHOICES,
+    STATUS_CHOICES,
+    RATING_CHOICES,
+    APPROVAL_CHOICES
+)
 
 
 class Van(models.Model):
