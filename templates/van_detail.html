@@ -6,131 +6,129 @@
 {% include 'partials/_hero-search.html' %}
 <!-- End Hero -->
 
-<main id="main">
+<!-- ======= Title Section ======= -->
+<section class="bg-light">
+    <div class="container">
+        <div class="section-title section-header section-van-detail-header">
+            <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="Cow Icon">VAN DETAIL</h1>
+        </div>
 
-    <!-- ======= Title Section ======= -->
-    <section class="bg-light">
-        <div class="container">
-            <div class="section-title section-header section-van-detail-header">
-                <h1> <img class="cow-icon" src="{% static 'media/cow_icon.png' %}" alt="Cow Icon">VAN DETAIL</h1>
+        <!-- ======= Breadcrumbs ======= -->
+        <div id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <ol>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'all_vans' %}">All Vans</a></li>
+                        <li>{{ van.name }}</li>
+                    </ol>
+                </div>
             </div>
+        </div><!-- End Breadcrumbs -->
 
-            <!-- ======= Breadcrumbs ======= -->
-            <section id="breadcrumbs" class="breadcrumbs">
-                <div class="container">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <ol>
-                            <li><a href="{% url 'home' %}">Home</a></li>
-                            <li><a href="{% url 'all_vans' %}">All Vans</a></li>
-                            <li>{{ van.name }}</li>
-                        </ol>
+        <!-- Onscreen Messages -->
+        {%  include 'partials/_onscreen_messages.html' %}
+    </div>
+
+</section><!-- End Title section -->
+
+<!-- ======= Van Details Section ======= -->
+<section id="van-details" class="van-details">
+    <div class="container">
+        <div class="row gy-4">
+            <!-- Van Title -->
+            <h2>{{ van.name }}</h2>
+            <div class="col-lg-8">
+                <!-- Detail Main Image -->
+                <img src="{{ van.image.url }}" alt="{{ van.name }}" class="img-main img-fluid mb-3">
+                <!-- Fields -->
+                <div class="row mb-12 fields">
+                    <div class="col-md-12">
+                        <table class="van-detail-table">
+                            <tbody>
+                                <tr>
+                                    <td class="van-detail-icon"><i class="fa-solid fa-ruler"></i></td>
+                                    <td class="van-spec">Size:</td>
+                                    <td class="van-spec-detail">{{ van.size }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="van-detail-icon"><i class="fa-solid fa-truck-ramp-box"></i></td>
+                                    <td class="van-spec">Load Area (WxHxL):</td>
+                                    <td class="van-spec-detail">{{ van.load_area_width }}m x
+                                        {{ van.load_area_height }}m x
+                                        {{ van.load_area_length }}m</td>
+                                </tr>
+                                <tr>
+                                    <td class="van-detail-icon"><i class="fa-solid fa-cart-flatbed-suitcase"></i>
+                                    </td>
+                                    <td class="van-spec">Suitable for:</td>
+                                    <td class="van-spec-detail">{{ van.suitable_for }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="van-detail-icon"><i class="fa-solid fa-location-dot"></i></td>
+                                    <td class="van-spec">Location:</td>
+                                    <td class="van-spec-detail">{{ van.location }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="van-detail-icon"><i class="fa-solid fa-location-dot"></i></td>
+                                    <td class="van-spec">County:</td>
+                                    <td class="van-spec-detail">{{ van.county }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="van-detail-icon"><i class="fa-solid fa-people-group"></i></td>
+                                    <td class="van-spec">Crew:</td>
+                                    <td class="van-spec-detail">{{ van.crew }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="van-detail-icon"><i class="fa-solid fa-money-bill-1"></i></td>
+                                    <td class="van-spec">Price:</td>
+                                    <td class="van-spec-detail">£{{ van.price }} / day</td>
+                                </tr>
+                                <tr>
+                                    <td class="van-detail-icon"><i class="fa-solid fa-clock"></i></td>
+                                    <td class="van-spec">Running Since:</td>
+                                    <td class="van-spec-detail">{{ van.date_added }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </section><!-- End Breadcrumbs -->
-
-            <!-- Onscreen Messages -->
-            {%  include 'partials/_onscreen_messages.html' %}
-
-    </section><!-- End Title section -->
-
-    <!-- ======= Van Details Section ======= -->
-    <section id="van-details" class="van-details">
-        <div class="container">
-            <div class="row gy-4">
-                <!-- Van Title -->
-                <h2>{{ van.name }}</h2>
-                <div class="col-lg-8">
-                    <!-- Detail Main Image -->
-                    <img src="{{ van.image.url }}" alt="{{ van.name }}" class="img-main img-fluid mb-3">
-                    <!-- Fields -->
-                    <div class="row mb-12 fields">
-                        <div class="col-md-12">
-                            <table class="van-detail-table">
-                                <tbody>
-                                    <tr>
-                                        <td class="van-detail-icon"><i class="fa-solid fa-ruler"></i></td>
-                                        <td class="van-spec">Size:</td>
-                                        <td class="van-spec-detail">{{ van.size }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="van-detail-icon"><i class="fa-solid fa-truck-ramp-box"></i></td>
-                                        <td class="van-spec">Load Area (WxHxL):</td>
-                                        <td class="van-spec-detail">{{ van.load_area_width }}m x
-                                            {{ van.load_area_height }}m x
-                                            {{ van.load_area_length }}m</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="van-detail-icon"><i class="fa-solid fa-cart-flatbed-suitcase"></i>
-                                        </td>
-                                        <td class="van-spec">Suitable for:</td>
-                                        <td class="van-spec-detail">{{ van.suitable_for }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="van-detail-icon"><i class="fa-solid fa-location-dot"></i></td>
-                                        <td class="van-spec">Location:</td>
-                                        <td class="van-spec-detail">{{ van.location }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="van-detail-icon"><i class="fa-solid fa-location-dot"></i></td>
-                                        <td class="van-spec">County:</td>
-                                        <td class="van-spec-detail">{{ van.county }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="van-detail-icon"><i class="fa-solid fa-people-group"></i></td>
-                                        <td class="van-spec">Crew:</td>
-                                        <td class="van-spec-detail">{{ van.crew }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="van-detail-icon"><i class="fa-solid fa-money-bill-1"></i></td>
-                                        <td class="van-spec">Price:</td>
-                                        <td class="van-spec-detail">£{{ van.price }} / day</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="van-detail-icon"><i class="fa-solid fa-clock"></i></td>
-                                        <td class="van-spec">Running Since:</td>
-                                        <td class="van-spec-detail">{{ van.date_added }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+            </div>
+            <!-- Feedback section -->
+            <div class="col-lg-4">
+                <div class="feedback-area">
+                    <div class="feedback-header">
+                        <i class="fa-solid fa-comment fa-flip-horizontal"></i>
+                        <span class="feedback-title">Feedback</span>
                     </div>
+                    {% if van_feedbacks %}
+                    {% for van_feedback in van_feedbacks %}
+                    <h4>{{ van_feedback.title}}</h4>
+                    <h6>Left by: {{ van_feedback.user_fk }}</h6>
+                    <p>{{ van_feedback.comment }}</p>
+                    {% endfor %}
+                    {% else %}
+                    <h5>There is no feedback to display</h5>
+                    {% endif %}
                 </div>
-                <!-- Feedback section -->
-                <div class="col-lg-4">
-                    <div class="feedback-area">
-                        <li class="feedback-header">
-                            <i class="fa-solid fa-comment fa-flip-horizontal"></i>
-                            <span class="feedback-title">Feedback</span>
-                        </li>
-                        {% if van_feedbacks %}
-                        {% for van_feedback in van_feedbacks %}
-                        <h4>{{ van_feedback.title}}</h4>
-                        <h6>Left by: {{ van_feedback.user_fk }}</h6>
-                        <p>{{ van_feedback.comment }}</p>
-                        {% endfor %}
-                        {% else %}
-                        <h5>There is no feedback to display</h5>
-                        {% endif %}
-                    </div>
-                    <div id="detail-login-btn">
-                        {% if user.is_authenticated %}
-                        <a href="{% url 'dashboard' %}" class="btn btn-success detail-login-btn">Login to Book &
-                            Leave
-                            feedback</a>
-                        {% else %}
-                        <a href="{% url 'account_login' %}" class="btn btn-success detail-login-btn">Login to Book &
-                            Leave
-                            feedback</a>
-                        {% endif %}
-                    </div>
-                    <div id="detail-enquiry-btn">
-                        <a href="{% url 'contact_from_van' slug=van.slug %}"
-                            class="btn btn-warning detail-enquiry-btn">Make an
-                            Enquiry</a>
-                    </div>
+                <div id="detail-login-btn">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'dashboard' %}" class="btn btn-success detail-login-btn">Login to Book &
+                        Leave
+                        feedback</a>
+                    {% else %}
+                    <a href="{% url 'account_login' %}" class="btn btn-success detail-login-btn">Login to Book &
+                        Leave
+                        feedback</a>
+                    {% endif %}
+                </div>
+                <div id="detail-enquiry-btn">
+                    <a href="{% url 'contact_from_van' slug=van.slug %}" class="btn btn-warning detail-enquiry-btn">Make
+                        an
+                        Enquiry</a>
                 </div>
             </div>
         </div>
-    </section><!-- End Van Details Section -->
-</main><!-- End #main -->
+    </div>
+</section><!-- End Van Details Section -->
 {% endblock %}
