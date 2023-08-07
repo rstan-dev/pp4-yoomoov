@@ -258,10 +258,8 @@ def createBooking(request):
     form = BookingForm()
 
     if request.method == 'POST':
-        print("Form Submited")
         form = BookingForm(request.POST)
         if form.is_valid():
-            print("Form is valid")
             booking = form.save(commit=False)
             booking.van_name = booking.van.name
             booking.van_size = booking.van.size
@@ -396,8 +394,6 @@ def leaveFeedback(request, pk):
         form = FeedbackForm(request.POST)
 
         if form.is_valid():
-            print('Printing POST', request.POST)
-            print("form is valid")
             feedback = form.save(commit=False)
             feedback.booking = booking
             feedback.van = booking.van
@@ -405,7 +401,6 @@ def leaveFeedback(request, pk):
             feedback.van_name = booking.van_name
             feedback.user_fk = request.user
             feedback.save()
-            print("feedback saved successfully")
 
             send_mail(
                 'Feedback left for: ' + str(booking.booking_number) + ' '
