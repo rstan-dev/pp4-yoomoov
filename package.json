@@ -1,0 +1,23 @@
+{
+  "name": "pp4-yoomoov",
+  "version": "1.0.0",
+  "description": "* [Link to Deployed Project](https://yoomoov-2cbb8d75e399.herokuapp.com/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rstan-dev/pp4-yoomoov.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rstan-dev/pp4-yoomoov/issues"
+  },
+  "homepage": "https://github.com/rstan-dev/pp4-yoomoov#readme",
+  "devDependencies": {
+    "eslint": "^8.46.0"
+  }
+}
