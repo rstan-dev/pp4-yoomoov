@@ -243,27 +243,54 @@ Various validation methods have been incorporated:
  4. Form validation to ensure fields are completed where required or the correct format is needed such as for email addresses
 
 ## TECH STACK
-   *
+The site has been built with the following tech and tools
+1. HTML5
+2. CSS
+3. JavaScript
+4. Python
+5. Django - database framework
+6. ElephantSQL - database hosting
+7. Cloudinary - media hosting
+8. Bootstrap 4
+9. JQuery
+10. GitHub Projects - agile
+11. GitHub Repo
+12. GitPod & VS Code - IDE
+13. Heroku - live site hosting
+
 
 ## MODULES & LIBRARIES
-   *
+   * font-awesome - icons
+   * bootstrap-made - html and css templates
+   * allauth - sign-up and login
+   * cripsy forms - imporved form styling and validation
+   * django.core.mail - sending email
+   * django.messages - success and alert bootstrap messages
+   * django.core.paginator - pagination
+   * datetime - handling date and time fields
+
 
 ## TESTING
+FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](/workspace/pp4-yoomoov/TESTING.md)
 
   ### Tests performed
-  *
+  The site was throughly tested during development with each feature tested before committing to github.  The testing regime included:
+  1. Incremental testing
+  2. Early user observation test
+  3. Manual user story tests
+  4. HTML, CSS, JSHINT, PYLINT, Lighthouse
 
   ### User Story Tests
-  *
+  Each user story was tested manually according to a structured test sheet [VIEW IT HERE:](/workspace/pp4-yoomoov/TESTING.md), with results being recorded and any failures rectified
 
   ### Bugs resolved:
-  *
+  The following bugs were recorded and rectified
 
   ### Unresolved bugs:
-  *
+  The folowing bugs have been noted and left
 
   ### Improvements and future developments:
-  *
+  The following items have been identified for future development
 
 ## DEPLOYMENT
 The following steps were taken to deploy this site:
