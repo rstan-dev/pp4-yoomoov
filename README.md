@@ -99,8 +99,60 @@ The main objectives of this website are:
     - As a developer, I can see how the site should be laid out so that the functionality can be developed incrementally.
   2. USERSTORY(#2): Initial Django project setup
     - As a developer, I can access the initial project files in my developer environment, and deploy to Heroku, so that I can resolve any deployment issues early on.
-
-
+  3. USERSTORY(#3): Create bootstrap template
+    - As a developer I can deploy a basic site design so that it meets the minimum viable requirements.
+  4. USERSTORY(#4 ): Bootstrap Navigation Breadcrumbs
+    - As a website user, I can easily navigate the website so that I can find what I need
+  5. USERSTORY(#5 ): Create Van Model
+    - As an admin user I can create Van details in the admin area so that they populate fields on the front end template.
+  6. USERSTORY(#6 ): Search for van types
+    - As a website user, I can use the Van Finder to display a list of vans by size, location or county.
+  7. USERSTORY(#7): Display Van detail
+    - As a website user, I can read more detail about a van so I can book or enquire
+  8. USERSTORY(# 8): Create SuperUser Account
+    - As an admin user I can login into the Admin area so that I can manage website content
+  9. USERSTORY(#9): Customise admin area branding
+    - As an admin user, I recognise the admin area has the same look and feel as the front end, for continuity purposes
+  10. USERSTORY(#10 ): User Registration
+    - As a website user, I can register, log in and log out to view my dashboard
+  11. USERSTORY(# 11 ): Create Booking Model
+    - As an admin user, I can create Booking details in the admin area so that I can take a booking over the phone
+  12. USERSTORY(#12 ): View Bookings on User Dashboard
+    - As a logged in user, I can view any bookings I have made in a list on my Dashboard
+  13. USERSTORY(# 13): Create Booking on User Dashboard
+    - As a logged-in user I can create a booking from a listing page, which will appear on the user's dashboard
+  14. USERSTORY(#14 ): Edit Booking on User Dashboard
+    - As a logged in User, I can edit the booking details from the Dashboard so I can make any changes
+  15. USERSTORY(#15 ): Delete booking on user dashboard
+    - As a logged in User, I can delete the booking details from the Dashboard
+  16. USERSTORY(#16): Create Feedback Model
+    - As an admin user I can add and view Feedback details in the admin area and approve feedback for display on the relevant detail page
+  17. USERSTORY(# 17): Feedback option after booking completion
+    - As a logged-in user who has made a booking, I can leave feedback using the feedback button next to the booking on my Dashboard
+  18. USERSTORY(#18 ): User can see their feedback on their dashboard
+    - As a logged-in user, I can see all the feedback I have left for other bookings on my Dashboard
+  19. USERSTORY(#19): Send email to admin via contact form
+    - As an admin, I can receive an email with the details from the contact form, so I can follow up with the customer
+  20. USERSTORY(#20 ): Send booking email notifications
+    - As a user I can receive an email notification when the booking has been created, approved, updated or deleted, so I can manage the booking in my account
+  21. USERSTORY(#21 ): Admin to receive email notifications when feedback has been created
+    - As an admin, I can receive an email notification when a user creates feedback
+  22. USERSTORY(# 22): User to receive email when feedback has been approved by admin
+    - As a user, I can receive an email notification when my feedback has been approved
+  23. USERSTORY(#23 ): Onscreen notification when logged in or out
+    - As a user, I will see a on-screen notification to let me know I have logged in or logged out
+  24. USERSTORY(#24): Menu Bar notification when user is logged in
+    - As a logged in user, I will see a welcome message on the navbar and a logout link
+  25. USERSTORY(#25 ): Create user story tests
+    - As a developer, all user story tests will pass, so that I can be certain the site functons as intended
+  26. USERSTORY(# 26): Test Html, CSS, JS, Python, Lighthouse
+    - As a developer all code will pass through validation tools to identify any issues, errors or non-conformance
+  27. USERSTORY(# 27): Create Automatic unit tests
+    - As a developer, I will write some automatic unit tests for the purposes of demonstrating competence
+  28. USERSTORY(# 28): Final deployment
+    - As a developer I will ensure the final project is fully deployed to Heroku so that it matches the development project
+  29. USERSTORY(#29): Final Checks
+    - As a developer, I will complete the final checks to ensure all criteria for the project have been met before submission
 
 
   ### Logic
