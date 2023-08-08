@@ -3,12 +3,9 @@
 * [Link to Deployed Project](https://yoomoov-2cbb8d75e399.herokuapp.com/)
 
 ## CONTENTS
-​
 * [USER EXPERIENCE (UX)](#user-experience)
   * [Purpose & target audience](#purpose-and-target-audience)
   * [Goals](#goals)
-
-
 * [PROJECT DESIGN](#project-design)
   * [Agile Approach](#agile-approach)
   * [Wireframes](#wireframes)
@@ -18,28 +15,18 @@
   * [Typography](#typography)
   * [Imagery](#imagery)
   * [MVP](#mvp)
-
-
 * [FEATURES](#features)
-
 * [VALIDATION](#validation)
-
 * [TECH STACK](#tech-stack)
-
 * [MODULES](#modules-libraries)
-
 * [TESTING](#testing)
   * [Tests performed](#tests-performed)
   * [User Story Tests](#user-story-tests)
   * [Bugs resolved](#bugs-resolved)
   * [Unresolved bugs](#unresolved-bugs)
   * [Improvements & future developments](#improvements-and-future-developments)
-
-
 * [DEPLOYMENT](#deployment)
-
 * [FORKING & CLONING INSTRUCTIONS](#forking-cloning-instructions)
-
 * [CREDITS](#credits)
   * [Code](#code)
   * [Content](#content)
@@ -187,7 +174,7 @@ The main objectives of this website are:
    I found a bootstrap layout called [Lumia](https://bootstrapmade.com/demo/Lumia/) from bootsrapmade.com which aligned closely with the layout I needed.  I kept the default Google font of Raleway and sans serif
 
    ### MVP
-   * Using the GitHub project board I was able to prioritise user stories to give me an MVP incremetally.
+   Using the GitHub project board I was able to prioritise user stories to give me an MVP incremetally.
    1. I built the front end as a static website first.
    2. I developed the django admin area so an administrator could manage the site
    3. I built User CRUD functionality next via their dashboard
@@ -197,12 +184,63 @@ The main objectives of this website are:
 
 
 ## FEATURES
-   * The original design…
+The folllowing features have been implemented:
+1. Fully responsive website consisting of:
+  - Home
+  - Services
+  - All Vans Page
+  - Vans Finder Filter to search by Size, Location or County
+  - Van detail page
+  - Contact form that sends an email to the admin user
+  - User Dashboard with CRUD functionaility to manage bookings and add feedback
+  <img src="/workspace/pp4-yoomoov/documentation/readme/feature_home.png">
+  <img src="/workspace/pp4-yoomoov/documentation/readme/feature_services.png">
+  <img src="/workspace/pp4-yoomoov/documentation/readme/feature_van_search.png">
+  <img src="/workspace/pp4-yoomoov/documentation/readme/feature_van_detail.png">
+  <img src="/workspace/pp4-yoomoov/documentation/readme/feature_dashboard.png">
+  <img src="/workspace/pp4-yoomoov/documentation/readme/feature_booking.png">
+  <img src="/workspace/pp4-yoomoov/documentation/readme/feature_feedback.png">
+
+2. UX features include
+  - Ability for users to leave feedback after a booking has been completed
+  - Status of Bookings including Pending, Approved and Completed that is controlled by the administrator
+  -  <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_leave_feedback.png">
+  - Status of feedback prevents publishing until approved
+  -  <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_feedback_status.png">
+  - Pagination to ensure listngs are organised
+  -  <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_pagination.png">
+  - Back to top button for easy site navigation
+  - Social media links
+  -  <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_back_to_top.png">
+  - Onscreen alert and success messages appear
+  - Register, Login and Logout forms for streamlined user authentication
+  -  <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_login_page.png">
+  - Email notifications sent to both user and administrator
+  - Favicon included for site identification
+  -  <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_favicon.png">
+  - Breadcrumb navigation
+  - <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_breadcrumbs.png">
+  - Dynamic user navigation
+  - <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_dynamic_nav.png">
+  - <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_dynamic_nav_user.png">
+  - Custom branding on administration area
+  <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_custom_admin.png">
+
 
 
 ## VALIDATION
-   * Various validation messages were used...
-   * <img src="assets/documents/XXXX">
+Various validation methods have been incorporated:
+ 1. Onscreen Confirmation, when logging out, updating or deleting a booking
+ <img src="/workspace/pp4-yoomoov/documentation/readme/confirmation_message.png">
+
+ 2. Onscreen Success / Error after creating, editing, deleting, logging in or out
+ <img src="/workspace/pp4-yoomoov/documentation/readme/success_alert.png">
+ <img src="/workspace/pp4-yoomoov/documentation/readme/error_alert.png">
+
+ 3. Date validation to prevent booking a past date
+ -  <img src="/workspace/pp4-yoomoov/documentation/readme/validate_past_dates.png">
+
+ 4. Form validation to ensure fields are completed where required or the correct format is needed such as for email addresses
 
 ## TECH STACK
    *
