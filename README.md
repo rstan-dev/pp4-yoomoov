@@ -281,10 +281,19 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](/workspace/pp4-yo
   4. HTML, CSS, JSHINT, PYLINT, Lighthouse
 
   ### User Story Tests
-  Each user story was tested manually according to a structured test sheet [VIEW IT HERE:](/workspace/pp4-yoomoov/TESTING.md), with results being recorded and any failures rectified
+  Each user story was tested manually according to a structured test sheet [VIEW IT HERE:](https://docs.google.com/spreadsheets/d/1qAa4tR_dnJwZkhPTGCNh35P1FVwFQc9NjnrO-5prhpI/edit#gid=0), with results being recorded and any failures rectified
 
   ### Bugs resolved:
   The following bugs were recorded and rectified
+  1. Colors were incosistent on the website - css was updated according to style guide.
+  2. Breadrcumbs were missing on Contact and Delete page - code was added on these templates.
+  3. The validation used to prevent creating a double booking on the same day, affected the Edit Booking function.  The clean method on the Booking form was modified to check and remove the current booking - allowing the same form to be used for creating and upating bookings.
+  4. Emails were not sent in development environment due to GitPod's sucurity policy.  Email config was set to display in terminal for testing purposes.  Updated for production.
+  5.  No dynamic username in nav bar when logged in - updated base.html with {{ user }}(dashboard)
+  6. When testing for browser compatibility, there were numerous AnonymousUser errors on different browsers.  This was rectified by adding a login_required decorator on the dashboard view.
+
+
+
 
   ### Unresolved bugs:
   The folowing bugs have been noted and left
