@@ -62,10 +62,10 @@ The main objectives of this website are:
 ## PROJECT DESIGN
 
   ### Agile Approach
-  From the start the project was managed using [GitHub Projects (View Here)](https://github.com/users/rstan-dev/projects/6), using an agile approach.
+  From the start the project was managed using [GitHub Projects (View Here - ensure labels are activated)](https://github.com/users/rstan-dev/projects/6/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C49630728%2C%22Labels%22%2C%22Repository%22%2C%22Milestone%22%5D), using an agile approach.
   - The project goals were broken into epics, which were broken into user stories with acceptance criteria and individual tasks.
   - Each user story was allocated a certain number of story points based on a rough estimation of time to complete the work.
-  - This allowed me to create a roadmap with milestones and target dates.
+  - This allowed me to create a roadmap with milestones and target dates. [View Roadmap Here(ensure milestone and start date markers are activated)](https://github.com/users/rstan-dev/projects/6/views/3)
   - Each User Story was assigned a label according to the MoSCoW system so I could prioritise the work.
 <img src="/workspace/pp4-yoomoov/documentation/readme/github_projects.png">
 
@@ -78,7 +78,7 @@ The main objectives of this website are:
 <img src="/workspace/pp4-yoomoov/documentation/readme/dashboard.png">
 
   ### User Stories
-  All epics, user stories with their acceptance criteria and tasks can be viewed on the YooMoov [GitHub Project board](https://github.com/users/rstan-dev/projects/6)
+  All epics, user stories with their acceptance criteria and tasks can be viewed on the YooMoov [GitHub Project board](https://github.com/users/rstan-dev/projects/6/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C49630728%2C%22Labels%22%2C%22Repository%22%2C%22Milestone%22%5D)
 
 - There were 13 Epics created from Project Concept to Project Submission.
 
