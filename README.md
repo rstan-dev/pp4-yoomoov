@@ -12,13 +12,13 @@
   * [User Stories](#user-stories)
   * [Logic](#logic)
   * [Color Scheme](#color-scheme)
-  * [Typography](#typography)
   * [Imagery](#imagery)
+  * [Typography](#typography)
   * [MVP](#mvp)
 * [FEATURES](#features)
 * [VALIDATION](#validation)
 * [TECH STACK](#tech-stack)
-* [MODULES](#modules-libraries)
+* [MODULES & LIBRARIES](#modules-libraries)
 * [TESTING](#testing)
   * [Tests performed](#tests-performed)
   * [User Story Tests](#user-story-tests)
@@ -29,6 +29,7 @@
 * [FORKING & CLONING INSTRUCTIONS](#forking-cloning-instructions)
 * [CREDITS](#credits)
   * [Code](#code)
+  * [Resources](#resources)
   * [Content](#content)
   * [Media](#media)
   * [Acknowledgements](#acknowledgements)
@@ -61,7 +62,7 @@ The main objectives of this website are:
 ## PROJECT DESIGN
 
   ### Agile Approach
-  From the start the project was managed using GitHub Projects, using an agile approach.
+  From the start the project was managed using [GitHub Projects (View Here)](https://github.com/users/rstan-dev/projects/6), using an agile approach.
   - The project goals were broken into epics, which were broken into user stories with accceptance criteria and individual tasks.
   - Each user story was allocated a certain number of story points based on a rough estimation of time to comeplete the work.
   - This allowed me to create a roadmap with milestone and target dates.
@@ -154,11 +155,14 @@ The main objectives of this website are:
   ### Color Scheme (created in [Canva](https://www.canva.com/))
   An orange color scheme was chosen because it's associated with optimism and energy, many brands use orange to convey a message of positivity. Many marketers use orange to get an audience excited about something becuase it is an attention-grabbing, warm color that really pops.
 
-  I created the logo in Canva using royalty free images to cerate the distinct cow icon so there could be a play on the word YooMoov (You Moove) and chose a complimentary color pallette
+  I created the logo in Canva using royalty free images to create the distinct cow icon so there could be a play on the word YooMoov (You Moove) and chose a complimentary color pallette.
 
-   <img src="/workspace/pp4-yoomoov/documentation/readme/cow_icon.png">
-   <img src="/workspace/pp4-yoomoov/documentation/readme/logo_yoomoov_orange1.jpg">
-   <img src="/workspace/pp4-yoomoov/documentation/readme/color_pallette.png">
+   - <img src="/workspace/pp4-yoomoov/documentation/readme/cow_icon.png">
+   - <img src="/workspace/pp4-yoomoov/documentation/readme/logo_yoomoov_orange1.jpg">
+   - <img src="/workspace/pp4-yoomoov/documentation/readme/color_pallette.png">
+
+   With a color pallette in mind I could create a project style guide
+   - <img src="/workspace/pp4-yoomoov/documentation/readme/yoomoov_style_guide.png">
 
    ### Imagery
    Stock Images were sourced from:
@@ -166,12 +170,13 @@ The main objectives of this website are:
    2. Stock van images by [Canva Pro](https://www.canva.com/)
 
   - I used Canva to build the initial designs, which was the basis for finding a suitable bootstrap template that could help me achieve the look and feel as easily as possible.
-  <img src="/workspace/pp4-yoomoov/documentation/readme/canva_mockup_home.jpeg">
-  <img src="/workspace/pp4-yoomoov/documentation/readme/canva_mockup_services.jpeg">
-  <img src="/workspace/pp4-yoomoov/documentation/readme/canva_mockup_van_detail.jpeg">
+  - <img src="/workspace/pp4-yoomoov/documentation/readme/canva_mockup_home.jpeg">
+  - <img src="/workspace/pp4-yoomoov/documentation/readme/canva_mockup_services.jpeg">
+  - <img src="/workspace/pp4-yoomoov/documentation/readme/canva_mockup_van_detail.jpeg">
 
    ### Typography
-   I found a bootstrap layout called [Lumia](https://bootstrapmade.com/demo/Lumia/) from bootsrapmade.com which aligned closely with the layout I needed.  I kept the default Google font of Raleway and sans serif
+   * I found a bootstrap layout called [Lumia](https://bootstrapmade.com/demo/Lumia/) from bootsrapmade.com which aligned closely with the layout I needed.
+   * I kept the default Google font of Raleway and sans serif
 
    ### MVP
    Using the GitHub project board I was able to prioritise user stories to give me an MVP incremetally.
@@ -193,13 +198,13 @@ The folllowing features have been implemented:
   - Van detail page
   - Contact form that sends an email to the admin user
   - User Dashboard with CRUD functionaility to manage bookings and add feedback
-  <img src="/workspace/pp4-yoomoov/documentation/readme/feature_home.png">
-  <img src="/workspace/pp4-yoomoov/documentation/readme/feature_services.png">
-  <img src="/workspace/pp4-yoomoov/documentation/readme/feature_van_search.png">
-  <img src="/workspace/pp4-yoomoov/documentation/readme/feature_van_detail.png">
-  <img src="/workspace/pp4-yoomoov/documentation/readme/feature_dashboard.png">
-  <img src="/workspace/pp4-yoomoov/documentation/readme/feature_booking.png">
-  <img src="/workspace/pp4-yoomoov/documentation/readme/feature_feedback.png">
+  - <img src="/workspace/pp4-yoomoov/documentation/readme/feature_home.png">
+  - <img src="/workspace/pp4-yoomoov/documentation/readme/feature_services.png">
+  - <img src="/workspace/pp4-yoomoov/documentation/readme/feature_van_search.png">
+  - <img src="/workspace/pp4-yoomoov/documentation/readme/feature_van_detail.png">
+  - <img src="/workspace/pp4-yoomoov/documentation/readme/feature_dashboard.png">
+  - <img src="/workspace/pp4-yoomoov/documentation/readme/feature_booking.png">
+  - <img src="/workspace/pp4-yoomoov/documentation/readme/feature_feedback.png">
 
 2. UX features include
   - Ability for users to leave feedback after a booking has been completed
@@ -227,18 +232,17 @@ The folllowing features have been implemented:
   <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_custom_admin.png">
 
 
-
 ## VALIDATION
 Various validation methods have been incorporated:
  1. Onscreen Confirmation, when logging out, updating or deleting a booking
- <img src="/workspace/pp4-yoomoov/documentation/readme/confirmation_message.png">
+ - <img src="/workspace/pp4-yoomoov/documentation/readme/confirmation_message.png">
 
  2. Onscreen Success / Error after creating, editing, deleting, logging in or out
- <img src="/workspace/pp4-yoomoov/documentation/readme/success_alert.png">
- <img src="/workspace/pp4-yoomoov/documentation/readme/error_alert.png">
+ - <img src="/workspace/pp4-yoomoov/documentation/readme/success_alert.png">
+ - <img src="/workspace/pp4-yoomoov/documentation/readme/error_alert.png">
 
  3. Date validation to prevent booking a past date
- -  <img src="/workspace/pp4-yoomoov/documentation/readme/validate_past_dates.png">
+ - <img src="/workspace/pp4-yoomoov/documentation/readme/validate_past_dates.png">
 
  4. Form validation to ensure fields are completed where required or the correct format is needed such as for email addresses
 
@@ -249,14 +253,24 @@ The site has been built with the following tech and tools
 3. JavaScript
 4. Python
 5. Django - database framework
-6. ElephantSQL - database hosting
-7. Cloudinary - media hosting
-8. Bootstrap 4
-9. JQuery
-10. GitHub Projects - agile
-11. GitHub Repo
-12. GitPod & VS Code - IDE
-13. Heroku - live site hosting
+6. Jinja - html logic rendering for dynamic content
+7. ElephantSQL - database hosting
+8. Cloudinary - media hosting
+9. Bootstrap 4
+10. JQuery
+11. GitHub Projects - agile management, kanban, roadmap and milestones
+12. GitHub Repo - code storage
+13. Git - version control
+14. GitPod & VS Code - IDE
+15. Heroku - live site hosting
+
+### Tools used
+- [Image resizer](https://www.reduceimages.com/)
+- [Canva Artwork](https://www.canva.com/)
+- [Lucid Chart](https://lucid.app/) - schema and flow diagrams
+- [Favicon generator](https://favicon.io/favicon-converter/)
+- [Responsive Image generator](https://ui.dev/amiresponsive)
+- [Browserstack Browser Compatability](https://www.browserstack.com/)
 
 
 ## MODULES & LIBRARIES
@@ -293,32 +307,85 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](/workspace/pp4-yo
   6. When testing for browser compatibility, there were numerous AnonymousUser errors on different browsers.  This was rectified by adding a login_required decorator on the dashboard view.
 
 
-
-
   ### Unresolved bugs:
-  The folowing bugs have been noted and left
+  The folowing bugs have been noted and left:
+  1. When creating a booking manually in the admin area, the administrator has to manually enter fields such as the van name, price, location and county, any of which could be incorrect due to human error.  While not a significant bug, this should be addressed in future iterations.
+  2. Similar to the above when creating feedback the administrator could choose incorrect booking number or van name by mistake
+  3. Similar to the above, an administrator could choose the incorrect county for a give city.
+  4. The user can select a van in a city or county that has no vehicles, resulting in nothing diaplyed on the page.  While not a significant bug to prevent the site from being used, this would be an annoyiing UX which should be addressed on the next iteration
+  5. If a user tries to book the same van on the same day, the booking form modal closes with an error message.  The user would have to reenter their details and select a different date. While not a significant bug to prevent the site from being used, this would be an annoyiing UX which should be addressed on the next iteration.
 
   ### Improvements and future developments:
-  The following items have been identified for future development
+  The following items have been identified for future development:
+  1. Create Model for services so they can be updated through the admin panel - enhances administrator experience
+  2. Create Model for locations so they can be updated through the admin panel - enhances administrator experience
+  3. Dynamic Dependant Filter for Van Name, Size, location and County in the booking form and Van Finder form - enhances user experience by not allowing selections that have no content
+  4. Dynamic Date selector on Booking Form where dates are shown as unavailable - enhances user experience
+  5. Enhance User Model to allow a profile section on User dashboard to capture First name, last Name and phone number - enhances User booking experience
+  6. Configure Social account sign-on - enhances user login experience
+  7. Configure Password reset - enhances user login experience
+  8. Create Filters and Folders for Dashboard so bookings can be archived rather than deleted
+  9. Add a dynmaic meta description for each page - enhances SEO
 
 ## DEPLOYMENT
-The following steps were taken to deploy this site:
-  *
+I deployed the site right from project inception using this helpful [Code Institute Django Deployment Guide](https://docs.google.com/document/d/1g6xnseQfzFNZdp_gx_YOXkxcMMgZaQh7R3oyTFcOM_w/edit?usp=sharing)
+1. Once the project was deployed, development took place on GitPod using a local server found by typing "python3 manage.py runserver"
+2. On completion of development, the following steps took place to deploy the final site to Heroku
+  -
+
+
 
 ## FORKING & CLONING INSTRUCTIONS
-  *
+You can create a copy of a GitHub Repository without affecting the original by forking it. Here's a step-by-step guide:
+1. Log into GitHub or sign up for an account.
+2. Go to the [YooMoov Repository URL](https://github.com/rstan-dev/pp4-yoomoov)
+3. Click "Fork" on the right side of the repository's page to create a copy in your own repository.
+
+To clone a copy:
+1. Go to the [YooMoov Repository URL](https://github.com/rstan-dev/pp4-yoomoov)
+2. Click the green code button, then the arrow, and select the "clone by https" option to copy the URL.
+3. Open your preferred code editor and navigate to the directory where you want to clone the repository.
+4. Type 'git clone', paste the copied URL, and press enter. The repository will then be cloned to your machine.
+
 
 ## CREDITS:
 
   ### Code
-  *
+  * All python logic was written and developed specifically for this project
+  * Main Site HTML & CSS templates were adapted from a bootstrap template called [Lumia](https://bootstrapmade.com/demo/Lumia/) from bootsrapmade.com
+  * Login templates were adpated from allauth using bootstrap css
+  * Inspiration and solutions for the site came from:
+    - Code Institue - [I Think Therefore I Blog](https://github.com/rstan-dev/rs-django-blog)
+    -  Brad Traversy - [Traversy Media Python Django Dev to Deployment](https://www.traversymedia.com/Python-Django-Dev-To-Deployment)
+    - Alan Bushell - [La Cocina del Diablo](https://github.com/Alan-Bushell/la-cocina-del-diablo)
+    - Rashidat Adekoya - [Deask HQ](https://github.com/Shida18719/desk-hq)
+    - Samar Ziadat - [Oishii Ramen](https://github.com/SamarZiadat/oishii-ramen)
+
+  ### Resources
+  I used the following resources to help develop features and functionality:
+  1. [allauth](https://django-allauth.readthedocs.io/en/latest/)
+  2. [messages](https://docs.djangoproject.com/en/4.2/ref/contrib/messages/)
+  3. [alerts](https://getbootstrap.com/docs/4.0/components/alerts/)
+  4. [save()](https://docs.djangoproject.com/en/4.2/ref/models/instances/#django.db.models.Model.save)
+  5. [LoginRequiredMixin](https://stackoverflow.com/questions/47244036/using-django-login-required-mixin)
+  6. [datepicker](https://colorlib.com/wp/template/calendar-14/)
+  7. [Django CRUD Functions](https://www.youtube.com/watch?v=EX6Tt-ZW0so)
+  8. [DateInput Widget](https://docs.djangoproject.com/en/3.2/ref/forms/widgets/)
+  9. [clean_date_required()](https://docs.djangoproject.com/en/3.2/ref/forms/validation/#cleaning-a-specific-field-attribute)
+  10. [queryset api](https://docs.djangoproject.com/en/3.2/ref/models/querysets/)
+  11. [sending email](https://docs.djangoproject.com/en/4.2/topics/email/)
 
   ### Content
-  *
+  * All van content was written specifically for this project
 
   ### Media
-  *
+  * Logo was custom designed for this project
+  * Cow icon - Royalty free from Canva Pro
+  * Van Services pics - Royalty free from Canva Pro
+  * Van on Location pics - Royalty free from Canva Pro
+  * Hero Image - [Bernard Foss:](https://www.pexels.com/photo/)
+  * Icons - font awesome
 
   ### Acknowledgements
-  *
+  * Thanks to my original mentor Spencer Barriball for his initial assistance
 
