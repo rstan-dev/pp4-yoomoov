@@ -13,7 +13,7 @@
 
 
 ## TESTS PERFORMED
-  The site was throughly tested during development with each feature tested before committing to github.  The testing regime included:
+  The site was thoroughly tested during development with each feature tested before committing to GitHub.  The testing regime included:
   1. Incremental testing
   2. Early user observation test
   3. Manual user story tests
