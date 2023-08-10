@@ -48,7 +48,7 @@ The user can register and log in to their User Dashboard to view, edit or delete
 
 The administrator will receive an email notification any time there is a new booking or a change to a booking, prompting them to change the status of the booking, from pending to approved or to completed. They can also review and approve feedback before it is published live on the front end.
 
-<img src="https://github.com/rstan-dev/blob/main/documentation/readme/am_I_responsive_screenshot.png">
+<img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/am_I_responsive_screenshot.png">
 
   ### Goals
 The main objectives of this website are:
