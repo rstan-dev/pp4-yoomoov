@@ -9,7 +9,7 @@
   * [JSHINT](#jshint)
   * [PYLINT](#pylint)
 
-  [Return to README.md](https://github.com/rstan-dev/pp4-yoomoov/README.md)
+  [Return to README.md](https://github.com/rstan-dev/pp4-yoomoov/blob/main/README.md)
 
 
 ## TESTS PERFORMED

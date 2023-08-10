@@ -284,7 +284,7 @@ The site has been built with the following tech and tools:
 
 
 ## TESTING
-FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.com/rstan-dev/pp4-yoomoov/TESTING.md).
+FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.com/rstan-dev/pp4-yoomoov/blob/main/TESTING.md).
 
   ### Tests performed
   The site was thoroughly tested during development with each feature tested before committing to GitHub.  The testing regime included:
