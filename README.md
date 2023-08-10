@@ -48,7 +48,7 @@ The user can register and log in to their User Dashboard to view, edit or delete
 
 The administrator will receive an email notification any time there is a new booking or a change to a booking, prompting them to change the status of the booking, from pending to approved or to completed. They can also review and approve feedback before it is published live on the front end.
 
-<img src="/workspace/pp4-yoomoov/documentation/readme/am_I_responsive_screenshot.png">
+<img src="https://github.com/rstan-dev/blob/main/documentation/readme/am_I_responsive_screenshot.png">
 
   ### Goals
 The main objectives of this website are:
@@ -241,6 +241,8 @@ Various validation methods have been incorporated:
  3. Date validation to prevent booking a past date.
  - <img src="/workspace/pp4-yoomoov/documentation/readme/validate_past_dates.png">
  4. Form validation to ensure fields are completed where required or the correct format is needed such as for email addresses.
+ 5. No Data to Display - message
+ 6. Error redirection
 
 ## TECH STACK
 The site has been built with the following tech and tools:
@@ -304,31 +306,27 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](/workspace/pp4-yo
 
 
   ### Unresolved bugs:
-  The following bugs have been noted and left:
-  1. When creating a booking manually in the admin area, the administrator has to manually enter fields such as the van name, price, location and county, any of which could be incorrect due to human error.  While not a significant bug, this should be addressed in future iterations.
-  2. Similar to the above when creating feedback the administrator could choose an incorrect booking number or van name by mistake.
-  3. Similar to the above, an administrator could choose the incorrect county for a given city.
-  4. The user can select a van in a city or county that has no vehicles, resulting in nothing displayed on the page.  While not a significant bug to prevent the site from being used, this would be an annoying UX which should be addressed on the next iteration.
-  5. If a user tries to book the same van on the same day, the booking form modal closes with an error message.  The user would have to reenter their details and select a different date. While not a significant bug to prevent the site from being used, this would be an annoying UX which should be addressed on the next iteration.
+  There are no unresolved bugs.
 
   ### Improvements and future developments:
   The following items have been identified for future development:
   1. Create model for services so they can be updated through the admin panel - enhances administrator experience.
   2. Create model for locations so they can be updated through the admin panel - enhances administrator experience.
-  3. Dynamic Dependant Filter for Van Name, Size, location and County in the booking form and Van Finder form - enhances user experience by not allowing selections that have no content.
-  4. Dynamic Date selector on Booking Form where dates are shown as unavailable - enhances user experience.
-  5. Enhance User model to allow a profile section on User dashboard to capture first name, last name and phone number - enhances User booking experience.
-  6. Configure Social account sign-on - enhances user login experience.
-  7. Configure Password reset - enhances user login experience.
-  8. Create Filters and Folders for the Dashboard so bookings can be archived rather than deleted.
-  9. Add a dynamic meta description for each page - enhances SEO.
+  3. Generate slug automatically - prevents spelling errors - enhances administrator experience, and SEO.
+  4. Build a fully functioning front end Admin Dashboard with full functionality and dynamic drop-downs - prevents spelling errors and enhances the administrator experience.
+  5. Dynamic Dependant Filter for Van Name, Size, location and County in the booking form and Van Finder form - enhances user experience by not allowing selections that have no content.
+  6. Dynamic Date selector on Booking Form where dates are shown as unavailable - enhances user experience.
+  7. Enhance User model to allow a profile section on User dashboard to capture first name, last name and phone number - enhances User booking experience.
+  8. Configure Social account sign-on - enhances user login experience.
+  9. Configure Password reset - enhances user login experience.
+  10. Create Filters and Folders for the Dashboard so bookings can be archived rather than deleted.
+  11. Add a dynamic meta description for each page - enhances SEO.
+
 
 ## DEPLOYMENT
 I deployed the site right from project inception using this helpful [Code Institute Django Deployment Guide](https://docs.google.com/document/d/1g6xnseQfzFNZdp_gx_YOXkxcMMgZaQh7R3oyTFcOM_w/edit?usp=sharing).
 1. Once the project was deployed, development took place on GitPod using a local server found by typing "python3 manage.py runserver".
 2. On completion of development, the following steps took place to deploy the final site to Heroku.
-  -
-
 
 
 ## FORKING & CLONING INSTRUCTIONS
