@@ -67,15 +67,15 @@ The main objectives of this website are:
   - Each user story was allocated a certain number of story points based on a rough estimation of time to complete the work.
   - This allowed me to create a roadmap with milestones and target dates. [View Roadmap Here(ensure milestone and start date markers are activated)](https://github.com/users/rstan-dev/projects/6/views/3)
   - Each User Story was assigned a label according to the MoSCoW system so I could prioritise the work.
-<img src="/workspace/pp4-yoomoov/documentation/readme/github_projects.png">
+<img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/github_projects.png">
 
   ### Wireframes  (created in [Balsamiq](https://balsamiq.cloud/))
    The initial wireframes were created to understand how the site would work, and this layout would drive User Stories, the logic required and overall design artwork decisions.
 
-<img src="/workspace/pp4-yoomoov/documentation/readme/home.png">
-<img src="/workspace/pp4-yoomoov/documentation/readme/services.png">
-<img src="/workspace/pp4-yoomoov/documentation/readme/van_detail.png">
-<img src="/workspace/pp4-yoomoov/documentation/readme/dashboard.png">
+<img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/home.png">
+<img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/services.png">
+<img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/van_detail.png">
+<img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard.png">
 
   ### User Stories
   All epics, user stories with their acceptance criteria and tasks can be viewed on the YooMoov [GitHub Project board](https://github.com/users/rstan-dev/projects/6/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C49630728%2C%22Labels%22%2C%22Repository%22%2C%22Milestone%22%5D)
@@ -147,22 +147,22 @@ The main objectives of this website are:
   The database schema and website logic was conceived and created using [Lucid](https://lucid.app/) as follows:
 
   1. Website Flow:
-  <img src="/workspace/pp4-yoomoov/documentation/readme/yoomoov_site_logic.jpeg">
+  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/yoomoov_site_logic.jpeg">
 
   2. Database Structure:
-  <img src="/workspace/pp4-yoomoov/documentation/readme/yoomoov_db_schema.png">
+  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/yoomoov_db_schema.png">
 
   ### Color Scheme (created in [Canva](https://www.canva.com/))
   An orange color scheme was chosen because it's associated with optimism and energy, many brands use orange to convey a message of positivity. Many marketers use orange to get an audience excited about something because it is an attention-grabbing, warm color that really pops.
 
   I created the logo in Canva using royalty-free images to create the distinct cow icon so there could be a play on the word YooMoov (You Moove) and chose a complimentary color palette.
 
-   - <img src="/workspace/pp4-yoomoov/documentation/readme/cow_icon.png">
-   - <img src="/workspace/pp4-yoomoov/documentation/readme/logo_yoomoov_orange1.jpg">
-   - <img src="/workspace/pp4-yoomoov/documentation/readme/color_pallette.png">
+   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/cow_icon.png">
+   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/logo_yoomoov_orange1.jpg">
+   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/color_pallette.png">
 
    With a color palette in mind I could create a project style guide:
-   - <img src="/workspace/pp4-yoomoov/documentation/readme/yoomoov_style_guide.png">
+   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/yoomoov_style_guide.png">
 
    ### Imagery
    Stock Images were sourced from:
@@ -170,9 +170,9 @@ The main objectives of this website are:
    2. Stock van images by [Canva Pro](https://www.canva.com/).
 
   - I used Canva to build the initial designs, which was the basis for finding a suitable bootstrap template that could help me achieve the look and feel as easily as possible.
-  - <img src="/workspace/pp4-yoomoov/documentation/readme/canva_mockup_home.jpeg">
-  - <img src="/workspace/pp4-yoomoov/documentation/readme/canva_mockup_services.jpeg">
-  - <img src="/workspace/pp4-yoomoov/documentation/readme/canva_mockup_van_detail.jpeg">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/canva_mockup_home.jpeg">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/canva_mockup_services.jpeg">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/canva_mockup_van_detail.jpeg">
 
    ### Typography
    * I found a bootstrap layout called [Lumia](https://bootstrapmade.com/demo/Lumia/)from bootsrapmade.com which aligned closely with the layout I needed.
@@ -198,48 +198,48 @@ The following features have been implemented:
   - Van detail page.
   - Contact form that sends an email to the admin user.
   - User Dashboard with CRUD functionality to manage bookings and add feedback.
-  - <img src="/workspace/pp4-yoomoov/documentation/readme/feature_home.png">
-  - <img src="/workspace/pp4-yoomoov/documentation/readme/feature_services.png">
-  - <img src="/workspace/pp4-yoomoov/documentation/readme/feature_van_search.png">
-  - <img src="/workspace/pp4-yoomoov/documentation/readme/feature_van_detail.png">
-  - <img src="/workspace/pp4-yoomoov/documentation/readme/feature_dashboard.png">
-  - <img src="/workspace/pp4-yoomoov/documentation/readme/feature_booking.png">
-  - <img src="/workspace/pp4-yoomoov/documentation/readme/feature_feedback.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_home.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_services.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_van_search.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_van_detail.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_dashboard.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_booking.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_feedback.png">
 
 2. UX features include:
   - Ability for users to leave feedback after a booking has been completed.
   - Status of Bookings including Pending, Approved and Completed that is controlled by the administrator.
-  -  <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_leave_feedback.png">
+  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_leave_feedback.png">
   - Status of feedback prevents publishing until approved.
-  -  <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_feedback_status.png">
+  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_feedback_status.png">
   - Pagination to ensure listings are organised
-  -  <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_pagination.png">
+  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_pagination.png">
   - Back to top button for easy site navigation.
   - Social media links.
-  -  <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_back_to_top.png">
+  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_back_to_top.png">
   - Onscreen alert and success messages appear.
   - Register, Login and Logout forms for streamlined user authentication.
-  -  <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_login_page.png">
+  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_login_page.png">
   - Email notifications sent to both user and administrator.
   - Favicon included for site identification.
-  -  <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_favicon.png">
+  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_favicon.png">
   - Breadcrumb navigation.
-  - <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_breadcrumbs.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_breadcrumbs.png">
   - Dynamic user navigation.
-  - <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_dynamic_nav.png">
-  - <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_dynamic_nav_user.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_dynamic_nav.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_dynamic_nav_user.png">
   - Custom branding on the administration area.
-  <img src="/workspace/pp4-yoomoov/documentation/readme/uxfeat_custom_admin.png">
+  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_custom_admin.png">
 
 
 ## VALIDATION
 Various validation methods have been incorporated:
  1. Onscreen Confirmation, when logging out, updating or deleting a booking.
- - <img src="/workspace/pp4-yoomoov/documentation/readme/confirmation_message.png">
+ - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/confirmation_message.png">
  2. Onscreen Success / Error after creating, editing, deleting, logging in or out.
- - <img src="/workspace/pp4-yoomoov/documentation/readme/error_alert.png">
+ - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/error_alert.png">
  3. Date validation to prevent booking a past date.
- - <img src="/workspace/pp4-yoomoov/documentation/readme/validate_past_dates.png">
+ - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validate_past_dates.png">
  4. Form validation to ensure fields are completed where required or the correct format is needed such as for email addresses.
  5. No Data to Display - message
  6. Error redirection
