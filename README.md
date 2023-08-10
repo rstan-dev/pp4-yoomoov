@@ -218,6 +218,7 @@ The following features have been implemented:
   - Social media links.
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_back_to_top.png">
   - Onscreen alert and success messages appear.
+  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/success_alert.png">
   - Register, Login and Logout forms for streamlined user authentication.
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_login_page.png">
   - Email notifications sent to both user and administrator.
@@ -283,7 +284,7 @@ The site has been built with the following tech and tools:
 
 
 ## TESTING
-FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](/workspace/pp4-yoomoov/TESTING.md).
+FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.com/rstan-dev/pp4-yoomoov/TESTING.md).
 
   ### Tests performed
   The site was thoroughly tested during development with each feature tested before committing to GitHub.  The testing regime included:
