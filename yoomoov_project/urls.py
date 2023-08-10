@@ -21,3 +21,7 @@ urlpatterns = [
     path('', include('yoomoov_app.urls'), name="yoomoov_urls"),
     path('accounts/', include('allauth.urls')),
 ]
+
+handler403 = 'yoomoov_app.views.handler403'
+handler404 = 'yoomoov_app.views.handler404'
+handler500 = 'yoomoov_app.views.handler500'
