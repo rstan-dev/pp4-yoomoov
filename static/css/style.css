@@ -1184,10 +1184,11 @@ section {
   margin-right: 10px;
 }
 
-.btn.btn-sm {
-  max-width: 175px;
-  min-width: 152px;
-  margin-bottom: 10px;
+.btn.btn-sm,
+a.btn.btn-sm {
+  max-width: 175px !important;
+  min-width: 152px !important;
+  margin-bottom: 10px !important;
 }
 
 .booking-card-van-name {
