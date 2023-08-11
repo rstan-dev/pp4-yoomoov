@@ -56,7 +56,7 @@
                                         <i class="fa-solid fa-hashtag me-3"></i>Booking No: <strong>
                                             {{ booking.booking_number }}</strong></li>
 
-                                    <li><i class="fa-solid fa-truck-front me-3"></i><strong
+                                    <li><i class="fa-solid fa-truck-front me-2"></i><strong
                                             class="booking-card-van-name"> {{ booking.van }}</strong></li>
 
                                     <li>
@@ -69,7 +69,7 @@
                                     <li><i class="fa-solid fa-calendar-days me-3"></i>Booking Date: <strong>
                                             {{ booking.date_created }}</strong></li>
 
-                                    <li><i class="fa-solid fa-money-bill-1 me-3"></i>Price: <strong>
+                                    <li><i class="fa-solid fa-money-bill-1 me-2"></i>Price: <strong>
                                             £{{ booking.price }}</strong></li>
 
                                     <li><i class="fa-solid fa-pen me-3"></i><small>Last updated:
@@ -212,35 +212,52 @@
                 <h2>Your Feedback</h2>
                 {% if feedbacks %}
                 <h4>Here is the feedback you have left:</h4>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Booking No.</th>
-                                <th scope="col">Booking Date</th>
-                                <th scope="col">Van Name</th>
-                                <th scope="col">Your Feedback</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for feedback in feedbacks %}
-                            <tr>
-                                <td>{{ feedback.booking.booking_number }}</td>
-                                <td>{{ feedback.booking.date_required }}</td>
-                                <td>{{ feedback.booking.van }}</td>
-                                <td><strong>{{ feedback.title }}</strong><br>{{ feedback.comment }}</td>
-                                <td
-                                    class="feedback-status {% if feedback.is_approved == 'Pending' %}pending{% elif feedback.is_approved == 'Approved' %}approved{% endif %}">
-                                    {{ feedback.is_approved }}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                {% for feedback in feedbacks %}
+                <!-- ======= New Feedback Card ======= -->
+                <div class="col-md-10 mx-auto mt-md-3 mt-lg-4 mt-4">
+                    <div class="container booking-details-card card shadow my-2">
+                        <div class="row">
+                            <div class="col-12 col-md-12 mt-3">
+                                <ul>
+                                    <li>
+                                        <i class="fa-solid fa-hashtag me-3"></i>Booking No: <strong>
+                                            {{ feedback.booking.booking_number }}</strong>
+                                    </li>
+
+                                    <li>
+                                        <i class="fa-solid fa-truck-front me-3"></i><strong
+                                            class="booking-card-van-name"> {{ feedback.booking.van }}</strong>
+                                    </li>
+
+                                    <li>
+                                        <i class="fa-solid fa-clock me-3"></i>Date: <strong>
+                                            {{ feedback.booking.date_required }}</strong>
+                                    </li>
+
+                                    <li>
+                                        <i class="fa-solid fa-pen me-3"></i>Your feedback:
+                                    </li>
+                                    <li>
+                                        <strong> {{ feedback.title }}</strong>
+                                    </li>
+                                    <li>
+                                        {{ feedback.comment }}
+                                    </li>
+
+                                    <li
+                                        class="feedback-status {% if feedback.is_approved == 'Pending' %}pending{% elif feedback.is_approved == 'Approved' %}approved{% endif %}">
+                                        <i class="fa-solid fa-traffic-light me-3"></i>{{ feedback.is_approved }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                {% endfor %}
                 {% else %}
                 <h4>There is no feedback to display</h4>
                 {% endif %}
+
             </div>
         </div>
     </div>

@@ -1192,12 +1192,13 @@ section {
 }
 
 .fa-traffic-light {
-  font-size: 25px;
+  font-size: 20px;
   margin-top: 10px;
 }
 
-.booking-status {
-  font-size: 25px;
+.booking-status,
+.feedback-status {
+  font-size: 20px;
 }
 
 
