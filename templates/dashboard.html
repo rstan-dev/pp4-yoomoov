@@ -46,9 +46,11 @@
                 {% if bookings %}
                 <h4>Here are the vans you have booked:</h4>
                 <div class="col-md-10 mx-auto mt-md-3 mt-lg-4 mt-4 d-flex justify-content-center mb-3 flex-wrap">
-                    <a href="" class="btn btn-sm btn-outline-secondary my-1 mx-1">Order by Updated Date</a>
-                    <a href="" class="btn btn-sm btn-outline-primary my-1 mx-1">Order by Required Date</a>
-                    <a href="" class="btn btn-sm btn-outline-info my-1 mx-1">Order by Status</a>
+                    <a href="?order_by=date_updated" class="btn btn-sm btn-outline-secondary my-1 mx-1">Order by Updated
+                        Date</a>
+                    <a href="?order_by=date_required" class="btn btn-sm btn-outline-primary my-1 mx-1">Order by Required
+                        Date</a>
+                    <a href="?order_by=status" class="btn btn-sm btn-outline-info my-1 mx-1">Order by Status</a>
                 </div>
                 {% for booking in bookings %}
                 <!-- Booking Items -->
@@ -127,7 +129,7 @@
             <ul class="pagination">
                 {% if bookings.has_previous %}
                 <li class="page-item">
-                    <a href="?bookings_section={{bookings.previous_page_number}}&feedback_section={{feedbacks.number}}"
+                    <a href="?bookings_section={{bookings.previous_page_number}}&feedback_section={{feedbacks.number}}&order_by={{ order_by }}"
                         class="page-link">&laquo;</a>
                 </li>
                 {% else %}
@@ -142,13 +144,14 @@
                 </li>
                 {% else %}
                 <li class="page-item">
-                    <a href="?bookings_section={{i}}&feedback_section={{feedbacks.number}}" class="page-link">{{i}}</a>
+                    <a href="?bookings_section={{i}}&feedback_section={{feedbacks.number}}&order_by={{ order_by }}"
+                        class="page-link">{{i}}</a>
                 </li>
                 {% endif %}
                 {% endfor %}
                 {% if bookings.has_next %}
                 <li class="page-item">
-                    <a href="?bookings_section={{bookings.next_page_number}}&feedback_section={{feedbacks.number}}"
+                    <a href="?bookings_section={{bookings.next_page_number}}&feedback_section={{feedbacks.number}}&order_by={{ order_by }}"
                         class="page-link">&raquo;</a>
                 </li>
                 {% else %}
@@ -277,7 +280,7 @@
             <ul class="pagination">
                 {% if feedbacks.has_previous %}
                 <li class="page-item">
-                    <a href="?feedback_section={{feedbacks.previous_page_number}}&bookings_section={{bookings.number}}"
+                    <a href="?feedback_section={{feedbacks.previous_page_number}}&bookings_section={{bookings.number}}&order_by={{ order_by }}"
                         class="page-link">&laquo;</a>
                 </li>
                 {% else %}
@@ -292,13 +295,14 @@
                 </li>
                 {% else %}
                 <li class="page-item">
-                    <a href="?feedback_section={{i}}&bookings_section={{bookings.number}}" class="page-link">{{i}}</a>
+                    <a href="?feedback_section={{i}}&bookings_section={{bookings.number}}&order_by={{ order_by }}"
+                        class="page-link">{{i}}</a>
                 </li>
                 {% endif %}
                 {% endfor %}
                 {% if feedbacks.has_next %}
                 <li class="page-item">
-                    <a href="?feedback_section={{feedbacks.next_page_number}}&bookings_section={{bookings.number}}"
+                    <a href="?feedback_section={{feedbacks.next_page_number}}&bookings_section={{bookings.number}}&order_by={{ order_by }}"
                         class="page-link">&raquo;</a>
                 </li>
                 {% else %}

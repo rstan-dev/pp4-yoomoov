@@ -204,6 +204,9 @@ def dashboard(request):
 
     form = BookingForm()
 
+    # Calls the order_by parameter - orders by date_updated as default
+    order_by = request.GET.get('order_by', '-date_updated')
+
     feedbacks = Feedback.objects.filter(
         user_fk=request.user).order_by('date_created')
 
@@ -215,7 +218,7 @@ def dashboard(request):
 
     # Annotate each booking with a flag indicating whether it has feedback.
     bookings = Booking.objects.filter(
-        user_id=request.user.id).order_by('date_required').annotate(
+        user_id=request.user.id).order_by(order_by).annotate(
         has_feedback=Exists(Feedback.objects.filter(booking=OuterRef('pk')))
     )
 
@@ -230,6 +233,7 @@ def dashboard(request):
     page_feedback = feedback_paginator.get_page(feedback_page_number)
 
     context = {
+        'order_by': order_by,
         'bookings': page_bookings,
         'vans': vans,
         'form': form,
