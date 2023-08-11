@@ -86,15 +86,22 @@
 
                             <div class="col-lg-3 d-flex flex-column align-items-center justify-content-center">
 
-                                <a class="btn btn-sm btn-outline-info">Leave Feedback</a>
-
-                                <a class="btn btn-sm btn-outline-success feedback-btn-submitted">Feedback Submitted</a>
-
-                                <a class="btn btn-sm btn-outline-warning">Edit</a>
-
-                                <a role="button" class="btn btn-sm btn-outline-danger">Delete</a>
-
-                                <a role="button" class="btn btn-sm btn-outline-primary">View</a>
+                                {% if booking.status == 'Completed' %}
+                                {% if booking.has_feedback %}
+                                <a class="btn btn-sm btn-outline-success feedback-btn-submitted" disabled>Feedback
+                                    Submitted</a>
+                                {% else %}
+                                <a role="button" class="btn btn-sm btn-outline-info"
+                                    href="{% url 'leave_feedback' booking.id %}">Leave Feedback</a>
+                                {% endif %}
+                                {% else %}
+                                <a role="button" class="btn btn-sm btn-outline-warning"
+                                    href="{% url 'edit_booking' booking.id %}">Edit</a>
+                                <a role="button" class="btn btn-sm btn-outline-danger"
+                                    href=" {% url 'delete_booking' booking.id %}">Delete</a>
+                                {% endif %}
+                                <a role="button" class="btn btn-sm btn-outline-primary"
+                                    href="{% url 'van_detail' slug=booking.van.slug %}">View</a>
 
                             </div>
                         </div>
@@ -104,7 +111,7 @@
                 {% else %}
                 <h4>There are no bookings to display</h4>
                 {% endif %}
-            </div>
+            </div><!-- End Booking Items -->
         </div>
     </div>
 
@@ -145,7 +152,7 @@
             </ul>
             {% endif %}
         </div>
-    </div> End Pagination
+    </div> <!-- End Pagination -->
 
 </div> <!-- End Bookings Dashboard -->
 
