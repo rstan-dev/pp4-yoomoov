@@ -43,36 +43,42 @@
             </div>
             <div class="col-md-12">
                 <h2>Your Bookings</h2>
-                <!-- {% if bookings %} -->
+                {% if bookings %}
                 <h4>Here are the vans you have booked:</h4>
+                {% for booking in bookings %}
                 <!-- Booking Items -->
                 <div class="col-md-10 mx-auto mt-md-3 mt-lg-4 mt-4">
                     <div class="container booking-details-card card shadow my-2">
                         <div class="row">
                             <div class="col-12 col-md-8 mt-3">
                                 <ul>
+                                    <li>
+                                        <i class="fa-solid fa-hashtag me-3"></i>Booking No: <strong>
+                                            {{ booking.booking_number }}</strong></li>
+
                                     <li><i class="fa-solid fa-truck-front me-3"></i><strong
-                                            class="booking-card-van-name"> Small Van in Sutton Coldfield</strong></li>
+                                            class="booking-card-van-name"> {{ booking.van }}</strong></li>
 
                                     <li>
                                         <i class="fa-solid fa-location-dot me-3"></i>Location:<strong>
-                                            Birmingham</strong></li>
+                                            {{ booking.van_location }}</strong></li>
 
-                                    <li><i class="fa-solid fa-clock me-3"></i>Required Date: <strong> 01 Oct
-                                            2023</strong></li>
+                                    <li><i class="fa-solid fa-clock me-3"></i>Required Date: <strong>
+                                            {{ booking.date_required }}</strong></li>
 
-                                    <li>
-                                        <i class="fa-solid fa-hashtag me-3"></i>Booking No: <strong> 1099</strong></li>
+                                    <li><i class="fa-solid fa-calendar-days me-3"></i>Booking Date: <strong>
+                                            {{ booking.date_created }}</strong></li>
 
-                                    <li><i class="fa-solid fa-calendar-days me-3"></i>Booking Date: <strong> 01 Aug
-                                            2023</strong></li>
+                                    <li><i class="fa-solid fa-money-bill-1 me-3"></i>Price: <strong>
+                                            £{{ booking.price }}</strong></li>
 
-                                    <li><i class="fa-solid fa-money-bill-1 me-3"></i>Price: <strong> £275</strong></li>
-
-                                    <li><i class="fa-solid fa-pen me-3"></i><small>Last updated: 10 Aug 2023</small>
+                                    <li><i class="fa-solid fa-pen me-3"></i><small>Last updated:
+                                            {{ booking.date_updated }}</small>
                                     </li>
 
-                                    <li class="status"><i class="fa-solid fa-traffic-light me-3"></i>PENDING</li>
+                                    <li
+                                        class="booking-status {% if booking.status == 'Pending' %}pending{% elif booking.status == 'Approved' %}approved{% elif booking.status == 'Completed' %}completed{% endif %}">
+                                        <i class="fa-solid fa-traffic-light me-3"></i>{{ booking.status }}</li>
 
                                 </ul>
 
@@ -94,68 +100,16 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Location</th>
-                                <th scope="col">Size</th>
-                                <th scope="col">Van Name</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for booking in bookings %}
-                            <tr>
-                                <td>{{ booking.booking_number }}</td>
-                                <td>{{ booking.date_required }}</td>
-                                <td>{{ booking.van_location }}</td>
-                                <td>{{ booking.van_size }}</td>
-                                <td>{{ booking.van }}</td>
-                                <td>£{{ booking.price }}</td>
-                                <td
-                                    class="booking-status {% if booking.status == 'Pending' %}pending{% elif booking.status == 'Approved' %}approved{% elif booking.status == 'Completed' %}completed{% endif %}">
-                                    {{ booking.status }}</td>
-                            </tr>
-                            <tr>
-                                <td colspan="7" class="dashboard-btn-grp">
-                                    <div class="btn-group">
-                                        {% if booking.status == 'Completed' %}
-                                        {% if booking.has_feedback %}
-                                        <button class="btn btn-sm btn-outline-success feedback-btn-submitted"
-                                            disabled>Feedback Submitted</button>
-                                        {% else %}
-                                        <a class="btn btn-sm btn-outline-info"
-                                            href="{% url 'leave_feedback' booking.id %}">Leave Feedback</a>
-                                        {% endif %}
-                                        {% else %}
-                                        <a class="btn btn-sm btn-outline-warning"
-                                            href="{% url 'edit_booking' booking.id %}">Edit</a>
-                                        <a class="btn btn-sm btn-outline-danger"
-                                            href=" {% url 'delete_booking' booking.id %}">Delete</a>
-                                        {% endif %}
-                                        <a class="btn btn-sm btn-outline-primary"
-                                            href="{% url 'van_detail' slug=booking.van.slug %}">View</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+                {% endfor %}
                 {% else %}
                 <h4>There are no bookings to display</h4>
-                {% endif %} -->
+                {% endif %}
             </div>
         </div>
     </div>
 
     <!-- Pagination -->
-    <!-- <div class="row">
+    <div class="row">
         <div class="col-md-12 d-flex justify-content-center">
             {% if bookings.has_other_pages %}
             <ul class="pagination">
@@ -191,7 +145,8 @@
             </ul>
             {% endif %}
         </div>
-    </div> End Pagination -->
+    </div> End Pagination
+
 </div> <!-- End Bookings Dashboard -->
 
 <!-- Booking Modal -->
