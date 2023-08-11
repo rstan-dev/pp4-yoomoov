@@ -221,12 +221,12 @@ def dashboard(request):
 
     # Paginator for bookings table
     bookings_paginator = Paginator(bookings, 4)
-    bookings_page_number = request.GET.get('page')
+    bookings_page_number = request.GET.get('bookings_section')
     page_bookings = bookings_paginator.get_page(bookings_page_number)
 
     # Paginator for feedback table
     feedback_paginator = Paginator(feedbacks, 3)
-    feedback_page_number = request.GET.get('page')
+    feedback_page_number = request.GET.get('feedback_section')
     page_feedback = feedback_paginator.get_page(feedback_page_number)
 
     context = {

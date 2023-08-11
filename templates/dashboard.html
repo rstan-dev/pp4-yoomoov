@@ -115,14 +115,15 @@
         </div>
     </div>
 
-    <!-- Pagination -->
+    <!-- Bookings Pagination -->
     <div class="row">
         <div class="col-md-12 d-flex justify-content-center">
             {% if bookings.has_other_pages %}
             <ul class="pagination">
-                {% if booking.has_previous %}
+                {% if bookings.has_previous %}
                 <li class="page-item">
-                    <a href="?page={{listings.previous_page_number}}" class="page-link">&laquo;</a>
+                    <a href="?bookings_section={{bookings.previous_page_number}}&feedback_section={{feedbacks.number}}"
+                        class="page-link">&laquo;</a>
                 </li>
                 {% else %}
                 <li class="page-item disabled">
@@ -136,13 +137,14 @@
                 </li>
                 {% else %}
                 <li class="page-item">
-                    <a href="?page={{i}}" class="page-link">{{i}}</a>
+                    <a href="?bookings_section={{i}}&feedback_section={{feedbacks.number}}" class="page-link">{{i}}</a>
                 </li>
                 {% endif %}
                 {% endfor %}
                 {% if bookings.has_next %}
                 <li class="page-item">
-                    <a href="?page={{listings.next_page_number}}" class="page-link">&raquo;</a>
+                    <a href="?bookings_section={{bookings.next_page_number}}&feedback_section={{feedbacks.number}}"
+                        class="page-link">&raquo;</a>
                 </li>
                 {% else %}
                 <li class="page-item disabled">
@@ -152,7 +154,7 @@
             </ul>
             {% endif %}
         </div>
-    </div> <!-- End Pagination -->
+    </div> <!-- End Bookings Pagination -->
 
 </div> <!-- End Bookings Dashboard -->
 
@@ -203,6 +205,7 @@
         </div>
     </div>
 </div><!-- End Booking Modal -->
+
 
 <!-- ======= Feedback Section ======= -->
 <div class="dashboard py-4">
@@ -262,14 +265,15 @@
         </div>
     </div>
 
-    <!-- Pagination -->
+    <!-- Feedback Pagination -->
     <div class="row">
         <div class="col-md-12 d-flex justify-content-center">
             {% if feedbacks.has_other_pages %}
             <ul class="pagination">
                 {% if feedbacks.has_previous %}
                 <li class="page-item">
-                    <a href="?page={{listings.previous_page_number}}" class="page-link">&laquo;</a>
+                    <a href="?feedback_section={{feedbacks.previous_page_number}}&bookings_section={{bookings.number}}"
+                        class="page-link">&laquo;</a>
                 </li>
                 {% else %}
                 <li class="page-item disabled">
@@ -283,13 +287,14 @@
                 </li>
                 {% else %}
                 <li class="page-item">
-                    <a href="?page={{i}}" class="page-link">{{i}}</a>
+                    <a href="?feedback_section={{i}}&bookings_section={{bookings.number}}" class="page-link">{{i}}</a>
                 </li>
                 {% endif %}
                 {% endfor %}
                 {% if feedbacks.has_next %}
                 <li class="page-item">
-                    <a href="?page={{listings.next_page_number}}" class="page-link">&raquo;</a>
+                    <a href="?feedback_section={{feedbacks.next_page_number}}&bookings_section={{bookings.number}}"
+                        class="page-link">&raquo;</a>
                 </li>
                 {% else %}
                 <li class="page-item disabled">
@@ -299,6 +304,6 @@
             </ul>
             {% endif %}
         </div>
-    </div> <!-- EndPagination -->
+    </div> <!-- End Feedback Pagination -->
 </div><!-- End Feedback Section -->
 {% endblock %}
