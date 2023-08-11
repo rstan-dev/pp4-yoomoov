@@ -1168,6 +1168,38 @@ section {
   }
 }
 
+.booking-details {
+  margin-top: 10vh;
+  min-height: 120vh;
+}
+
+.booking-details-card li {
+  list-style: none;
+}
+
+.booking-details-card i {
+  color: #fb8500;
+}
+
+.btn.btn-sm {
+  max-width: 175px;
+  min-width: 152px;
+  margin-bottom: 10px;
+}
+
+.booking-card-van-name {
+  font-size: 18px;
+}
+
+.fa-traffic-light {
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.status {
+  font-size: 25px;
+}
+
 
 /*-------------------------------------------------------------
 # Booking Modal
