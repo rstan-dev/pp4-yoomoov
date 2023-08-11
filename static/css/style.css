@@ -33,6 +33,11 @@ h6 {
   text-decoration: none;
 }
 
+.btn-outline-warning {
+  border-color: #fb8500;
+  color: #fb8500;
+}
+
 .no-data-notice {
   text-align: center;
   font-size: 25px;

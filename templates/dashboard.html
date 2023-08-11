@@ -45,12 +45,15 @@
                 <h2>Your Bookings</h2>
                 {% if bookings %}
                 <h4>Here are the vans you have booked:</h4>
+
                 <div class="col-md-10 mx-auto mt-md-3 mt-lg-4 mt-4 d-flex justify-content-center mb-3 flex-wrap">
-                    <a href="?order_by=date_updated" class="btn btn-sm btn-outline-secondary my-1 mx-1">Order by Updated
-                        Date</a>
+
+                    <a href="?order_by=-date_updated" class="btn btn-sm btn-outline-secondary my-1 mx-1"> Order by
+                        Updated</a>
                     <a href="?order_by=date_required" class="btn btn-sm btn-outline-primary my-1 mx-1">Order by Required
                         Date</a>
-                    <a href="?order_by=status" class="btn btn-sm btn-outline-info my-1 mx-1">Order by Status</a>
+                    <a href="?order_by=-status" class="btn btn-sm btn-outline-danger my-1 mx-1">Order by Pending</a>
+                    <a href="?order_by=status" class="btn btn-sm btn-outline-warning my-1 mx-1">Order by Approved</a>
                 </div>
                 {% for booking in bookings %}
                 <!-- Booking Items -->
