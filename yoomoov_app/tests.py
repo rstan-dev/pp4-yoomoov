@@ -1,8 +1,9 @@
-from django.test import TestCase
-from django.urls import reverse
+from django.test import TestCase, override_settings
+from django.urls import reverse, path
 from django.contrib.messages import get_messages
 from django.contrib.auth.models import User
 from django.test import Client
+from django.http import HttpResponseServerError
 
 
 class ErrorHandlersTest(TestCase):
@@ -21,3 +22,11 @@ class ErrorHandlersTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertIn(reverse('account_login'), response['Location'])
 
+
+class CreateBookingTests(TestCase):
+
+    # Tests for a redirection if a user is not logged in
+    def test_create_booking_when_not_logged_in(self):
+        response = self.client.get(reverse('create_booking'))
+        self.assertRedirects(response,
+                             '/accounts/login/?next=%2Fcreate_booking%2F')
