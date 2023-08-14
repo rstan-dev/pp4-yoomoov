@@ -243,6 +243,7 @@ def dashboard(request):
     return render(request, 'dashboard.html', context)
 
 
+@login_required
 def createBooking(request):
     """
     Method for creating a booking and updating the Booking model.
@@ -304,6 +305,7 @@ def createBooking(request):
     return render(request, 'dashboard.html', context)
 
 
+@login_required
 def editBooking(request, pk):
     """
     Method to edit/update booking details.
@@ -314,7 +316,7 @@ def editBooking(request, pk):
     to the user.
     User is redirected back to the dashboard on completion.
     """
-    booking = Booking.objects.get(id=pk)
+    booking = get_object_or_404(Booking, id=pk)
     form = BookingForm(instance=booking, initial={'booking_id': booking.id})
 
     if request.method == 'POST':
@@ -354,6 +356,7 @@ def editBooking(request, pk):
     return render(request, 'edit_booking.html', context)
 
 
+@login_required
 def deleteBooking(request, pk):
     """
     Method to delete a specific booking.
@@ -363,7 +366,7 @@ def deleteBooking(request, pk):
     User is redirected back to the dashboard on completion with a success
     messgae displayed on screen.
     """
-    booking = Booking.objects.get(id=pk)
+    booking = get_object_or_404(Booking, id=pk)
     if request.method == "POST":
         booking.delete()
 
@@ -388,10 +391,10 @@ def deleteBooking(request, pk):
 
     return render(request, 'delete_booking.html', context)
 
-
+@login_required
 def leaveFeedback(request, pk):
 
-    booking = Booking.objects.get(id=pk)
+    booking = get_object_or_404(Booking, id=pk)
     form = FeedbackForm()
 
     if request.method == 'POST':
