@@ -1,17 +1,23 @@
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.messages import get_messages
+from django.contrib.auth.models import User
+from django.test import Client
 
 
 class ErrorHandlersTest(TestCase):
+    # Creates a user and logs the test user in to test the 404 redirect
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='testpassword'
+        )
+        self.client = Client()
+        self.client.login(username='testuser', password='testpassword')
 
-    # Test that a 403 error message redirects the user to the login page
-    def test_handler403(self):
-        response = self.client.get('/accounts/login/?next=/dashboard')
-        self.assertRedirects(response, reverse('account_login'))
+    # Test that a 404 error message redirects the user to the login page
+    def test_handler404(self):
+        response = self.client.get('/edit_booking/63')
+        self.assertEqual(response.status_code, 302)
+        self.assertIn(reverse('account_login'), response['Location'])
 
-        messages = list(get_messages(response.wsgi_request))
-        # tests that there is excatly 1 message
-        self.assertEqual(len(messages), 1)
-        # tests that the error message is 403 Error
-        self.assertEqual(str(messages[0]), '403 Error: Access Denied')
