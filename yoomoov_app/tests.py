@@ -33,10 +33,31 @@ class CreateBookingTests(TestCase):
         self.client = Client()
         self.client.login(username='testuser', password='testpassword')
 
-    # Tests for a succesfuly GET requet when user is logged in
+    # Tests for a succesfuly GET request when user is logged in
     def test_create_booking_get_request_user_logged_in(self):
         self.client.login(username='testuser', password='testpassword')
         response = self.client.get(reverse('create_booking'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'dashboard.html')
+
+    # Tests for sucessful POST request when user is logged in
+    def test_create_booking_post_request_user_logged_in(self):
+        self.client.login(username='testuser', password='testpassword')
+        response = self.client.get(reverse('create_booking'))
+        data = {
+            'first_name': 'Bob_test',
+            'last_name': 'Brown',
+            'email': 'bob@brown.com',
+            'phone': '0123456789',
+            'van_name': 'Large Van in Sheffield',
+            'van_size': 'Large',
+            'van_location': 'Sheffield',
+            'van_county': 'South Yorkshire',
+            'date_required': '01/12/2024',
+            'price': '250'
+        }
+        response = self.client.post(reverse('create_booking'), data)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'dashboard.html')
+
 
