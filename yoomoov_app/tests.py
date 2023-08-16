@@ -150,6 +150,11 @@ class EditBookingTests(TestCase):
         # Checks if the data updated successfully]
         updated_booking = Booking.objects.get(id=self.booking.id)
         self.assertEqual(updated_booking.first_name, 'Updated_Name')
+        self.assertEqual(updated_booking.last_name, 'Updated_Last_Name')
+        self.assertEqual(updated_booking.email, 'updated@email.com')
+        self.assertEqual(updated_booking.phone, '111222333444')
+        self.assertEqual(updated_booking.van.name, 'Large Van in Sheffield')
+        self.assertEqual(updated_booking.date_required, date(2025, 1, 1))
 
 
 class DeleteBookingTests(TestCase):
