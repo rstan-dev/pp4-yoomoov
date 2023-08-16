@@ -7,6 +7,8 @@ from django.http import HttpResponseServerError
 from django.core.mail import send_mail
 from unittest.mock import patch
 from .models import Van, Booking
+from datetime import date
+from decimal import Decimal
 
 
 class ErrorHandlersTest(TestCase):
@@ -71,10 +73,20 @@ class CreateBookingTests(TestCase):
             'phone': '0123456789',
             'van': self.van.id,
             'date_required': '2025-12-01',
-            'price': '250'
+            'price': '250.00'
         }
+        # Checks for a successful redirect code
         response = self.client.post(reverse('create_booking'), data)
         self.assertEqual(response.status_code, 302)
+        # Checks if the data was created successfully
+        created_booking = Booking.objects.last()
+        self.assertEqual(created_booking.first_name, 'Bob_test')
+        self.assertEqual(created_booking.last_name, 'Brown')
+        self.assertEqual(created_booking.email, 'bob@brown.com')
+        self.assertEqual(created_booking.phone, '0123456789')
+        self.assertEqual(created_booking.van.name, 'Large Van in Sheffield')
+        self.assertEqual(created_booking.date_required, date(2025, 12, 1))
+        self.assertEqual(created_booking.price, Decimal('250.00'))
 
 
 class EditBookingTests(TestCase):
@@ -135,7 +147,7 @@ class EditBookingTests(TestCase):
         response = self.client.post(reverse('edit_booking', args=[self.booking.id]), updated_data)
         # Checks for a successful redirect code
         self.assertEqual(response.status_code, 302)
-        # Checks if the data up[dated successfully]
+        # Checks if the data updated successfully]
         updated_booking = Booking.objects.get(id=self.booking.id)
         self.assertEqual(updated_booking.first_name, 'Updated_Name')
 
