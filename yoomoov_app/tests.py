@@ -103,8 +103,23 @@ class EditBookingTests(TestCase):
         self.client = Client()
         self.client.login(username='testuser', password='testpassword')
 
-    def test_edit_booking(self):
+    def test_edit_booking_successful_get_request(self):
         # Tests the GET request and checks booking form is prefilled corectly
         response = self.client.get(reverse('edit_booking', args=[self.booking.id]))
         self.assertEqual(response.status_code, 200)
+
+    def test_edit_booking_successfully_updated_data(self):
+        # Tests the POST request with updated data returns successfully
+        updated_data = {
+            'first_name': 'Updated_Name',
+            'last_name': 'Updated_Last_Name',
+            'email': 'updated@email.com',
+            'van': self.van,
+            'date_required': '2025-01-01',
+        }
+
+        response = self.client.post(reverse('edit_booking', args=[self.booking.id]), updated_data)
+        self.assertEqual(response.status_code, 200)
+
+
 
