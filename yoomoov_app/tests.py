@@ -68,13 +68,13 @@ class EditBookingTests(TestCase):
 
     # Creates a user and logs the test user in to test the editBooking
     # functions
-    # Creates a Van Object and a Booking object to test functions
+
     def setUp(self):
         self.user = User.objects.create_user(
             username='testuser',
             password='testpassword'
         )
-
+        # Creates a Van Object to test functions
         self.van = Van.objects.create(
             name='Large Van in Sheffield',
             slug='large_van_sheffield',
@@ -89,7 +89,7 @@ class EditBookingTests(TestCase):
             price='250.00',
             is_live=True
         )
-
+        # Creates a Booking object to test functions
         self.booking = Booking.objects.create(
             booking_number='1500',
             van=self.van,
@@ -131,13 +131,13 @@ class DeleteBookingTests(TestCase):
 
     # Creates a user and logs the test user in to test the deleteBooking
     # functions
-    # Creates a Van Object and a Booking object to test functions
+
     def setUp(self):
         self.user = User.objects.create_user(
             username='testuser',
             password='testpassword'
         )
-
+        # Creates a Van Object to test functions
         self.van = Van.objects.create(
             name='Large Van in Sheffield',
             slug='large_van_sheffield',
@@ -152,7 +152,7 @@ class DeleteBookingTests(TestCase):
             price='250.00',
             is_live=True
         )
-
+        # Creates a Booking object to test functions
         self.booking = Booking.objects.create(
             booking_number='1500',
             van=self.van,
@@ -171,11 +171,15 @@ class DeleteBookingTests(TestCase):
         response = self.client.get(reverse('delete_booking', args=[self.booking.id]))
         self.assertEqual(response.status_code, 200)
 
-    def test_delete_booking_successful(self):
+    def test_delete_booking_successful_post_request(self):
         # Tests the POST request to the delete_booking view is successful
         response = self.client.post(reverse('delete_booking', args=[self.booking.id]))
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('dashboard'))
+
+        # Confirms that the booking has been deleted from the database
+        with self.assertRaises(Booking.DoesNotExist):
+            Booking.objects.get(id=self.booking.id)
 
 
 
