@@ -114,12 +114,17 @@ class EditBookingTests(TestCase):
             'first_name': 'Updated_Name',
             'last_name': 'Updated_Last_Name',
             'email': 'updated@email.com',
-            'van': self.van,
+            'phone': '111222333444',
+            'van': self.van.id,
             'date_required': '2025-01-01',
         }
 
         response = self.client.post(reverse('edit_booking', args=[self.booking.id]), updated_data)
-        self.assertEqual(response.status_code, 200)
+
+        self.assertEqual(response.status_code, 302)
+
+        updated_booking = Booking.objects.get(id=self.booking.id)
+        self.assertEqual(updated_booking.first_name, 'Updated_Name')
 
 
 
