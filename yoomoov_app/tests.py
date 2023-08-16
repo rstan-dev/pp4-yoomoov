@@ -33,17 +33,34 @@ class CreateBookingTests(TestCase):
             username='testuser',
             password='testpassword'
         )
+
+        # Creates a Van Object to test functions
+        self.van = Van.objects.create(
+            name='Large Van in Sheffield',
+            slug='large_van_sheffield',
+            size='Large',
+            location='Sheffield',
+            county='South Yorkshire',
+            crew=1,
+            suitable_for='Suitable description',
+            load_area_width=2.5,
+            load_area_height=2.5,
+            load_area_length=2.5,
+            price='250.00',
+            is_live=True
+        )
+
         self.client = Client()
         self.client.login(username='testuser', password='testpassword')
 
-    # Tests for a succesfuly GET request when user is logged in
+    # Tests for a successful GET request when user is logged in
     def test_create_booking_get_request_user_logged_in(self):
         self.client.login(username='testuser', password='testpassword')
         response = self.client.get(reverse('create_booking'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'dashboard.html')
 
-    # Tests for sucessful POST request when user is logged in and
+    # Tests for successful POST request when user is logged in and
     def test_create_booking_post_request_user_logged_in(self):
         self.client.login(username='testuser', password='testpassword')
         response = self.client.get(reverse('create_booking'))
@@ -52,16 +69,12 @@ class CreateBookingTests(TestCase):
             'last_name': 'Brown',
             'email': 'bob@brown.com',
             'phone': '0123456789',
-            'van_name': 'Large Van in Sheffield',
-            'van_size': 'Large',
-            'van_location': 'Sheffield',
-            'van_county': 'South Yorkshire',
-            'date_required': '01/12/2024',
+            'van': self.van.id,
+            'date_required': '2025-12-01',
             'price': '250'
         }
         response = self.client.post(reverse('create_booking'), data)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'dashboard.html')
+        self.assertEqual(response.status_code, 302)
 
 
 class EditBookingTests(TestCase):
