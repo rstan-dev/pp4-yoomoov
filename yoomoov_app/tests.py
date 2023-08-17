@@ -211,13 +211,14 @@ class DeleteBookingTests(TestCase):
         with self.assertRaises(Booking.DoesNotExist):
             Booking.objects.get(id=self.booking.id)
 
+
 class HomePageTest(TestCase):
     # Test for an acessbile page, correct template and the latest
     # 3 van lisitngs are displaying correctly
 
     def setUp(self):
         # Creates a Van Object to test functions
-        self.van = [
+        self.vans = [
             Van.objects.create(
                 name='test Van 1',
                 slug='test_van_1',
@@ -269,6 +270,14 @@ class HomePageTest(TestCase):
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
+
+        # Tests that 3 vans displayed are the correct ones in the context, and the latest three
+        vans_in_context = response.context['vans']
+        self.assertEqual(len(vans_in_context), 3)
+        for van in vans_in_context:
+            self.assertIn(van, self.vans[:3])
+
+
 
 
 
