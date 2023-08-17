@@ -620,9 +620,25 @@ class VanSearchResultsTest(TestCase):
         self.assertTemplateUsed(response, 'van_filter.html')
 
     def test_van_search_displays_no_filter(self):
-        # Tests if all vans are displayed if no filter is used and Search button is clicked
+        # Tests if all vans are displayed if no filter is used and Search
+        # button is clicked
         response = self.client.get(reverse('search'))
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.context['vans']), len(self.vans))
 
+    def test_van_search_with_size_filter(self):
+        # Tests if the correct vans are displayed when the size filter is
+        # applied.
+        # Checks for any vans that = Medium, then checks if the
+        # number of medium vans in the response = the number of medium vans
+        # in the database.
+        size_filter = 'Medium'
+        response = self.client.get(reverse('search'), {'van-size': size_filter})
+        self.assertEqual(response.status_code, 200)
 
+        medium_vans = [van for van in self.vans if van.size == size_filter]
+
+        self.assertEqual(len(response.context['vans']), len(medium_vans))
+
+        for van in medium_vans:
+            self.assertIn(van, response.context['vans'])
