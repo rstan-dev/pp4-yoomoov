@@ -472,14 +472,14 @@ class VanDetailViewTest(TestCase):
         ]
 
     # Test if live van is successfully retrieved and serves a 200 success code
-    def test_van_detail_successful_retrieval(self):
+    def test_live_van_detail_successful_retrieval(self):
         live_van = Van.objects.get(slug='test_van_1_live')
         response = self.client.get(reverse('van_detail',
                                            kwargs={'slug': live_van.slug}))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'van_detail.html')
 
-    # Test if non- live van is successfully redirected serving a 404 code
+    # Test if non- live van is successfully redirected serving a 302 code
     def test_non_live_van_detail_successful_redirect(self):
         non_live_van = Van.objects.get(slug='test_van_2_not_live')
         response = self.client.get(reverse('van_detail',
