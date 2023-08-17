@@ -432,4 +432,51 @@ class ContactFormTest(TestCase):
         self.assertRedirects(response, reverse('home'))
 
 
+class VanDetailViewTest(TestCase):
+    # Test for successful retirval of van detail page based on a valid slug.
+    # Test for a 404 redirect if there is an invalid slug
+    # Test for only live van listings displayed
+
+    def setUp(self):
+        # Creates a Van Object to test functions
+        self.vans = [
+            Van.objects.create(
+                name='test Van 1',
+                slug='test_van_1_live',
+                size='Small',
+                location='London',
+                county='Greater London',
+                crew=1,
+                suitable_for='Suitable description',
+                load_area_width=2.5,
+                load_area_height=2.5,
+                load_area_length=2.5,
+                price='250.00',
+                is_live=True
+            ),
+
+            Van.objects.create(
+                name='test Van 2',
+                slug='test_van_2_not_live',
+                size='Medium',
+                location='London',
+                county='Greater London',
+                crew=1,
+                suitable_for='Suitable description',
+                load_area_width=2.5,
+                load_area_height=2.5,
+                load_area_length=2.5,
+                price='250.00',
+                is_live=False
+            ),
+        ]
+
+    # Test if live van is successfully retrieved and serves a 200 success code
+    def test_van_detail_successful_retrieval(self):
+        live_van = Van.objects.get(slug='test_van_1_live')
+        response = self.client.get(reverse('van_detail',
+                                           kwargs={'slug': live_van.slug}))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'van_detail.html')
+
 
