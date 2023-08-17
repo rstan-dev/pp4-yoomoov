@@ -540,3 +540,76 @@ class VanDetailViewTest(TestCase):
         for feedback in response.context['van_feedbacks']:
             self.assertEqual(feedback.is_approved, 'Approved')
 
+
+class VanSearchResultsTest(TestCase):
+    # Tests if van search results displays vans according to selected filters,
+
+    def setUp(self):
+        # Creates several Van Objects to test functions
+        self.vans = [
+            Van.objects.create(
+                name='test Van 1',
+                slug='test_van_1',
+                size='Small',
+                location='London',
+                county='Greater London',
+                crew=1,
+                suitable_for='Suitable description',
+                load_area_width=2.5,
+                load_area_height=2.5,
+                load_area_length=2.5,
+                price='250.00',
+                is_live=True
+            ),
+
+            Van.objects.create(
+                name='test Van 2',
+                slug='test_van_2',
+                size='Medium',
+                location='London',
+                county='Greater London',
+                crew=1,
+                suitable_for='Suitable description',
+                load_area_width=2.5,
+                load_area_height=2.5,
+                load_area_length=2.5,
+                price='250.00',
+                is_live=True
+            ),
+
+            Van.objects.create(
+                name='test Van 3',
+                slug='test_van_3',
+                size='Medium',
+                location='London',
+                county='Greater London',
+                crew=1,
+                suitable_for='Suitable description',
+                load_area_width=2.5,
+                load_area_height=2.5,
+                load_area_length=2.5,
+                price='250.00',
+                is_live=True
+            ),
+
+            Van.objects.create(
+                name='test Van 4',
+                slug='test_van_4',
+                size='Large',
+                location='Stockport',
+                county='Greater Manchester',
+                crew=2,
+                suitable_for='Suitable description',
+                load_area_width=2.5,
+                load_area_height=2.5,
+                load_area_length=2.5,
+                price='250.00',
+                is_live=True
+            )
+        ]
+
+    def test_van_search_displays_correct_template(self):
+        # Tests for a 200 status code and if the correct template is used
+        response = self.client.get(reverse('search'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'van_filter.html')
