@@ -391,6 +391,7 @@ def deleteBooking(request, pk):
 
     return render(request, 'delete_booking.html', context)
 
+
 @login_required
 def leaveFeedback(request, pk):
 
