@@ -6,7 +6,7 @@ from django.test import Client
 from django.http import HttpResponseServerError
 from django.core.mail import send_mail
 from unittest.mock import patch
-from .models import Van, Booking
+from .models import Van, Booking, Feedback
 from datetime import date, datetime
 from decimal import Decimal
 
@@ -438,7 +438,10 @@ class VanDetailViewTest(TestCase):
     # Test for only live van listings displayed
 
     def setUp(self):
-        # Creates a Van Object to test functions
+        # Create a test user
+        self.user = User.objects.create(username='testuser')
+
+        # Creates  Van Objects to test functions
         self.vans = [
             Van.objects.create(
                 name='test Van 1',
@@ -471,6 +474,47 @@ class VanDetailViewTest(TestCase):
             ),
         ]
 
+        self.live_van = self.vans[0]
+        self.non_live_van = self.vans[1]
+
+        # Create a test booking
+        self.booking = Booking.objects.create(
+            booking_number=1500,
+            user_fk=self.user,
+            van=self.live_van,
+            first_name='TestCustomer',
+            last_name='TestSurname',
+            email='customer@email.com',
+            phone='123456789',
+            date_required='2030-01-01',
+        )
+
+        self.feedbacks = [
+            Feedback.objects.create(
+                booking=self.booking,
+                booking_number=self.booking.booking_number,
+                van=self.live_van,
+                user_fk=self.user,
+                title='test feedback title',
+                comment='test feedback comments',
+                rating=5,
+                is_approved='Approved',
+            ),
+
+            Feedback.objects.create(
+                booking=self.booking,
+                van=self.live_van,
+                user_fk=self.user,
+                title='test feedback title2',
+                comment='test feedback comments2',
+                rating=5,
+                is_approved='Pending',
+            )
+        ]
+
+        self.approved_feedback = self.feedbacks[0]
+        self.pending_feedback = self.feedbacks[1]
+
     # Test if live van is successfully retrieved and serves a 200 success code
     def test_live_van_detail_successful_retrieval(self):
         live_van = Van.objects.get(slug='test_van_1_live')
@@ -486,4 +530,13 @@ class VanDetailViewTest(TestCase):
                                            kwargs={'slug': non_live_van.slug}))
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('account_login'))
+
+    # Test if van_detail displays only_approved_feedback
+    def test_van_detail_displays_only_approved_feedback(self):
+        live_van = Van.objects.get(slug='test_van_1_live')
+        response = self.client.get(reverse('van_detail',
+                                           kwargs={'slug': live_van.slug}))
+        self.assertEqual(len(response.context['van_feedbacks']), 1)
+        for feedback in response.context['van_feedbacks']:
+            self.assertEqual(feedback.is_approved, 'Approved')
 
