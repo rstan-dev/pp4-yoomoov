@@ -7,7 +7,7 @@ from django.http import HttpResponseServerError
 from django.core.mail import send_mail
 from unittest.mock import patch
 from .models import Van, Booking
-from datetime import date
+from datetime import date, datetime
 from decimal import Decimal
 
 
@@ -130,7 +130,8 @@ class EditBookingTests(TestCase):
 
     def test_edit_booking_successful_get_request(self):
         # Tests the GET request and checks booking form is prefilled corectly
-        response = self.client.get(reverse('edit_booking', args=[self.booking.id]))
+        response = self.client.get(reverse('edit_booking',
+                                           args=[self.booking.id]))
         self.assertEqual(response.status_code, 200)
 
     def test_edit_booking_successfully_updated_data(self):
@@ -144,7 +145,11 @@ class EditBookingTests(TestCase):
             'date_required': '2025-01-01',
         }
 
-        response = self.client.post(reverse('edit_booking', args=[self.booking.id]), updated_data)
+        response = self.client.post(
+                                    reverse('edit_booking',
+                                            args=[self.booking.id]),
+                                    updated_data
+                                    )
         # Checks for a successful redirect code
         self.assertEqual(response.status_code, 302)
         # Checks if the data updated successfully]
@@ -198,12 +203,14 @@ class DeleteBookingTests(TestCase):
 
     def test_delete_booking_successful_get_request(self):
         # Tests the GET request and checks booking form is prefilled corectly
-        response = self.client.get(reverse('delete_booking', args=[self.booking.id]))
+        response = self.client.get(reverse('delete_booking',
+                                           args=[self.booking.id]))
         self.assertEqual(response.status_code, 200)
 
     def test_delete_booking_successful_post_request(self):
         # Tests the POST request to the delete_booking view is successful
-        response = self.client.post(reverse('delete_booking', args=[self.booking.id]))
+        response = self.client.post(reverse('delete_booking',
+                                            args=[self.booking.id]))
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('dashboard'))
 
@@ -271,11 +278,83 @@ class HomePageTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
 
-        # Tests that 3 vans displayed are the correct ones in the context, and the latest three
+        # Tests that 3 vans displayed are the correct ones in the context,
+        # and the latest three
         vans_in_context = response.context['vans']
         self.assertEqual(len(vans_in_context), 3)
         for van in vans_in_context:
             self.assertIn(van, self.vans[:3])
+
+
+class AllVansTest(TestCase):
+    # Test to ensure all Live vans are fetched and ordered according
+    # to date_added in descending order
+
+    def setUp(self):
+        # Creates a Van Object to test functions
+        date_added_1 = datetime(2024, 1, 2, 12, 0),
+        date_added_2 = datetime(2024, 2, 2, 12, 0),
+        date_added_3 = datetime(2024, 3, 2, 12, 0),
+
+        self.vans = [
+            Van.objects.create(
+                name='test Van 1',
+                slug='test_van_1',
+                size='Small',
+                location='London',
+                county='Greater London',
+                crew=1,
+                suitable_for='Suitable description',
+                load_area_width=2.5,
+                load_area_height=2.5,
+                load_area_length=2.5,
+                price='250.00',
+                is_live=True,
+                date_added=date_added_3
+            ),
+
+            Van.objects.create(
+                name='test Van 2',
+                slug='test_van_2',
+                size='Medium',
+                location='London',
+                county='Greater London',
+                crew=1,
+                suitable_for='Suitable description',
+                load_area_width=2.5,
+                load_area_height=2.5,
+                load_area_length=2.5,
+                price='250.00',
+                is_live=True,
+                date_added=date_added_1
+            ),
+
+            Van.objects.create(
+                name='test Van 3',
+                slug='test_van_3',
+                size='Medium',
+                location='London',
+                county='Greater London',
+                crew=1,
+                suitable_for='Suitable description',
+                load_area_width=2.5,
+                load_area_height=2.5,
+                load_area_length=2.5,
+                price='250.00',
+                is_live=False,
+                date_added=date_added_2
+            )
+        ]
+
+        # Tests for 2 live vans to be displayed
+        def test_all_vans_view_displays_only_live_vans(self):
+            response = self.client.get(reverse('all_vans'))
+            vans_in_context = response.context['vans']
+
+            self.assertEqual(len(vans_in_context), 2)
+
+
+
 
 
 
