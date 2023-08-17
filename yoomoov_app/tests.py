@@ -608,8 +608,21 @@ class VanSearchResultsTest(TestCase):
             )
         ]
 
+        self.test_van_1 = self.vans[0]
+        self.test_van_2 = self.vans[1]
+        self.test_van_3 = self.vans[2]
+        self.test_van_4 = self.vans[3]
+
     def test_van_search_displays_correct_template(self):
         # Tests for a 200 status code and if the correct template is used
         response = self.client.get(reverse('search'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'van_filter.html')
+
+    def test_van_search_displays_no_filter(self):
+        # Tests if all vans are displayed if no filter is used and Search button is clicked
+        response = self.client.get(reverse('search'))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.context['vans']), len(self.vans))
+
+
