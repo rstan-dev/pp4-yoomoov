@@ -356,6 +356,15 @@ class AllVansTest(TestCase):
         self.assertEqual(vans_in_context[1].name, 'test Van 2')
 
 
+class ServicesTest(TestCase):
+    # Test to ensure Services Page is using the correct template
+
+    def test_services_template(self):
+        response = self.client.get(reverse('services'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'services.html')
+
+
 
 
 
