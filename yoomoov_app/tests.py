@@ -425,5 +425,11 @@ class ContactFormTest(TestCase):
         self.assertRedirects(response, reverse('van_detail',
                                                kwargs={'slug': 'test_van_1'}))
 
+    # Test to check contact form redirects back to hone page if no slug
+    # is present
+    def test_contact_form_no_slug_redirects_to_home(self):
+        response = self.client.post(reverse('contact'), self.form_data)
+        self.assertRedirects(response, reverse('home'))
+
 
 
