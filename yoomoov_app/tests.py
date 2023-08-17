@@ -358,7 +358,6 @@ class AllVansTest(TestCase):
 
 class ServicesTest(TestCase):
     # Test to ensure Services Page is using the correct template
-
     def test_services_template(self):
         response = self.client.get(reverse('services'))
         self.assertEqual(response.status_code, 200)
@@ -393,6 +392,7 @@ class ContactFormTest(TestCase):
             )
         ]
 
+        # Creates a test form with data
         self.form_data = {
             'name': 'Test name',
             'email': 'test@email.com',
@@ -441,7 +441,7 @@ class VanDetailViewTest(TestCase):
         # Create a test user
         self.user = User.objects.create(username='testuser')
 
-        # Creates  Van Objects to test functions
+        # Creates several Van Objects to test functions
         self.vans = [
             Van.objects.create(
                 name='test Van 1',
@@ -489,6 +489,7 @@ class VanDetailViewTest(TestCase):
             date_required='2030-01-01',
         )
 
+        # Create several test feedback objects
         self.feedbacks = [
             Feedback.objects.create(
                 booking=self.booking,
@@ -523,7 +524,7 @@ class VanDetailViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'van_detail.html')
 
-    # Test if non- live van is successfully redirected serving a 302 code
+    # Test if non-live van is successfully redirected serving a 302 code
     def test_non_live_van_detail_successful_redirect(self):
         non_live_van = Van.objects.get(slug='test_van_2_not_live')
         response = self.client.get(reverse('van_detail',
@@ -633,7 +634,8 @@ class VanSearchResultsTest(TestCase):
         # number of medium vans in the response = the number of medium vans
         # in the database.
         size_filter = 'Medium'
-        response = self.client.get(reverse('search'), {'van-size': size_filter})
+        response = self.client.get(reverse('search'), {'van-size':
+                                                       size_filter})
         self.assertEqual(response.status_code, 200)
 
         medium_vans = [van for van in self.vans if van.size == size_filter]
@@ -665,9 +667,9 @@ class VanSearchResultsTest(TestCase):
     def test_van_search_with_county_filter(self):
         # Tests if the correct vans are displayed when the county filter is
         # applied.
-        # Checks for any vans that = London, then checks if the
-        # number of London vans in the response = the number of London vans
-        # in the database.
+        # Checks for any vans that = Greater London, then checks if the
+        # number of Greater London vans in the response = the number of
+        # Greater London vans in the database.
         county_filter = 'Greater London'
         response = self.client.get(reverse('search'), {'county':
                                                        county_filter})
