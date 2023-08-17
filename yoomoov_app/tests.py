@@ -371,7 +371,19 @@ class ContactFormTest(TestCase):
     # for if there is a slug, and if so the redirect should be back to the
     # van page or redirect to the home page.
 
-    def test_contact_form_post_successful(self):
+    # Test to ensure the correct template is used
+    def test_contact_form_template_successful(self):
         response = self.client.get(reverse('contact'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'contact.html')
+
+    # Test to ensure the POST request is successful
+    def test_contact_form_post_successful(self):
+        form_data = {
+            'name': 'Test name',
+            'email': 'test@email.com',
+            'message': 'test message left'
+        }
+
+        response = self.client.post(reverse('contact'), form_data)
+        self.assertEqual(response.status_code, 302)
