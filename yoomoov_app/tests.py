@@ -211,5 +211,66 @@ class DeleteBookingTests(TestCase):
         with self.assertRaises(Booking.DoesNotExist):
             Booking.objects.get(id=self.booking.id)
 
+class HomePageTest(TestCase):
+    # Test for an acessbile page, correct template and the latest
+    # 3 van lisitngs are displaying correctly
+
+    def setUp(self):
+        # Creates a Van Object to test functions
+        self.van = [
+            Van.objects.create(
+                name='test Van 1',
+                slug='test_van_1',
+                size='Small',
+                location='London',
+                county='Greater London',
+                crew=1,
+                suitable_for='Suitable description',
+                load_area_width=2.5,
+                load_area_height=2.5,
+                load_area_length=2.5,
+                price='250.00',
+                is_live=True
+            ),
+
+            Van.objects.create(
+                name='test Van 2',
+                slug='test_van_2',
+                size='Medium',
+                location='London',
+                county='Greater London',
+                crew=1,
+                suitable_for='Suitable description',
+                load_area_width=2.5,
+                load_area_height=2.5,
+                load_area_length=2.5,
+                price='250.00',
+                is_live=True
+            ),
+
+            Van.objects.create(
+                name='test Van 3',
+                slug='test_van_3',
+                size='Medium',
+                location='London',
+                county='Greater London',
+                crew=1,
+                suitable_for='Suitable description',
+                load_area_width=2.5,
+                load_area_height=2.5,
+                load_area_length=2.5,
+                price='250.00',
+                is_live=True
+            )
+        ]
+
+    def test_home_page(self):
+        # Tests for a 200 status code and if the correct template is used
+        response = self.client.get(reverse('home'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'index.html')
+
+
+
 
 

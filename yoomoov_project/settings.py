@@ -40,6 +40,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '8000-rstandev-pp4yoomoov-vyahp3n4caz.ws-eu102.gitpod.io',
     '8000-rstandev-pp4yoomoov-vyahp3n4caz.ws-eu103.gitpod.io',
+    '8000-rstandev-pp4yoomoov-vyahp3n4caz.ws-eu104.gitpod.io',
 ]
 
 
