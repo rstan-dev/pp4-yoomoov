@@ -292,9 +292,9 @@ class AllVansTest(TestCase):
 
     def setUp(self):
         # Creates a Van Object to test functions
-        date_added_1 = datetime(2024, 1, 2, 12, 0),
-        date_added_2 = datetime(2024, 2, 2, 12, 0),
-        date_added_3 = datetime(2024, 3, 2, 12, 0),
+        date_added_1 = datetime(2024, 1, 2, 12, 0)
+        date_added_2 = datetime(2024, 2, 2, 12, 0)
+        date_added_3 = datetime(2024, 3, 2, 12, 0)
 
         self.vans = [
             Van.objects.create(
@@ -346,12 +346,15 @@ class AllVansTest(TestCase):
             )
         ]
 
-        # Tests for 2 live vans to be displayed
-        def test_all_vans_view_displays_only_live_vans(self):
-            response = self.client.get(reverse('all_vans'))
-            vans_in_context = response.context['vans']
+    # Tests for 2 live vans to be displayed in descending date order
+    def test_all_vans_view_displays_only_live_vans(self):
+        response = self.client.get(reverse('all_vans'))
+        vans_in_context = response.context['vans']
 
-            self.assertEqual(len(vans_in_context), 2)
+        self.assertEqual(len(vans_in_context), 2)
+        self.assertEqual(vans_in_context[0].name, 'test Van 1')
+        self.assertEqual(vans_in_context[1].name, 'test Van 2')
+
 
 
 
