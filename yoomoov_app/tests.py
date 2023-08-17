@@ -661,3 +661,23 @@ class VanSearchResultsTest(TestCase):
 
         for van in london_vans:
             self.assertIn(van, response.context['vans'])
+
+    def test_van_search_with_county_filter(self):
+        # Tests if the correct vans are displayed when the county filter is
+        # applied.
+        # Checks for any vans that = London, then checks if the
+        # number of London vans in the response = the number of London vans
+        # in the database.
+        county_filter = 'Greater London'
+        response = self.client.get(reverse('search'), {'county':
+                                                       county_filter})
+        self.assertEqual(response.status_code, 200)
+
+        greater_london_vans = [van for van in self.vans if van.county ==
+                               county_filter]
+
+        self.assertEqual(len(response.context['vans']),
+                         len(greater_london_vans))
+
+        for van in greater_london_vans:
+            self.assertIn(van, response.context['vans'])
