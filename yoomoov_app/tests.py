@@ -642,3 +642,22 @@ class VanSearchResultsTest(TestCase):
 
         for van in medium_vans:
             self.assertIn(van, response.context['vans'])
+
+    def test_van_search_with_location_filter(self):
+        # Tests if the correct vans are displayed when the location filter is
+        # applied.
+        # Checks for any vans that = London, then checks if the
+        # number of London vans in the response = the number of London vans
+        # in the database.
+        location_filter = 'London'
+        response = self.client.get(reverse('search'), {'location':
+                                                       location_filter})
+        self.assertEqual(response.status_code, 200)
+
+        london_vans = [van for van in self.vans if van.location ==
+                       location_filter]
+
+        self.assertEqual(len(response.context['vans']), len(london_vans))
+
+        for van in london_vans:
+            self.assertIn(van, response.context['vans'])
