@@ -240,7 +240,7 @@ def dashboard(request):
         'feedbacks': page_feedback,
         'has_feedback': has_feedback
     }
-    return render(request, 'dashboard.html', context)
+    return render(request, 'dashboard/dashboard.html', context)
 
 
 @login_required
@@ -302,7 +302,7 @@ def createBooking(request):
         'form': form,
         }
 
-    return render(request, 'dashboard.html', context)
+    return render(request, 'dashboard/dashboard.html', context)
 
 
 @login_required

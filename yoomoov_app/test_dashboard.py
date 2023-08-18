@@ -95,7 +95,7 @@ class DashboardiewTest(TestCase):
         self.client.login(username='testuser', password='testpassword')
         response = self.client.get(reverse('dashboard'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'dashboard.html')
+        self.assertTemplateUsed(response, 'dashboard/dashboard.html')
 
     def test_bookings_rendered_correctly_for_loggedin_user(self):
         # Tests that the bookings are displayed on dashboard for
@@ -147,7 +147,7 @@ class CreateBookingTests(TestCase):
         self.client.login(username='testuser', password='testpassword')
         response = self.client.get(reverse('create_booking'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'dashboard.html')
+        self.assertTemplateUsed(response, 'dashboard/dashboard.html')
 
     # Tests for successful POST request when user is logged in and 302
     # response code
