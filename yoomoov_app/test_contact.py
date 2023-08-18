@@ -46,7 +46,7 @@ class ContactFormTest(TestCase):
     def test_contact_form_template_successful(self):
         response = self.client.get(reverse('contact'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'contact.html')
+        self.assertTemplateUsed(response, 'contact/contact.html')
 
     # Test to ensure the POST request is successful and a success
     # message is displayed after redirect

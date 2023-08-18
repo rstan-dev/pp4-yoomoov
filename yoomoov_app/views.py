@@ -110,7 +110,7 @@ def contact(request, slug=None):
         'slug': slug
     }
 
-    return render(request, 'contact.html', context)
+    return render(request, 'contact/contact.html', context)
 
 
 def van_detail(request, slug):
