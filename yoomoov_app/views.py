@@ -353,7 +353,7 @@ def editBooking(request, pk):
         'form': form,
     }
 
-    return render(request, 'edit_booking.html', context)
+    return render(request, 'dashboard/edit_booking.html', context)
 
 
 @login_required
@@ -389,7 +389,7 @@ def deleteBooking(request, pk):
         'booking': booking
     }
 
-    return render(request, 'delete_booking.html', context)
+    return render(request, 'dashboard/delete_booking.html', context)
 
 
 @login_required
@@ -434,7 +434,7 @@ def leaveFeedback(request, pk):
         'booking': booking,
     }
 
-    return render(request, 'leave_feedback.html', context)
+    return render(request, 'dashboard/leave_feedback.html', context)
 
 
 class CustomLoginView(LoginView):
