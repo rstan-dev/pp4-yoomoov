@@ -128,7 +128,7 @@ class EditBookingTests(TestCase):
         self.client.login(username='testuser', password='testpassword')
 
     def test_edit_booking_successful_get_request(self):
-        # Tests the GET request and checks booking form is prefilled corectly
+        # Tests the GET request and checks booking form is prefilled correctly
         response = self.client.get(reverse('edit_booking',
                                            args=[self.booking.id]))
         self.assertEqual(response.status_code, 200)
@@ -201,7 +201,7 @@ class DeleteBookingTests(TestCase):
         self.client.login(username='testuser', password='testpassword')
 
     def test_delete_booking_successful_get_request(self):
-        # Tests the GET request and checks booking form is prefilled corectly
+        # Tests the GET request and checks booking form is prefilled correctly
         response = self.client.get(reverse('delete_booking',
                                            args=[self.booking.id]))
         self.assertEqual(response.status_code, 200)
@@ -219,8 +219,8 @@ class DeleteBookingTests(TestCase):
 
 
 class HomePageTest(TestCase):
-    # Test for an acessbile page, correct template and the latest
-    # 3 van lisitngs are displaying correctly
+    # Test for an accessbile page, correct template and the latest
+    # 3 van lisi-tings are displaying correctly
 
     def setUp(self):
         # Creates several Van Objects to test functions
@@ -404,7 +404,7 @@ class ContactFormTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'contact.html')
 
-    # Test to ensure the POST request is successful and a sucess
+    # Test to ensure the POST request is successful and a success
     # message is displayed after redirect
     def test_contact_form_post_successful(self):
         response = self.client.post(reverse('contact'),
@@ -424,7 +424,7 @@ class ContactFormTest(TestCase):
         self.assertRedirects(response, reverse('van_detail',
                                                kwargs={'slug': 'test_van_1'}))
 
-    # Test to check contact form redirects back to hone page if no slug
+    # Test to check contact form redirects back to home page if no slug
     # is present
     def test_contact_form_no_slug_redirects_to_home(self):
         response = self.client.post(reverse('contact'), self.form_data)
@@ -542,7 +542,7 @@ class VanDetailViewTest(TestCase):
 
 
 class VanSearchResultsTest(TestCase):
-    # Tests if van search results displays vans according to selected filters,
+    # Tests if van search results display vans according to selected filters,
 
     def setUp(self):
         # Creates several Van Objects to test functions
@@ -686,7 +686,7 @@ class VanSearchResultsTest(TestCase):
 
 class DashboardiewTest(TestCase):
     # Test for successful retrieval of bookings and feedback for a
-    # specific logged in user
+    # specific logged-in user
 
     def setUp(self):
         # Create a test user
@@ -759,7 +759,7 @@ class DashboardiewTest(TestCase):
         ]
 
     def test_user_not_logged_in_redirects_to_login(self):
-        # Test for a sucessful redirect to login screen if user
+        # Test for a successful redirect to login screen if user
         # tries to access dashboard without logging in
         login_url = reverse('account_login')
         response = self.client.get(reverse('dashboard'))
@@ -767,7 +767,7 @@ class DashboardiewTest(TestCase):
 
     def test_dashboard_template_renders_correctly(self):
         # Test to make sure the dashboard.html template
-        # is called sucessfully, asserts a sucessful GET request
+        # is called successfully, asserts a successful GET request
         self.client.login(username='testuser', password='testpassword')
         response = self.client.get(reverse('dashboard'))
         self.assertEqual(response.status_code, 200)
@@ -788,6 +788,3 @@ class DashboardiewTest(TestCase):
         response = self.client.get(reverse('dashboard'))
         feedbacks = response.context['feedbacks']
         self.assertEqual(len(feedbacks), 1)
-
-
-
