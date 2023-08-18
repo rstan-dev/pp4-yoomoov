@@ -43,7 +43,7 @@ def all_vans(request):
         'vans': page_listings,
     }
 
-    return render(request, 'all_vans.html', context)
+    return render(request, 'pages/all_vans.html', context)
 
 
 def services(request):
