@@ -4,7 +4,6 @@ from .views import CustomLoginView
 
 urlpatterns = [
     path('all_vans/', views.all_vans, name='all_vans'),
-    path('services/', views.services, name='services'),
     path('contact/', views.contact, name='contact'),
     path('contact/<str:slug>', views.contact, name='contact_from_van'),
     path('search', views.van_search, name='search'),

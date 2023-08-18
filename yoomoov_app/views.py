@@ -31,11 +31,7 @@ def all_vans(request):
     return render(request, 'pages/all_vans.html', context)
 
 
-def services(request):
-    """
-    Renders Services page
-    """
-    return render(request, 'pages/services.html')
+
 
 
 def contact(request, slug=None):

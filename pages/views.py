@@ -14,3 +14,10 @@ def home(request):
     }
 
     return render(request, 'pages/index.html', context)
+
+
+def services(request):
+    """
+    Renders Services page
+    """
+    return render(request, 'pages/services.html')
