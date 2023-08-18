@@ -140,7 +140,7 @@ def van_detail(request, slug):
         'van_feedbacks': van_feedbacks
     }
 
-    return render(request, 'van_detail.html', context)
+    return render(request, 'pages/van_detail.html', context)
 
 
 def van_search(request):
@@ -182,7 +182,7 @@ def van_search(request):
         'vans': queryset_vans
     }
 
-    return render(request, 'van_filter.html', context)
+    return render(request, 'pages/van_filter.html', context)
 
 
 @login_required

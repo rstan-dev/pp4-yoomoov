@@ -242,7 +242,7 @@ class VanDetailViewTest(TestCase):
         response = self.client.get(reverse('van_detail',
                                            kwargs={'slug': live_van.slug}))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'van_detail.html')
+        self.assertTemplateUsed(response, 'pages/van_detail.html')
 
     # Test if non-live van is successfully redirected serving a 302 code
     def test_non_live_van_detail_successful_redirect(self):
@@ -338,7 +338,7 @@ class VanSearchResultsTest(TestCase):
         # Tests for a 200 status code and if the correct template is used
         response = self.client.get(reverse('search'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'van_filter.html')
+        self.assertTemplateUsed(response, 'pages/van_filter.html')
 
     def test_van_search_displays_no_filter(self):
         # Tests if all vans are displayed if no filter is used and Search
