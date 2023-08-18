@@ -432,7 +432,7 @@ class ContactFormTest(TestCase):
 
 
 class VanDetailViewTest(TestCase):
-    # Test for successful retirval of van detail page based on a valid slug.
+    # Test for successful retrieval of van detail page based on a valid slug.
     # Test for a 404 redirect if there is an invalid slug
     # Test for only live van listings displayed
 
@@ -682,3 +682,98 @@ class VanSearchResultsTest(TestCase):
 
         for van in greater_london_vans:
             self.assertIn(van, response.context['vans'])
+
+
+class DashboardiewTest(TestCase):
+    # Test for successful retrieval of bookings and feedback for a
+    # specific logged in user
+
+    def setUp(self):
+        # Create a test user
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='testpassword'
+            )
+
+        # Creates several Van Objects to test functions
+        self.vans = [
+            Van.objects.create(
+                name='test Van 1',
+                slug='test_van_1_live',
+                size='Small',
+                location='London',
+                county='Greater London',
+                crew=1,
+                suitable_for='Suitable description',
+                load_area_width=2.5,
+                load_area_height=2.5,
+                load_area_length=2.5,
+                price='250.00',
+                is_live=True
+            ),
+
+            Van.objects.create(
+                name='test Van 2',
+                slug='test_van_2_not_live',
+                size='Medium',
+                location='London',
+                county='Greater London',
+                crew=1,
+                suitable_for='Suitable description',
+                load_area_width=2.5,
+                load_area_height=2.5,
+                load_area_length=2.5,
+                price='250.00',
+                is_live=False
+            ),
+        ]
+
+        self.live_van = self.vans[0]
+        self.non_live_van = self.vans[1]
+
+        # Create a test booking
+        self.booking = Booking.objects.create(
+            booking_number=1500,
+            user_fk=self.user,
+            van=self.live_van,
+            first_name='TestCustomer',
+            last_name='TestSurname',
+            email='customer@email.com',
+            phone='123456789',
+            date_required='2030-01-01',
+        )
+
+        # Create several test feedback objects
+        self.feedbacks = [
+            Feedback.objects.create(
+                booking=self.booking,
+                booking_number=self.booking.booking_number,
+                van=self.live_van,
+                user_fk=self.user,
+                title='test feedback title',
+                comment='test feedback comments',
+                rating=5,
+                is_approved='Approved',
+            ),
+
+        ]
+
+        self.approved_feedback = self.feedbacks[0]
+        self.pending_feedback = self.feedbacks[1]
+
+    def test_user_not_logged_in_redirects_to_login(self):
+        # Test for a sucessful redirect to login screen if user
+        # tries to access dashboard without logging in
+        login_url = reverse('account_login')
+        response = self.client.get(reverse('dashboard'))
+        self.assertRedirects(response, f'{login_url}?next=/dashboard')
+
+    def test_dashboard_template_renders_correctly(self):
+        # Test to make sure the dashboard.html template
+        # is called sucessfully, asserts a sucessful GET request
+        self.client.login(username='testuser', password='testpassword')
+        response = self.client.get(reverse('dashboard'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'dashboard.html')
+
+
