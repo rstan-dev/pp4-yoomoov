@@ -19,6 +19,7 @@ from yoomoov_project import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('pages.urls'), name="pages_urls"),
     path('', include('yoomoov_app.urls'), name="yoomoov_urls"),
     path('accounts/', include('allauth.urls')),
 ]

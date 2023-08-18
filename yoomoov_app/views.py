@@ -12,22 +12,6 @@ from allauth.account.views import LoginView
 from django.contrib.auth.decorators import login_required
 from yoomoov_project.views import handler403, handler404, handler500
 
-logger = logging.getLogger(__name__)
-
-
-def home(request):
-    """
-    Gets latest 3 van listings from database
-    and renders on Home page
-    """
-    vans = Van.objects.all().filter(is_live=True).order_by('-date_added')[:3]
-
-    context = {
-        'vans': vans,
-    }
-
-    return render(request, 'pages/index.html', context)
-
 
 def all_vans(request):
     """

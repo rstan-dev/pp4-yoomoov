@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'crispy_forms',
     'yoomoov_app',
+    'pages',
     'crispy_bootstrap4'
 ]
 
