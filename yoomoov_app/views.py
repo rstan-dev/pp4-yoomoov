@@ -50,7 +50,7 @@ def services(request):
     """
     Renders Services page
     """
-    return render(request, 'services.html')
+    return render(request, 'pages/services.html')
 
 
 def contact(request, slug=None):

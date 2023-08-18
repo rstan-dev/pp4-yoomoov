@@ -149,7 +149,7 @@ class ServicesTest(TestCase):
     def test_services_template(self):
         response = self.client.get(reverse('services'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'services.html')
+        self.assertTemplateUsed(response, 'pages/services.html')
 
 
 class VanDetailViewTest(TestCase):
