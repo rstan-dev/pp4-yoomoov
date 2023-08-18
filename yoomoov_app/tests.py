@@ -758,9 +758,6 @@ class DashboardiewTest(TestCase):
 
         ]
 
-        self.approved_feedback = self.feedbacks[0]
-        self.pending_feedback = self.feedbacks[1]
-
     def test_user_not_logged_in_redirects_to_login(self):
         # Test for a sucessful redirect to login screen if user
         # tries to access dashboard without logging in
@@ -775,5 +772,14 @@ class DashboardiewTest(TestCase):
         response = self.client.get(reverse('dashboard'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'dashboard.html')
+
+    def test_bookings_rendered_correctly_for_loggedin_user(self):
+        # Tests that the bookings are displayed on dashboard for
+        # a given user
+        self.client.login(username='testuser', password='testpassword')
+        response = self.client.get(reverse('dashboard'))
+        bookings = response.context['bookings']
+        self.assertEqual(len(bookings), 1)
+
 
 

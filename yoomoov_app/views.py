@@ -218,7 +218,7 @@ def dashboard(request):
 
     # Annotate each booking with a flag indicating whether it has feedback.
     bookings = Booking.objects.filter(
-        user_id=request.user.id).order_by(order_by).annotate(
+        user_fk=request.user.id).order_by(order_by).annotate(
         has_feedback=Exists(Feedback.objects.filter(booking=OuterRef('pk')))
     )
 
