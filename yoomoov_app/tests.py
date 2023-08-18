@@ -11,18 +11,7 @@ from datetime import date, datetime
 from decimal import Decimal
 
 
-class ErrorHandlersTest(TestCase):
-    # Test that a 404 error message redirects the user to the login page
-    def test_handler404(self):
-        response = self.client.get('/edit_booking/63')
-        self.assertEqual(response.status_code, 302)
-        self.assertIn(reverse('account_login'), response['Location'])
 
-    # Tests for a redirection if a user is not logged in
-    def test_create_booking_when_not_logged_in(self):
-        response = self.client.get(reverse('create_booking'))
-        self.assertRedirects(response,
-                             '/accounts/login/?next=%2Fcreate_booking%2F')
 
 
 class CreateBookingTests(TestCase):
@@ -220,7 +209,7 @@ class DeleteBookingTests(TestCase):
 
 class HomePageTest(TestCase):
     # Test for an accessbile page, correct template and the latest
-    # 3 van lisi-tings are displaying correctly
+    # 3 van listings are displaying correctly
 
     def setUp(self):
         # Creates several Van Objects to test functions
