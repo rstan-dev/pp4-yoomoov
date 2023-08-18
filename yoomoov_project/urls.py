@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from yoomoov_project import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,6 +23,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
 ]
 
-handler403 = 'yoomoov_app.views.handler403'
-handler404 = 'yoomoov_app.views.handler404'
-handler500 = 'yoomoov_app.views.handler500'
+handler403 = 'yoomoov_project.views.handler403'
+handler404 = 'yoomoov_project.views.handler404'
+handler500 = 'yoomoov_project.views.handler500'

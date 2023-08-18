@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from datetime import datetime, timedelta
 from cloudinary.models import CloudinaryField
 from django.core.mail import send_mail
+from yoomoov_project.views import handler403, handler404, handler500
 from .choices import (
     SIZE_CHOICES,
     LOCATION_CHOICES,
