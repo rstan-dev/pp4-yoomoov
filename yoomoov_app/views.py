@@ -109,46 +109,7 @@ def van_detail(request, slug):
     return render(request, 'pages/van_detail.html', context)
 
 
-def van_search(request):
-    """
-    Renders a list of vans using the Search choices from the Hero
-    Van Finder Box.
-    """
 
-    queryset_vans = Van.objects.order_by('-date_added').filter(is_live=True)
-
-    # Van Size Filter
-    if 'van-size' in request.GET:
-        van_size = request.GET['van-size']
-        if van_size:
-            queryset_vans = queryset_vans.filter(size__iexact=van_size)
-
-    # Location Filter
-    if 'location' in request.GET:
-        location_selection = request.GET['location']
-        if location_selection:
-            queryset_vans = queryset_vans.filter(
-                location__iexact=location_selection)
-
-    # County Filter
-    if 'county' in request.GET:
-        county_selection = request.GET['county']
-        if county_selection:
-            queryset_vans = queryset_vans.filter(
-                county__iexact=county_selection)
-
-    values = {
-        'size': None,
-        'location': None,
-        'county': None
-        }
-
-    context = {
-        'values': values,
-        'vans': queryset_vans
-    }
-
-    return render(request, 'pages/van_filter.html', context)
 
 
 @login_required
