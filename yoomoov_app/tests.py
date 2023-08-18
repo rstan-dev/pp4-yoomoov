@@ -12,7 +12,6 @@ from decimal import Decimal
 
 
 class ErrorHandlersTest(TestCase):
-
     # Test that a 404 error message redirects the user to the login page
     def test_handler404(self):
         response = self.client.get('/edit_booking/63')
@@ -27,10 +26,9 @@ class ErrorHandlersTest(TestCase):
 
 
 class CreateBookingTests(TestCase):
-
-    # Creates a user and logs the test user in to test the CreateBooking
-    # functions
+    # Tests the createBooking functionality
     def setUp(self):
+        # Creates a test user
         self.user = User.objects.create_user(
             username='testuser',
             password='testpassword'
@@ -62,7 +60,8 @@ class CreateBookingTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'dashboard.html')
 
-    # Tests for successful POST request when user is logged in and
+    # Tests for successful POST request when user is logged in and 302
+    # response code
     def test_create_booking_post_request_user_logged_in(self):
         self.client.login(username='testuser', password='testpassword')
         response = self.client.get(reverse('create_booking'))
@@ -78,6 +77,7 @@ class CreateBookingTests(TestCase):
         # Checks for a successful redirect code
         response = self.client.post(reverse('create_booking'), data)
         self.assertEqual(response.status_code, 302)
+
         # Checks if the data was created successfully
         created_booking = Booking.objects.last()
         self.assertEqual(created_booking.first_name, 'Bob_test')
@@ -90,11 +90,10 @@ class CreateBookingTests(TestCase):
 
 
 class EditBookingTests(TestCase):
-
-    # Creates a user and logs the test user in to test the editBooking
-    # functions
+    # Tests the editBooking functionality
 
     def setUp(self):
+        # Creates a test user
         self.user = User.objects.create_user(
             username='testuser',
             password='testpassword'
@@ -152,6 +151,7 @@ class EditBookingTests(TestCase):
                                     )
         # Checks for a successful redirect code
         self.assertEqual(response.status_code, 302)
+
         # Checks if the data updated successfully]
         updated_booking = Booking.objects.get(id=self.booking.id)
         self.assertEqual(updated_booking.first_name, 'Updated_Name')
@@ -163,11 +163,10 @@ class EditBookingTests(TestCase):
 
 
 class DeleteBookingTests(TestCase):
-
-    # Creates a user and logs the test user in to test the deleteBooking
-    # functions
+    # Tests the deleteBooking functionality
 
     def setUp(self):
+        # creates a test user
         self.user = User.objects.create_user(
             username='testuser',
             password='testpassword'
@@ -224,7 +223,7 @@ class HomePageTest(TestCase):
     # 3 van lisitngs are displaying correctly
 
     def setUp(self):
-        # Creates a Van Object to test functions
+        # Creates several Van Objects to test functions
         self.vans = [
             Van.objects.create(
                 name='test Van 1',
@@ -291,7 +290,7 @@ class AllVansTest(TestCase):
     # to date_added in descending order
 
     def setUp(self):
-        # Creates a Van Object to test functions
+        # Creates several Van Objects to test functions
         date_added_1 = datetime(2024, 1, 2, 12, 0)
         date_added_2 = datetime(2024, 2, 2, 12, 0)
         date_added_3 = datetime(2024, 3, 2, 12, 0)
