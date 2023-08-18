@@ -13,22 +13,7 @@ from django.contrib.auth.decorators import login_required
 from yoomoov_project.views import handler403, handler404, handler500
 
 
-def all_vans(request):
-    """
-    Gets all van listings from database
-    and renders on All Vans page
-    """
-    vans = Van.objects.all().filter(is_live=True).order_by('-date_added')
 
-    paginator = Paginator(vans, 6)
-    page_number = request.GET.get('page')
-    page_listings = paginator.get_page(page_number)
-
-    context = {
-        'vans': page_listings,
-    }
-
-    return render(request, 'pages/all_vans.html', context)
 
 
 
