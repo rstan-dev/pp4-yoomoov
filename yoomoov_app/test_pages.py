@@ -64,7 +64,7 @@ class HomePageTest(TestCase):
         # Tests for a 200 status code and if the correct template is used
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'index.html')
+        self.assertTemplateUsed(response, 'pages/index.html')
 
         # Tests that 3 vans displayed are the correct ones in the context,
         # and the latest three

@@ -25,7 +25,7 @@ def home(request):
         'vans': vans,
     }
 
-    return render(request, 'index.html', context)
+    return render(request, 'pages/index.html', context)
 
 
 def all_vans(request):
