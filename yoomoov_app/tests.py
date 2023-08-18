@@ -781,5 +781,13 @@ class DashboardiewTest(TestCase):
         bookings = response.context['bookings']
         self.assertEqual(len(bookings), 1)
 
+    def test_feeback_rendered_correctly_for_loggedin_user(self):
+        # Tests that the feedbacks are displayed on dashboard for
+        # a given user
+        self.client.login(username='testuser', password='testpassword')
+        response = self.client.get(reverse('dashboard'))
+        feedbacks = response.context['feedbacks']
+        self.assertEqual(len(feedbacks), 1)
+
 
 
