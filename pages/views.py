@@ -83,3 +83,5 @@ def van_search(request):
     }
 
     return render(request, 'pages/van_filter.html', context)
+
+

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime, timedelta
+from django.utils import timezone
 from cloudinary.models import CloudinaryField
 from django.core.mail import send_mail
 from yoomoov_project.views import handler403, handler404, handler500
@@ -52,7 +53,7 @@ class Van(models.Model):
         decimal_places=2,
         default='0',
     )
-    date_added = models.DateTimeField(default=datetime.now, blank=True)
+    date_added = models.DateTimeField(default=timezone.now, blank=True)
     is_live = models.BooleanField(default=False)
 
     class Meta:
@@ -91,8 +92,8 @@ class Booking(models.Model):
                                   default='Cardiff')
 
     date_required = models.DateField()
-    date_created = models.DateTimeField(default=datetime.now, blank=True)
-    date_updated = models.DateTimeField(default=datetime.now, blank=True)
+    date_created = models.DateTimeField(default=timezone.now, blank=True)
+    date_updated = models.DateTimeField(default=timezone.now, blank=True)
     status = models.CharField(max_length=25, choices=STATUS_CHOICES,
                               default='Pending')
     price = models.DecimalField(
@@ -187,8 +188,8 @@ class Feedback(models.Model):
     rating = models.IntegerField(choices=RATING_CHOICES, default=5)
     is_approved = models.CharField(max_length=25, choices=APPROVAL_CHOICES,
                                    default='Pending')
-    date_created = models.DateTimeField(default=datetime.now, blank=True)
-    date_last_updated = models.DateTimeField(default=datetime.now, blank=True)
+    date_created = models.DateTimeField(default=timezone.now, blank=True)
+    date_last_updated = models.DateTimeField(default=timezone.now, blank=True)
 
     # Field for status change to notify user
     is_approved_notified = models.BooleanField(default=False)

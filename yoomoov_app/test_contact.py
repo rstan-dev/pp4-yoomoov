@@ -5,6 +5,7 @@ from django.test import Client
 from django.http import HttpResponseServerError
 from .models import Van
 from datetime import date, datetime
+from django.utils import timezone
 
 
 class ContactFormTest(TestCase):
@@ -15,7 +16,7 @@ class ContactFormTest(TestCase):
 
     def setUp(self):
         # Creates a Van Object to test contact form with slug
-        date_added_3 = datetime(2024, 1, 2, 12, 0)
+        date_added_3 = timezone.datetime(2024, 1, 2, 12, 0)
 
         self.vans = [
             Van.objects.create(

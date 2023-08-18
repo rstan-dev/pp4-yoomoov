@@ -13,12 +13,6 @@ from django.contrib.auth.decorators import login_required
 from yoomoov_project.views import handler403, handler404, handler500
 
 
-
-
-
-
-
-
 def contact(request, slug=None):
     """
     Renders Contact page form and submits user data via email to the
@@ -107,9 +101,6 @@ def van_detail(request, slug):
     }
 
     return render(request, 'pages/van_detail.html', context)
-
-
-
 
 
 @login_required

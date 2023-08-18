@@ -5,6 +5,7 @@ from django.test import Client
 from django.http import HttpResponseServerError
 from .models import Van, Booking, Feedback
 from datetime import date, datetime
+from django.utils import timezone
 
 
 class HomePageTest(TestCase):
@@ -80,9 +81,9 @@ class AllVansTest(TestCase):
 
     def setUp(self):
         # Creates several Van Objects to test functions
-        date_added_1 = datetime(2024, 1, 2, 12, 0)
-        date_added_2 = datetime(2024, 2, 2, 12, 0)
-        date_added_3 = datetime(2024, 3, 2, 12, 0)
+        date_added_1 = timezone.datetime(2024, 1, 2, 12, 0)
+        date_added_2 = timezone.datetime(2024, 2, 2, 12, 0)
+        date_added_3 = timezone.datetime(2024, 3, 2, 12, 0)
 
         self.vans = [
             Van.objects.create(
