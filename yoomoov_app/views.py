@@ -13,96 +13,6 @@ from django.contrib.auth.decorators import login_required
 from yoomoov_project.views import handler403, handler404, handler500
 
 
-def contact(request, slug=None):
-    """
-    Renders Contact page form and submits user data via email to the
-    administrator and to the user.
-
-    Contact view is accessed directly via the Contact link in the menu bar,
-    or via the van_detail page.
-
-    If the contact form is accessed directly by the menu bar, the page
-    redirects to the home page.
-
-    If the contact form is accessed by the van_detail page, the email includes
-    the van details and redirects the user back to the van_detail page
-    """
-
-    van = None
-    if slug is not None:
-        van = get_object_or_404(Van, slug=slug)
-
-    if request.method == 'POST':
-        contact_form = ContactForm(request.POST)
-        if contact_form.is_valid():
-            name = contact_form.cleaned_data['name']
-            email = contact_form.cleaned_data['email']
-            message = contact_form.cleaned_data['message']
-
-        subject = 'Van Enquiry'
-        if van is not None:
-            subject += ' ' + van.name
-
-        send_mail(
-            subject,
-            'There has been an enquiry from: ' + name + ' from email: '
-            + email + '. Their message is as follows: "' + message + '." '
-            'An administrator will respond within 24 hours.',
-            'yoomoov@outlook.com',
-            [email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
-            fail_silently=False
-        )
-
-        messages.success(request, "Your message has been sent! "
-                                  "We will respond within 24 hours.")
-
-        if van is not None:
-            return redirect('van_detail', slug=slug)
-        else:
-            return redirect('home')
-
-    else:
-        contact_form = ContactForm()
-
-    context = {
-        'van': van,
-        'contact_form': contact_form,
-        'slug': slug
-    }
-
-    return render(request, 'contact/contact.html', context)
-
-
-def van_detail(request, slug):
-    """
-    Renders Van Detail page, by requesting all vans
-    that are live, with a given unique slug
-
-    Calls the Van.object to link the Booking Modal
-    van select dropdown
-
-    Calls Feedback.object to call any feedback specific to a van
-    to display on van detail page
-    """
-
-    queryset = Van.objects.filter(is_live=True)
-
-    van = get_object_or_404(queryset, slug=slug)
-
-    vans = Van.objects.all()
-
-    van_feedbacks = Feedback.objects.filter(is_approved='Approved',
-                                            van=van).order_by('date_created')
-
-    context = {
-        'van': van,
-        'vans': vans,
-        'van_feedbacks': van_feedbacks
-    }
-
-    return render(request, 'pages/van_detail.html', context)
-
-
 @login_required
 def dashboard(request):
     """
@@ -355,6 +265,36 @@ def leaveFeedback(request, pk):
     return render(request, 'dashboard/leave_feedback.html', context)
 
 
+def van_detail(request, slug):
+    """
+    Renders Van Detail page, by requesting all vans
+    that are live, with a given unique slug
+
+    Calls the Van.object to link the Booking Modal
+    van select dropdown
+
+    Calls Feedback.object to call any feedback specific to a van
+    to display on van detail page
+    """
+
+    queryset = Van.objects.filter(is_live=True)
+
+    van = get_object_or_404(queryset, slug=slug)
+
+    vans = Van.objects.all()
+
+    van_feedbacks = Feedback.objects.filter(is_approved='Approved',
+                                            van=van).order_by('date_created')
+
+    context = {
+        'van': van,
+        'vans': vans,
+        'van_feedbacks': van_feedbacks
+    }
+
+    return render(request, 'dashboard/van_detail.html', context)
+
+
 class CustomLoginView(LoginView):
     """
     Custom Login View to activate validation messages
@@ -363,6 +303,3 @@ class CustomLoginView(LoginView):
         context = super().get_context_data(**kwargs)
         context['form'] = self.get_form()
         return context
-
-
-

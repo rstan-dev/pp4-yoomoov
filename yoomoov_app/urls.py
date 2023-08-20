@@ -3,8 +3,6 @@ from django.urls import path
 from .views import CustomLoginView
 
 urlpatterns = [
-    path('contact/', views.contact, name='contact'),
-    path('contact/<str:slug>', views.contact, name='contact_from_van'),
     path('dashboard', views.dashboard, name='dashboard'),
     path('create_booking/', views.createBooking, name='create_booking'),
     path('edit_booking/<str:pk>', views.editBooking, name='edit_booking'),
