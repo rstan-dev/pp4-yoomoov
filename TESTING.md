@@ -79,7 +79,7 @@
   - Contact
   - Dashboard functions
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/unittest_coverage_report.png">
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/unittest_results_with_warninbgs.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/unittest_results_with_warnings.png">
 
   There were 4 naive date warnings left which have been added to Future Enhancements list to be addressed.  The site does make use of timezone functionality in the models.
 
