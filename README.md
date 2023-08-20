@@ -35,7 +35,6 @@
   * [Acknowledgements](#acknowledgements)
 
 
-
 ## USER EXPERIENCE
 
    ### Purpose and target audience
@@ -57,7 +56,6 @@ The main objectives of this website are:
 3. Create a personal dashboard for a customer to log in, create, view, edit and delete bookings.
 4. Create a feedback module so customers and admin can leave and approve feedback.
 5. Configure email to notify the customer and the administrator of any changes to bookings.
-
 
 ## PROJECT DESIGN
 
@@ -142,7 +140,6 @@ The main objectives of this website are:
   29. USERSTORY(#29): Final Checks
     - As a developer, I will complete the final checks to ensure all criteria for the project have been met before submission.
 
-
   ### Logic
   The database schema and website logic was conceived and created using [Lucid](https://lucid.app/) as follows:
 
@@ -187,7 +184,6 @@ The main objectives of this website are:
    5. I built a feedback mechanism - first for the administrator, and then for front end users.
    6. I configured email notifications to alert the user and the administrator.
 
-
 ## FEATURES
 The following features have been implemented:
 1. Fully responsive website consisting of:
@@ -202,21 +198,31 @@ The following features have been implemented:
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_services.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_van_search.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_van_detail.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_contact.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_dashboard.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_booking.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_update_booking.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_delete_booking.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_feedback.png">
 
 2. UX features include:
-  - Ability for users to leave feedback after a booking has been completed.
+  - Ability for users to filter bookings by Order Updated, Required date, pending or Approved
+  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_booking_card_filters.png">
+  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_pending_controls.png">
   - Status of Bookings including Pending, Approved and Completed that is controlled by the administrator.
-  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_leave_feedback.png">
+  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_pending_controls.png">
+  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_approved_controls.png">
+  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_completed_controls.png">
+  - Ability for users to leave feedback after a booking has been completed.
+  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_completed_leave_feedback.png">
   - Status of feedback prevents publishing until approved.
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_feedback_status.png">
   - Pagination to ensure listings are organised
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_pagination.png">
   - Back to top button for easy site navigation.
-  - Social media links.
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_back_to_top.png">
+  - Social media links.
+  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_social_media.png">
   - Onscreen alert and success messages appear.
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/success_alert.png">
   - Register, Login and Logout forms for streamlined user authentication.
@@ -232,7 +238,6 @@ The following features have been implemented:
   - Custom branding on the administration area.
   <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_custom_admin.png">
 
-
 ## VALIDATION
 Various validation methods have been incorporated:
  1. Onscreen Confirmation, when logging out, updating or deleting a booking.
@@ -243,7 +248,8 @@ Various validation methods have been incorporated:
  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validate_past_dates.png">
  4. Form validation to ensure fields are completed where required or the correct format is needed such as for email addresses.
  5. No Data to Display - message
- 6. Error redirection
+ 6. Error redirection - using custom error handlers
+ - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validation_custom_error_handlers.png">
 
 ## TECH STACK
 The site has been built with the following tech and tools:
@@ -271,7 +277,6 @@ The site has been built with the following tech and tools:
 - [Responsive Image generator](https://ui.dev/amiresponsive).
 - [Browserstack Browser Compatability](https://www.browserstack.com/).
 
-
 ## MODULES & LIBRARIES
    * font-awesome - icons.
    * bootstrap-made - HTML and CSS templates.
@@ -281,7 +286,9 @@ The site has been built with the following tech and tools:
    * django.messages - success and alert bootstrap messages.
    * django.core.paginator - pagination.
    * datetime - handling date and time fields.
-
+   * timezone - handles naive datetime.
+   * login_lequired - auth decorators used for the dashboard views.
+   * django.test - for running automated tests.
 
 ## TESTING
 FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.com/rstan-dev/pp4-yoomoov/blob/main/TESTING.md).
@@ -292,6 +299,7 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.co
   2. Early user observation test.
   3. Manual user story tests.
   4. HTML, CSS, JSHINT, PYLINT, Lighthouse.
+  5. Django Automated Testing using Unittest
 
   ### User Story Tests
   Each user story was tested manually according to a structured test sheet [VIEW IT HERE:](https://docs.google.com/spreadsheets/d/1qAa4tR_dnJwZkhPTGCNh35P1FVwFQc9NjnrO-5prhpI/edit#gid=0), with results being recorded and any failures rectified.
@@ -304,7 +312,6 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.co
   4. Emails were not sent in the development environment due to GitPod's security policy.  Email config was set to display in terminal for testing purposes.  Updated for production.
   5.  No dynamic username in nav bar when logged in - updated base.html with {{ user }}(dashboard).
   6. When testing for browser compatibility, there were numerous AnonymousUser errors on different browsers.  This was rectified by adding a login_required decorator on the dashboard view.
-
 
   ### Unresolved bugs:
   There are no unresolved bugs.
@@ -322,13 +329,14 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.co
   9. Configure Password reset - enhances user login experience.
   10. Create Filters and Folders for the Dashboard so bookings can be archived rather than deleted.
   11. Add a dynamic meta description for each page - enhances SEO.
-
+  12. Add additional unit tests to cover the entire project - increases project robustness.
+  13. Address the naive datetime warnings displayed on the unittests - allows for international use.
+  14. Create separate apps for bookings, feedback and vans - for separation of concerns and improved organisation.
 
 ## DEPLOYMENT
 I deployed the site right from project inception using this helpful [Code Institute Django Deployment Guide](https://docs.google.com/document/d/1g6xnseQfzFNZdp_gx_YOXkxcMMgZaQh7R3oyTFcOM_w/edit?usp=sharing).
 1. Once the project was deployed, development took place on GitPod using a local server found by typing "python3 manage.py runserver".
 2. On completion of development, the following steps took place to deploy the final site to Heroku.
-
 
 ## FORKING & CLONING INSTRUCTIONS
 You can create a copy of a GitHub Repository without affecting the original by forking it. Here's a step-by-step guide:
@@ -342,9 +350,7 @@ To clone a copy:
 3. Open your preferred code editor and navigate to the directory where you want to clone the repository.
 4. Type 'git clone', paste the copied URL, and press enter. The repository will then be cloned to your machine.
 
-
 ## CREDITS:
-
   ### Code
   * All Python logic was written and developed specifically for this project.
   * Main Site HTML & CSS templates were adapted from a bootstrap template called [Lumia](https://bootstrapmade.com/demo/Lumia/) from bootsrapmade.com.
@@ -369,6 +375,7 @@ To clone a copy:
   9. [clean_date_required()](https://docs.djangoproject.com/en/3.2/ref/forms/validation/#cleaning-a-specific-field-attribute).
   10. [queryset api](https://docs.djangoproject.com/en/3.2/ref/models/querysets/).
   11. [sending email](https://docs.djangoproject.com/en/4.2/topics/email/).
+  12. [Testing in Django](https://docs.djangoproject.com/en/4.2/topics/testing/).
 
   ### Content
   * All van content was written specifically for this project.
@@ -383,4 +390,8 @@ To clone a copy:
 
   ### Acknowledgements
   * Thanks to my original mentor Spencer Barriball for his initial assistance.
+  * Thanks to my second mentor Mitko Bachvarov for his helpful suggestions and review.
+  * Thanks to Sean Murphy at Code Institute for your guidance on automatic testing.
+  * Thanks to Sean Knowles for helping me keep perspective.
+  * Special thanks to Jeffrey Frankfort for putting up with me during the difficult moments, your support was unwavering!
 
