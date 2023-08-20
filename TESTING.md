@@ -71,6 +71,10 @@
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_results_project_urls.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_results_urls.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_results_views.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_test_contact.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_test_dashboard.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_test_errors.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_test_pages.png">
 
   ### Automated Tests
   A total of 27 automated tests were written using django's unittest framework.  The tests can be run by entering "python3 manage.py test" into the terminal.
