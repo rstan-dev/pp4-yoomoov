@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'yoomoov_app',
     'pages',
+    'contact',
     'crispy_bootstrap4'
 ]
 
