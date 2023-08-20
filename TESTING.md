@@ -8,6 +8,7 @@
   * [Lighthouse](#lighthouse)
   * [JSHINT](#jshint)
   * [PYLINT](#pylint)
+  * [Automated Tests](#automated-tests)
 
   [Return to README.md](https://github.com/rstan-dev/pp4-yoomoov/blob/main/README.md)
 
@@ -72,7 +73,7 @@
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_results_views.png">
 
   ### Automated Tests
-  A total of 27 automated tests were written using django's unittest framework.  The tests can be run by entering python3 manage.py test
+  A total of 27 automated tests were written using django's unittest framework.  The tests can be run by entering "python3 manage.py test" into the terminal.
   Tests covered 94% of the code and included tests on:
   - Pages
   - Errors

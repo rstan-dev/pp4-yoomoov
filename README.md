@@ -335,8 +335,18 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.co
 
 ## DEPLOYMENT
 I deployed the site right from project inception using this helpful [Code Institute Django Deployment Guide](https://docs.google.com/document/d/1g6xnseQfzFNZdp_gx_YOXkxcMMgZaQh7R3oyTFcOM_w/edit?usp=sharing).
-1. Once the project was deployed, development took place on GitPod using a local server found by typing "python3 manage.py runserver".
-2. On completion of development, the following steps took place to deploy the final site to Heroku.
+The summary of the steps in this document are as follows:
+1. Install Django and suporting libraries
+2. Create an external database on elephantsql
+3. Create the Heroku App
+4. Update databse details in settings and configure Heroku
+5. Setup Cloudinary to store media and static files
+6. Setup media, static and templates folders in project
+7. Create proc file
+
+Once the project was deployed, development took place on GitPod using a local server accessed by typing "python3 manage.py runserver".
+
+On completion of development, the following steps took place to deploy the final site to Heroku:
 
 ## FORKING & CLONING INSTRUCTIONS
 You can create a copy of a GitHub Repository without affecting the original by forking it. Here's a step-by-step guide:
