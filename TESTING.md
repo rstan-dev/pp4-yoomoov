@@ -18,6 +18,7 @@
   2. Early user observation test
   3. Manual user story tests
   4. HTML, CSS, JSHINT, PYLINT, Lighthouse
+  5. Django Automated Tests
 
   ### Manual User Story Tests
   User story tests were conducted systematically, with any failing tests rectified.  A link to the Google Test Sheet [can be found here](https://docs.google.com/spreadsheets/d/1qAa4tR_dnJwZkhPTGCNh35P1FVwFQc9NjnrO-5prhpI/edit#gid=0)
@@ -69,5 +70,20 @@
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_results_project_urls.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_results_urls.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_results_views.png">
+
+  ### Automated Tests
+  A total of 27 automated tests were written using django's unittest framework.  The tests can be run by entering python3 manage.py test
+  Tests covered 94% of the code and included tests on:
+  - Pages
+  - Errors
+  - Contact
+  - Dashboard functions
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/unittest_coverage_report.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/unittest_results_with_warninbgs.png">
+
+  There were 4 naive date warnings left which have been added to Future Enhancements list to be addressed.  The site does make use of timezone functionality in the models.
+
+
+
 
 

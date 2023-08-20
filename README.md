@@ -208,21 +208,18 @@ The following features have been implemented:
 2. UX features include:
   - Ability for users to filter bookings by Order Updated, Required date, pending or Approved
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_booking_card_filters.png">
-  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_pending_controls.png">
-  - Status of Bookings including Pending, Approved and Completed that is controlled by the administrator.
+   - Status of Bookings including Pending, Approved and Completed that is controlled by the administrator.
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_pending_controls.png">
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_approved_controls.png">
-  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_completed_controls.png">
   - Ability for users to leave feedback after a booking has been completed.
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_completed_leave_feedback.png">
+  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_completed_controls.png">
   - Status of feedback prevents publishing until approved.
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_feedback_status.png">
   - Pagination to ensure listings are organised
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_pagination.png">
-  - Back to top button for easy site navigation.
+  - Social Media Links and Back to top button for easy site navigation.
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_back_to_top.png">
-  - Social media links.
-  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_social_media.png">
   - Onscreen alert and success messages appear.
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/success_alert.png">
   - Register, Login and Logout forms for streamlined user authentication.
@@ -244,10 +241,13 @@ Various validation methods have been incorporated:
  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/confirmation_message.png">
  2. Onscreen Success / Error after creating, editing, deleting, logging in or out.
  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/error_alert.png">
+ - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/success_message.png">
  3. Date validation to prevent booking a past date.
  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validate_past_dates.png">
  4. Form validation to ensure fields are completed where required or the correct format is needed such as for email addresses.
  5. No Data to Display - message
+ - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validation_no_listings.png">
+ - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validation_dashboard_no_bookings_feedback.png">
  6. Error redirection - using custom error handlers
  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validation_custom_error_handlers.png">
 
