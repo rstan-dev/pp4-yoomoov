@@ -475,7 +475,7 @@ h6 {
 #hero {
   width: 100%;
   height: 80vh;
-  background: url("/static/media/hero-image.jpg") center center;
+  background: url("https://res.cloudinary.com/dyv8xopsd/image/upload/v1692608079/static/media/hero-image.1cb6aad6af6a.jpg") center center;
   background-size: cover;
   position: relative;
   margin-top: -175px;
