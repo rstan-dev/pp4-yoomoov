@@ -196,7 +196,7 @@ class Feedback(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Super save method to update the aproval status of the feedback, which
+        Super save method to update the approval status of the feedback, which
         triggers an email notification to the user
         """
         if self.is_approved == 'Approved' and not self.is_approved_notified:
