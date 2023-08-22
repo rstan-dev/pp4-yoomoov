@@ -312,6 +312,10 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.co
   4. Emails were not sent in the development environment due to GitPod's security policy.  Email config was set to display in terminal for testing purposes.  Updated for production.
   5.  No dynamic username in nav bar when logged in - updated base.html with {{ user }}(dashboard).
   6. When testing for browser compatibility, there were numerous AnonymousUser errors on different browsers.  This was rectified by adding a login_required decorator on the dashboard view.
+  7. The Hero image did not display when deployed - resolved by changing the background image link to the cloudinary link.
+  8. The Van finder prevented the user from selecting all, resolved by disabling the attribute
+  9. There were several issues configuring emails.  Initially I had setup a yoomoov@outlook.com account to send from which successfully sent emails but was unable to receive a copy of the email - which was an important part of the admin's email notification user story.  I resolved this by creating a sendgrid account and using yoomoovyoo@gmail.com which sucessfully sent emails and could receive a copy to the same address.  For this project the admins email has been setup with this gmail address, however this can be changed by the superuser to whatever email they wish to receive notifications.
+
 
   ### Unresolved bugs:
   There are no unresolved bugs.
@@ -332,6 +336,8 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.co
   12. Add additional unit tests to cover the entire project - increases project robustness.
   13. Address the naive datetime warnings displayed on the unittests - allows for international use.
   14. Create separate apps for bookings, feedback and vans - for separation of concerns and improved organisation.
+  15. Optimise images to address Light House Performance report.
+  16. Improve email templates for notification emails, and improve the email sending program.
 
 ## DEPLOYMENT
 I deployed the site right from project inception using this helpful [Code Institute Django Deployment Guide](https://docs.google.com/document/d/1g6xnseQfzFNZdp_gx_YOXkxcMMgZaQh7R3oyTFcOM_w/edit?usp=sharing).

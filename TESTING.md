@@ -28,7 +28,7 @@
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/user_test_manual_3.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/user_test_manual_4.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/user_test_manual_5.png">
-
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main//documentation/testing/email_notifications_sent_recevied.png">
 
   ### HTML
   All HTML pages were checked with [NU HTML Checker](https://validator.w3.org/nu/)
@@ -57,8 +57,6 @@
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/lighthouse_home.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/lighthouse_dashboard.png">
 
-
-
   ### JSHINT
   All JS pages were checked with [JSHINT](https://jshint.com/)
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/jshint_results.png">
@@ -79,12 +77,13 @@
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_test_errors.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_test_pages.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_contact_urls.png">
-   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_contact_views.png">
-    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_pages_urls.png">
-     - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_pages_views.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_contact_views.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_pages_urls.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_pages_views.png">
 
   ### Automated Tests
-  A total of 27 automated tests were written using django's unittest framework.  The tests can be run by entering "python3 manage.py test" into the terminal.
+  A total of 27 automated tests were written using django's unittest framework.
+  The tests can be run by entering "python3 manage.py test" into the terminal.
   Tests covered 94% of the code and included tests on:
   - Pages
   - Errors
@@ -93,7 +92,8 @@
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/unittest_coverage_report.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/unittest_results_with_warnings.png">
 
-  There were 4 naive date warnings left which have been added to Future Enhancements list to be addressed.  The site does make use of timezone functionality in the models.
+  There were 4 naive date warnings left which have been added to Future Enhancements list to be addressed.
+  The site does make use of timezone functionality in the models.
 
 
 
