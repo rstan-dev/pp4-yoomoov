@@ -52,8 +52,11 @@
    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/w3c_style_css_results.png">
 
   ### LIGHTHOUSE
-  A lighthouse report was run on the site.
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/lighthouse_results_index.png">
+  A lighthouse report was run on the site following deployment on the Home Page and Dashboard Page
+  * The performance issues are related to image sizes and have been noted in the Future Enhancements
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/lighthouse_home.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/lighthouse_dashboard.png">
+
 
 
   ### JSHINT
@@ -75,6 +78,10 @@
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_test_dashboard.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_test_errors.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_test_pages.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_contact_urls.png">
+   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_contact_views.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_pages_urls.png">
+     - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_pages_views.png">
 
   ### Automated Tests
   A total of 27 automated tests were written using django's unittest framework.  The tests can be run by entering "python3 manage.py test" into the terminal.
