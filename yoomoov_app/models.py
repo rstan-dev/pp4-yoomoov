@@ -213,7 +213,7 @@ class Feedback(models.Model):
                 'login to your Dashboard to view. Kind regards, YooMoov Admin '
                 'Team',
                 'yoomoovyoo@gmail.com',
-                [self.user_fk.email, admin_user.email],
+                [self.user_fk.email, self.booking.email, admin_user.email],
                 fail_silently=False,
             )
 
