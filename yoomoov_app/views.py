@@ -113,7 +113,7 @@ def createBooking(request):
                 ' . Please login to your Dashboard to view the Status. Kind '
                 'regards, YooMoov',
                 'yoomoovyoo@gmail.com',
-                [booking.email, admin_user.email, 'russ.smith1001@gmail.com'],
+                [booking.email, admin_user.email],
                 fail_silently=False
             )
 
@@ -148,6 +148,7 @@ def editBooking(request, pk):
     """
     booking = get_object_or_404(Booking, id=pk)
     form = BookingForm(instance=booking, initial={'booking_id': booking.id})
+    admin_user = User.objects.get(username='admin')
 
     if request.method == 'POST':
         form = BookingForm(request.POST, instance=booking)
@@ -169,9 +170,8 @@ def editBooking(request, pk):
                 ', for: ' + booking.date_required.strftime('%d %B %Y') +
                 ' . Please login to your Dashboard to view the Status. Kind '
                 'regards, YooMoov',
-                'yoomoov@outlook.com',
-                [booking.email, 'yoomoov@outlook.com',
-                                'russ.smith1001@gmail.com'],
+                'yoomoovyoo@gmail.com',
+                [booking.email, admin_user.email],
                 fail_silently=False
             )
 
@@ -197,6 +197,8 @@ def deleteBooking(request, pk):
     messgae displayed on screen.
     """
     booking = get_object_or_404(Booking, id=pk)
+    admin_user = User.objects.get(username='admin')
+
     if request.method == "POST":
         booking.delete()
 
@@ -206,9 +208,8 @@ def deleteBooking(request, pk):
                 + str(booking.booking_number) + ' ' + booking.van_name +
                 ', for: ' + booking.date_required.strftime('%d %B %Y') +
                 '. Kind regards, YooMoov',
-                'yoomoov@outlook.com',
-                [booking.email, 'yoomoov@outlook.com',
-                                'russ.smith1001@gmail.com'],
+                'yoomoovyoo@gmail.com',
+                [booking.email, admin_user.email],
                 fail_silently=False
             )
 
@@ -227,6 +228,7 @@ def leaveFeedback(request, pk):
 
     booking = get_object_or_404(Booking, id=pk)
     form = FeedbackForm()
+    admin_user = User.objects.get(username='admin')
 
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
@@ -247,9 +249,8 @@ def leaveFeedback(request, pk):
                 ', for: ' + booking.date_required.strftime('%d %B %Y') +
                 '. Please login to your dashboard for more details. Kind '
                 'regards, YooMoov',
-                'yoomoov@outlook.com',
-                [booking.email, 'yoomoov@outlook.com',
-                                'russ.smith1001@gmail.com'],
+                'yoomoovyoo@gmail.com',
+                [booking.email, admin_user.email],
                 fail_silently=False
             )
 
