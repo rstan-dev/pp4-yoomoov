@@ -109,7 +109,7 @@ def createBooking(request):
                 + ', for: ' + booking.date_required.strftime('%d %B %Y') +
                 ' . Please login to your Dashboard to view the Status. Kind '
                 'regards, YooMoov',
-                'yoomoov@yoo@gmail.com',
+                'yoomoovyoo@gmail.com',
                 [booking.email, 'yoomoovyoo@gmail.com',
                                 'russ.smith1001@gmail.com'],
                 fail_silently=False
