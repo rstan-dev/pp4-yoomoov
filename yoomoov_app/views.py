@@ -11,6 +11,7 @@ from django.core.paginator import Paginator
 from allauth.account.views import LoginView
 from django.contrib.auth.decorators import login_required
 from yoomoov_project.views import handler403, handler404, handler500
+from django.contrib.auth.models import User
 
 
 @login_required
@@ -90,6 +91,8 @@ def createBooking(request):
 
     form = BookingForm()
 
+    admin_user = User.objects.get(username='admin')
+
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
@@ -110,8 +113,7 @@ def createBooking(request):
                 ' . Please login to your Dashboard to view the Status. Kind '
                 'regards, YooMoov',
                 'yoomoovyoo@gmail.com',
-                [booking.email, 'yoomoovyoo@gmail.com',
-                                'russ.smith1001@gmail.com'],
+                [booking.email, admin_user.email, 'russ.smith1001@gmail.com'],
                 fail_silently=False
             )
 
