@@ -135,7 +135,7 @@ class Booking(models.Model):
                 self.van_name + ' has been approved. Please login to your '
                 'Dashboard for more details. Kind regards, YooMoov Admin Team',
                 'yoomoovyoo@gmail.com',
-                [booking.email, admin_user.email],
+                [self.email, admin_user.email],
                 fail_silently=False,
             )
 
@@ -155,7 +155,7 @@ class Booking(models.Model):
                 'Dashboard to leave feedback. Kind regards, YooMoov Admin '
                 'Team',
                 'yoomoovyoo@gmail.com',
-                [booking.email, admin_user.email],
+                [self.email, admin_user.email],
                 fail_silently=False,
             )
 
@@ -213,7 +213,7 @@ class Feedback(models.Model):
                 'login to your Dashboard to view. Kind regards, YooMoov Admin '
                 'Team',
                 'yoomoovyoo@gmail.com',
-                [booking.email, admin_user.email],
+                [self.email, admin_user.email],
                 fail_silently=False,
             )
 
