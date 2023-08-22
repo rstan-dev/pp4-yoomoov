@@ -115,8 +115,13 @@ class Booking(models.Model):
         Super Save Method saves the data to the db, to create
         an id which is then used to create a unique booking
         number, which is then saved again to the database
+
+        An Email notification is sent to the bookingform email
+        and the admin_user email
         """
         super().save(*args, **kwargs)
+
+        admin_user = User.objects.get(username='admin')
 
         if not self.booking_number:
             self.booking_number = str(self.id + 1000)
@@ -129,9 +134,8 @@ class Booking(models.Model):
                 'Your booking ' + str(self.booking_number) + ' ' +
                 self.van_name + ' has been approved. Please login to your '
                 'Dashboard for more details. Kind regards, YooMoov Admin Team',
-                'yoomoov@outlook.com',
-                [self.email, 'yoomoov@outlook.com',
-                             'russ.smith1001@gmail.com'],
+                'yoomoovyoo@gmail.com',
+                [booking.email, admin_user.email],
                 fail_silently=False,
             )
 
@@ -150,9 +154,8 @@ class Booking(models.Model):
                 self.van_name + ' has been completed. Please login to your '
                 'Dashboard to leave feedback. Kind regards, YooMoov Admin '
                 'Team',
-                'yoomoov@outlook.com',
-                [self.email, 'yoomoov@outlook.com',
-                             'russ.smith1001@gmail.com'],
+                'yoomoovyoo@gmail.com',
+                [booking.email, admin_user.email],
                 fail_silently=False,
             )
 
@@ -197,8 +200,10 @@ class Feedback(models.Model):
     def save(self, *args, **kwargs):
         """
         Super save method to update the approval status of the feedback, which
-        triggers an email notification to the user
+        triggers an email notification to the user and the admin_user
         """
+        admin_user = User.objects.get(username='admin')
+
         if self.is_approved == 'Approved' and not self.is_approved_notified:
             # Send email
             send_mail(
@@ -207,9 +212,8 @@ class Feedback(models.Model):
                 + self.van_name + ' has been approved and published. Please '
                 'login to your Dashboard to view. Kind regards, YooMoov Admin '
                 'Team',
-                'yoomoov@outlook.com',
-                [self.user_fk.email, 'yoomoov@outlook.com',
-                                     'russ.smith1001@gmail.com'],
+                'yoomoovyoo@gmail.com',
+                [booking.email, admin_user.email],
                 fail_silently=False,
             )
 
