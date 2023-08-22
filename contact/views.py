@@ -4,6 +4,7 @@ from yoomoov_app.models import Van
 from yoomoov_app.forms import ContactForm
 from django.core.mail import send_mail
 from django.contrib import messages
+from django.contrib.auth.models import User
 from yoomoov_project.views import handler403, handler404, handler500
 
 
@@ -21,8 +22,9 @@ def contact(request, slug=None):
     If the contact form is accessed by the van_detail page, the email includes
     the van details and redirects the user back to the van_detail page
     """
-
+    admin_user = User.objects.get(username='admin')
     van = None
+
     if slug is not None:
         van = get_object_or_404(Van, slug=slug)
 
@@ -42,8 +44,8 @@ def contact(request, slug=None):
             'There has been an enquiry from: ' + name + ' from email: '
             + email + '. Their message is as follows: "' + message + '." '
             'An administrator will respond within 24 hours.',
-            'yoomoov@outlook.com',
-            [email, 'yoomoov@outlook.com', 'russ.smith1001@gmail.com'],
+            'yoomoovyoo@gmail.com',
+            [email, admin_user.email],
             fail_silently=False
         )
 
