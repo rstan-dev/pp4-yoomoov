@@ -110,7 +110,7 @@ def createBooking(request):
                 ' . Please login to your Dashboard to view the Status. Kind '
                 'regards, YooMoov',
                 'yoomoov@outlook.com',
-                [booking.email, 'yoomoov@outlook.com',
+                [booking.email, 'yoomoovyoo@gmail.com',
                                 'russ.smith1001@gmail.com'],
                 fail_silently=False
             )
