@@ -82,6 +82,8 @@ def createBooking(request):
     saved to the database.
     A success message is displayed on screen to the user.
     A new instance of the Booking Form is created to clear out the fields.
+    An email notification is sent to the booking email address and
+    admin_user email.
     """
 
     bookings = Booking.objects.filter(
@@ -145,6 +147,8 @@ def editBooking(request, pk):
     Any changes to the form are saved and a success message is displayed
     to the user.
     User is redirected back to the dashboard on completion.
+    An email notification is sent to the booking email address and
+    admin_user email.
     """
     booking = get_object_or_404(Booking, id=pk)
     form = BookingForm(instance=booking, initial={'booking_id': booking.id})
@@ -195,6 +199,8 @@ def deleteBooking(request, pk):
     message and a cancel button.
     User is redirected back to the dashboard on completion with a success
     messgae displayed on screen.
+    An email notification is sent to the booking email address and
+    admin_user email.
     """
     booking = get_object_or_404(Booking, id=pk)
     admin_user = User.objects.get(username='admin')
@@ -225,6 +231,15 @@ def deleteBooking(request, pk):
 
 @login_required
 def leaveFeedback(request, pk):
+    """
+    Method to leave feedback for a specific booking.
+    Booking objects are called using the booking id primary key (pk).
+    User is taken to a dedicated leave_feedback page.
+    User is redirected back to the dashboard on completion with a success
+    messgae displayed on screen.
+    An email notification is sent to the booking email address and
+    admin_user email.
+    """
 
     booking = get_object_or_404(Booking, id=pk)
     form = FeedbackForm()
