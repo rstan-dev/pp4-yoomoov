@@ -62,8 +62,8 @@
                     {% endif %}
                   </div>
                   <div class="form-group {% if form.email.errors %}has-error{% endif %}">
-                    <label for="id_email">E-mail (optional):</label>
-                    <input class="form-control" type="email" name="email" placeholder="E-mail address"
+                    <label for="id_email">E-mail (required for notifications):</label>
+                    <input class="form-control" type="email" name="email" required="" placeholder="E-mail address"
                       autocomplete="email" maxlength="320" id="id_email">
                     {% if form.email.errors %}
                     <br>
