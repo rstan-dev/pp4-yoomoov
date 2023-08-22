@@ -35,16 +35,16 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="col-md-12 create-booking-btn">
-                    <h4>Create New Booking</h4>
-                    <button class="create-booking-button" data-toggle="modal" data-target="#bookingModal"><i
-                            class="fa-solid fa-circle-plus"></i>
+                    <h2>Create New Booking</h2>
+                    <button class="create-booking-button" data-toggle="modal" data-target="#bookingModal"
+                        aria-label="Create Booking"><i class="fa-solid fa-circle-plus"></i>
                     </button>
                 </div>
             </div>
             <div class="col-md-12">
-                <h2>Your Bookings</h2>
+                <h3>Your Bookings</h3>
                 {% if bookings %}
-                <h4>Here are the vans you have booked:</h4>
+                <p>Here are the vans you have booked:</p>
 
                 <div class="col-md-10 mx-auto mt-md-3 mt-lg-4 mt-4 d-flex justify-content-center mb-3 flex-wrap">
 
@@ -119,7 +119,7 @@
                 </div>
                 {% endfor %}
                 {% else %}
-                <h4>There are no bookings to display</h4>
+                <p>There are no bookings to display</p>
                 {% endif %}
             </div><!-- End Booking Items -->
         </div>
@@ -223,9 +223,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>Your Feedback</h2>
+                <h3>Your Feedback</h3>
                 {% if feedbacks %}
-                <h4>Here is the feedback you have left:</h4>
+                <p>Here is the feedback you have left:</p>
                 {% for feedback in feedbacks %}
                 <!-- ======= New Feedback Card ======= -->
                 <div class="col-md-10 mx-auto mt-md-3 mt-lg-4 mt-4">
@@ -269,7 +269,7 @@
                 </div>
                 {% endfor %}
                 {% else %}
-                <h4>There is no feedback to display</h4>
+                <p>There is no feedback to display</p>
                 {% endif %}
 
             </div>

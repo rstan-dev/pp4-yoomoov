@@ -1108,6 +1108,11 @@ section {
   font-size: 30px;
 }
 
+.dashboard h3 {
+  color: #fb8500;
+  font-size: 25px;
+}
+
 .create-booking-btn {
   color: #fb8500;
   display: flex;
