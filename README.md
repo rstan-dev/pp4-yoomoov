@@ -27,6 +27,7 @@
   * [Improvements & future developments](#improvements-and-future-developments)
 * [DEPLOYMENT](#deployment)
 * [FORKING & CLONING INSTRUCTIONS](#forking-cloning-instructions)
+* [SECURITY SETTINGS](#security-settings)
 * [CREDITS](#credits)
   * [Code](#code)
   * [Resources](#resources)
@@ -57,6 +58,8 @@ The main objectives of this website are:
 4. Create a feedback module so customers and admin can leave and approve feedback.
 5. Configure email to notify the customer and the administrator of any changes to bookings.
 
+* [Back to Contents](#contents)
+
 ## PROJECT DESIGN
 
   ### Agile Approach
@@ -86,23 +89,23 @@ The main objectives of this website are:
   2. USERSTORY(#2): Initial Django project setup
     - As a developer, I can access the initial project files in my developer environment, and deploy to Heroku, so that I can resolve any deployment issues early on.
   3. USERSTORY(#3): Create bootstrap template
-    - As a developer I can deploy a basic site design so that it meets the minimum viable requirements.
+    - As a developer, I can deploy a basic site design so that it meets the minimum viable requirements.
   4. USERSTORY(#4 ): Bootstrap Navigation Breadcrumbs
     - As a website user, I can easily navigate the website so that I can find what I need.
   5. USERSTORY(#5 ): Create Van Model
-    - As an admin user I can create Van details in the admin area so that they populate fields on the front end template.
+    - As an admin user, I can create Van details in the admin area so that they populate fields on the front end template.
   6. USERSTORY(#6 ): Search for van types
     - As a website user, I can use the Van Finder to display a list of vans by size, location or county.
   7. USERSTORY(#7): Display Van detail
     - As a website user, I can read more detail about a van so I can book or enquire.
   8. USERSTORY(# 8): Create SuperUser Account
-    - As an admin user I can login into the admin area so that I can manage website content.
+    - As an admin user, I can login into the admin area so that I can manage website content.
   9. USERSTORY(#9): Customise admin area branding
     - As an admin user, I recognise the admin area has the same look and feel as the front end, for continuity purposes.
   10. USERSTORY(#10 ): User Registration
-    - As a website user, I can register, log in and log out to view my dashboard.
+    - As a website user, I can register, login and log out to view my dashboard.
   11. USERSTORY(# 11 ): Create Booking Model
-    - As an admin user, I can create Booking details in the admin area so that I can take a booking over the phone.
+    - As an admin user, I can create Booking details in the admin area so that I can make a booking over the phone.
   12. USERSTORY(#12 ): View Bookings on User Dashboard
     - As a logged-in user, I can view any bookings I have made in a list on my Dashboard.
   13. USERSTORY(# 13): Create Booking on User Dashboard
@@ -112,29 +115,29 @@ The main objectives of this website are:
   15. USERSTORY(#15 ): Delete booking on user dashboard
     - As a logged-in User, I can delete the booking details from the Dashboard.
   16. USERSTORY(#16): Create Feedback Model
-    - As an admin user I can add and view Feedback details in the admin area and approve feedback for display on the relevant detail page.
+    - As an admin user, I can add and view Feedback details in the admin area and approve feedback for display on the relevant detail page.
   17. USERSTORY(# 17): Feedback option after booking completion
     - As a logged-in user who has made a booking, I can leave feedback using the feedback button next to the booking on my Dashboard.
   18. USERSTORY(#18 ): User can see their feedback on their dashboard
     - As a logged-in user, I can see all the feedback I have left for other bookings on my Dashboard.
-  19. USERSTORY(#19): Send email to the admin via the contact form
-    - As an admin, I can receive an email with the details from the contact form, so I can follow up with the customer.
+  19. USERSTORY(#19): Send an email to the admin via the contact form
+    - As an admin user, I can receive an email with the details from the contact form, so I can follow up with the customer.
   20. USERSTORY(#20 ): Send booking email notifications
-    - As a user I can receive an email notification when the booking has been created, approved, updated or deleted, so I can manage the booking in my account.
+    - As a user, I can receive an email notification when the booking has been created, approved, updated or deleted, so I can manage the booking in my account.
   21. USERSTORY(#21 ): Admin to receive email notifications when feedback has been created
-    - As an admin, I can receive an email notification when a user creates feedback.
+    - As an admin user, I can receive an email notification when a user creates feedback.
   22. USERSTORY(# 22): User to receive email when feedback has been approved by admin
     - As a user, I can receive an email notification when my feedback has been approved.
   23. USERSTORY(#23 ): Onscreen notification when logged in or out
     - As a user, I will see an on-screen notification to let me know I have logged in or logged out.
-  24. USERSTORY(#24): Menu Bar notification when User is logged in
+  24. USERSTORY(#24): Menu Bar notification when the User is logged in
     - As a logged in user, I will see a welcome message on the navbar and a logout link.
   25. USERSTORY(#25 ): Create user story tests
     - As a developer, all user story tests will pass, so that I can be certain the site functions as intended.
   26. USERSTORY(# 26): Test Html, CSS, JS, Python, Lighthouse
-    - As a developer all code will pass through validation tools to identify any issues, errors or non-conformance.
+    - As a developer, all code will pass through validation tools to identify any issues, errors or non-conformance.
   27. USERSTORY(# 27): Create Automatic unit tests
-    - As a developer, I will write some automatic unit tests for the purposes of demonstrating competence.
+    - As a developer, I will write some automatic unit tests for the purpose of demonstrating competence.
   28. USERSTORY(# 28): Final Deployment
     - As a developer, I will ensure the final project is fully deployed to Heroku so that it matches the development project.
   29. USERSTORY(#29): Final Checks
@@ -158,7 +161,7 @@ The main objectives of this website are:
    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/logo_yoomoov_orange1.jpg">
    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/color_pallette.png">
 
-   With a color palette in mind I could create a project style guide:
+   With a color palette in mind, I could create a project style guide:
    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/yoomoov_style_guide.png">
 
    ### Imagery
@@ -180,9 +183,11 @@ The main objectives of this website are:
    1. I built the front end as a static website first.
    2. I developed the Django admin area so an administrator could manage the site.
    3. I built User CRUD functionality next via their dashboard.
-   4. I configured on-sreen notifications to give feedback to the user.
-   5. I built a feedback mechanism - first for the administrator, and then for front end users.
+   4. I configured on-screen notifications to give feedback to the user.
+   5. I built a feedback mechanism - first for the administrator, and then for front-end users.
    6. I configured email notifications to alert the user and the administrator.
+
+   * [Back to Contents](#contents)
 
 ## FEATURES
 The following features have been implemented:
@@ -220,11 +225,11 @@ The following features have been implemented:
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_pagination.png">
   - Social Media Links and Back to top button for easy site navigation.
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_back_to_top.png">
-  - Onscreen alert and success messages appear.
+  - Onscreen alerts and success messages appear.
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/success_alert.png">
   - Register, Login and Logout forms for streamlined user authentication.
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_login_page.png">
-  - Email notifications sent to both user and administrator.
+  - Email notifications sent to both the user and administrator.
   - Favicon included for site identification.
   -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_favicon.png">
   - Breadcrumb navigation.
@@ -232,8 +237,10 @@ The following features have been implemented:
   - Dynamic user navigation.
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_dynamic_nav.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_dynamic_nav_user.png">
-  - Custom branding on the administration area.
+  - Custom branding in the administration area.
   <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_custom_admin.png">
+
+  * [Back to Contents](#contents)
 
 ## VALIDATION
 Various validation methods have been incorporated:
@@ -276,12 +283,15 @@ The site has been built with the following tech and tools:
 - [Favicon generator](https://favicon.io/favicon-converter/).
 - [Responsive Image generator](https://ui.dev/amiresponsive).
 - [Browserstack Browser Compatability](https://www.browserstack.com/).
+- [Sendgrid](https://sendgrid.com/) - SMTP email sending service.
+
+* [Back to Contents](#contents)
 
 ## MODULES & LIBRARIES
    * font-awesome - icons.
    * bootstrap-made - HTML and CSS templates.
    * allauth - sign-up and login.
-   * cripsy forms - imporved form styling and validation.
+   * cripsy forms - improved form styling and validation.
    * django.core.mail - sending email.
    * django.messages - success and alert bootstrap messages.
    * django.core.paginator - pagination.
@@ -294,12 +304,13 @@ The site has been built with the following tech and tools:
 FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.com/rstan-dev/pp4-yoomoov/blob/main/TESTING.md).
 
   ### Tests performed
-  The site was thoroughly tested during development with each feature tested before committing to GitHub.  The testing regime included:
+  The site was thoroughly tested during development with each feature tested before committing to GitHub.  The testing regime included the following:
   1. Incremental testing.
   2. Early user observation test.
   3. Manual user story tests.
   4. HTML, CSS, JSHINT, PYLINT, Lighthouse.
-  5. Django Automated Testing using Unittest
+  5. Browser Compatability tests.
+  6. Django Automated Testing using Unittest
 
   ### User Story Tests
   Each user story was tested manually according to a structured test sheet [VIEW IT HERE:](https://docs.google.com/spreadsheets/d/1qAa4tR_dnJwZkhPTGCNh35P1FVwFQc9NjnrO-5prhpI/edit#gid=0), with results being recorded and any failures rectified.
@@ -309,23 +320,22 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.co
   1. Colors were inconsistent on the website - CSS was updated according to the style guide.
   2. Breadrcumbs were missing on Contact and Delete page - code was added on these templates.
   3. The validation used to prevent creating a double booking on the same day, affected the Edit Booking function.  The clean method on the Booking form was modified to check and remove the current booking - allowing the same form to be used for creating and updating bookings.
-  4. Emails were not sent in the development environment due to GitPod's security policy.  Email config was set to display in terminal for testing purposes.  Updated for production.
-  5.  No dynamic username in nav bar when logged in - updated base.html with {{ user }}(dashboard).
+  4. Emails were not sent in the development environment due to GitPod's security policy.  Email config was set to display in the terminal for testing purposes.  Updated for production.
+  5. No dynamic username in the nav bar when logged in - updated base.html with {{ user }}(dashboard).
   6. When testing for browser compatibility, there were numerous AnonymousUser errors on different browsers.  This was rectified by adding a login_required decorator on the dashboard view.
-  7. The Hero image did not display when deployed - resolved by changing the background image link to the cloudinary link.
+  7. The Hero image did not display when deployed - resolved by changing the background image link to the Cloudinary link.
   8. The Van finder prevented the user from selecting all, resolved by disabling the attribute
-  9. There were several issues configuring emails.  Initially I had setup a yoomoov@outlook.com account to send from which successfully sent emails but was unable to receive a copy of the email - which was an important part of the admin's email notification user story.  I resolved this by creating a sendgrid account and using yoomoovyoo@gmail.com which sucessfully sent emails and could receive a copy to the same address.  For this project the admins email has been setup with this gmail address, however this can be changed by the superuser to whatever email they wish to receive notifications.
-
+  9. There were several issues configuring emails.  Initially, I had set up a yoomoov@outlook.com account to send from which successfully sent emails but was unable to receive a copy of the email - which was an important part of the admin's email notification user story.  I resolved this by creating a Sendgrid account and using yoomoovyoo@gmail.com which sucessfully sent emails and could receive a copy to the same address.  For this project the admin's email has been set up with this Gmail address, however, this can be changed by the superuser to whatever email they wish to receive notifications.
 
   ### Unresolved bugs:
   There are no unresolved bugs.
 
   ### Improvements and future developments:
   The following items have been identified for future development:
-  1. Create model for services so they can be updated through the admin panel - enhances administrator experience.
-  2. Create model for locations so they can be updated through the admin panel - enhances administrator experience.
+  1. Create Model for services so they can be updated through the admin panel - enhances administrator experience.
+  2. Create Model for locations so they can be updated through the admin panel - enhances administrator experience.
   3. Generate slug automatically - prevents spelling errors - enhances administrator experience, and SEO.
-  4. Build a fully functioning front end Admin Dashboard with full functionality and dynamic drop-downs - prevents spelling errors and enhances the administrator experience.
+  4. Build a fully functioning front-end Admin Dashboard with full functionality and dynamic drop-downs - prevents spelling errors and enhances the administrator experience.
   5. Dynamic Dependant Filter for Van Name, Size, location and County in the booking form and Van Finder form - enhances user experience by not allowing selections that have no content.
   6. Dynamic Date selector on Booking Form where dates are shown as unavailable - enhances user experience.
   7. Enhance User model to allow a profile section on User dashboard to capture first name, last name and phone number - enhances User booking experience.
@@ -336,23 +346,36 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.co
   12. Add additional unit tests to cover the entire project - increases project robustness.
   13. Address the naive datetime warnings displayed on the unittests - allows for international use.
   14. Create separate apps for bookings, feedback and vans - for separation of concerns and improved organisation.
-  15. Optimise images to address Light House Performance report.
-  16. Improve email templates for notification emails, and improve the email sending program.
+  15. Optimise images to address Lighthouse Performance report.
+  16. Improve email templates for notification emails, and improve the email-sending program.
+
+  * [Back to Contents](#contents)
 
 ## DEPLOYMENT
 I deployed the site right from project inception using this helpful [Code Institute Django Deployment Guide](https://docs.google.com/document/d/1g6xnseQfzFNZdp_gx_YOXkxcMMgZaQh7R3oyTFcOM_w/edit?usp=sharing).
-The summary of the steps in this document are as follows:
-1. Install Django and suporting libraries
-2. Create an external database on elephantsql
-3. Create the Heroku App
-4. Update databse details in settings and configure Heroku
-5. Setup Cloudinary to store media and static files
-6. Setup media, static and templates folders in project
-7. Create proc file
+The summary of the steps in this document is as follows:
+1. Install Django and supporting libraries
+2. Create an external database on Elephantsql
+3. Setup Cloudinary to store media and static files
+4. Create the Heroku App
+5. Update database details in project settings
+6. Add Config Vars in Heroku
+7. Connect GitHub repo to Heroku as the deployment method
+8. Setup media, static and templates folders in project
+9. Create proc file
+10. Commit to GitHub
+11. Deploy branch in Heroku and check
 
-Once the project was deployed, development took place on GitPod using a local server accessed by typing "python3 manage.py runserver".
+Once the project was deployed, development took place on GitPod using the [CI Gitpod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template) and the local server accessed by typing "python3 manage.py runserver".
+Email settings used during development, to view emails in the terminal were as follows:
+- EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 On completion of development, the following steps took place to deploy the final site to Heroku:
+1. Update requirements.txt
+2. Set "DEBUG = False" in project settings
+3. Update Email Config Settings to SMTP server
+4. Commit changes and push to GitHub
+5. Check the Auto Build progress in Heroku or use the manual "Deploy Branch" button on the Deploy page.
 
 ## FORKING & CLONING INSTRUCTIONS
 You can create a copy of a GitHub Repository without affecting the original by forking it. Here's a step-by-step guide:
@@ -366,14 +389,26 @@ To clone a copy:
 3. Open your preferred code editor and navigate to the directory where you want to clone the repository.
 4. Type 'git clone', paste the copied URL, and press enter. The repository will then be cloned to your machine.
 
+* [Back to Contents](#contents)
+
+## SECURITY SETTINGS
+The following precautions were taken regarding the security of the site:
+1. An env.py was created at the start of the project to contain the following:
+- DATABASE_URL
+- SECRET_KEY
+- CLOUDINARY_URL
+- EMAIL_HOST_PASSWORD
+2. These values were added to the Config Vars section of Heroku's Settings page.
+3. Heroku is configured with 2FA
+
 ## CREDITS:
   ### Code
   * All Python logic was written and developed specifically for this project.
   * Main Site HTML & CSS templates were adapted from a bootstrap template called [Lumia](https://bootstrapmade.com/demo/Lumia/) from bootsrapmade.com.
-  * Login templates were adapted from allauth using bootstrap css.
+  * Login templates were adapted from allauth using bootstrap CSS.
   * Inspiration and solutions for the site came from:
     - Code Institue - [I Think Therefore I Blog](https://github.com/rstan-dev/rs-django-blog).
-    -  Brad Traversy - [Traversy Media Python Django Dev to Deployment](https://www.traversymedia.com/Python-Django-Dev-To-Deployment).
+    - Brad Traversy - [Traversy Media Python Django Dev to Deployment](https://www.traversymedia.com/Python-Django-Dev-To-Deployment).
     - Alan Bushell - [La Cocina del Diablo](https://github.com/Alan-Bushell/la-cocina-del-diablo).
     - Rashidat Adekoya - [Deask HQ](https://github.com/Shida18719/desk-hq).
     - Samar Ziadat - [Oishii Ramen](https://github.com/SamarZiadat/oishii-ramen).
@@ -411,3 +446,4 @@ To clone a copy:
   * Thanks to Sean Knowles for helping me keep perspective.
   * Special thanks to Jeffrey Frankfort for putting up with me during the difficult moments, your support was unwavering!
 
+  * [Back to Contents](#contents)

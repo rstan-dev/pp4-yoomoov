@@ -8,6 +8,7 @@
   * [Lighthouse](#lighthouse)
   * [JSHINT](#jshint)
   * [PYLINT](#pylint)
+  * [Browser Compatability](#browser-compatability)
   * [Automated Tests](#automated-tests)
 
   [Return to README.md](https://github.com/rstan-dev/pp4-yoomoov/blob/main/README.md)
@@ -18,8 +19,9 @@
   1. Incremental testing
   2. Early user observation test
   3. Manual user story tests
-  4. HTML, CSS, JSHINT, PYLINT, Lighthouse
-  5. Django Automated Tests
+  4. HTML, CSS, JSHINT, PYLINT, Lighthouse, PEP8
+  5. Browser Compatability Tests
+  6. Django Automated Tests
 
   ### Manual User Story Tests
   User story tests were conducted systematically, with any failing tests rectified.  A link to the Google Test Sheet [can be found here](https://docs.google.com/spreadsheets/d/1qAa4tR_dnJwZkhPTGCNh35P1FVwFQc9NjnrO-5prhpI/edit#gid=0)
@@ -51,13 +53,7 @@
    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/w3c_admin_css_results.png">
    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/w3c_style_css_results.png">
 
-  ### LIGHTHOUSE
-  A lighthouse report was run on the site following deployment on the Home Page and Dashboard Page
-  * The performance issues are related to image sizes and have been noted in the Future Enhancements
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/lighthouse_home.png">
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/lighthouse_dashboard.png">
-
-  ### JSHINT
+   ### JSHINT
   All JS pages were checked with [JSHINT](https://jshint.com/)
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/jshint_results.png">
 
@@ -81,8 +77,26 @@
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_pages_urls.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_pages_views.png">
 
+  ### LIGHTHOUSE
+  A lighthouse report was run on the site following deployment on the Home Page and Dashboard Page
+  * The performance issues are related to image sizes and have been noted in the Future Enhancements
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/lighthouse_home.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/lighthouse_dashboard.png">
+
+  ### PEP8
+  During development, any PEP8 problems in the IDE tab were addressed.  The following were left as they are in the settings and env.py files and relate to specific links or security keys.
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pep8_results.png">
+
+  ### Browser Compatability
+  - The production site was tested using [Browserstack](https://www.browserstack.com/) to ensure compatibility across various devices, and browsers including Mac, iPhone, Windows and Android, Chrome, Safari and Firefox on different pages chosen at random
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/browser_test_android_chrome.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/browser_test_iphone_chrome.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/browser_test_iphone_safari.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/browser_test_mac_safari.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/browser_test_windows_10_firefox.png">
+
   ### Automated Tests
-  A total of 27 automated tests were written using django's unittest framework.
+  A total of 27 automated tests were written using Django's Unittest framework.
   The tests can be run by entering "python3 manage.py test" into the terminal.
   Tests covered 94% of the code and included tests on:
   - Pages
@@ -94,8 +108,3 @@
 
   There were 4 naive date warnings left which have been added to Future Enhancements list to be addressed.
   The site does make use of timezone functionality in the models.
-
-
-
-
-
