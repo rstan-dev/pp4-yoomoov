@@ -68,8 +68,7 @@ class Van(models.Model):
 
 class Booking(models.Model):
     """
-    Model for booking a van
-
+    Model for booking a van.
     Fields added to notify user when booking status has changed
     """
     booking_number = models.CharField(max_length=200, unique=True, blank=True,
@@ -176,7 +175,8 @@ class Booking(models.Model):
 
 class Feedback(models.Model):
     """
-    Model for capturing feedback
+    Model for capturing feedback, with email notifications
+    on status change
     """
     booking = models.ForeignKey(Booking, on_delete=models.CASCADE)
     van = models.ForeignKey(Van, on_delete=models.CASCADE)

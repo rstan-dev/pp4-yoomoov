@@ -69,6 +69,10 @@ class BookingForm(forms.ModelForm):
 
 
 class FeedbackForm(forms.ModelForm):
+    """
+    Feedback Form is called when Booking status changes to completed on the
+    users dashboard.
+    """
     class Meta:
         model = Feedback
         fields = ['title', 'comment', 'rating']
@@ -79,6 +83,9 @@ class FeedbackForm(forms.ModelForm):
 
 
 class ContactForm(forms.Form):
+    """
+    Contact Form is used on the contact page
+    """
     name = forms.CharField(max_length=100)
     email = forms.EmailField()
     message = forms.CharField(widget=forms.Textarea)

@@ -208,7 +208,7 @@ LOGGING = {
 }
 
 # Email Config
-# Setting for development tests (disable for production)
+# Setting for development tests (enable for development)
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Setting for production (enable for deployment)

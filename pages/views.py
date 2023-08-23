@@ -54,7 +54,6 @@ def van_search(request):
     # Van Size Filter
     if 'van-size' in request.GET:
         van_size = request.GET['van-size']
-        print("Van size selected:", van_size)
         if van_size:
             queryset_vans = queryset_vans.filter(size__iexact=van_size)
 

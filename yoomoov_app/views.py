@@ -17,7 +17,7 @@ from django.contrib.auth.models import User
 @login_required
 def dashboard(request):
     """
-    Renders Bookings data, based on the logged in user id
+    Renders Bookings data, based on the logged-in user id
     on the users dashboard.
 
     Calls the van object in order to render the van name list in the
@@ -198,7 +198,7 @@ def deleteBooking(request, pk):
     User is taken to a dedicated delete_booking page with a confirmation
     message and a cancel button.
     User is redirected back to the dashboard on completion with a success
-    messgae displayed on screen.
+    message displayed on screen.
     An email notification is sent to the booking email address and
     admin_user email.
     """

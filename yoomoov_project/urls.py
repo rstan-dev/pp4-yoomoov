@@ -25,6 +25,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
 ]
 
+# Custom error handlers
 handler403 = 'yoomoov_project.views.handler403'
 handler404 = 'yoomoov_project.views.handler404'
 handler500 = 'yoomoov_project.views.handler500'
