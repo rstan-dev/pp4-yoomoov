@@ -346,7 +346,7 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.co
   5. No dynamic username in the nav bar when logged in - updated base.html with {{ user }}(dashboard).
   6. When testing for browser compatibility, there were numerous AnonymousUser errors on different browsers.  This was rectified by adding a login_required decorator on the dashboard view.
   7. The Hero image did not display when deployed - resolved by changing the background image link to the Cloudinary link.
-  8. The Van finder prevented the user from selecting all, resolved by disabling the attribute
+  8. The Van finder prevented the user from selecting all, resolved by removing the disabled attribute and adding a value="" to each (All) option
   9. There were several issues configuring emails.  Initially, I had set up a yoomoov@outlook.com account to send from which successfully sent emails but was unable to receive a copy of the email - which was an important part of the admin's email notification user story.  I resolved this by creating a Sendgrid account and using yoomoovyoo@gmail.com which sucessfully sent emails and could receive a copy to the same address.  For this project the admin's email has been set up with this Gmail address, however, this can be changed by the superuser to whatever email they wish to receive notifications.
 
   * [Back to Contents](#contents)
@@ -389,6 +389,7 @@ The summary of the steps in this document is as follows:
 9. Create proc file
 10. Commit to GitHub
 11. Deploy branch in Heroku and check
+12. For reference the deployed [site is here:](https://yoomoov-2cbb8d75e399.herokuapp.com/)
 
 Once the project was deployed, development took place on GitPod using the [CI Gitpod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template) and the local server accessed by typing "python3 manage.py runserver".
 Email settings used during development, to view emails in the terminal were as follows:
