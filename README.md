@@ -18,7 +18,7 @@
 * [FEATURES](#features)
 * [VALIDATION](#validation)
 * [TECH STACK](#tech-stack)
-* [MODULES & LIBRARIES](#modules-libraries)
+* [MODULES & LIBRARIES](#modules-and-libraries)
 * [TESTING](#testing)
   * [Tests performed](#tests-performed)
   * [User Story Tests](#user-story-tests)
@@ -26,7 +26,7 @@
   * [Unresolved bugs](#unresolved-bugs)
   * [Improvements & future developments](#improvements-and-future-developments)
 * [DEPLOYMENT](#deployment)
-* [FORKING & CLONING INSTRUCTIONS](#forking-cloning-instructions)
+* [FORKING & CLONING INSTRUCTIONS](#forking-and-cloning-instructions)
 * [SECURITY SETTINGS](#security-settings)
 * [CREDITS](#credits)
   * [Code](#code)
@@ -50,6 +50,8 @@ The administrator will receive an email notification any time there is a new boo
 
 <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/am_I_responsive_screenshot.png">
 
+* [Back to Contents](#contents)
+
   ### Goals
 The main objectives of this website are:
 1. Build an easy-to-use and navigate, fully responsive booking website, with a clean interface.
@@ -70,13 +72,15 @@ The main objectives of this website are:
   - Each User Story was assigned a label according to the MoSCoW system so I could prioritise the work.
 <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/github_projects.png">
 
-  ### Wireframes  (created in [Balsamiq](https://balsamiq.cloud/))
-   The initial wireframes were created to understand how the site would work, and this layout would drive User Stories, the logic required and overall design artwork decisions.
+  ### Wireframes
+   The initial wireframes were created in [Balsamiq](https://balsamiq.cloud/) to understand how the site would work, and this layout would drive User Stories, the logic required and overall design artwork decisions.
 
 <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/home.png">
 <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/services.png">
 <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/van_detail.png">
 <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard.png">
+
+* [Back to Contents](#contents)
 
   ### User Stories
   All epics, user stories with their acceptance criteria and tasks can be viewed on the YooMoov [GitHub Project board](https://github.com/users/rstan-dev/projects/6/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C49630728%2C%22Labels%22%2C%22Repository%22%2C%22Milestone%22%5D)
@@ -143,6 +147,8 @@ The main objectives of this website are:
   29. USERSTORY(#29): Final Checks
     - As a developer, I will complete the final checks to ensure all criteria for the project have been met before submission.
 
+  * [Back to Contents](#contents)
+
   ### Logic
   The database schema and website logic was conceived and created using [Lucid](https://lucid.app/) as follows:
 
@@ -152,8 +158,10 @@ The main objectives of this website are:
   2. Database Structure:
   <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/yoomoov_db_schema.png">
 
-  ### Color Scheme (created in [Canva](https://www.canva.com/))
-  An orange color scheme was chosen because it's associated with optimism and energy, many brands use orange to convey a message of positivity. Many marketers use orange to get an audience excited about something because it is an attention-grabbing, warm color that really pops.
+  * [Back to Contents](#contents)
+
+  ### Color Scheme
+  An orange color scheme (created in [Canva](https://www.canva.com/)) was chosen because it's associated with optimism and energy, many brands use orange to convey a message of positivity. Many marketers use orange to get an audience excited about something because it is an attention-grabbing, warm color that really pops.
 
   I created the logo in Canva using royalty-free images to create the distinct cow icon so there could be a play on the word YooMoov (You Moove) and chose a complimentary color palette.
 
@@ -164,6 +172,8 @@ The main objectives of this website are:
    With a color palette in mind, I could create a project style guide:
    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/yoomoov_style_guide.png">
 
+   * [Back to Contents](#contents)
+
    ### Imagery
    Stock Images were sourced from:
    1. Hero Photo by [Bernard Foss:](https://www.pexels.com/photo/white-vans-parked-on-gray-concrete-road-4620555/).
@@ -173,6 +183,8 @@ The main objectives of this website are:
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/canva_mockup_home.jpeg">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/canva_mockup_services.jpeg">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/canva_mockup_van_detail.jpeg">
+
+  * [Back to Contents](#contents)
 
    ### Typography
    * I found a bootstrap layout called [Lumia](https://bootstrapmade.com/demo/Lumia/)from bootsrapmade.com which aligned closely with the layout I needed.
@@ -209,6 +221,8 @@ The following features have been implemented:
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_update_booking.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_delete_booking.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_feedback.png">
+
+  * [Back to Contents](#contents)
 
 2. UX features include:
   - Ability for users to filter bookings by Order Updated, Required date, pending or Approved
@@ -258,6 +272,8 @@ Various validation methods have been incorporated:
  6. Error redirection - using custom error handlers
  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validation_custom_error_handlers.png">
 
+ * [Back to Contents](#contents)
+
 ## TECH STACK
 The site has been built with the following tech and tools:
 1. HTML5.
@@ -276,6 +292,8 @@ The site has been built with the following tech and tools:
 14. GitPod & VS Code - IDE.
 15. Heroku - live site hosting.
 
+* [Back to Contents](#contents)
+
 ### Tools used
 - [Image resizer](https://www.reduceimages.com/).
 - [Canva Artwork](https://www.canva.com/).
@@ -287,7 +305,7 @@ The site has been built with the following tech and tools:
 
 * [Back to Contents](#contents)
 
-## MODULES & LIBRARIES
+## MODULES AND LIBRARIES
    * font-awesome - icons.
    * bootstrap-made - HTML and CSS templates.
    * allauth - sign-up and login.
@@ -299,6 +317,8 @@ The site has been built with the following tech and tools:
    * timezone - handles naive datetime.
    * login_lequired - auth decorators used for the dashboard views.
    * django.test - for running automated tests.
+
+* [Back to Contents](#contents)
 
 ## TESTING
 FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.com/rstan-dev/pp4-yoomoov/blob/main/TESTING.md).
@@ -315,6 +335,8 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.co
   ### User Story Tests
   Each user story was tested manually according to a structured test sheet [VIEW IT HERE:](https://docs.google.com/spreadsheets/d/1qAa4tR_dnJwZkhPTGCNh35P1FVwFQc9NjnrO-5prhpI/edit#gid=0), with results being recorded and any failures rectified.
 
+  * [Back to Contents](#contents)
+
   ### Bugs resolved:
   The following bugs were recorded and rectified
   1. Colors were inconsistent on the website - CSS was updated according to the style guide.
@@ -326,6 +348,8 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.co
   7. The Hero image did not display when deployed - resolved by changing the background image link to the Cloudinary link.
   8. The Van finder prevented the user from selecting all, resolved by disabling the attribute
   9. There were several issues configuring emails.  Initially, I had set up a yoomoov@outlook.com account to send from which successfully sent emails but was unable to receive a copy of the email - which was an important part of the admin's email notification user story.  I resolved this by creating a Sendgrid account and using yoomoovyoo@gmail.com which sucessfully sent emails and could receive a copy to the same address.  For this project the admin's email has been set up with this Gmail address, however, this can be changed by the superuser to whatever email they wish to receive notifications.
+
+  * [Back to Contents](#contents)
 
   ### Unresolved bugs:
   There are no unresolved bugs.
@@ -377,7 +401,9 @@ On completion of development, the following steps took place to deploy the final
 4. Commit changes and push to GitHub
 5. Check the Auto Build progress in Heroku or use the manual "Deploy Branch" button on the Deploy page.
 
-## FORKING & CLONING INSTRUCTIONS
+* [Back to Contents](#contents)
+
+## FORKING AND CLONING INSTRUCTIONS
 You can create a copy of a GitHub Repository without affecting the original by forking it. Here's a step-by-step guide:
 1. Log into GitHub or sign up for an account.
 2. Go to the [YooMoov Repository URL](https://github.com/rstan-dev/pp4-yoomoov).
@@ -401,6 +427,8 @@ The following precautions were taken regarding the security of the site:
 2. These values were added to the Config Vars section of Heroku's Settings page.
 3. Heroku is configured with 2FA
 
+* [Back to Contents](#contents)
+
 ## CREDITS:
   ### Code
   * All Python logic was written and developed specifically for this project.
@@ -412,6 +440,8 @@ The following precautions were taken regarding the security of the site:
     - Alan Bushell - [La Cocina del Diablo](https://github.com/Alan-Bushell/la-cocina-del-diablo).
     - Rashidat Adekoya - [Deask HQ](https://github.com/Shida18719/desk-hq).
     - Samar Ziadat - [Oishii Ramen](https://github.com/SamarZiadat/oishii-ramen).
+
+  * [Back to Contents](#contents)
 
   ### Resources
   I used the following resources to help develop features and functionality:
@@ -428,8 +458,12 @@ The following precautions were taken regarding the security of the site:
   11. [sending email](https://docs.djangoproject.com/en/4.2/topics/email/).
   12. [Testing in Django](https://docs.djangoproject.com/en/4.2/topics/testing/).
 
+  * [Back to Contents](#contents)
+
   ### Content
   * All van content was written specifically for this project.
+
+  * [Back to Contents](#contents)
 
   ### Media
   * Logo was custom designed for this project.
@@ -438,6 +472,8 @@ The following precautions were taken regarding the security of the site:
   * Van on Location pics - Royalty free from Canva Pro.
   * Hero Image - [Bernard Foss:](https://www.pexels.com/photo/)
   * Icons - font awesome.
+
+  * [Back to Contents](#contents)
 
   ### Acknowledgements
   * Thanks to my original mentor Spencer Barriball for his initial assistance.

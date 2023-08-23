@@ -32,6 +32,8 @@
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/user_test_manual_5.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main//documentation/testing/email_notifications_sent_recevied.png">
 
+  * [Back to Contents](#contents)
+
   ### HTML
   All HTML pages were checked with [NU HTML Checker](https://validator.w3.org/nu/)
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/html_results_index.png">
@@ -48,14 +50,20 @@
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/html_results_login.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/html_results_on_screen_messages.png">
 
+  * [Back to Contents](#contents)
+
   ### CSS
   All CSS pages were checked with [JIGSAW W3 VALIDATION](https://jigsaw.w3.org/css-validator/)
    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/w3c_admin_css_results.png">
    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/w3c_style_css_results.png">
 
+   * [Back to Contents](#contents)
+
    ### JSHINT
   All JS pages were checked with [JSHINT](https://jshint.com/)
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/jshint_results.png">
+
+  * [Back to Contents](#contents)
 
   ### PYLINT
   All Python pages were checked with [CODE INSTITUTES PYTHON LINTER](https://pep8ci.herokuapp.com/)
@@ -77,15 +85,21 @@
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_pages_urls.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pylint_pages_views.png">
 
+  * [Back to Contents](#contents)
+
   ### LIGHTHOUSE
   A lighthouse report was run on the site following deployment on the Home Page and Dashboard Page
   * The performance issues are related to image sizes and have been noted in the Future Enhancements
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/lighthouse_home.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/lighthouse_dashboard.png">
 
+  * [Back to Contents](#contents)
+
   ### PEP8
   During development, any PEP8 problems in the IDE tab were addressed.  The following were left as they are in the settings and env.py files and relate to specific links or security keys.
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/pep8_results.png">
+
+  * [Back to Contents](#contents)
 
   ### Browser Compatability
   - The production site was tested using [Browserstack](https://www.browserstack.com/) to ensure compatibility across various devices, and browsers including Mac, iPhone, Windows and Android, Chrome, Safari and Firefox on different pages chosen at random
@@ -94,6 +108,8 @@
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/browser_test_iphone_safari.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/browser_test_mac_safari.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/browser_test_windows_10_firefox.png">
+
+  * [Back to Contents](#contents)
 
   ### Automated Tests
   A total of 27 automated tests were written using Django's Unittest framework.
@@ -108,3 +124,5 @@
 
   There were 4 naive date warnings left which have been added to Future Enhancements list to be addressed.
   The site does make use of timezone functionality in the models.
+
+  * [Back to Contents](#contents)
