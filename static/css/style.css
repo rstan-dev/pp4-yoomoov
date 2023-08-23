@@ -794,7 +794,6 @@ section {
 -------------------------------------------------------------*/
 .icon-box {
   margin-bottom: 30px;
-  /* Adjust the margin as needed */
 }
 
 .icon-content {
@@ -1214,7 +1213,6 @@ a.btn.btn-sm {
 .feedback-status {
   font-size: 20px;
 }
-
 
 /*-------------------------------------------------------------
 # Booking Modal

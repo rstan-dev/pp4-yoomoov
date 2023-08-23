@@ -435,6 +435,7 @@ The following precautions were taken regarding the security of the site:
   * All Python logic was written and developed specifically for this project.
   * Main Site HTML & CSS templates were adapted from a bootstrap template called [Lumia](https://bootstrapmade.com/demo/Lumia/) from bootsrapmade.com.
   * Login templates were adapted from allauth using bootstrap CSS.
+  * setTimout, alert messages and pagination code credit to Brad Traversy - [Traversy Media](https://www.traversymedia.com/Python-Django-Dev-To-Deployment)
   * Inspiration and solutions for the site came from:
     - Code Institue - [I Think Therefore I Blog](https://github.com/rstan-dev/rs-django-blog).
     - Brad Traversy - [Traversy Media Python Django Dev to Deployment](https://www.traversymedia.com/Python-Django-Dev-To-Deployment).
