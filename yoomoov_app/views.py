@@ -33,11 +33,12 @@ def dashboard(request):
 
     form = BookingForm()
 
-    # Calls the order_by parameter - orders by date_updated as default
+    # Calls the order_by parameter - orders by date_updated in descending
+    # order as default
     order_by = request.GET.get('order_by', '-date_updated')
 
     feedbacks = Feedback.objects.filter(
-        user_fk=request.user).order_by('date_created')
+        user_fk=request.user).order_by('-date_created')
 
     # Query to check whether each booking has associated feedback -
     # adjusts "Leave Feedback" button to "Feedback Submitted"
@@ -301,8 +302,9 @@ def van_detail(request, slug):
 
     vans = Van.objects.all()
 
+    # Calls feedback objects and orders by most recently created date
     van_feedbacks = Feedback.objects.filter(is_approved='Approved',
-                                            van=van).order_by('date_created')
+                                            van=van).order_by('-date_created')
 
     context = {
         'van': van,
