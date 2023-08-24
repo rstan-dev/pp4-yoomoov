@@ -30,6 +30,7 @@
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/user_test_manual_3.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/user_test_manual_4.png">
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/testing/user_test_manual_5.png">
+  - Emails sent and received sucessfully to admin email and users email
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main//documentation/testing/email_notifications_sent_recevied.png">
 
   * [Back to Contents](#contents)
