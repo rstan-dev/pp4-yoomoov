@@ -1167,6 +1167,11 @@ section {
   font-weight: bold;
 }
 
+.feedback-btn-submitted {
+  pointer-events: none;
+  cursor: default;
+}
+
 .dashboard-btn-grp {
   text-align: right;
 }
