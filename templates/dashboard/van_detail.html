@@ -113,13 +113,13 @@
                 </div>
                 <div id="detail-login-btn">
                     {% if user.is_authenticated %}
-                    <a href="{% url 'dashboard' %}" class="btn btn-success detail-login-btn">Login to Book &
+                    <a href="{% url 'dashboard' %}" class="btn btn-success detail-login-btn">Book &
                         Leave
-                        feedback</a>
+                        Feedback</a>
                     {% else %}
                     <a href="{% url 'account_login' %}" class="btn btn-success detail-login-btn">Login to Book &
                         Leave
-                        feedback</a>
+                        Feedback</a>
                     {% endif %}
                 </div>
                 <div id="detail-enquiry-btn">
