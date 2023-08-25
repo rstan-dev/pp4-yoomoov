@@ -94,10 +94,16 @@ Goals for the site owner
 
    The final app deviated slightly in a couple of areas as improvements were made while the site was being built and user functions could be tested.  The dashboard was completely redesigned towards the end of the project to give a better user experience on mobile devices.
 
-<img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/home.png">
-<img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/services.png">
-<img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/van_detail.png">
-<img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard.png">
+   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/home.png">
+
+  <details>
+    <summary>Click to View More Wireframe Images</summary>
+
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/services.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/van_detail.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard.png">
+
+  </details>
 
 * [Back to Contents](#contents)
 
@@ -184,12 +190,18 @@ Goals for the site owner
 
   I created the logo in Canva using royalty-free images to create the distinct cow icon so there could be a play on the word YooMoov (You Moove) and chose a complimentary color palette.
 
-   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/cow_icon.png">
-   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/logo_yoomoov_orange1.jpg">
-   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/color_pallette.png">
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/logo_yoomoov_orange1.jpg">
 
-   With a color palette in mind, I could create a project style guide:
-   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/yoomoov_style_guide.png">
+  <details>
+    <summary>Click to View More Color Scheme Images</summary>
+
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/cow_icon.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/color_pallette.png">
+
+    With a color palette in mind, I could create a project style guide:
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/yoomoov_style_guide.png">
+
+  </details>
 
    * [Back to Contents](#contents)
 
@@ -200,8 +212,14 @@ Goals for the site owner
 
   - I used Canva to build the initial designs, which was the basis for finding a suitable bootstrap template that could help me achieve the look and feel as easily as possible.
   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/canva_mockup_home.jpeg">
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/canva_mockup_services.jpeg">
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/canva_mockup_van_detail.jpeg">
+
+  <details>
+    <summary>Click to View More Canva Mockup Images</summary>
+
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/canva_mockup_services.jpeg">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/canva_mockup_van_detail.jpeg">
+
+  </details>
 
   * [Back to Contents](#contents)
 
@@ -230,17 +248,23 @@ The following features have been implemented:
   - Van detail page.
   - Contact form that sends an email to the admin user.
   - User Dashboard with CRUD functionality to manage bookings and add feedback.
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_home.png">
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_services.png">
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_van_search.png">
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_van_detail.png">
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_contact.png">
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main//documentation/testing/email_notifications_sent_recevied.png">
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_dashboard.png">
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_booking.png">
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_update_booking.png">
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_delete_booking.png">
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_feedback.png">
+
+  <details>
+    <summary>Click to View Features Images</summary>
+
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_home.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_services.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_van_search.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_van_detail.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_contact.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main//documentation/testing/email_notifications_sent_recevied.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_dashboard.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_booking.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_update_booking.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_delete_booking.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_feedback.png">
+
+  </details>
 
   * [Back to Contents](#contents)
 
@@ -358,16 +382,16 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.co
   * [Back to Contents](#contents)
 
   ### Bugs resolved:
-  The following bugs were recorded and rectified
-  1. Colors were inconsistent on the website - CSS was updated according to the style guide.
-  2. Breadrcumbs were missing on Contact and Delete page - code was added on these templates.
-  3. The validation used to prevent creating a double booking on the same day, affected the Edit Booking function.  The clean method on the Booking form was modified to check and remove the current booking - allowing the same form to be used for creating and updating bookings.
-  4. Emails were not sent in the development environment due to GitPod's security policy.  Email config was set to display in the terminal for testing purposes.  Updated for production.
-  5. No dynamic username in the nav bar when logged in - updated base.html with {{ user }}(dashboard).
-  6. When testing for browser compatibility, there were numerous AnonymousUser errors on different browsers.  This was rectified by adding a login_required decorator on the dashboard view.
-  7. The Hero image did not display when deployed - resolved by changing the background image link to the Cloudinary link.
-  8. The Van finder prevented the user from selecting all, resolved by removing the disabled attribute and adding a value="" to each (All) option
-  9. There were several issues configuring emails.  Initially, I had set up a yoomoov@outlook.com account to send from which successfully sent emails but was unable to receive a copy of the email - which was an important part of the admin's email notification user story.  I resolved this by creating a Sendgrid account and using yoomoovyoo@gmail.com which sucessfully sent emails and could receive a copy to the same address.  For this project the admin's email has been set up with this Gmail address, however, this can be changed by the superuser to whatever email they wish to receive notifications.
+  The following bugs were recorded and rectified [See test sheet](https://docs.google.com/spreadsheets/d/1qAa4tR_dnJwZkhPTGCNh35P1FVwFQc9NjnrO-5prhpI/edit#gid=0)
+  1. Colors were inconsistent on the website - CSS was updated according to the style guide. (Test No: YM10801)
+  2. Breadrcumbs were missing on Contact and Delete page - code was added on these templates. (Test No: YM10802)
+  3. The validation used to prevent creating a double booking on the same day, affected the Edit Booking function. The clean method on the Booking form was modified to check and remove the current booking - allowing the same form to be used for creating and updating bookings. (Test No: YM10812)
+  4. Emails were not sent in the development environment due to GitPod's security policy. Email config was set to display in the terminal for testing purposes.  Updated for production. (Test No: YM10805)
+  5. No dynamic username in the nav bar when logged in - updated base.html with {{ user }}(dashboard). (Test No: YM10822)
+  6. When testing for browser compatibility, there were numerous AnonymousUser errors on different browsers. This was rectified by adding a login_required decorator on the dashboard view. (Test No: YM10824)
+  7. The Hero image did not display when deployed - resolved by changing the background image link to the Cloudinary link. (Test No: YM10801)
+  8. The Van finder prevented the user from selecting all, resolved by removing the disabled attribute and adding a value="" to each (All) option. (Test No: YM10804)
+  9. There were several issues configuring emails.  Initially, I had set up a yoomoov@outlook.com account to send from which successfully sent emails but was unable to receive a copy of the email - which was an important part of the admin's email notification user story. I resolved this by creating a Sendgrid account and using yoomoovyoo@gmail.com which sucessfully sent emails and could receive a copy to the same address. For this project the admin's email has been set up with this Gmail address, however, this can be changed by the superuser to whatever email they wish to receive notifications.
   10. On final testing, the date_updated date was not updating, this was resolved by updating the Bookings model super save method to trigger the date_updated field, each time a change was made.
 
   * [Back to Contents](#contents)
