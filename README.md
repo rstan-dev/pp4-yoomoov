@@ -53,12 +53,29 @@ The administrator will receive an email notification any time there is a new boo
 * [Back to Contents](#contents)
 
   ### Goals
-The main objectives of this website are:
-1. Build an easy-to-use and navigate, fully responsive booking website, with a clean interface.
-2. Create user account functionality for the administrator to add van listings and manage bookings.
-3. Create a personal dashboard for a customer to log in, create, view, edit and delete bookings.
-4. Create a feedback module so customers and admin can leave and approve feedback.
-5. Configure email to notify the customer and the administrator of any changes to bookings.
+Goals for the First time user
+1. To have an intuitive website with straightforward navigation that is fully responsive.
+2. To be able to easily understand the services that are being offered, and to easily find what they are looking for through a handy search filter box.
+3. To be able to easily create a user account, leading to a user dashboard to display bookings and feedback.
+4. To be able to easily edit and delete bookings while in Pending or Approved status.
+5. To prevent booking past dates and to prevent double bookings.
+6. To get email notifications of any changes to a booking.
+7. To be able to sort and filter the bookings on their dashboard.
+
+Goals for the returning user
+1. To have all bookings are in one place, which can be easily edited.
+2. To be able to leave feedback after the Booking has been completed.
+
+Goals for the Administrator
+1. To have a familiar branded admin area to add van listings, manually add a booking, and update the status of bookings and feedback.
+2. To receive email notifications whenever there is a new or updated booking.
+3. To revert the status back to Pending, whenever there is any change to a booking by the user, until the administrator has reviewed it.
+4. To keep feedback that is left in a Pending and unpublished state until reviewed by the administrator.
+
+Goals for the site owner
+1. To have a site that has the ability to scale and grow nationwide, that can handle more listings.
+2. To have a feedback module, displayed to users on each van detail page that encourages good service and future bookings.
+3. To have an easy user interface that will encourage users to return and make use of the services in the future.
 
 * [Back to Contents](#contents)
 
@@ -348,6 +365,7 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.co
   7. The Hero image did not display when deployed - resolved by changing the background image link to the Cloudinary link.
   8. The Van finder prevented the user from selecting all, resolved by removing the disabled attribute and adding a value="" to each (All) option
   9. There were several issues configuring emails.  Initially, I had set up a yoomoov@outlook.com account to send from which successfully sent emails but was unable to receive a copy of the email - which was an important part of the admin's email notification user story.  I resolved this by creating a Sendgrid account and using yoomoovyoo@gmail.com which sucessfully sent emails and could receive a copy to the same address.  For this project the admin's email has been set up with this Gmail address, however, this can be changed by the superuser to whatever email they wish to receive notifications.
+  10. On final testing, the date_updated date was not updating, this was resolved by updating the Bookings model super save method to trigger the date_updated field, each time a change was made.
 
   * [Back to Contents](#contents)
 
