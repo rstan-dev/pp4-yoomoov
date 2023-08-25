@@ -96,14 +96,14 @@ Goals for the site owner
 
    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/home.png">
 
-  <details>
+   <details>
     <summary>Click to View More Wireframe Images</summary>
-
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/services.png">
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/van_detail.png">
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard.png">
-
-  </details>
+   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/services.png">
+   <br>
+   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/van_detail.png">
+   <br>
+   - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard.png">
+   </details>
 
 * [Back to Contents](#contents)
 
@@ -195,11 +195,12 @@ Goals for the site owner
   <details>
     <summary>Click to View More Color Scheme Images</summary>
 
-     - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/cow_icon.png">
-     - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/color_pallette.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/cow_icon.png">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/color_pallette.png">
 
-     With a color palette in mind, I could create a project style guide:
-     - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/yoomoov_style_guide.png">
+    With a color palette in mind, I could create a project style guide:
+    <br>
+  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/yoomoov_style_guide.png">
 
   </details>
 
@@ -216,9 +217,8 @@ Goals for the site owner
   <details>
     <summary>Click to View More Canva Mockup Images</summary>
 
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/canva_mockup_services.jpeg">
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/canva_mockup_van_detail.jpeg">
-
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/canva_mockup_services.jpeg">
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/canva_mockup_van_detail.jpeg">
   </details>
 
   * [Back to Contents](#contents)
@@ -251,70 +251,79 @@ The following features have been implemented:
 
   <details>
     <summary>Click to View Features Images</summary>
-
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_home.png">
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_services.png">
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_van_search.png">
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_van_detail.png">
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_contact.png">
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main//documentation/testing/email_notifications_sent_recevied.png">
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_dashboard.png">
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_booking.png">
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_update_booking.png">
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_delete_booking.png">
-      - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_feedback.png">
-
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_home.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_services.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_van_search.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_van_detail.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_contact.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main//documentation/testing/email_notifications_sent_recevied.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_dashboard.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_booking.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_update_booking.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_delete_booking.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/feature_feedback.png"><br>
   </details>
+
 
   * [Back to Contents](#contents)
 
 2. UX features include:
   - Ability for users to filter bookings by Order Updated, Required date, pending or Approved
-  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_booking_card_filters.png">
-   - Status of Bookings including Pending, Approved and Completed that is controlled by the administrator.
-  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_pending_controls.png">
-  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_approved_controls.png">
+  - Status of Bookings including Pending, Approved and Completed that is controlled by the administrator.
   - Ability for users to leave feedback after a booking has been completed.
-  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_completed_leave_feedback.png">
-  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_completed_controls.png">
   - Status of feedback prevents publishing until approved.
-  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_feedback_status.png">
   - Pagination to ensure listings are organised
-  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_pagination.png">
   - Social Media Links and Back to top button for easy site navigation.
-  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_back_to_top.png">
   - Onscreen alerts and success messages appear.
-  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/success_alert.png">
   - Register, Login and Logout forms for streamlined user authentication.
-  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_login_page.png">
   - Email notifications sent to both the user and administrator.
   - Favicon included for site identification.
-  -  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_favicon.png">
   - Breadcrumb navigation.
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_breadcrumbs.png">
   - Dynamic user navigation.
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_dynamic_nav.png">
-  - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_dynamic_nav_user.png">
   - Custom branding in the administration area.
-  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_custom_admin.png">
+
+  <details>
+    <summary>Click to View UX Features Images</summary>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_booking_card_filters.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_pending_controls.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_approved_controls.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_completed_leave_feedback.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/dashboard_completed_controls.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_feedback_status.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_pagination.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_back_to_top.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/success_alert.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_login_page.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_favicon.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_breadcrumbs.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_dynamic_nav.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_dynamic_nav_user.png"><br>
+    - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/uxfeat_custom_admin.png"><br>
+
+  </details>
 
   * [Back to Contents](#contents)
 
 ## VALIDATION
 Various validation methods have been incorporated:
  1. Onscreen Confirmation, when logging out, updating or deleting a booking.
- - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/confirmation_message.png">
  2. Onscreen Success / Error after creating, editing, deleting, logging in or out.
- - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/error_alert.png">
- - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/success_message.png">
  3. Date validation to prevent booking a past date.
- - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validate_past_dates.png">
  4. Form validation to ensure fields are completed where required or the correct format is needed such as for email addresses.
  5. No Data to Display - message
- - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validation_no_listings.png">
- - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validation_dashboard_no_bookings_feedback.png">
  6. Error redirection - using custom error handlers
- - <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validation_custom_error_handlers.png">
+
+ <details>
+  <summary>Click to View Validation Images</summary>
+  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/confirmation_message.png"><br>
+  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/error_alert.png"><br>
+  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/success_message.png"><br>
+  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validate_past_dates.png"><br>
+  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validation_no_listings.png"><br>
+  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validation_dashboard_no_bookings_feedback.png"><br>
+  <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/validation_custom_error_handlers.png"><br>
+
+</details>
 
  * [Back to Contents](#contents)
 
