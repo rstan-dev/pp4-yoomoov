@@ -123,50 +123,52 @@
                 {% endif %}
             </div><!-- End Booking Items -->
         </div>
+
+        <!-- Bookings Pagination -->
+        <!-- Credit to Brad Traversy @ Traversy Media https://www.traversymedia.com/Python-Django-Dev-To-Deployment -->
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center">
+                {% if bookings.has_other_pages %}
+                <ul class="pagination">
+                    {% if bookings.has_previous %}
+                    <li class="page-item">
+                        <a href="?bookings_section={{bookings.previous_page_number}}&feedback_section={{feedbacks.number}}&order_by={{ order_by }}"
+                            class="page-link">&laquo;</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a href="" class="page-link">&laquo;</a>
+                    </li>
+                    {% endif %}
+                    {% for i in bookings.paginator.page_range %}
+                    {% if bookings.number == i %}
+                    <li class="page-item active">
+                        <a href="" class="page-link">{{i}}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a href="?bookings_section={{i}}&feedback_section={{feedbacks.number}}&order_by={{ order_by }}"
+                            class="page-link">{{i}}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if bookings.has_next %}
+                    <li class="page-item">
+                        <a href="?bookings_section={{bookings.next_page_number}}&feedback_section={{feedbacks.number}}&order_by={{ order_by }}"
+                            class="page-link">&raquo;</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a href="" class="page-link">&raquo;</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                {% endif %}
+            </div>
+        </div> <!-- End Bookings Pagination -->
     </div>
 
-    <!-- Bookings Pagination -->
-    <!-- Credit to Brad Traversy @ Traversy Media https://www.traversymedia.com/Python-Django-Dev-To-Deployment -->
-    <div class="row">
-        <div class="col-md-12 d-flex justify-content-center">
-            {% if bookings.has_other_pages %}
-            <ul class="pagination">
-                {% if bookings.has_previous %}
-                <li class="page-item">
-                    <a href="?bookings_section={{bookings.previous_page_number}}&feedback_section={{feedbacks.number}}&order_by={{ order_by }}"
-                        class="page-link">&laquo;</a>
-                </li>
-                {% else %}
-                <li class="page-item disabled">
-                    <a href="" class="page-link">&laquo;</a>
-                </li>
-                {% endif %}
-                {% for i in bookings.paginator.page_range %}
-                {% if bookings.number == i %}
-                <li class="page-item active">
-                    <a href="" class="page-link">{{i}}</a>
-                </li>
-                {% else %}
-                <li class="page-item">
-                    <a href="?bookings_section={{i}}&feedback_section={{feedbacks.number}}&order_by={{ order_by }}"
-                        class="page-link">{{i}}</a>
-                </li>
-                {% endif %}
-                {% endfor %}
-                {% if bookings.has_next %}
-                <li class="page-item">
-                    <a href="?bookings_section={{bookings.next_page_number}}&feedback_section={{feedbacks.number}}&order_by={{ order_by }}"
-                        class="page-link">&raquo;</a>
-                </li>
-                {% else %}
-                <li class="page-item disabled">
-                    <a href="" class="page-link">&raquo;</a>
-                </li>
-                {% endif %}
-            </ul>
-            {% endif %}
-        </div>
-    </div> <!-- End Bookings Pagination -->
+
 
 </div> <!-- End Bookings Dashboard -->
 
@@ -273,49 +275,48 @@
 
             </div>
         </div>
+        <!-- Feedback Pagination -->
+        <!-- Credit to Brad Traversy @ Traversy Media https://www.traversymedia.com/Python-Django-Dev-To-Deployment -->
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center">
+                {% if feedbacks.has_other_pages %}
+                <ul class="pagination">
+                    {% if feedbacks.has_previous %}
+                    <li class="page-item">
+                        <a href="?feedback_section={{feedbacks.previous_page_number}}&bookings_section={{bookings.number}}&order_by={{ order_by }}"
+                            class="page-link">&laquo;</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a href="" class="page-link">&laquo;</a>
+                    </li>
+                    {% endif %}
+                    {% for i in feedbacks.paginator.page_range %}
+                    {% if feedbacks.number == i %}
+                    <li class="page-item active">
+                        <a href="" class="page-link">{{i}}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a href="?feedback_section={{i}}&bookings_section={{bookings.number}}&order_by={{ order_by }}"
+                            class="page-link">{{i}}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if feedbacks.has_next %}
+                    <li class="page-item">
+                        <a href="?feedback_section={{feedbacks.next_page_number}}&bookings_section={{bookings.number}}&order_by={{ order_by }}"
+                            class="page-link">&raquo;</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a href="" class="page-link">&raquo;</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                {% endif %}
+            </div>
+        </div> <!-- End Feedback Pagination -->
     </div>
-
-    <!-- Feedback Pagination -->
-    <!-- Credit to Brad Traversy @ Traversy Media https://www.traversymedia.com/Python-Django-Dev-To-Deployment -->
-    <div class="row">
-        <div class="col-md-12 d-flex justify-content-center">
-            {% if feedbacks.has_other_pages %}
-            <ul class="pagination">
-                {% if feedbacks.has_previous %}
-                <li class="page-item">
-                    <a href="?feedback_section={{feedbacks.previous_page_number}}&bookings_section={{bookings.number}}&order_by={{ order_by }}"
-                        class="page-link">&laquo;</a>
-                </li>
-                {% else %}
-                <li class="page-item disabled">
-                    <a href="" class="page-link">&laquo;</a>
-                </li>
-                {% endif %}
-                {% for i in feedbacks.paginator.page_range %}
-                {% if feedbacks.number == i %}
-                <li class="page-item active">
-                    <a href="" class="page-link">{{i}}</a>
-                </li>
-                {% else %}
-                <li class="page-item">
-                    <a href="?feedback_section={{i}}&bookings_section={{bookings.number}}&order_by={{ order_by }}"
-                        class="page-link">{{i}}</a>
-                </li>
-                {% endif %}
-                {% endfor %}
-                {% if feedbacks.has_next %}
-                <li class="page-item">
-                    <a href="?feedback_section={{feedbacks.next_page_number}}&bookings_section={{bookings.number}}&order_by={{ order_by }}"
-                        class="page-link">&raquo;</a>
-                </li>
-                {% else %}
-                <li class="page-item disabled">
-                    <a href="" class="page-link">&raquo;</a>
-                </li>
-                {% endif %}
-            </ul>
-            {% endif %}
-        </div>
-    </div> <!-- End Feedback Pagination -->
 </div><!-- End Feedback Section -->
 {% endblock %}
