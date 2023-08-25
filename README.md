@@ -53,7 +53,7 @@ The administrator will receive an email notification any time there is a new boo
 * [Back to Contents](#contents)
 
   ### Goals
-Goals for the First time user
+Goals for the first time user
 1. To have an intuitive website with straightforward navigation that is fully responsive.
 2. To be able to easily understand the services that are being offered, and to easily find what they are looking for through a handy search filter box.
 3. To be able to easily create a user account, leading to a user dashboard to display bookings and feedback.
@@ -91,6 +91,8 @@ Goals for the site owner
 
   ### Wireframes
    The initial wireframes were created in [Balsamiq](https://balsamiq.cloud/) to understand how the site would work, and this layout would drive User Stories, the logic required and overall design artwork decisions.
+
+   The final app deviated slightly in a couple of areas as improvements were made while the site was being built and user functions could be tested.  The dashboard was completely redesigned towards the end of the project to give a better user experience on mobile devices.
 
 <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/home.png">
 <img src="https://github.com/rstan-dev/pp4-yoomoov/blob/main/documentation/readme/services.png">
@@ -438,7 +440,7 @@ To clone a copy:
 
 ## SECURITY SETTINGS
 The following precautions were taken regarding the security of the site:
-1. An env.py was created at the start of the project to contain the following:
+1. An env.py was created at the start of the project, and added to .gitignore, to contain the following:
 - DATABASE_URL
 - SECRET_KEY
 - CLOUDINARY_URL
