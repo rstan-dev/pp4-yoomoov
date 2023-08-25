@@ -402,6 +402,7 @@ FOR DETAILED TEST REPORTS AND RESULTS PLEASE [VIEW THEM HERE:](https://github.co
   8. The Van finder prevented the user from selecting all, resolved by removing the disabled attribute and adding a value="" to each (All) option. (Test No: YM10804)
   9. There were several issues configuring emails.  Initially, I had set up a yoomoov@outlook.com account to send from which successfully sent emails but was unable to receive a copy of the email - which was an important part of the admin's email notification user story. I resolved this by creating a Sendgrid account and using yoomoovyoo@gmail.com which sucessfully sent emails and could receive a copy to the same address. For this project the admin's email has been set up with this Gmail address, however, this can be changed by the superuser to whatever email they wish to receive notifications.
   10. On final testing, the date_updated date was not updating, this was resolved by updating the Bookings model super save method to trigger the date_updated field, each time a change was made.
+  11. A tiny horizontal scroll was noticed on the dashboard, this was resolved by moving the pagination code for the bookings and feedback, inside their respective containers.
 
   * [Back to Contents](#contents)
 
