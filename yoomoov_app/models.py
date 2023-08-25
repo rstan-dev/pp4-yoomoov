@@ -113,7 +113,10 @@ class Booking(models.Model):
         """
         Super Save Method saves the data to the db, to create
         an id which is then used to create a unique booking
-        number, which is then saved again to the database
+        number, which is then saved again to the database.
+
+        The date_update field is also called to ensure this field
+        reflects the date of any changes made.
 
         An Email notification is sent to the bookingform email
         and the admin_user email
@@ -124,7 +127,13 @@ class Booking(models.Model):
 
         if not self.booking_number:
             self.booking_number = str(self.id + 1000)
-            super().save(update_fields=["booking_number"])
+            self.date_created = timezone.now()
+            self.date_updated = timezone.now()
+            super().save(update_fields=["booking_number", "date_created", "date_updated"])
+
+        else:
+            self.date_updated = timezone.now()
+            super().save(*args, **kwargs)
 
         if self.status == 'Approved' and not self.is_approved_notified:
             # Send email
